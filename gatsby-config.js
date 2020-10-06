@@ -50,6 +50,14 @@ module.exports = {
         ],
       },
     },
+    // Contentful API
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `ma9m10t6uqcv`,
+        accessToken: `IHjkXTfLrpN4IPyJ4HR_0YRuTgf8bGTGh0xYGtH8RvE`,
+      },
+    },
     "gatsby-plugin-transition-link",
     "gatsby-plugin-svg-sprite",
   ],

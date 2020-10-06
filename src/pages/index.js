@@ -16,8 +16,8 @@ const IndexPage = () => {
         <p className="cover">
           <img src={img_gatsby} alt="Amar Zia Arslaan Being Artsy" />
         </p>
-        <h1 className="heading">Hello! I'm Sasslan</h1>
-        <p>Welcome to your new site.</p>
+        <h1 className="heading">Animo La Salle!</h1>
+        <p>Welcome to ARW 2020.</p>
       </Container>
     </Layout>
   );

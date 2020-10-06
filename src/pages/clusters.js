@@ -9,45 +9,36 @@ import Container from "components/Container";
 const ProjectsPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              title
-              date
-              type
-            }
-            html
-            excerpt
-            fields {
-              slug
-            }
-          }
+      allContentfulCluster{
+        nodes{
+          title
+          subtitle
+          contentful_id
         }
       }
     }
   `);
 
   return (
-    <Layout pageName="projects">
+    <Layout pageName="Clusters">
       <Helmet>
-        <title>Projects</title>
+        <title>Clusters</title>
       </Helmet>
       <Container>
-        <h1>Projects</h1>
+        <h1>Clusters</h1>
         <ol>
-          {data.allMarkdownRemark.edges.map((edge) => {
+          {data.allContentfulCluster.nodes.map((node) => {
             return (
-              <li>
+              <li key={node.contentfulId}>
                 <AniLink
                   cover
                   direction="down"
-                  to={`/projects/${edge.node.fields.slug}`}
+                  to={`/${node.title}/`}
                   bg="#fccd04"
                   duration={0.5}
                 >
                   <div className="project-card">
-                    <h2>{edge.node.frontmatter.title}</h2>
+                    <h2>{node.title}</h2>
                     {/* <p>{edge.node.frontmatter.date}</p>
                     <p>{edge.node.frontmatter.type}</p> */}
                   </div>

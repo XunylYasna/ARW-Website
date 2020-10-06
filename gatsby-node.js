@@ -1,45 +1,43 @@
 const path = require("path");
 
-module.exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions;
-
-  if (node.internal.type === "MarkdownRemark") {
-    const slug = path.basename(node.fileAbsolutePath, ".md");
-
-    createNodeField({
-      node,
-      name: "slug",
-      value: slug,
-    });
-  }
-};
-
-module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-
-  const projectTemplate = path.resolve("./src/components/ProjectComp.js");
-
-  const res = await graphql(`
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const result = await graphql(`
     query {
-      allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
-            }
+      allContentfulCluster {
+        nodes {
+          title
+          organizations{
+            slug
           }
         }
       }
     }
-  `);
+  `)
 
-  res.data.allMarkdownRemark.edges.forEach((edge) => {
+  result.data.allContentfulCluster.nodes.forEach(node => {
     createPage({
-      component: projectTemplate,
-      path: `/projects/${edge.node.fields.slug}`,
+      path: node.title,
+      component: path.resolve(`./src/templates/clusterpage.js`),
       context: {
-        slug: edge.node.fields.slug,
+        title: node.title,
       },
-    });
+    })
+
+    try {
+      node.organizations.forEach((organization) => {
+        createPage({
+          path: `${organization.slug}`,
+          component: path.resolve(`./src/templates/orgpage.js`),
+          context: {
+            slug: organization.slug,
+          },
+        })
+      })
+    } catch (error) {
+
+    }
+
+
   });
-};
+}

@@ -48,12 +48,24 @@ const Header = () => {
           <li>
             <AniLink
               cover
-              to="/projects/"
+              to="/clusters/"
               bg="#fccd04"
               duration={0.7}
               className="header-link"
             >
-              Projects
+              Clusters
+            </AniLink>
+          </li>
+          <li>
+            <AniLink
+              cover
+              direction="right"
+              to="/organizations/"
+              bg="#00d9ff"
+              duration={0.7}
+              className="header-link"
+            >
+              Organizations
             </AniLink>
           </li>
           <li>
