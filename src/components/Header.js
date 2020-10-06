@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header>
       <Container>
-        <p>Sasslan</p>
+        <p>ARW 2020</p>
         {/* uncomment the line below to add your name in the header */}
         {/* <p>{data.site.siteMetadata.author}</p> */}
         <ul>

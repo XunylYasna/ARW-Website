@@ -15,7 +15,7 @@ export default function Home({ data }) {
             </section>
             <section>
                 <ul>
-                    {cluster.organizations.map(org => {
+                    {cluster.organizations ? cluster.organizations.map(org => {
                         console.log(org)
                         return (
                             <li>
@@ -33,7 +33,7 @@ export default function Home({ data }) {
                                 </AniLink>
                             </li>
                         )
-                    })}
+                    }) : <div></div>}
                 </ul>
             </section>
         </Layout>
