@@ -4,7 +4,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Layout from "../components/layout"
 
-export default function Home({ data }) {
+export default function ClusterPage({ data }) {
 
     const cluster = data.allContentfulCluster.nodes[0]
     return (

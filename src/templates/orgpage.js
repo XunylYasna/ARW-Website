@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 
-export default function Home({ data }) {
+export default function OrgPage({ data }) {
     return (
         <Layout>
             <h1>{data.allContentfulOrganization.nodes[0].acronym}</h1>
