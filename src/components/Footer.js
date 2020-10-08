@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import mail from "assets/images/SVG/mail.svg";
-import linked from "assets/images/SVG/linkedin.svg";
-import github from "assets/images/SVG/github.svg";
+import dribbble from "assets/images/SVG/dribbble.svg";
+import insta from "assets/images/SVG/instagram.svg";
 
 import Container from "components/Container";
 
@@ -30,28 +30,28 @@ const Footer = () => {
         </p>
         <div className="footer__icons">
           <a
-            href="https://www.linkedin.com/in/arslaanamar/"
+            href="https://dlsu-cso.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <svg className="footer__icons-item">
-              <use xlinkHref={`#${linked.id}`} />
+              <use xlinkHref={`#${dribbble.id}`} />
+            </svg>
+          </a>
+
+          <a href="mailto:cso@dlsu.edu.ph" rel="noopener noreferrer">
+            <svg className="footer__icons-item">
+              <use xlinkHref={`#${mail.id}`} />
             </svg>
           </a>
 
           <a
-            href="https://github.com/a2zarslaan"
+            href="https://www.instagram.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             <svg className="footer__icons-item">
-              <use xlinkHref={`#${github.id}`} />
-            </svg>
-          </a>
-
-          <a href="mailto:amar.arslaan@gmail.com" rel="noopener noreferrer">
-            <svg className="footer__icons-item">
-              <use xlinkHref={`#${mail.id}`} />
+              <use xlinkHref={`#${insta.id}`} />
             </svg>
           </a>
         </div>

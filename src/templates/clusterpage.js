@@ -3,16 +3,23 @@ import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Layout from "../components/layout"
+import Container from "../components/Container"
+
+import Img from "gatsby-image"
 
 export default function ClusterPage({ data }) {
 
     const cluster = data.allContentfulCluster.nodes[0]
     return (
         <Layout>
-            <section>
+
+            <Container>
+                <p className="cover">
+                    <Img fluid={cluster.landingImage.fluid} />
+                </p>
                 <h1>{cluster.title}</h1>
                 <h3>{cluster.subtitle}</h3>
-            </section>
+            </Container>
             <section>
                 <ul>
                     {cluster.organizations ? cluster.organizations.map(org => {
@@ -46,6 +53,11 @@ export const query = graphql`
         nodes {
             title
             subtitle
+            landingImage{
+                fluid{
+                    ...GatsbyContentfulFluid
+                }
+            }
             organizations{
                 slug
                 organizationName

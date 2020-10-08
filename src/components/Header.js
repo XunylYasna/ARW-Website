@@ -72,6 +72,18 @@ const Header = () => {
             <AniLink
               cover
               direction="right"
+              to="/events/"
+              bg="#E16085"
+              duration={0.7}
+              className="header-link"
+            >
+              Events
+            </AniLink>
+          </li>
+          <li>
+            <AniLink
+              cover
+              direction="right"
               to="/contact/"
               bg="#00d9ff"
               duration={0.7}
