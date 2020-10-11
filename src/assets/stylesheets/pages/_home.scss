@@ -4,7 +4,13 @@
     font-family: BioRhyme, serif;
     font-weight: 900;
     //color: var(--color-grey-dark-1);
+  }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     // gradient effect in heading
     @include blue-gradient;
     background-clip: text;
@@ -26,5 +32,82 @@
     img {
       height: 40vh;
     }
+  }
+
+  .container {
+    .intro {
+      background-color: rgb(243, 243, 243);
+      padding-top: 48px;
+      padding-bottom: 48px;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      justify-items: center;
+      flex-wrap: wrap;
+    }
+
+    .letter {
+      margin-right: 16px;
+    }
+
+    .letter,
+    .intro-video {
+      background-color: white;
+      padding: 16px;
+      // box-shadow: 1px 7px 12px 5px rgba(194, 194, 194, 1);
+      transition: ease all 0.3s;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-bottom: 48px;
+    }
+
+    button {
+      text-transform: uppercase;
+      font-size: 1.7rem;
+      cursor: pointer;
+      background: #37d8e2;
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      width: 150px;
+      transition: ease all 0.3s;
+      transform: translate(0px, 0px);
+      box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background: #228f97;
+      transform: translate(0px, 3px);
+      box-shadow: 0px 0px 0px #228f97;
+    }
+
+    button:focus {
+      outline-color: #3877f3;
+      // outline: 1px #608be1;
+    }
+  }
+  .parallax {
+    /* The image used */
+    background-image: url("../images/Clusters/ENGAGE_(JAPAN).png");
+
+    /* Full height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    padding: 10px;
+    width: 118rem;
+    margin-left: -2.5rem;
   }
 }
