@@ -1,10 +1,10 @@
 .page-about {
   h1 {
-    color: var(--color-purple);
+    color: #28df99;
   }
 
   main {
-    text-align: left;
+    text-align: center;
   }
 
   header {
@@ -38,5 +38,9 @@
     height: 100%;
     left: 0;
     top: 0;
+  }
+
+  div .video-section {
+    background-color: white;
   }
 }
