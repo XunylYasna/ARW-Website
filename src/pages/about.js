@@ -4,11 +4,17 @@ import Helmet from "react-helmet";
 import Layout from "components/Layout";
 import Container from "components/Container";
 
+import icon from "../assets/images/SVG/floatingisland.svg"
+
 const VideoSection = () => {
   return (
     <div className="video-section">
+      <svg>
+        <use xlinkHref={`#${icon.id}`} />
+      </svg>
       <div className="header-box">
-        <h3>What is </h3>
+        <span>What is </span>
+        <br />
         <h1>ARW 2020?</h1>
       </div>
       <div className="video-container">
