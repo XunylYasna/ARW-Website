@@ -1,10 +1,10 @@
 .page-about {
   h1 {
-    color: #28df99;
+    color: black;
   }
 
   main {
-    text-align: center;
+    text-align: left;
   }
 
   header {
@@ -24,23 +24,60 @@
     margin-top: 5rem;
   }
 
-  div .video-container {
+  .video-section {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 86.6px - 22.5px);
+
+    @include respond(tab-port) {
+      display: inline-block;
+      width: 100%;
+    }
+
+    h1 {
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .header-box {
+      width: 50%;
+      margin-right: 20px;
+      @include respond(tab-port) {
+        width: 100%;
+      }
+    }
+  }
+
+  .video-container {
+    width: 50%;
+    margin: auto;
+    @include respond(tab-port) {
+      width: 100%;
+    }
+  }
+
+  .video-player-container {
     position: relative;
     width: 100%;
     height: 0;
     padding-bottom: 56.25%; /* The height of the item will now be 56.25% of the width. */
   }
-  
+
   /* Adjust the iframe so it's rendered in the outer-width and outer-height of it's parent */
-  .video-container iframe {
+  .video-player-container iframe {
     position: absolute;
+    border-radius: 10px;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
   }
 
-  div .video-section {
-    background-color: white;
+  .about-section {
+    height: 100vh;
+  }
+
+  .project-heads-section {
+    height: 100vh;
   }
 }
