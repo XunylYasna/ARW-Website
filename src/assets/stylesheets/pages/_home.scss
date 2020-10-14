@@ -1,4 +1,19 @@
+.scrollArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  z-index: -1;
+}
+
 .page-home {
+  canvas {
+    height: 1350px !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
   h1 {
     font-size: 6rem;
     font-family: BioRhyme, serif;
@@ -35,7 +50,7 @@
   }
 
   .container {
-    .intro {
+    .content-container {
       background-color: rgb(243, 243, 243);
       padding-top: 48px;
       padding-bottom: 48px;
@@ -47,16 +62,19 @@
       flex-wrap: wrap;
     }
 
-    .letter {
-      margin-right: 16px;
-    }
-
-    .letter,
-    .intro-video {
+    .content-card {
       background-color: white;
       padding: 16px;
+      width: 380px;
+      height: 320px;
+      text-align: center;
       // box-shadow: 1px 7px 12px 5px rgba(194, 194, 194, 1);
       transition: ease all 0.3s;
+
+      img {
+        width: 350px;
+        height: auto;
+      }
     }
 
     .hero {
