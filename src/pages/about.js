@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 
+import Card from "components/Card"
 import Layout from "components/Layout";
 import Container from "components/Container";
 
@@ -48,6 +49,9 @@ const PHeadsSection = () => {
     <div className="project-heads-section">
       <div className="header-box">
         <h1>Project Heads</h1>
+      </div>
+      <div className="project-heads-container">
+        <Card></Card>
       </div>
     </div>
   )
