@@ -5,20 +5,21 @@ import Card from "components/Card"
 import Layout from "components/Layout";
 import Container from "components/Container";
 
-import icon from "../assets/images/SVG/floatingisland.svg"
+// import icon from "../assets/images/SVG/floatingisland.svg"
+import Image from "../assets/images/ARW2019Photos/1.jpg"
 
 const VideoSection = () => {
   return (
     <div className="video-section">
-      <svg>
+      {/* <svg>
         <use xlinkHref={`#${icon.id}`} />
-      </svg>
+      </svg> */}
       <div className="header-box">
         <span>What is </span>
         <br />
         <h1>ARW 2020?</h1>
       </div>
-      <div className="video-container">
+      {/* <div className="video-container">
         <div className="video-player-container">
           <iframe
             title="video"
@@ -28,6 +29,10 @@ const VideoSection = () => {
             allowFullScreen
           ></iframe>
         </div>
+      </div> */}
+      <div class="layers">
+        <img src={Image}>
+        </img>
       </div>
     </div>
   );
@@ -51,7 +56,9 @@ const PHeadsSection = () => {
         <h1>Project Heads</h1>
       </div>
       <div className="project-heads-container">
-        <Card></Card>
+        <Card />
+        <Card />
+        <Card />
       </div>
     </div>
   )

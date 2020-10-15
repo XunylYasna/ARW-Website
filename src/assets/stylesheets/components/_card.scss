@@ -1,6 +1,16 @@
 .card {
-    display: inline-block;
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
+  display: inline-block;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 25%;
+  overflow: hidden;
+  .description {
+    text-align: center;
+  }
+
+  #name {
+    font-weight: bold;
+  }
 }
