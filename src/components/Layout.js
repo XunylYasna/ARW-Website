@@ -18,6 +18,8 @@ const Layout = ({ children, pageName }) => {
     <>
       <Helmet bodyAttributes={{ class: className }}>
         <title>ARW 2020 || {pageName}</title>
+        <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
       </Helmet>
       <div className="blob">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

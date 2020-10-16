@@ -1,15 +1,104 @@
-import React from "react"
+import React, { useRef, useFrame, useEffect } from "react"
 import { graphql } from "gatsby"
+
+import Img from "gatsby-image";
+import Slider from "react-slick";
 
 import Layout from "../components/Layout"
 
 export default function OrgPage({ data }) {
-    return (
-        <Layout>
-            <h1>{data.allContentfulOrganization.nodes[0].acronym}</h1>
-            <h2>{data.allContentfulOrganization.nodes[0].organizationName}</h2>
+    const { organizationName, acronym, about, logo, media, mission, vision, mainEvents, registrationPackages, email, facebookUrl, twitterUrl } = data.allContentfulOrganization.nodes[0];
 
-        </Layout>
+    const sliderSettings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        autoplaySpeed: 3000,
+        autoplay: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    }
+    
+    return (
+        <Layout pageName="org">
+            <div data-sal="zoom-in" data-sal-delay="100" data-sal-easing="smooth" className="header">
+                <div className="left">
+                    {/* logo */}
+                    <img className="logo" src={logo.fluid.src} alt={logo.title} />
+                    {/* organization name (acronym) */}
+                    <p className="title">{ organizationName }<strong>({ acronym })</strong></p>
+                </div>
+                <div className="right">
+                    <iframe
+                        className="video"
+                        src={"https://www.youtube.com/embed/Dz6Sg630I8M"}
+                        // title={videoTitle}
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        frameBorder="0"
+                        webkitallowfullscreen="true"
+                        mozallowfullscreen="true"
+                        allowFullScreen
+                    />
+                </div>
+            </div>
+            <div className="photos">
+                <h2>Photos</h2>
+                <Slider {...sliderSettings}>
+                    {/* <Img/>
+                    <Img/> */}
+                    {media.map((data, index) => (
+                        <div key={index} >
+                            <img src={data.fluid.src} />
+                        </div>
+                    ))}
+                </Slider>
+            </div>
+            <div className="row">
+                <div className="about" >
+                    <h2 className="align-center">About { acronym }</h2>
+                    {about.content.map(data => 
+                        data.content.map((d, index) => <p key={index}>{d.value}</p>)
+                    )}
+                </div>
+                <div data-sal="slide-up" data-sal-delay="100" className="mission" >
+                    <h2 className="align-center">Mission</h2>
+                    {mission.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
+                    <p>The La Salle Computer Society shall serve as a venue for the growth and development of its member through a three-step course of:</p>
+                    <ul>
+                        <li>
+                            <p><strong>Purpose</strong></p>
+                            <p>to know and understand the reason behind every act, decision, and endeavor pursued.</p>
+                        </li>
+                        <li>
+                            <p><strong>Process</strong></p>
+                            <p>to organize and oversee the entire procedure of every project and make sure that each goes through very necessary step towards the purpose.</p>
+                        </li>
+                        <li>
+                            <p><strong>Excellence</strong></p>
+                            <p>to accomplish our goals in the best way possible and in accordance with the ideals of the organization and of De La Salle University Manila.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div className="row">
+                <div data-sal="slide-up" data-sal-delay="100" className="events">
+                    <h2 className="align-center">Org Events</h2>
+                    {mainEvents.map(data => console.log(data))}
+                </div>
+                <div data-sal="slide-up" data-sal-delay="100" className="vision right-side">
+                    <h2 className="align-center">Vision</h2>
+                    {vision.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
+                </div>
+            </div>
+            <div data-sal="slide-up" data-sal-delay="100" className="prices">
+                <h2>Prices</h2>
+                {registrationPackages.map(data => <p>{data.title} - {data.price}</p>)}
+            </div>
+            <div data-sal="slide-up" data-sal-delay="100" className="apply-contact">
+                <a href="" rel="noopener noreferrer" target="_blank"><span>Apply Now</span></a>
+                <a href={"mailto:/" + email} rel="noopener noreferrer" target="_blank"><span>Contact {acronym}</span></a>
+            </div>
+        </Layout>   
     )
 }
 
@@ -19,6 +108,55 @@ export const query = graphql`
         nodes {
             acronym
             organizationName
+            about {
+                content {
+                    content {
+                        value
+                    }
+                }
+            }
+            logo {
+                title
+                fluid {
+                    src
+                }
+            }
+            mainEvents {
+                eventName
+                description {
+                    content {
+                        content {
+                            value
+                        }
+                    }
+                }
+            }
+            media {
+                fluid {
+                    src
+                }
+            }
+            mission {
+                content {
+                    content {
+                        value
+                    }
+                }
+            }
+            vision {
+                content {
+                    content {
+                        value
+                    }
+                }
+            } 
+            registrationPackages {
+                price
+                title
+            }
+            email
+            facebookUrl
+            twitterUrl
         }
     }
   }

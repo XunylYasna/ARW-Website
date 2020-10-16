@@ -37,7 +37,6 @@ body {
   font-family: "BioRhyme", serif;
   font-weight: 200;
   
-
   //setting minimum height to 100vh
   min-height: 100vh;
   background: radial-gradient(
@@ -55,7 +54,6 @@ body {
   justify-content: space-between;
   transition: all 0.2s;
  
-
   @include respond(tab-land) {
     font-size: 80%;
     margin: 0;
