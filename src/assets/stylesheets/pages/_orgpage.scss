@@ -1,0 +1,167 @@
+.page-org {
+    text-align: center;
+
+    h2 {
+        color: #27834d;
+    }
+    
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-image: linear-gradient(to right, #d5f2d8, #27834d);
+        padding: 25px;
+    
+        .left {
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+    
+            .logo {
+                width: 12.5em;
+                height: 12.5em;
+            }
+
+            .title {
+                font-size: 2em;
+            }
+
+            @include respond(phone) {
+                flex-direction: row;
+                .logo {
+                    width: 1.5em;
+                    height: 1.5em;
+                }
+
+                .title {
+                    font-size: 1em;
+                }
+            }
+        }
+    
+        .right {
+            padding: 5px;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            padding-top: 27.5%;
+    
+            .video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+            @include respond(phone) {
+                padding: 0;
+
+                .video {
+                    position: relative;    
+                }
+            }
+        }
+
+        @include respond(phone) {
+            flex-direction: column;
+        }
+    }
+
+    .photos {
+        margin: 50px 0;
+    }
+
+    .about {
+        flex: 1;
+        padding: 10px;
+        background-color: #27834d;
+        color: #fff;
+        h2 {
+            color: #fff;
+        }
+    }
+
+    .vision {
+        flex: 1;
+        padding: 10px;
+        background-color: #27834d;
+        color: #fff;
+        h2 {
+            color: #fff;
+        }
+    }
+
+    .mission {
+        flex: 1;
+        padding: 10px;
+        li {
+            margin-left: 50px;
+        }
+    }
+
+    .events {
+        flex: 1;
+        padding: 10px;
+    }
+    
+    .row {
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .apply-contact {
+        display: flex;
+        flex-direction: row;
+    
+        a {
+            background-color: #27834d;
+            font-size: 18px;
+            color: #fff;
+            font-weight: 700;
+            padding: 20px;
+            margin: 5px;
+            border: none;
+            transition: all 0.5s;
+            flex: 1;
+    
+            span {
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+    
+            span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+        }
+        
+        a:hover {
+            span {
+                padding-right: 25px;
+            }
+    
+            span:after {
+                opacity: 1;
+                right: 0;
+            }
+        }
+        
+        @include respond(phone) {
+            flex-direction: column;
+            a {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    }
+}
