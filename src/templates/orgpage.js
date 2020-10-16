@@ -27,7 +27,7 @@ export default function OrgPage({ data }) {
             <div data-sal="zoom-in" data-sal-delay="100" data-sal-easing="smooth" className="header">
                 <div className="left">
                     {/* logo */}
-                    <img className="logo" src={logo.fluid.src} alt={logo.title} />
+                    <Img className="logo" fluid={logo.fluid} />
                     {/* organization name (acronym) */}
                     <p className="title">{ organizationName }<strong>({ acronym })</strong></p>
                 </div>
@@ -47,12 +47,8 @@ export default function OrgPage({ data }) {
             <div className="photos">
                 <h2>Photos</h2>
                 <Carousel items={3} style={{textAlign: "center"}}>
-                    {/* <Img/>
-                    <Img/> */}
                     {media.map((data, index) => (
-                        <div key={index} >
-                            <img draggable={false} src={data.fluid.src} />
-                        </div>
+                        <img key={index} draggable={false} src={data.fluid.src} />
                     ))}
                 </Carousel>
             </div>
@@ -113,7 +109,10 @@ export const query = graphql`
             logo {
                 title
                 fluid {
-                    src
+                    base64
+                    tracedSVG
+                    srcWebp
+                    srcSetWebp
                 }
             }
             mainEvents {
@@ -128,7 +127,11 @@ export const query = graphql`
             }
             media {
                 fluid {
+                    base64
+                    tracedSVG
                     src
+                    srcWebp
+                    srcSetWebp
                 }
             }
             mission {
@@ -144,7 +147,7 @@ export const query = graphql`
                         value
                     }
                 }
-            } 
+            }
             registrationPackages {
                 price
                 title
