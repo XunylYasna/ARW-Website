@@ -36,16 +36,7 @@ html {
 body {
   font-family: "BioRhyme", serif;
   font-weight: 200;
-  //variables in CSS are written inside var function. This and bg size property will lead to narrow tiles because the bg gradient will only be for the body element, that is just one line currently, after that there will be tiling. To prevent it, we'll use the background-repeat property
-  // background-image: linear-gradient(
-  //   to right bottom,
-  //   var(--color-purple),
-  //   var(--color-blue)
-  // );
-  // background-size: cover;
-
-  // //to prevent tiling
-  // background-repeat: no-repeat;
+  
 
   //setting minimum height to 100vh
   min-height: 100vh;
@@ -62,19 +53,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: var(--color-white);
-
-  max-width: 120rem;
-  margin: 8rem auto;
-
-  //background-color: var(--color-grey-light-1);
-
-  //we cannot just use colors as variables, we can use other things as well, so we'll create a variable for the values inside box-shadow
-  box-shadow: var(--shadow-dark);
-
-  //border: 3rem solid #fff;
-
   transition: all 0.2s;
+ 
 
   @include respond(tab-land) {
     font-size: 80%;
@@ -82,36 +62,49 @@ body {
     max-width: 100%;
     width: 100%;
   }
-
-  //neomorphism
-  // border-radius: 50px;
-  // background: #fbf3f4;
-  //box-shadow: 7px 7px 14px #d5cfcf, -7px -7px 14px #ffffff;
-  //to fix the non roun edges adjacent to the footer
-  //overflow: hidden;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  padding: 2.5rem;
-  font-size: 2rem;
+
+.blob {
+  position: fixed;
+  top: 0;
+  left: 0;
+  fill: #023F92;
+  width: 50vmax;
+  z-index: -1;
+  animation: move 20s ease-in-out infinite;
+  transform-origin: 50% 50%;
+  overflow: hidden !important;
+  height: 100vh !important;
+
+  @keyframes move {
+    0%   { transform: scale(1)   translate(10px, -30px); }
+    38%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
+    40%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
+    78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    100% { transform: scale(1)   translate(10px, -30px); }
+  }
 }
 
-h1::selection {
-  background-color: var(--color-purple);
-  color: var(--color-white);
+main{
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
-p::selection,
-li::selection,
-h2::selection,
-a::selection {
-  background-color: var(--color-yellow);
-}
 
-a:hover {
-  cursor: pointer;
-}
+// h1::selection {
+//   background-color: yellow;
+//   color: var(--color-white);
+// }
+
+// p::selection,
+// li::selection,
+// h2::selection,
+// a::selection {
+//   background-color: yellow;
+// }
+
+// a:hover {
+//   cursor: pointer;
+// }

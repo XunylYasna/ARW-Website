@@ -4,16 +4,18 @@ import Helmet from "react-helmet";
 import Layout from "components/Layout";
 import Container from "components/Container";
 
+import EventList from "../components/Events/EventList"
+
 const EventsPage = () => {
     return (
         <Layout pageName="event">
             <Helmet>
                 <title>Event</title>
             </Helmet>
-            <Container>
+            <section>
                 <h1>Events</h1>
-                <p>Add events here</p>
-            </Container>
+            </section>
+            <EventList></EventList>
         </Layout>
     );
 };
