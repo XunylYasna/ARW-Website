@@ -2,22 +2,25 @@ import React, { useRef, useFrame, useEffect } from "react"
 import { graphql } from "gatsby"
 
 import Img from "gatsby-image";
-import Slider from "react-slick";
 
 import Layout from "../components/Layout"
+import Carousel from '../components/Carousel';
 
 export default function OrgPage({ data }) {
-    const { organizationName, acronym, about, logo, media, mission, vision, mainEvents, registrationPackages, email, facebookUrl, twitterUrl } = data.allContentfulOrganization.nodes[0];
-
-    const sliderSettings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        autoplaySpeed: 3000,
-        autoplay: true,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    }
+    const { 
+        organizationName, 
+        acronym, 
+        about, 
+        logo, 
+        media, 
+        mission, 
+        vision, 
+        mainEvents, 
+        registrationPackages, 
+        email, 
+        facebookUrl, 
+        twitterUrl 
+    } = data.allContentfulOrganization.nodes[0];
     
     return (
         <Layout pageName="org">
@@ -43,7 +46,7 @@ export default function OrgPage({ data }) {
             </div>
             <div className="photos">
                 <h2>Photos</h2>
-                <Slider {...sliderSettings}>
+                <Carousel>
                     {/* <Img/>
                     <Img/> */}
                     {media.map((data, index) => (
@@ -51,7 +54,7 @@ export default function OrgPage({ data }) {
                             <img src={data.fluid.src} />
                         </div>
                     ))}
-                </Slider>
+                </Carousel>
             </div>
             <div className="row">
                 <div className="about" >
@@ -62,7 +65,11 @@ export default function OrgPage({ data }) {
                 </div>
                 <div data-sal="slide-up" data-sal-delay="100" className="mission" >
                     <h2 className="align-center">Mission</h2>
-                    {mission.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
+                    {mission.content.map(data => data.content.map(d => {
+                        let lines = d.value.split('\n');
+                        console.log(lines)
+                        return lines.map((line, index) => <p key={index}>{line}</p>)
+                    }))}
                     <p>The La Salle Computer Society shall serve as a venue for the growth and development of its member through a three-step course of:</p>
                     <ul>
                         <li>
@@ -80,16 +87,23 @@ export default function OrgPage({ data }) {
                     </ul>
                 </div>
             </div>
-            <div className="row">
+            {/* <div className="row"> */}
                 <div data-sal="slide-up" data-sal-delay="100" className="events">
                     <h2 className="align-center">Org Events</h2>
-                    {mainEvents.map(data => console.log(data))}
+                    <Carousel>
+                        {mainEvents.map((data, index) => (
+                            <div key={index}>
+                                <h3>{data.eventName}</h3>
+                                {data.description && data.description.content.map(data => data.content.map((d, i) => <p key={i}>{d.value}</p>))}
+                            </div>
+                        ))}
+                    </Carousel>
                 </div>
                 <div data-sal="slide-up" data-sal-delay="100" className="vision right-side">
                     <h2 className="align-center">Vision</h2>
                     {vision.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
                 </div>
-            </div>
+            {/* </div> */}
             <div data-sal="slide-up" data-sal-delay="100" className="prices">
                 <h2>Prices</h2>
                 {registrationPackages.map(data => <p>{data.title} - {data.price}</p>)}
