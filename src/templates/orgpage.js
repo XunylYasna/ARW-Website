@@ -46,12 +46,12 @@ export default function OrgPage({ data }) {
             </div>
             <div className="photos">
                 <h2>Photos</h2>
-                <Carousel>
+                <Carousel items={3} style={{textAlign: "center"}}>
                     {/* <Img/>
                     <Img/> */}
                     {media.map((data, index) => (
                         <div key={index} >
-                            <img src={data.fluid.src} />
+                            <img draggable={false} src={data.fluid.src} />
                         </div>
                     ))}
                 </Carousel>
@@ -65,32 +65,13 @@ export default function OrgPage({ data }) {
                 </div>
                 <div data-sal="slide-up" data-sal-delay="100" className="mission" >
                     <h2 className="align-center">Mission</h2>
-                    {mission.content.map(data => data.content.map(d => {
-                        let lines = d.value.split('\n');
-                        console.log(lines)
-                        return lines.map((line, index) => <p key={index}>{line}</p>)
-                    }))}
-                    <p>The La Salle Computer Society shall serve as a venue for the growth and development of its member through a three-step course of:</p>
-                    <ul>
-                        <li>
-                            <p><strong>Purpose</strong></p>
-                            <p>to know and understand the reason behind every act, decision, and endeavor pursued.</p>
-                        </li>
-                        <li>
-                            <p><strong>Process</strong></p>
-                            <p>to organize and oversee the entire procedure of every project and make sure that each goes through very necessary step towards the purpose.</p>
-                        </li>
-                        <li>
-                            <p><strong>Excellence</strong></p>
-                            <p>to accomplish our goals in the best way possible and in accordance with the ideals of the organization and of De La Salle University Manila.</p>
-                        </li>
-                    </ul>
+                    {mission.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
                 </div>
             </div>
-            {/* <div className="row"> */}
+            <div className="row">
                 <div data-sal="slide-up" data-sal-delay="100" className="events">
                     <h2 className="align-center">Org Events</h2>
-                    <Carousel>
+                    <Carousel items={1}>
                         {mainEvents.map((data, index) => (
                             <div key={index}>
                                 <h3>{data.eventName}</h3>
@@ -103,7 +84,7 @@ export default function OrgPage({ data }) {
                     <h2 className="align-center">Vision</h2>
                     {vision.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
                 </div>
-            {/* </div> */}
+            </div>
             <div data-sal="slide-up" data-sal-delay="100" className="prices">
                 <h2>Prices</h2>
                 {registrationPackages.map(data => <p>{data.title} - {data.price}</p>)}

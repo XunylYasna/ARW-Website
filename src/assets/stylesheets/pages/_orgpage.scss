@@ -4,6 +4,12 @@
     h2 {
         color: var(--color-primary);
     }
+
+    img {
+        width:  auto;
+        height: 75vh;
+        object-fit: cover;
+    }
     
     .header {
         display: flex;
@@ -106,6 +112,7 @@
     .events {
         flex: 1;
         padding: 10px;
+        width: 45%; // if this is not set, the carousel's width will be so big
     }
     
     .row {
