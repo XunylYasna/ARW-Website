@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { gsap } from "gsap";
+import ModalVideo from 'react-modal-video'
 
 import Card from "components/Card";
 import Layout from "components/Layout";
@@ -19,6 +20,7 @@ import Img7 from "../assets/images/ARW2019Photos/7.jpg";
 const HeroSection = () => {
   let ref = useRef(null);
   let gridRef = useRef(null);
+  const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
     const tl = new gsap.timeline();
@@ -78,7 +80,7 @@ const HeroSection = () => {
         <br />
         <span id="h1">ARW 2020?</span>
         <br />
-        <button>Watch the Video!</button>
+        <button onClick={()=> setOpen(true)}>Watch the Video!</button>
       </div>
       {/* <div className="video-container">
         <div className="video-player-container">
@@ -171,23 +173,16 @@ const HeroSection = () => {
           />
         </div>
       </div>
+    
+      <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
     </div>
   );
 };
 
 const Video = () => {
   return (
-    <div className="video-container">
-      <div className="video-player-container">
-        <iframe
-          title="video"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          frameBorder="0"
-          // allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </div>
-    </div>
+   
+    
   );
 };
 
