@@ -56,7 +56,7 @@ const HeroSection = () => {
       gridRef.children,
       {
         y: () => {
-          Math.random() * (500 - 300) + 300;
+          return Math.random() * (500 - 300) + 300;
         },
       },
       {

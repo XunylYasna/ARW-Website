@@ -36,22 +36,18 @@
     height: 100vh;
     // background-color: rgb(232, 248, 232);
 
-    @include respond(tab-port) {
-      display: inline-block;
-      width: 100%;
-      height: 100vh;
-    }
+    // @include respond(tab-port) {
+    //   display: inline-block;
+    //   width: 100%;
+    //   height: 100vh;
+    // }
 
     .header-box {
       position: relative;
       width: 100%;
       z-index: 1;
       height: auto;
-      margin: auto auto auto 40px;
-
-      @include respond(phone) {
-        margin: auto auto auto 10px;
-      }
+      margin: auto;
 
       span {
         font-size: 6rem;
@@ -64,18 +60,18 @@
           font-size: 8rem;
           font-weight: bold;
           @include respond(tab-port) {
-            font-size: 4em;
+            font-size: 6em;
           }
           @include respond(phone) {
-            font-size: 4em;
+            font-size: 6em;
           }
         }
 
         @include respond(tab-port) {
-          font-size: 2em;
+          font-size: 4em;
         }
         @include respond(phone) {
-          font-size: 2em;
+          font-size: 4em;
         }
 
         
@@ -90,20 +86,23 @@
         padding: 10px;
         border-radius: 50px;
         cursor: pointer;
+        @include respond(tab-port) {
+          font-size: 3rem;
+        }
       }
     }
 
-    svg {
-      display: none;
-      position: absolute;
-      z-index: 0;
-      width: 50vw;
-      height: 100vh;
-      left: 0;
-      @include respond(tab-port) {
-        width: 100vw;
-      }
-    }
+    // svg {
+    //   display: none;
+    //   position: absolute;
+    //   z-index: 0;
+    //   width: 50vw;
+    //   height: 100vh;
+    //   left: 0;
+    //   @include respond(tab-port) {
+    //     width: 100vw;
+    //   }
+    // }
   }
 
   .video-container {
