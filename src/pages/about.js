@@ -5,27 +5,27 @@ import { gsap } from "gsap";
 import Card from "components/Card";
 import Layout from "components/Layout";
 import Container from "components/Container";
-import LayersItem from "components/LayersItem";
 
 import Img1 from "../assets/images/ARW2019Photos/1.jpg";
-import Img2 from "../assets/images/ARW2019Photos/1.jpg";
-import Img3 from "../assets/images/ARW2019Photos/1.jpg";
-import Img4 from "../assets/images/ARW2019Photos/1.jpg";
-import Img5 from "../assets/images/ARW2019Photos/1.jpg";
-import Img6 from "../assets/images/ARW2019Photos/1.jpg";
-import Img7 from "../assets/images/ARW2019Photos/1.jpg";
+import Img2 from "../assets/images/ARW2019Photos/2.jpg";
+import Img3 from "../assets/images/ARW2019Photos/3.jpg";
+import Img4 from "../assets/images/ARW2019Photos/4.jpg";
+import Img5 from "../assets/images/ARW2019Photos/5.jpg";
+import Img6 from "../assets/images/ARW2019Photos/6.jpg";
+import Img7 from "../assets/images/ARW2019Photos/7.jpg";
 
 // import icon from "../assets/images/SVG/floatingisland.svg"
 
 const VideoSection = () => {
-  let imgRef = useRef([]);
-  const [tl] = useState(gsap.timeline());
+  let ref = useRef(null);
 
   useEffect(() => {
-    console.log(imgRef);
-    for (let i = 0, len = 7; i <= len - 1; ++i) {
+    const tl = new gsap.timeline();
+    const len = 7;
+    
+    for (let i = 0; i <= len - 1; ++i) {
       tl.to(
-        imgRef.current[i],
+        [ref.children[i], ref.children[i].children],
         {
           duration: 1,
           ease: "Power2.easeInOut",
@@ -34,7 +34,28 @@ const VideoSection = () => {
         0.15 * i
       );
     }
-  }, [tl]);
+
+    for (let i = 0, len = 6; i <= len - 1; ++i) {
+      tl.to(
+        [ref.children[i], ref.children[i].children],
+        {
+          duration: 1,
+          ease: "Power2.easeInOut",
+          display: "none",
+        },
+        0.15 * i
+      );
+    }
+
+    tl.to([ref.children[len-1], ref.children[len-1].children], {
+      duration: 1,
+      ease: 'Expo.easeInOut',
+      y: (index) => index ? '101%' : '-101%'
+  })
+
+  }, []);
+
+
 
   return (
     <div className="video-section">
@@ -57,14 +78,49 @@ const VideoSection = () => {
           ></iframe>
         </div>
       </div> */}
-      <div className="layers">
-        <LayersItem path={Img1} ref={(element) => imgRef.current.push(element)} />
-        <LayersItem path={Img2} ref={(element) => imgRef.current.push(element)} />
-        <LayersItem path={Img3} ref={(element) => imgRef.current.push(element)} />
-        <LayersItem path={Img4} ref={(element) => imgRef.current.push(element)} />
-        <LayersItem path={Img5} ref={(element) => imgRef.current.push(element)} />
-        <LayersItem path={Img6} ref={(element) => imgRef.current.push(element)} />
-        <LayersItem path={Img7} ref={(element) => imgRef.current.push(element)} />
+      <div className="layers" ref={e => ref = e}>
+        <div className="layers__item">
+          <div
+            className="layers__item-img"
+            style={{ backgroundImage: "url(" + Img1 + ")" }}
+          />
+        </div>
+        <div className="layers__item">
+          <div
+            className="layers__item-img"
+            style={{ backgroundImage: "url(" + Img2 + ")" }}
+          />
+        </div>
+        <div className="layers__item">
+          <div
+            className="layers__item-img"
+            style={{ backgroundImage: "url(" + Img3 + ")" }}
+          />
+        </div>
+        <div className="layers__item">
+          <div
+            className="layers__item-img"
+            style={{ backgroundImage: "url(" + Img4 + ")" }}
+          />
+        </div>
+        <div className="layers__item">
+          <div
+            className="layers__item-img"
+            style={{ backgroundImage: "url(" + Img5 + ")" }}
+          />
+        </div>
+        <div className="layers__item">
+          <div
+            className="layers__item-img"
+            style={{ backgroundImage: "url(" + Img6 + ")" }}
+          />
+        </div>
+        <div className="layers__item">
+          <div
+            className="layers__item-img"
+            style={{ backgroundImage: "url(" + Img7 + ")" }}
+          />
+        </div>
       </div>
     </div>
   );
