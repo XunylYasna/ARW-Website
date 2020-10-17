@@ -18,11 +18,12 @@ import Img7 from "../assets/images/ARW2019Photos/7.jpg";
 
 const VideoSection = () => {
   let ref = useRef(null);
+  let gridRef = useRef(null);
 
   useEffect(() => {
     const tl = new gsap.timeline();
     const len = 7;
-    
+
     for (let i = 0; i <= len - 1; ++i) {
       tl.to(
         [ref.children[i], ref.children[i].children],
@@ -47,15 +48,21 @@ const VideoSection = () => {
       );
     }
 
-    tl.to([ref.children[len-1], ref.children[len-1].children], {
+    tl.to([ref.children[len - 1], ref.children[len - 1].children], {
       duration: 1,
-      ease: 'Expo.easeInOut',
-      y: (index) => index ? '101%' : '-101%'
-  })
-
+      ease: "Expo.easeInOut",
+      y: (index) => (index ? "101%" : "-101%"),
+    }).fromTo(
+      gridRef.children,
+      { y: 300 },
+      {
+        duration: 1 * 2,
+        ease: "Expo.easeOut",
+        y: 0,
+        opacity: 1,
+      }
+    );
   }, []);
-
-
 
   return (
     <div className="video-section">
@@ -63,9 +70,11 @@ const VideoSection = () => {
         <use xlinkHref={`#${icon.id}`} />
       </svg> */}
       <div className="header-box">
-        <span>What is </span>
+        <span id="whatis">What is </span>
         <br />
-        <h1>ARW 2020?</h1>
+        <span id="h1">ARW 2020?</span>
+        <br />
+        <button>Watch the Video!</button>
       </div>
       {/* <div className="video-container">
         <div className="video-player-container">
@@ -78,7 +87,43 @@ const VideoSection = () => {
           ></iframe>
         </div>
       </div> */}
-      <div className="layers" ref={e => ref = e}>
+      <div
+        className="grid"
+        ref={(e) => {
+          gridRef = e;
+        }}
+      >
+        <div
+          className="grid__item grid__item--a"
+          style={{ backgroundImage: "url(" + Img1 + ")" }}
+        ></div>
+        <div
+          className="grid__item grid__item--b"
+          style={{ backgroundImage: "url(" + Img2 + ")" }}
+        ></div>
+        <div
+          className="grid__item grid__item--c"
+          style={{ backgroundImage: "url(" + Img3 + ")" }}
+        ></div>
+        <div
+          className="grid__item grid__item--d"
+          style={{ backgroundImage: "url(" + Img4 + ")" }}
+        ></div>
+        <div
+          className="grid__item grid__item--e"
+          style={{ backgroundImage: "url(" + Img5 + ")" }}
+        ></div>
+        <div
+          className="grid__item grid__item--f"
+          style={{ backgroundImage: "url(" + Img6 + ")" }}
+        ></div>
+        <div
+          className="grid__item grid__item--g"
+          style={{ backgroundImage: "url(" + Img7 + ")" }}
+        ></div>
+      </div>
+
+      <div className="layers" ref={(e) => (ref = e)}>
         <div className="layers__item">
           <div
             className="layers__item-img"
@@ -126,9 +171,27 @@ const VideoSection = () => {
   );
 };
 
+const Video = () => {
+  return (
+    <div className="video-container">
+      <div className="video-player-container">
+        <iframe
+          title="video"
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          frameBorder="0"
+          // allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+    </div>
+  );
+};
+
 const AboutSection = () => {
   return (
     <div className="about-section">
+      <div className="placeholder">
+      </div>
       <div className="header-box">
         <h1>About ARW</h1>
         <p>
@@ -167,6 +230,7 @@ const AboutPage = () => {
       </Helmet>
       <Container>
         <VideoSection />
+        <Video />
         <AboutSection />
         <PHeadsSection />
       </Container>
