@@ -16,7 +16,7 @@ import Img7 from "../assets/images/ARW2019Photos/7.jpg";
 
 // import icon from "../assets/images/SVG/floatingisland.svg"
 
-const VideoSection = () => {
+const HeroSection = () => {
   let ref = useRef(null);
   let gridRef = useRef(null);
 
@@ -54,7 +54,11 @@ const VideoSection = () => {
       y: (index) => (index ? "101%" : "-101%"),
     }).fromTo(
       gridRef.children,
-      { y: 300 },
+      {
+        y: () => {
+          Math.random() * (500 - 300) + 300;
+        },
+      },
       {
         duration: 1 * 2,
         ease: "Expo.easeOut",
@@ -65,7 +69,7 @@ const VideoSection = () => {
   }, []);
 
   return (
-    <div className="video-section">
+    <div className="hero-section">
       {/* <svg>
         <use xlinkHref={`#${icon.id}`} />
       </svg> */}
@@ -190,8 +194,7 @@ const Video = () => {
 const AboutSection = () => {
   return (
     <div className="about-section">
-      <div className="placeholder">
-      </div>
+      <div className="placeholder"></div>
       <div className="header-box">
         <h1>About ARW</h1>
         <p>
@@ -229,7 +232,7 @@ const AboutPage = () => {
         <title>About ARW 2020</title>
       </Helmet>
       <Container>
-        <VideoSection />
+        <HeroSection />
         <Video />
         <AboutSection />
         <PHeadsSection />
