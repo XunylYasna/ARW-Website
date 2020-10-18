@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     padding: unset;
+    margin: 0;
   }
 
   header {
@@ -34,7 +35,7 @@
     justify-content: center;
     text-align: center;
     height: 100vh;
-    // background-color: rgb(232, 248, 232);
+    background-color: var(--color-white);
 
     // @include respond(tab-port) {
     //   display: inline-block;
@@ -104,7 +105,6 @@
     //   }
     // }
   }
-
   // .video-container {
   //   width: 80%;
   //   // height: 100vh;
@@ -220,26 +220,19 @@
   .about-section {
     height: 100vh;
     display: flex;
-    text-align: end;
-    justify-content: end;
-
-    .placeholder {
-      width: 60%;
-      margin: 150px;
-
-      background-image: url(https://i.imgur.com/3Bw3eyl.jpg);
-      background-size: cover;
-    }
+    text-align: center;
+    justify-content: center;
+    background-color: var(--color-secondary);
 
     .header-box {
-      width: 40%;
+      width: 50%;
       margin: auto;
 
       h1 {
-        font-size: 4rem;
+        font-size: 5rem;
       }
       p {
-        font-size: 2rem;
+        font-size: 3rem;
       }
     }
   }

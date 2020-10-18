@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { gsap } from "gsap";
-import ModalVideo from 'react-modal-video'
+import ModalVideo from 'react-modal-video';
 
 import Card from "components/Card";
 import Layout from "components/Layout";
@@ -179,19 +179,11 @@ const HeroSection = () => {
   );
 };
 
-const Video = () => {
-  return (
-   
-    
-  );
-};
-
 const AboutSection = () => {
   return (
     <div className="about-section">
-      <div className="placeholder"></div>
       <div className="header-box">
-        <h1>About ARW</h1>
+        <h1>About ARW 2020</h1>
         <p>
           Annual Recruitment Week (ARW) 2020 is a week-long University-wide
           event. Wherein the Council of Student Organizations (CSO) accredited
@@ -228,7 +220,6 @@ const AboutPage = () => {
       </Helmet>
       <Container>
         <HeroSection />
-        <Video />
         <AboutSection />
         <PHeadsSection />
       </Container>
