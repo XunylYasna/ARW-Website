@@ -10,7 +10,8 @@
 }
 
 html {
-  font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%
+  // font-size: 62.5% ; //1rem = 10px; 10px/16px = 62.5%
+  font-size: 100%;
 
   @include respond(tab-land) {
     //width <= 1200?
@@ -34,10 +35,9 @@ html {
 }
 
 body {
-  font-family: "BioRhyme", serif;
+  font-family: var(--ff-primary), var(--ff-secondary), var(--ff-tertiary), var(--ff-quartary);
   font-weight: 200;
   
-
   //setting minimum height to 100vh
   min-height: 100vh;
   background: radial-gradient(
@@ -55,7 +55,6 @@ body {
   justify-content: space-between;
   transition: all 0.2s;
  
-
   @include respond(tab-land) {
     font-size: 80%;
     margin: 0;
@@ -117,3 +116,7 @@ p, li{
 // a:hover {
 //   cursor: pointer;
 // }
+
+.align-center {
+  text-align: center;
+}

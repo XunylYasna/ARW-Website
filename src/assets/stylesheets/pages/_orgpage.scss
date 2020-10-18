@@ -1,0 +1,203 @@
+.page-org {
+    text-align: center;
+
+    h2 {
+        display:inline-block;
+        color: var(--color-primary);
+        font-size: 2em;
+        margin-bottom: 20px;
+        border: 2px solid;
+        padding: 5px;
+    }
+
+    img {
+        width:  100%;
+        height: 50vh;
+        object-fit: cover;
+    }
+
+    p {
+        margin-bottom: 10px;
+        white-space: pre-line
+    }
+    
+    .header {
+        height: 60vh;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        background-image: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+        padding: 75px;
+    
+        .left {
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+    
+            .logo {
+                width: 20em;
+                height: 20em;
+            }
+
+            .title {
+                font-size: 2em;
+                transform-style: preserve-3d;
+            }
+
+            @include respond(phone) {
+                flex-direction: row;
+                .logo {
+                    width: 1.5em;
+                    height: 1.5em;
+                }
+
+                .title {
+                    font-size: 1em;
+                }
+            }
+        }
+    
+        .right {
+            padding: 5px;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            padding-top: 27.5%;
+    
+            .video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+            @include respond(phone) {
+                padding: 0;
+
+                .video {
+                    position: relative;    
+                }
+            }
+        }
+
+        @include respond(phone) {
+            padding: 10px;
+            grid-template-columns: 100%;
+            height: 40vh;
+        }
+    }
+
+    .photos {
+        margin: 50px 0;
+    }
+
+    .about {
+        flex: 1;
+        padding: 10px;
+        background-color: var(--color-primary);
+        color: #fff;
+        h2 {
+            color: #fff;
+        }
+    }
+
+    .vision {
+        flex: 1;
+        padding: 10px;
+        background-color: var(--color-primary);
+        color: #fff;
+        h2 {
+            color: #fff;
+        }
+    }
+
+    .mission {
+        flex: 1;
+        padding: 10px;
+        li {
+            margin-left: 50px;
+        }
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        @include respond(phone) {
+            grid-template-columns: 100%;
+        }
+    }
+
+    .events {
+        flex: 1;
+        padding: 10px;
+    }
+    
+    .prices {
+        text-align: center;
+        margin: 50px 0;
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+
+            .position {
+                font-weight: 700;
+            }
+        }
+    }
+    
+    .apply-contact {
+        display: flex;
+        flex-direction: row;
+    
+        a {
+            background-color: var(--color-primary);
+            font-size: 18px;
+            color: #fff;
+            font-weight: 700;
+            padding: 20px;
+            margin: 5px;
+            border: none;
+            transition: all 0.5s;
+            flex: 1;
+    
+            span {
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+    
+            span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+        }
+        
+        a:hover {
+            span {
+                padding-right: 25px;
+            }
+    
+            span:after {
+                opacity: 1;
+                right: 0;
+            }
+        }
+        
+        @include respond(phone) {
+            flex-direction: column;
+            a {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    }
+}
