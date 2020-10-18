@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Helmet from "react-helmet";
 
 import Layout from "components/Layout";
@@ -8,8 +8,10 @@ import EventList from "../components/Events/EventList"
 
 import EventLine from "../components/Events/EventLine"
 
-const EventsPage = () => {
+import { scrollToRef } from "../components/Utilities/ScrolltoRef"
 
+const EventsPage = () => {
+    // Events
     const state = {
         events: [
             {
@@ -47,6 +49,13 @@ const EventsPage = () => {
         ]
     }
 
+
+    // Button scrolling behaviour
+    const crossRef = useRef(null)
+    const executeScroll = () => {
+        scrollToRef(crossRef)
+    }
+
     return (
         <Layout pageName="events">
             <Helmet>
@@ -58,18 +67,18 @@ const EventsPage = () => {
                 <div className="events__main-event">
                     <h3>Cross Roads</h3>
                     <div>
-                        <button className="main-button"> Learn More</button>
+                        <button className="main-button" onClick={executeScroll}> Learn More</button>
                     </div>
                 </div>
 
             </section>
             <EventLine events={state.events}></EventLine>
             <div className="main-line"></div>
-            <section id="crossroads" className="crossroads">
+            <section ref={crossRef} className="crossroads">
                 <h3 className="sub-title"> Cross Roads</h3>
                 <div className="sub-line"></div>
                 <p>
-                    Kombucha vice 8-bit raw denim, taxidermy synth chia bushwick. Butcher street art taiyaki master cleanse drinking vinegar helvetica shoreditch, biodiesel enamel pin single-origin coffee yuccie glossier four dollar toast. PBR&B kinfolk artisan vegan scenester, ennui you probably haven't heard of them tacos pour-over kale chips gentrify fanny pack raw denim twee. Gastropub blue bottle waistcoat biodiesel craft beer scenester literally franzen man bun kogi knausgaard lumbersexual wolf pop-up. Next level cold-pressed sartorial seitan, mixtape semiotics sriracha meditation gastropub cray. Taxidermy af keffiyeh pickled.
+                    An activity wherein two representatives of the different organizations will virtually hangout with the upcoming social media influencers of this generation. Having the chance to spend time with these students will be a great opportunity to bond, reminisce about their own experiences in growing, as well as offer some advice. This will help students to cultivate their talents and interests, and in the process, become better people.
                 </p>
             </section>
         </Layout>

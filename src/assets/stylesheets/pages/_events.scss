@@ -73,7 +73,7 @@
                 text-align: center;
                 z-index: 2;
                 opacity: 1;
-                transition: opacity 1s linear;
+                transition: opacity 1s ease-in;
                 color: var(--color-white);
             }
             
@@ -99,7 +99,7 @@
             background-color: var(--color-tertiary);
             display: block;
             border-radius: 100%;
-            transition: background-color 1s;
+            transition: background-color 1.5s;
         }
 
         .item.active::before{

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import { gsap } from "gsap";
 
 const EventLine = (props) => {
 
@@ -19,11 +20,17 @@ const EventLine = (props) => {
     }
 
     const [eventDay, setEventDay] = useState(openEvent);
-
-    // Setting the 
-
-
     const { events } = props
+
+    const contentRef = useRef(null)
+
+    // Animation for change state
+    const changeContent = (day) => {
+
+        setEventDay(day)
+    }
+
+
     return (
         <section>
             <h2 className="main-header">More Events</h2>
@@ -32,7 +39,7 @@ const EventLine = (props) => {
                 <div className="events__event-line-items">
                     {events.map(event => {
                         return (
-                            <div key={event.id} className={eventDay == event.id ? "item active current" : eventDay >= event.id ? "item active" : "item"} onClick={() => setEventDay(event.id)}>
+                            <div key={event.id} className={eventDay == event.id ? "item active current" : eventDay >= event.id ? "item active" : "item"} onClick={() => changeContent(event.id)}>
                                 <div className="item-subTitle">
                                     {event.subTitle}
                                 </div>
@@ -42,7 +49,7 @@ const EventLine = (props) => {
                     })}
                 </div>
             </div>
-            <div className="events__event-content">
+            <div ref={contentRef} className="events__event-content">
                 <div className="event-image"></div>
                 <div className="event-info">
                     <h3>{events[eventDay - 1].title}</h3>
