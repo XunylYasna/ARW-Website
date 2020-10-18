@@ -86,15 +86,11 @@ const HeroSection = () => {
           ARW 2020?
         </span>
         <br />
-<<<<<<< Updated upstream
-        <button onClick={() => setOpen(true)}>Watch the Video!</button>
-=======
         {/* <button className="main-button" onClick={() => setOpen(true)}>
           Watch the Video!
         </button> */}
         <VideoModal link="https://www.youtube.com/embed/dQw4w9WgXcQ" />
 
->>>>>>> Stashed changes
       </div>
       {/* <div className="video-container">
         <div className="video-player-container">
@@ -188,21 +184,13 @@ const HeroSection = () => {
         </div>
       </div>
 
-<<<<<<< Updated upstream
-      <ModalVideo
-=======
       {/* <ModalVideo
->>>>>>> Stashed changes
         channel="youtube"
         autoplay
         isOpen={isOpen}
         videoId="L61p2uyiMSo"
         onClose={() => setOpen(false)}
-<<<<<<< Updated upstream
-      />
-=======
       /> */}
->>>>>>> Stashed changes
     </div>
   );
 };
@@ -223,11 +211,7 @@ const AboutSection = () => {
 
     gsap.to(sectionRef.current, {
       scrollTrigger: sectionRef.current,
-<<<<<<< Updated upstream
-      duration: 3,
-=======
-      duration: 10,
->>>>>>> Stashed changes
+      duration: 1,
       opacity: 1,
       y: 0,
       ease: "power4.out",
