@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { gsap } from "gsap";
-import ModalVideo from 'react-modal-video';
+import ModalVideo from "react-modal-video";
+import { useIntersection } from "react-use";
 
 import Card from "components/Card";
 import Layout from "components/Layout";
@@ -80,7 +81,7 @@ const HeroSection = () => {
         <br />
         <span id="h1">ARW 2020?</span>
         <br />
-        <button onClick={()=> setOpen(true)}>Watch the Video!</button>
+        <button onClick={() => setOpen(true)}>Watch the Video!</button>
       </div>
       {/* <div className="video-container">
         <div className="video-player-container">
@@ -173,18 +174,69 @@ const HeroSection = () => {
           />
         </div>
       </div>
-    
-      <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
+
+      <ModalVideo
+        channel="youtube"
+        autoplay
+        isOpen={isOpen}
+        videoId="L61p2uyiMSo"
+        onClose={() => setOpen(false)}
+      />
     </div>
   );
 };
 
 const AboutSection = () => {
+  let sectionRef = useRef(null);
+
+  useEffect(() => {
+    // let tl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".container",
+    //     pin: true, // pin the trigger element while active
+    //     start: "top top", // when the top of the trigger hits the top of the viewport
+    //     end: "+=500", // end after scrolling 500px beyond the start
+    //     scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollba
+    //   },
+    // });
+
+    gsap.to(sectionRef.current, {
+      scrollTrigger: sectionRef.current,
+      duration: 10,
+      opacity: 1,
+      y: 0,
+      ease: "power4.out",
+      stagger: 0.3,
+    });
+  }, []);
+
+  // const intersection = useIntersection(sectionRef, {
+  //   root: null,
+  //   rootMargin: "0px",
+  //   threshold: 0.7,
+  // });
+
+  // const fadeIn = (el) => {
+  //   gsap.to(el, {
+  //     duration: 1,
+  //     opacity: 1,
+  //     y: 0,
+  //     ease: "power4.out",
+  //     stagger: 0.3
+  //   });
+  // };
+
+  // const fadeOut = () => {
+
+  // }
+
+  // intersection && intersection.isIntersecting ? fadeOut(".fadeIn") : fadeIn(".fadeIn");
+
   return (
     <div className="about-section">
-      <div className="header-box">
-        <h1>About ARW 2020</h1>
-        <p>
+      <div className="header-box fadeIn" ref={sectionRef}>
+        <h1 className="fadeIn">About ARW 2020</h1>
+        <p className="fadeIn">
           Annual Recruitment Week (ARW) 2020 is a week-long University-wide
           event. Wherein the Council of Student Organizations (CSO) accredited
           organizations are given the chance to attract and recruit old and new
