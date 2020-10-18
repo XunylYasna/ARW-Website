@@ -2,12 +2,10 @@
     text-align: center;
 
     h2 {
-        display:inline-block;
+        display: inline-block;
         color: var(--color-primary);
-        font-size: 2em;
-        margin-bottom: 20px;
-        border: 2px solid;
-        padding: 5px;
+
+        @extend .main-header;
     }
 
     img {
@@ -17,6 +15,7 @@
     }
 
     p {
+        font-size: 1.5em;
         margin-bottom: 10px;
         white-space: pre-line
     }
@@ -42,7 +41,8 @@
             }
 
             .title {
-                font-size: 2em;
+                @extend .main-title;
+                
                 transform-style: preserve-3d;
             }
 
@@ -94,34 +94,6 @@
         margin: 50px 0;
     }
 
-    .about {
-        flex: 1;
-        padding: 10px;
-        background-color: var(--color-primary);
-        color: #fff;
-        h2 {
-            color: #fff;
-        }
-    }
-
-    .vision {
-        flex: 1;
-        padding: 10px;
-        background-color: var(--color-primary);
-        color: #fff;
-        h2 {
-            color: #fff;
-        }
-    }
-
-    .mission {
-        flex: 1;
-        padding: 10px;
-        li {
-            margin-left: 50px;
-        }
-    }
-
     .content {
         display: grid;
         grid-template-columns: 50% 50%;
@@ -131,9 +103,60 @@
         }
     }
 
+    .about {
+        order: 1;
+        padding: 10px;
+        background-color: var(--color-primary);
+        color: #fff;
+        h2 {
+            color: #fff;
+        }
+
+        .sub-line {
+            background-color: var(--color-secondary);
+        }
+    }
+
+    .mission {
+        order: 2;
+        padding: 10px;
+        
+        li {
+            margin-left: 50px;
+        }
+    }
+
+    .vision {
+        order: 4;
+        padding: 10px;
+        background-color: var(--color-primary);
+        color: #fff;
+
+        h2 {
+            color: #fff;
+        }
+
+        .sub-line {
+            background-color: var(--color-secondary);
+        }
+
+        @include respond(phone) {
+            order: 3;
+        }
+    }
+
     .events {
+        order: 3;
         flex: 1;
         padding: 10px;
+
+        h3 {
+            font-size: 2em;
+        }
+
+        @include respond(phone) {
+            order: 4;
+        }
     }
     
     .prices {
@@ -141,6 +164,7 @@
         margin: 50px 0;
 
         .price-grid {
+            font-size: 2em;
             display: grid;
             grid-template-columns: 25% 25% 25% 25%;
 

@@ -61,6 +61,5 @@ module.exports = {
     },
     "gatsby-plugin-transition-link",
     "gatsby-plugin-svg-sprite",
-    "gatsby-plugin-scroll-reveal",
   ],
 };

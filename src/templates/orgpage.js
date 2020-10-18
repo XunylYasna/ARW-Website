@@ -65,8 +65,9 @@ export default function OrgPage({ data }) {
                 </div>
             </div>
             <div className="photos">
-                <h2 data-sal="slide-up" data-sal-duration="500">Photos</h2>
-                <Carousel data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" items={3} style={{textAlign: "center"}}>
+                <h2>Photos</h2>
+                <div className="sub-line"></div>
+                <Carousel items={3} style={{textAlign: "center"}}>
                     {media.map((data, index) => (
                         <img key={index} draggable={false} src={data.fluid.src} />
                     ))}
@@ -74,17 +75,20 @@ export default function OrgPage({ data }) {
             </div>
             <div className="content">
                 <div className="about" >
-                    <h2 data-sal="slide-up" data-sal-duration="500" className="align-center">About { acronym }</h2>
+                    <h2 className="align-center">About { acronym }</h2>
+                    <div className="sub-line"></div>
                     {about.content.map(data => 
-                        data.content.map((d, index) => <p data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} key={index}>{d.value}</p>)
+                        data.content.map((d, index) => <p key={index}>{d.value}</p>)
                     )}
                 </div>
                 <div className="mission" >
                     <h2 className="align-center">Mission</h2>
-                    {mission.content.map(data => data.content.map((d, index) => <p data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} key={index}>{d.value}</p>))}
+                    <div className="sub-line"></div>
+                    {mission.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
                 </div>
                 <div className="events">
                     <h2 className="align-center">Org Events</h2>
+                    <div className="sub-line"></div>
                     <Carousel items={1}>
                         {mainEvents.map((data, index) => (
                             <div key={index}>
@@ -95,15 +99,17 @@ export default function OrgPage({ data }) {
                     </Carousel>
                 </div>
                 <div className="vision right-side">
-                    <h2 data-sal="slide-up" data-sal-duration="500"className="align-center">Vision</h2>
-                    {vision.content.map(data => data.content.map((d, index) => <p data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} key={index}>{d.value}</p>))}
+                    <h2 className="align-center">Vision</h2>
+                    <div className="sub-line"></div>
+                    {vision.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
                 </div>
             </div>
             <div className="prices">
-                <h2 data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" >Prices</h2>
+                <h2 >Prices</h2>
+                <div className="sub-line"></div>
                 <div className="price-grid">
                     {registrationPackages.map((data, index) => (
-                        <div data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} style={{marginLeft: "40px"}}>
+                        <div style={{marginLeft: "40px"}}>
                             <div className="position">{data.title}</div>
                             <div className="position-price">PHP {data.price}</div>
                         </div>
@@ -111,10 +117,10 @@ export default function OrgPage({ data }) {
                 </div>
             </div>
             <div className="apply-contact">
-                <a data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" href="" rel="noopener noreferrer" target="_blank"><span>Apply Now</span></a>
-                <a data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" href={"mailto:/" + email} rel="noopener noreferrer" target="_blank"><span>Contact {acronym}</span></a>
+                <a href="" rel="noopener noreferrer" target="_blank"><span>Apply Now</span></a>
+                <a href={"mailto:/" + email} rel="noopener noreferrer" target="_blank"><span>Contact {acronym}</span></a>
             </div>
-        </Layout>   
+        </Layout>
     )
 }
 
