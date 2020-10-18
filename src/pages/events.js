@@ -2,13 +2,12 @@ import React, { useRef } from "react";
 import Helmet from "react-helmet";
 
 import Layout from "components/Layout";
-import Container from "components/Container";
-
-import EventList from "../components/Events/EventList"
+// import Container from "components/Container";
+// import EventList from "../components/Events/EventList"
 
 import EventLine from "../components/Events/EventLine"
 
-import { scrollToRef } from "../components/Utilities/ScrolltoRef"
+import { ScrollToRef } from "../components/Utilities/ScrolltoRef"
 
 const EventsPage = () => {
     // Events
@@ -53,7 +52,7 @@ const EventsPage = () => {
     // Button scrolling behaviour
     const crossRef = useRef(null)
     const executeScroll = () => {
-        scrollToRef(crossRef)
+        ScrollToRef(crossRef)
     }
 
     return (

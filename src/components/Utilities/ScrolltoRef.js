@@ -1,8 +1,9 @@
+import React from "react";
 
-const scrollToRef = (ref) => {
+const ScrollToRef = (ref) => {
     ref.current.scrollIntoView({
         behavior: "smooth"
     })
 }
 
-export { scrollToRef }
+export { ScrollToRef }
