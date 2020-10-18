@@ -6,6 +6,7 @@ import gsap, { TimelineLite, Quart } from "gsap";
 
 import Layout from "../components/Layout"
 import Carousel from '../components/Carousel';
+import { Helmet } from "react-helmet";
 
 export default function OrgPage({ data }) {
     const { 
@@ -39,6 +40,11 @@ export default function OrgPage({ data }) {
 
     return (
         <Layout pageName="org">
+            <Helmet>
+                <title>
+                    {organizationName}
+                </title>
+            </Helmet>
             <div className="header">
                 <div className="left">
                     {/* logo */}
