@@ -22,11 +22,11 @@
     }
     
     .header {
-        height: 70vh;
+        height: 60vh;
         display: grid;
         grid-template-columns: 40% 60%;
         background-image: linear-gradient(to right, var(--color-secondary), var(--color-primary));
-        padding: 25px;
+        padding: 75px;
     
         .left {
             padding: 5px;
@@ -84,6 +84,7 @@
         }
 
         @include respond(phone) {
+            padding: 10px;
             grid-template-columns: 100%;
             height: 40vh;
         }
