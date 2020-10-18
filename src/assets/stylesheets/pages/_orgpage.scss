@@ -1,5 +1,6 @@
 .page-org {
     text-align: center;
+    font-family: var(--ff-secondary);
 
     h2 {
         display: inline-block;
@@ -152,6 +153,7 @@
 
         h3 {
             font-size: 2em;
+            font-family: var(--ff-secondary);
         }
 
         @include respond(phone) {
