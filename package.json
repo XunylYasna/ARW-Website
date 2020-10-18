@@ -26,7 +26,8 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",
-    "react-multi-carousel": "^2.5.5"
+    "react-multi-carousel": "^2.5.5",
+    "react-scrollmagic": "^2.2.0"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",

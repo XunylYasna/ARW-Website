@@ -1,7 +1,8 @@
-import React, { useRef, useFrame, useEffect } from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 
 import Img from "gatsby-image";
+import { TimelineLite, Quart } from "gsap";
 
 import Layout from "../components/Layout"
 import Carousel from '../components/Carousel';
@@ -21,15 +22,28 @@ export default function OrgPage({ data }) {
         facebookUrl, 
         twitterUrl 
     } = data.allContentfulOrganization.nodes[0];
-    
+
+    const headerTimeline = new TimelineLite({paused: true});
+
+    useEffect(() => {
+        headerTimeline
+            .fromTo(".header", 1, {scaleX: 0}, {scaleX: 1, transformOrigin:"left", ease: Quart.easeInOut})
+            .fromTo(".logo", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+            .fromTo(".title", 0.5, {opacity: 0, y: -30}, {opacity: 1, y: 0}, "-=0.5")
+            .fromTo(".video", 0.5, {scaleX: 0}, {scaleX: 1, transformOrigin:"right", ease: Quart.easeInOut}, "-=0.5")
+            .play()
+    })
+
     return (
         <Layout pageName="org">
-            <div data-sal="zoom-in" data-sal-delay="100" data-sal-easing="smooth" className="header">
+            <div className="header">
                 <div className="left">
                     {/* logo */}
-                    <Img className="logo" fluid={logo.fluid} />
+                    <div>
+                        <Img className="logo" fluid={logo.fluid} />
+                    </div>
                     {/* organization name (acronym) */}
-                    <p className="title">{ organizationName }<strong>({ acronym })</strong></p>
+                    <div className="title"><span>{ organizationName }<strong>({ acronym })</strong></span></div>
                 </div>
                 <div className="right">
                     <iframe
@@ -45,8 +59,8 @@ export default function OrgPage({ data }) {
                 </div>
             </div>
             <div className="photos">
-                <h2>Photos</h2>
-                <Carousel items={3} style={{textAlign: "center"}}>
+                <h2 data-sal="slide-up" data-sal-duration="500">Photos</h2>
+                <Carousel data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" items={3} style={{textAlign: "center"}}>
                     {media.map((data, index) => (
                         <img key={index} draggable={false} src={data.fluid.src} />
                     ))}
@@ -54,18 +68,18 @@ export default function OrgPage({ data }) {
             </div>
             <div className="row">
                 <div className="about" >
-                    <h2 className="align-center">About { acronym }</h2>
+                    <h2 data-sal="slide-up" data-sal-duration="500" className="align-center">About { acronym }</h2>
                     {about.content.map(data => 
-                        data.content.map((d, index) => <p key={index}>{d.value}</p>)
+                        data.content.map((d, index) => <p data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} key={index}>{d.value}</p>)
                     )}
                 </div>
-                <div data-sal="slide-up" data-sal-delay="100" className="mission" >
+                <div className="mission" >
                     <h2 className="align-center">Mission</h2>
-                    {mission.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
+                    {mission.content.map(data => data.content.map((d, index) => <p data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} key={index}>{d.value}</p>))}
                 </div>
             </div>
             <div className="row">
-                <div data-sal="slide-up" data-sal-delay="100" className="events">
+                <div className="events">
                     <h2 className="align-center">Org Events</h2>
                     <Carousel items={1}>
                         {mainEvents.map((data, index) => (
@@ -76,18 +90,20 @@ export default function OrgPage({ data }) {
                         ))}
                     </Carousel>
                 </div>
-                <div data-sal="slide-up" data-sal-delay="100" className="vision right-side">
-                    <h2 className="align-center">Vision</h2>
-                    {vision.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
+                <div className="vision right-side">
+                    <h2 data-sal="slide-up" data-sal-duration="500"className="align-center">Vision</h2>
+                    {vision.content.map(data => data.content.map((d, index) => <p data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} key={index}>{d.value}</p>))}
                 </div>
             </div>
-            <div data-sal="slide-up" data-sal-delay="100" className="prices">
-                <h2>Prices</h2>
-                {registrationPackages.map(data => <p>{data.title} - {data.price}</p>)}
+            <div className="prices">
+                <h2 data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" >Prices</h2>
+                <ul>
+                    {registrationPackages.map((data, index) => <li data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} style={{marginLeft: "40px"}}>{data.title} - {data.price}</li>)}
+                </ul>
             </div>
-            <div data-sal="slide-up" data-sal-delay="100" className="apply-contact">
-                <a href="" rel="noopener noreferrer" target="_blank"><span>Apply Now</span></a>
-                <a href={"mailto:/" + email} rel="noopener noreferrer" target="_blank"><span>Contact {acronym}</span></a>
+            <div className="apply-contact">
+                <a data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" href="" rel="noopener noreferrer" target="_blank"><span>Apply Now</span></a>
+                <a data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" href={"mailto:/" + email} rel="noopener noreferrer" target="_blank"><span>Contact {acronym}</span></a>
             </div>
         </Layout>   
     )
