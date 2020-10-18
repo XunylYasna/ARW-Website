@@ -3,6 +3,8 @@
 
     h2 {
         color: var(--color-primary);
+        font-size: 2em;
+        margin-bottom: 20px;
     }
 
     img {
@@ -79,7 +81,8 @@
         }
 
         @include respond(phone) {
-            flex-direction: column;
+            grid-template-columns: 100%;
+            height: 40vh;
         }
     }
 
@@ -115,28 +118,35 @@
         }
     }
 
+    .content {
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        @include respond(phone) {
+            grid-template-columns: 100%;
+        }
+    }
+
     .events {
         flex: 1;
         padding: 10px;
-        width: 45%; // if this is not set, the carousel's width will be so big
-
-        @include respond(phone) {
-            width: 100%;
-        }
     }
     
     .prices {
         text-align: left;
         margin: 50px 0;
-    }
 
-    .row {
-        text-align: left;
-        display: flex;
-        flex-direction: row;
+        h2 {
+            text-align: center;
+        }
 
-        @include respond(phone) {
-            flex-direction: column;
+        .price-grid {
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+
+            .position {
+                font-weight: 700;
+            }
         }
     }
     

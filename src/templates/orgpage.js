@@ -66,7 +66,7 @@ export default function OrgPage({ data }) {
                     ))}
                 </Carousel>
             </div>
-            <div className="row">
+            <div className="content">
                 <div className="about" >
                     <h2 data-sal="slide-up" data-sal-duration="500" className="align-center">About { acronym }</h2>
                     {about.content.map(data => 
@@ -77,8 +77,6 @@ export default function OrgPage({ data }) {
                     <h2 className="align-center">Mission</h2>
                     {mission.content.map(data => data.content.map((d, index) => <p data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} key={index}>{d.value}</p>))}
                 </div>
-            </div>
-            <div className="row">
                 <div className="events">
                     <h2 className="align-center">Org Events</h2>
                     <Carousel items={1}>
@@ -97,9 +95,14 @@ export default function OrgPage({ data }) {
             </div>
             <div className="prices">
                 <h2 data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" >Prices</h2>
-                <ul>
-                    {registrationPackages.map((data, index) => <li data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} style={{marginLeft: "40px"}}>{data.title} - {data.price}</li>)}
-                </ul>
+                <div className="price-grid">
+                    {registrationPackages.map((data, index) => (
+                        <div data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} style={{marginLeft: "40px"}}>
+                            <div className="position">{data.title}</div>
+                            <div className="position-price">PHP {data.price}</div>
+                        </div>
+                    ))}
+                </div>
             </div>
             <div className="apply-contact">
                 <a data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" href="" rel="noopener noreferrer" target="_blank"><span>Apply Now</span></a>

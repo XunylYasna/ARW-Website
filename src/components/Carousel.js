@@ -27,7 +27,7 @@ export default ({ children, items }) => {
         <Carousel 
             infinite={true} 
             autoPlay={true}
-            autoPlaySpeed={1500}
+            autoPlaySpeed={2000}
             keyBoardControl={true}
             className='carousel' 
             responsive={responsive} >
