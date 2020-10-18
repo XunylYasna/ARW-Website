@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 
 import Img from "gatsby-image";
-import { TimelineLite, Quart } from "gsap";
+import gsap, { TimelineLite, Quart } from "gsap";
 
 import Layout from "../components/Layout"
 import Carousel from '../components/Carousel';
@@ -25,6 +25,7 @@ export default function OrgPage({ data }) {
 
     const headerTimeline = new TimelineLite({paused: true});
 
+
     useEffect(() => {
         headerTimeline
             .fromTo(".header", 1, {scaleX: 0}, {scaleX: 1, transformOrigin:"left", ease: Quart.easeInOut})
@@ -32,6 +33,8 @@ export default function OrgPage({ data }) {
             .fromTo(".title", 0.5, {opacity: 0, y: -30}, {opacity: 1, y: 0}, "-=0.5")
             .fromTo(".video", 0.5, {scaleX: 0}, {scaleX: 1, transformOrigin:"right", ease: Quart.easeInOut}, "-=0.5")
             .play()
+        
+        // gsap.to(".content", 1, {scrollTrigger: ".prices", x: 100, y: 100})
     })
 
     return (
