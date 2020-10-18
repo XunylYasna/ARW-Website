@@ -1,10 +1,12 @@
 import React from "react";
 
-export default function Card() {
+export default function Card({ style, children, className, bgColor }) {
   return (
-    <div className="card">
-      <div className="image-container">Hi</div>
-      <div className="description"></div>
+    <div
+      className={`card ${className ? className : ""}`}
+      style={{ backgroundColor: { bgColor }, ...style }}
+    >
+      {children}
     </div>
   );
 }
