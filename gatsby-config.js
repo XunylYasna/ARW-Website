@@ -19,10 +19,10 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `source sans pro\:300,400,400i,700`,
-          `IBMPlexMono\:400, 700`,
-          `BioRhyme\:200, 300, 400`,
-          `Space Mono\:700`,
+          // `source sans pro\:300,400,400i,700`,
+          // `IBMPlexMono\:400, 700`,
+          `Montserrat\:400`,
+          `Staatliches\:400`,
         ],
         display: "swap",
       },

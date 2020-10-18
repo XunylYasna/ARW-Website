@@ -1,0 +1,95 @@
+// .main-button{
+//     padding: 0.5rem 4rem;
+//     font-family: var(--ff-primary);
+//     font-size: 2rem;
+//     color: var(--color-primary);
+//     letter-spacing: 0.4rem;
+//     cursor: pointer;
+
+//     &:hover{
+//         background-color: red;
+//     }
+// }
+
+.main-button {
+    cursor: pointer;
+    background: var(--color-white);
+    border-width:2px;
+    border-style: solid;
+    border-color: var(--color-white);
+    position:relative;
+    margin:1em;
+    display:inline-block;
+    transition:all 0.3s ease-in-out;
+
+    text-align:center;
+    padding: 0.5rem 4rem;
+    font-family: var(--ff-primary);
+    font-size: 2rem;
+    color: var(--color-primary);
+
+    outline: none;
+}
+.main-button:before, .main-button:after {
+    content:'';
+    display:block;
+    position:absolute;
+    border-color:var(--color-white);
+    box-sizing:border-box;
+    border-style:solid;
+    width:1em;
+    height:1em;
+    transition:all 0.3s ease-in-out
+}
+.main-button:before {
+    top:-6px;left:-6px;
+    border-width:2px 0 0 2px;
+    z-index:5;
+}
+.main-button:after {
+    bottom:-6px;
+    right:-6px;
+    border-width:0 2px 2px 0;
+}
+.main-button:hover:before, button:hover:after {
+    width:calc(100% + 12px);
+    height:calc(100% + 12px);
+}
+
+.event-button{
+    padding: 0.5rem 2rem;
+    font-family: var(--ff-primary);
+    font-size: 1.5rem;
+    background-color: var(--color-white);
+    letter-spacing: 0.4rem;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border: 2px solid var(--color-primary);
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+
+    &:hover{
+        color: var(--color-white) !important;
+        background-color: transparent;
+        text-shadow: nthree;
+    }
+
+    &::before{
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: -1px;
+        height: 100%;
+        width: 0px;
+        z-index: -1;
+        content: '';
+        color: var(--color-white) !important;
+        background: var(--color-primary);
+        transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+    }
+    &:hover::before{
+        left: 0%;
+        right: auto;
+        width: calc(100% + 1px);
+    }
+}

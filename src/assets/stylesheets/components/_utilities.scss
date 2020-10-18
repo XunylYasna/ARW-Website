@@ -1,0 +1,48 @@
+.main-title{
+    font-family: var(--ff-primary);
+    font-weight: 100;
+    font-size: 7rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    color: var(--color-primary)
+    // span{
+    //     @include blue-gradient;
+    //     background-clip: text;
+    //     -webkit-background-clip: text;
+    //     -webkit-text-fill-color: transparent;
+    // }
+}
+
+.sub-title{
+    font-family: var(--ff-secondary);
+    font-weight: 100;
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.4rem;
+    color: var(--color-primary);
+}
+
+.main-line{
+    height: 2px;
+    background-color: var(--color-primary);
+    width: 80vw;
+    display: block;
+    margin: 3rem auto;
+}
+
+.sub-line{
+    height: 2px;
+    background-color: var(--color-primary);
+    display: block;
+    margin: 1rem auto;
+    width: 40vw;
+
+}
+
+.main-header{
+    @extend .sub-title;
+    font-size: 4rem;
+    font-weight: 900;
+}
