@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 
 
 const EventCard = ({ title, subTitle, img, content }) => {
