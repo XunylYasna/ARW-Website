@@ -78,19 +78,27 @@
         
       }
 
-      button {
-        font-size: 3rem;
-        font-family: "BioRhyme", serif;
-        background-color: var(--color-tertiary);
-        border: none;
-        margin-top: 10px;
-        padding: 10px;
-        border-radius: 50px;
-        cursor: pointer;
-        @include respond(tab-port) {
-          font-size: 3rem;
-        }
+      .play-button {
+        margin: auto;
       }
+
+      .play-circles circle {
+        fill: black;
+      }
+
+      // button {
+      //   font-size: 3rem;
+      //   font-family: "BioRhyme", serif;
+      //   background-color: var(--color-tertiary);
+      //   border: none;
+      //   margin-top: 10px;
+      //   padding: 10px;
+      //   border-radius: 50px;
+      //   cursor: pointer;
+      //   @include respond(tab-port) {
+      //     font-size: 3rem;
+      //   }
+      // }
     }
 
     // svg {
@@ -222,7 +230,7 @@
     display: flex;
     text-align: center;
     justify-content: center;
-    background-color: var(--color-secondary);
+    // background-color: var(--color-secondary);
 
     .header-box {
       width: 50%;
@@ -230,18 +238,18 @@
       opacity: 0;
       transform: translateY(100%);
 
-      h1 {
-        font-size: 5rem;
-        @include respond(phone) {
-          font-size: 4rem;
-        }
-      }
-      p {
-        font-size: 3rem;
-        @include respond(phone) {
-          font-size: 2.5rem;
-        }
-      }
+      // h1 {
+      //   font-size: 5rem;
+      //   @include respond(phone) {
+      //     font-size: 4rem;
+      //   }
+      // }
+      // p {
+      //   font-size: 3rem;
+      //   @include respond(phone) {
+      //     font-size: 2.5rem;
+      //   }
+      // }
 
       @include respond(phone) {
         width: 90%;

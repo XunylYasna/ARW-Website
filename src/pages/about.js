@@ -7,6 +7,7 @@ import { useIntersection } from "react-use";
 import Card from "components/Card";
 import Layout from "components/Layout";
 import Container from "components/Container";
+import VideoModal from "../components/Utilities/VideoModal";
 
 import Img1 from "../assets/images/ARW2019Photos/1.jpg";
 import Img2 from "../assets/images/ARW2019Photos/2.jpg";
@@ -77,11 +78,23 @@ const HeroSection = () => {
         <use xlinkHref={`#${icon.id}`} />
       </svg> */}
       <div className="header-box">
-        <span id="whatis">What is </span>
+        <span className="main-title" id="whatis">
+          What is{" "}
+        </span>
         <br />
-        <span id="h1">ARW 2020?</span>
+        <span className="main-title" id="h1">
+          ARW 2020?
+        </span>
         <br />
+<<<<<<< Updated upstream
         <button onClick={() => setOpen(true)}>Watch the Video!</button>
+=======
+        {/* <button className="main-button" onClick={() => setOpen(true)}>
+          Watch the Video!
+        </button> */}
+        <VideoModal link="https://www.youtube.com/embed/dQw4w9WgXcQ" />
+
+>>>>>>> Stashed changes
       </div>
       {/* <div className="video-container">
         <div className="video-player-container">
@@ -175,13 +188,21 @@ const HeroSection = () => {
         </div>
       </div>
 
+<<<<<<< Updated upstream
       <ModalVideo
+=======
+      {/* <ModalVideo
+>>>>>>> Stashed changes
         channel="youtube"
         autoplay
         isOpen={isOpen}
         videoId="L61p2uyiMSo"
         onClose={() => setOpen(false)}
+<<<<<<< Updated upstream
       />
+=======
+      /> */}
+>>>>>>> Stashed changes
     </div>
   );
 };
@@ -202,7 +223,11 @@ const AboutSection = () => {
 
     gsap.to(sectionRef.current, {
       scrollTrigger: sectionRef.current,
+<<<<<<< Updated upstream
       duration: 3,
+=======
+      duration: 10,
+>>>>>>> Stashed changes
       opacity: 1,
       y: 0,
       ease: "power4.out",
@@ -235,8 +260,8 @@ const AboutSection = () => {
   return (
     <div className="about-section">
       <div className="header-box fadeIn" ref={sectionRef}>
-        <h1 className="fadeIn">About ARW 2020</h1>
-        <p className="fadeIn">
+        <h1 className="fadeIn main-header">About ARW 2020</h1>
+        <p className="fadeIn text-content">
           Annual Recruitment Week (ARW) 2020 is a week-long University-wide
           event. Wherein the Council of Student Organizations (CSO) accredited
           organizations are given the chance to attract and recruit old and new
