@@ -2,11 +2,14 @@ import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 
 import Img from "gatsby-image";
-import { TimelineLite, Quart } from "gsap";
+import gsap, { TimelineLite, Quart } from "gsap";
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 import Layout from "../components/Layout"
 import Carousel from '../components/Carousel';
 import { Helmet } from "react-helmet";
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function OrgPage({ data }) {
     const { 
@@ -24,7 +27,37 @@ export default function OrgPage({ data }) {
         twitterUrl 
     } = data.allContentfulOrganization.nodes[0];
 
-    const headerTimeline = new TimelineLite({paused: true});
+    const headerTimeline = new TimelineLite({
+        pause: true
+    });
+
+    const photosTimeline = new TimelineLite({
+        scrollTrigger: {
+            trigger: ".photos",
+            start: "center center"
+        },
+    })
+
+    const contentsTimeline = new TimelineLite({
+        scrollTrigger: {
+            trigger: ".about",
+            start: "center center"
+        },
+    })
+
+    const pricesTimeline = new TimelineLite({
+        scrollTrigger: {
+            trigger: ".mission",
+            start: "top top"
+        },
+    })
+
+    const buttons = new TimelineLite({
+        scrollTrigger: {
+            trigger: ".vision",
+            start: "top top"
+        },
+    })
 
     useEffect(() => {
         headerTimeline
@@ -33,7 +66,33 @@ export default function OrgPage({ data }) {
             .fromTo(".title", 0.5, {opacity: 0, y: -30}, {opacity: 1, y: 0}, "-=0.5")
             .fromTo(".video", 0.5, {scaleX: 0}, {scaleX: 1, transformOrigin:"right", ease: Quart.easeInOut}, "-=0.5")
             .play()
+
+        gsap.from(".photos h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
     })
+
+    photosTimeline
+        .fromTo(".photos h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+        .fromTo(".photos .carousel", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+    
+    contentsTimeline
+        .fromTo(".about", 1, {scaleX: 0}, {scaleX: 1, transformOrigin:"left", ease: Quart.easeInOut})
+        .from(".about h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+        .fromTo(".vision", 1, {scaleX: 0}, {scaleX: 1, transformOrigin:"right", ease: Quart.easeInOut}, "-=1")
+        .from(".mission h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+        .from(".vision h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+        .from(".events h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+        .fromTo(".about p", 0.5, {opacity: 0}, {opacity: 1})
+        .fromTo(".mission p", 0.5, {opacity: 0}, {opacity: 1}, "-=0.5")
+        .fromTo(".vision p", 0.5, {opacity: 0}, {opacity: 1}, "-=0.5")
+        .fromTo(".events p", 0.5, {opacity: 0}, {opacity: 1}, "-=0.5")
+
+    pricesTimeline
+        .from(".prices h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+        .from(".price-item", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0}, "+=0.25")
+
+    
+    buttons
+        .from(".apply-contact", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
 
     return (
         <Layout pageName="org">
@@ -56,7 +115,7 @@ export default function OrgPage({ data }) {
                         className="video"
                         src={"https://www.youtube.com/embed/Dz6Sg630I8M"}
                         // title={videoTitle}
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allow="accelerometer; aucenterlay; encrypted-media; gyroscope; picture-in-picture"
                         frameBorder="0"
                         webkitallowfullscreen="true"
                         mozallowfullscreen="true"
@@ -67,7 +126,7 @@ export default function OrgPage({ data }) {
             <div className="photos">
                 <h2>Photos</h2>
                 <div className="sub-line"></div>
-                <Carousel items={3} style={{textAlign: "center"}}>
+                <Carousel className="carousel" items={3} style={{textAlign: "center"}}>
                     {media.map((data, index) => (
                         <img key={index} draggable={false} src={data.fluid.src} />
                     ))}
@@ -109,7 +168,7 @@ export default function OrgPage({ data }) {
                 <div className="sub-line"></div>
                 <div className="price-grid">
                     {registrationPackages.map((data, index) => (
-                        <div style={{marginLeft: "40px"}}>
+                        <div class="price-item" style={{marginLeft: "40px"}}>
                             <div className="position">{data.title}</div>
                             <div className="position-price">PHP {data.price}</div>
                         </div>
