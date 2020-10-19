@@ -51,7 +51,7 @@
     right:-6px;
     border-width:0 2px 2px 0;
 }
-.main-button:hover:before, button:hover:after {
+.main-button:hover:before, .main-button:hover:after {
     width:calc(100% + 12px);
     height:calc(100% + 12px);
 }

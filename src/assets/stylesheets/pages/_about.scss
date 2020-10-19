@@ -1,6 +1,4 @@
 .page-about {
-  background-color: white;
-
   h1 {
     color: black;
   }
@@ -14,7 +12,8 @@
 
   header {
     background-color: var(--color-primary);
-    z-index: 2001;
+    z-index: 2006;
+    border-bottom: unset;
   }
 
   header a,
@@ -30,12 +29,20 @@
     margin-top: 5rem;
   }
 
+  .overlay {
+    height: calc(100vh - 77.8px);
+    position: absolute;
+    z-index: 2001;
+    background-color: rgba(12, 12, 12, 0.514);
+    width: 100%;
+  }
+
   .hero-section {
     display: flex;
     justify-content: center;
     text-align: center;
-    height: 100vh;
-    background-color: var(--color-white);
+    height: calc(100vh - 77.8px);
+    background-color: var(--color-black);
 
     // @include respond(tab-port) {
     //   display: inline-block;
@@ -46,7 +53,7 @@
     .header-box {
       position: relative;
       width: 100%;
-      z-index: 1;
+      z-index: 2002;
       height: auto;
       margin: auto;
 
@@ -74,16 +81,12 @@
         @include respond(phone) {
           font-size: 4em;
         }
-
-        
       }
 
       .play-button {
+        position: relative;
         margin: auto;
-      }
-
-      .play-circles circle {
-        fill: black;
+        z-index: 2003;
       }
 
       // button {
@@ -155,11 +158,15 @@
     background-size: cover;
     background-position: center;
     opacity: 0;
+    border-width: 10px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 10px;
     // -webkit-filter: brightness(0.7);
     // filter: brightness(0.7);
 
     &--a {
-      grid-area: 2 / 2 / 5 / 5;
+      grid-area: 1 / 1 / 4 / 4;
     }
 
     &--b {
@@ -175,15 +182,15 @@
     }
 
     &--e {
-      grid-area: 4 / 10 / 7 / 13;
+      grid-area: 7 / 10 / 9 / 13;
     }
 
     &--f {
-      grid-area: 6 / 7 / 9 / 10;
+      grid-area: 5 / 7 / 8 / 10;
     }
 
     &--g {
-      grid-area: 2 / 9 / 5 / 12;
+      grid-area: 2 / 10 / 5 / 13;
     }
   }
 
@@ -203,7 +210,7 @@
     height: 100vh;
     position: absolute;
     overflow: hidden;
-    z-index: 2000;
+    z-index: 2005;
     pointer-events: none;
     left: 0;
     right: 0;
@@ -226,17 +233,29 @@
   }
 
   .about-section {
-    height: 100vh;
+    height: 50vh;
     display: flex;
     text-align: center;
     justify-content: center;
-    // background-color: var(--color-secondary);
+    background-color: var(--color-primary);
+    @include respond(phone) {
+      height: 70vh;
+    }
+
+    .sub-line {
+      background-color: var(--color-white);
+    }
 
     .header-box {
       width: 50%;
       margin: auto;
       opacity: 0;
       transform: translateY(100%);
+
+      h1,
+      p {
+        color: var(--color-white);
+      }
 
       // h1 {
       //   font-size: 5rem;
@@ -252,30 +271,95 @@
       // }
 
       @include respond(phone) {
-        width: 90%;
+        width: 80%;
       }
     }
   }
 
-  .project-heads-section {
-    height: 100vh;
+  .team-section {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 
     .header-box {
       h1 {
+        color: var(--color-primary);
         font-size: 4rem;
+        margin: 30px;
+        margin-bottom: 0;
       }
-      p {
-        font-size: 2rem;
+      .sub-line {
+        margin-bottom: 30px;
       }
     }
 
-    .project-heads-container {
+    .project-heads-section {
+      .sub-title {
+        color: var(--color-primary);
+        margin-bottom: 30px;
+      }
+    }
+
+    .project-heads-card-container {
       display: flex;
       justify-content: space-around;
       flex-flow: wrap;
+      text-align: center;
+      justify-content: center;
+
+      @media only screen and (max-width: 1370px) {
+        width: 70%;
+      }
+
+      @include respond (tab-port) {
+        width: 60%;
+      }
+
+      @include respond (phone) {
+        width: 90%;
+      }
+
+      .card-wrapper {
+        margin: 20px 20px;
+        // flex: 0 1 21%;
+        .card {
+          margin-bottom: 20px;
+        }
+
+        @include respond(phone) {
+          margin: 20px auto;
+        }
+      }
+    }
+
+    .committees-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+
+      .committee-item {
+        width: 50%;
+        @include respond (phone) {
+          width: 90%;
+        }
+
+        .card-wrapper {
+          margin: 20px 20px;
+          width: fit-content;
+          .card {
+            margin-bottom: 20px;
+          }
+  
+          @include respond(phone) {
+            margin: 20px auto;
+          }
+        }
+      }
     }
   }
 }
