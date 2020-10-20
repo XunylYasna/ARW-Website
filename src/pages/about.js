@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { gsap } from "gsap";
-// import ModalVideo from "react-modal-video";
+import ModalVideo from "react-modal-video";
 // import { useIntersection } from "react-use";
 
 import Card from "components/Card";
@@ -81,17 +81,17 @@ const HeroSection = () => {
       </svg> */}
       <div className="header-box">
         <span className="main-title" id="whatis">
-          What is{" "}
+          What is
         </span>
         <br />
         <span className="main-title" id="h1">
           ARW 2020?
         </span>
         <br />
-        {/* <button className="main-button" onClick={() => setOpen(true)}>
+        <button className="main-button" onClick={() => setOpen(true)}>
           Watch the Video!
-        </button> */}
-        <VideoModal link="https://www.youtube.com/embed/dQw4w9WgXcQ" />
+        </button>
+        {/* <VideoModal link="https://www.youtube.com/embed/dQw4w9WgXcQ" /> */}
       </div>
       {/* <div className="video-container">
         <div className="video-player-container">
@@ -185,13 +185,13 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* <ModalVideo
+      <ModalVideo
         channel="youtube"
         autoplay
         isOpen={isOpen}
-        videoId="L61p2uyiMSo"
+        videoId="dQw4w9WgXcQ"
         onClose={() => setOpen(false)}
-      /> */}
+      />
     </div>
   );
 };

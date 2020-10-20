@@ -5,7 +5,7 @@ export default function CommitteeItem({ name, children }) {
     <div className="committee-item">
       <div className="header-box">
         <h1 className="sub-title">{name}</h1>
-        <span className="team-heads text-content">TEAM HEADS</span>
+        <div className="team-heads sub-title text-content">TEAM HEADS</div>
       </div>
       <div className="card-container">{children}</div>
       <div className="footer-box">
