@@ -10,6 +10,7 @@
     "gatsby-plugin-react-helmet": "^3.1.23",
     "gatsby-plugin-resolve-src": "^2.0.0",
     "gatsby-plugin-sass": "^2.1.30",
+    "gatsby-plugin-scroll-reveal": "0.0.7",
     "gatsby-plugin-sharp": "^2.6.40",
     "gatsby-plugin-svg-sprite": "^2.0.1",
     "gatsby-plugin-transition-link": "^1.18.0",
@@ -25,10 +26,10 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",
-    "react-icons": "^3.11.0"
+    "react-icons": "^3.11.0",
     "react-modal-video": "^1.2.6",
+    "react-multi-carousel": "^2.5.5",
     "react-use": "^15.3.4"
-
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",

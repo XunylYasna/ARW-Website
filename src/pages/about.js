@@ -202,7 +202,7 @@ const AboutSection = () => {
 
     gsap.to(sectionRef.current, {
       scrollTrigger: sectionRef.current,
-      duration: 10,
+      duration: 3,
       opacity: 1,
       y: 0,
       ease: "power4.out",
