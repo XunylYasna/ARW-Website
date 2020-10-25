@@ -28,8 +28,9 @@ const Partners = () => {
   return (
     <section className="partners">
       <div>
-        <h1>Co-Presented By:</h1>
+        <h1 className="sub-title">Co-Presented By:</h1>
       </div>
+      <div className="sub-line"></div>
 
       <div className="cards-container">{eventCards}</div>
       <div className="socials">
