@@ -1,13 +1,12 @@
 .page-org {
     text-align: center;
+    font-family: var(--ff-secondary);
 
     h2 {
-        display:inline-block;
+        display: inline-block;
         color: var(--color-primary);
-        font-size: 2em;
-        margin-bottom: 20px;
-        border: 2px solid;
-        padding: 5px;
+
+        @extend .main-header;
     }
 
     img {
@@ -17,6 +16,7 @@
     }
 
     p {
+        font-size: 1.5em;
         margin-bottom: 10px;
         white-space: pre-line
     }
@@ -42,7 +42,8 @@
             }
 
             .title {
-                font-size: 2em;
+                @extend .main-title;
+                
                 transform-style: preserve-3d;
             }
 
@@ -94,34 +95,6 @@
         margin: 50px 0;
     }
 
-    .about {
-        flex: 1;
-        padding: 10px;
-        background-color: var(--color-primary);
-        color: #fff;
-        h2 {
-            color: #fff;
-        }
-    }
-
-    .vision {
-        flex: 1;
-        padding: 10px;
-        background-color: var(--color-primary);
-        color: #fff;
-        h2 {
-            color: #fff;
-        }
-    }
-
-    .mission {
-        flex: 1;
-        padding: 10px;
-        li {
-            margin-left: 50px;
-        }
-    }
-
     .content {
         display: grid;
         grid-template-columns: 50% 50%;
@@ -131,9 +104,61 @@
         }
     }
 
+    .about {
+        order: 1;
+        padding: 10px;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        h2 {
+            color: var(--color-white);
+        }
+
+        .sub-line {
+            background-color: var(--color-white);
+        }
+    }
+
+    .mission {
+        order: 2;
+        padding: 10px;
+        
+        li {
+            margin-left: 50px;
+        }
+    }
+
+    .vision {
+        order: 4;
+        padding: 10px;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+
+        h2 {
+            color: var(--color-white);
+        }
+
+        .sub-line {
+            background-color: var(--color-white);
+        }
+
+        @include respond(phone) {
+            order: 3;
+        }
+    }
+
     .events {
+        order: 3;
         flex: 1;
         padding: 10px;
+
+        h3 {
+            font-size: 2em;
+            font-family: var(--ff-secondary);
+        }
+
+        @include respond(phone) {
+            order: 4;
+        }
     }
     
     .prices {
@@ -141,11 +166,17 @@
         margin: 50px 0;
 
         .price-grid {
+            font-size: 2em;
             display: grid;
             grid-template-columns: 25% 25% 25% 25%;
 
             .position {
                 font-weight: 700;
+            }
+
+            @include respond(phone) {
+                font-size: 1.5em;
+                grid-template-columns: 33% 33% 33%;
             }
         }
     }
@@ -157,7 +188,7 @@
         a {
             background-color: var(--color-primary);
             font-size: 18px;
-            color: #fff;
+            color: var(--color-white);
             font-weight: 700;
             padding: 20px;
             margin: 5px;
