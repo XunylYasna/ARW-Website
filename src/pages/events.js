@@ -2,9 +2,6 @@ import React, { useRef } from "react";
 import Helmet from "react-helmet";
 
 import Layout from "components/Layout";
-// import Container from "components/Container";
-// import EventList from "../components/Events/EventList"
-
 import EventLine from "../components/Events/EventLine"
 
 import { ScrollToRef } from "../components/Utilities/ScrolltoRef"
