@@ -1,4 +1,6 @@
 .page-about {
+  background-color: white;
+
   h1 {
     color: black;
   }
@@ -12,8 +14,7 @@
 
   header {
     background-color: var(--color-primary);
-    z-index: 2006;
-    border-bottom: unset;
+    z-index: 2001;
   }
 
   header a,
@@ -29,20 +30,12 @@
     margin-top: 5rem;
   }
 
-  .overlay {
-    height: calc(100vh - 77.8px);
-    position: absolute;
-    z-index: 2001;
-    background-color: rgba(12, 12, 12, 0.514);
-    width: 100%;
-  }
-
   .hero-section {
     display: flex;
     justify-content: center;
     text-align: center;
-    height: calc(100vh - 77.8px);
-    // background-color: var(--color-black);
+    height: 100vh;
+    background-color: var(--color-white);
 
     // @include respond(tab-port) {
     //   display: inline-block;
@@ -53,53 +46,51 @@
     .header-box {
       position: relative;
       width: 100%;
-      z-index: 2002;
+      z-index: 1;
       height: auto;
       margin: auto;
 
       span {
         font-size: 6rem;
         background-color: rgba(255, 255, 255, 0.7);
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
         cursor: default;
 
         &#h1 {
           font-size: 8rem;
           font-weight: bold;
+          @include respond(tab-port) {
+            font-size: 6em;
+          }
           @include respond(phone) {
             font-size: 6em;
           }
         }
 
+        @include respond(tab-port) {
+          font-size: 4em;
+        }
         @include respond(phone) {
           font-size: 4em;
         }
-      }
 
-      .play-button {
-        position: relative;
-        margin: auto;
-        z-index: 2003;
+        
       }
 
       button {
-        background-color: rgba(255, 255, 255, 0.7);
+        font-size: 3rem;
+        font-family: "BioRhyme", serif;
+        background-color: var(--color-tertiary);
+        border: none;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 50px;
+        cursor: pointer;
+        @include respond(tab-port) {
+          font-size: 3rem;
+        }
       }
-
-      // button {
-      //   font-size: 3rem;
-      //   font-family: "BioRhyme", serif;
-      //   background-color: var(--color-tertiary);
-      //   border: none;
-      //   margin-top: 10px;
-      //   padding: 10px;
-      //   border-radius: 50px;
-      //   cursor: pointer;
-      //   @include respond(tab-port) {
-      //     font-size: 3rem;
-      //   }
-      // }
     }
 
     // svg {
@@ -140,14 +131,14 @@
   .grid {
     grid-area: 1 / 1 / 2 / 2;
     width: 100vw;
-    height: calc(100vh - 120px);
+    height: 80vh;
+    margin-top: 5vh;
     display: grid;
     grid-template-columns: repeat(13, 1fr);
     grid-template-rows: repeat(8, 1fr);
     grid-gap: 1vw;
     position: absolute;
     top: calc(22.5px * 2 + 41.6px);
-    margin-top: 10px;
     left: 0;
     right: 0;
   }
@@ -156,66 +147,35 @@
     background-size: cover;
     background-position: center;
     opacity: 0;
-    // border-width: 10px;
-    // border-color: white;
-    // border-style: solid;
-    // border-radius: 10px;
     // -webkit-filter: brightness(0.7);
     // filter: brightness(0.7);
 
-    border:2px solid var(--color-white);
-    box-shadow: 10px 10px 5px #ccc;
-      -moz-box-shadow: 10px 10px 5px #ccc;
-      -webkit-box-shadow: 10px 10px 5px #ccc;
-      -khtml-box-shadow: 10px 10px 5px #ccc;
-
     &--a {
-      grid-area: 1 / 1 / 4 / 4;
-      @include respond (tab-port) {
-        grid-area: 1 / 1 / 3 / 6;
-      }
+      grid-area: 2 / 2 / 5 / 5;
     }
 
     &--b {
       grid-area: 6 / 2 / 9 / 5;
-      @include respond (tab-port) {
-        grid-area: 6 / 1 / 9 / 5;
-      }
     }
 
     &--c {
       grid-area: 3 / 4 / 7 / 7;
-      @include respond (tab-port) {
-        grid-area: 3 / 2 / 6 / 9;
-      }
     }
 
     &--d {
       grid-area: 1 / 6 / 4 / 9;
-      @include respond (tab-port) {
-        grid-area: 2 / 6 / 4 / 11;
-      }
     }
 
     &--e {
-      grid-area: 6 / 10 / 9 / 13;
-      @include respond (tab-port) {
-        grid-area: 6 / 10 / 9 / 15;
-      }
+      grid-area: 4 / 10 / 7 / 13;
     }
 
     &--f {
-      grid-area: 5 / 7 / 8 / 10;
-      @include respond (tab-port) {
-        grid-area: 5 / 6 / 8 / 12;
-      }
+      grid-area: 6 / 7 / 9 / 10;
     }
 
     &--g {
-      grid-area: 2 / 10 / 5 / 13;
-      @include respond (tab-port) {
-        grid-area: 3 / 10 / 5 / 15;
-      }
+      grid-area: 2 / 9 / 5 / 12;
     }
   }
 
@@ -235,7 +195,7 @@
     height: 100vh;
     position: absolute;
     overflow: hidden;
-    z-index: 2005;
+    z-index: 2000;
     pointer-events: none;
     left: 0;
     right: 0;
@@ -258,18 +218,11 @@
   }
 
   .about-section {
-    height: 50vh;
+    height: 100vh;
     display: flex;
     text-align: center;
     justify-content: center;
-    background-color: var(--color-primary);
-    @include respond(phone) {
-      height: 70vh;
-    }
-
-    .sub-line {
-      background-color: var(--color-white);
-    }
+    background-color: var(--color-secondary);
 
     .header-box {
       width: 50%;
@@ -277,115 +230,44 @@
       opacity: 0;
       transform: translateY(100%);
 
-      h1,
+      h1 {
+        font-size: 5rem;
+        @include respond(phone) {
+          font-size: 4rem;
+        }
+      }
       p {
-        color: var(--color-white);
+        font-size: 3rem;
+        @include respond(phone) {
+          font-size: 2.5rem;
+        }
       }
 
-      // h1 {
-      //   font-size: 5rem;
-      //   @include respond(phone) {
-      //     font-size: 4rem;
-      //   }
-      // }
-      // p {
-      //   font-size: 3rem;
-      //   @include respond(phone) {
-      //     font-size: 2.5rem;
-      //   }
-      // }
-
       @include respond(phone) {
-        width: 80%;
+        width: 90%;
       }
     }
   }
 
-  .team-section {
-    min-height: 100vh;
+  .project-heads-section {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-white);
 
     .header-box {
       h1 {
-        color: var(--color-primary);
         font-size: 4rem;
-        margin: 30px;
-        margin-bottom: 0;
       }
-      .sub-line {
-        margin-bottom: 30px;
+      p {
+        font-size: 2rem;
       }
     }
 
-    .project-heads-section {
-      .sub-title {
-        color: var(--color-primary);
-        margin-bottom: 30px;
-      }
-    }
-
-    .project-heads-card-container {
+    .project-heads-container {
       display: flex;
       justify-content: space-around;
       flex-flow: wrap;
-      text-align: center;
-      justify-content: center;
-
-      @media only screen and (max-width: 1370px) {
-        width: 70%;
-      }
-
-      @include respond (tab-port) {
-        width: 60%;
-      }
-
-      @include respond (phone) {
-        width: 90%;
-      }
-
-      .card-wrapper {
-        margin: 20px 20px;
-        // flex: 0 1 21%;
-        .card {
-          margin-bottom: 20px;
-        }
-
-        @include respond(phone) {
-          margin: 20px auto;
-        }
-      }
-    }
-
-    .committees-container {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-
-      .committee-item {
-        width: 50%;
-        @include respond (phone) {
-          width: 90%;
-        }
-
-        .card-wrapper {
-          margin: 20px 20px;
-          width: fit-content;
-          .card {
-            margin-bottom: 20px;
-          }
-  
-          @include respond(phone) {
-            margin: 20px auto;
-          }
-        }
-      }
     }
   }
 }

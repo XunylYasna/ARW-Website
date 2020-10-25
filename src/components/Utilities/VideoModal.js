@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { gsap, TweenMax, Power1, Power2, TimelineMax } from "gsap";
 import { ExpoScaleEase } from "gsap/EasePack";
 gsap.registerPlugin(ExpoScaleEase);
@@ -41,8 +41,8 @@ export default function VideoModal({ link }) {
     //   )
     .to(
       ".play-close",
+      1,
       {
-        duration: 1,
         opacity: 1,
         ease: Power2.easeInOut,
       },
@@ -50,8 +50,8 @@ export default function VideoModal({ link }) {
     )
     .to(
       ".play-perspective",
+      1,
       {
-        duration: 1,
         xPercent: 0,
         scale: 1,
         ease: Power2.easeInOut,
@@ -60,8 +60,8 @@ export default function VideoModal({ link }) {
     )
     .to(
       ".play-triangle",
+      1,
       {
-        duration: 1,
         scaleX: 1,
         ease: ExpoScaleEase(2, 1, Power2.easeInOut),
       },
@@ -69,8 +69,8 @@ export default function VideoModal({ link }) {
     )
     .to(
       ".play-triangle",
+      1,
       {
-        duration: 1,
         rotationY: 0,
         ease: ExpoScaleEase.config(10, 0.01, Power2.easeInOut),
       },
@@ -78,8 +78,8 @@ export default function VideoModal({ link }) {
     )
     .to(
       ".play-video",
+      1,
       {
-        duration: 1,
         visibility: "visible",
         opacity: 1,
       },
@@ -120,16 +120,8 @@ export default function VideoModal({ link }) {
     <div
       class="play-button"
       onMouseOver={(e) => rotateTL.play()}
-      onFocus={(e) => rotateTL.play()}
-      onKeyPress={(e) => {
-        if (e.key === "Enter") {
-          rotateTL.play();
-        }
-      }}
       onMouseLeave={(e) => rotateTL.reverse()}
       onClick={(e) => openTL.play()}
-      role="button"
-      tabIndex="0"
     >
       <svg class="play-circles" viewBox="0 0 152 152">
         <circle
@@ -154,15 +146,7 @@ export default function VideoModal({ link }) {
         />
       </svg>
       <div class="play-perspective">
-        <button
-          class="play-close"
-          onClick={(e) => {
-            e.stopPropagation();
-            openTL.reverse();
-          }}
-        >
-          {""}
-        </button>
+        <button class="play-close"></button>
         <div class="play-triangle">
           <div class="play-video">
             <iframe
@@ -172,7 +156,6 @@ export default function VideoModal({ link }) {
               frameborder="0"
               allow="autoplay; encrypted-media"
               allowfullscreen
-              title={link}
             ></iframe>
           </div>
         </div>
