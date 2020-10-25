@@ -140,14 +140,14 @@
   .grid {
     grid-area: 1 / 1 / 2 / 2;
     width: 100vw;
-    height: 80vh;
-    margin-top: 5vh;
+    height: calc(100vh - 120px);
     display: grid;
     grid-template-columns: repeat(13, 1fr);
     grid-template-rows: repeat(8, 1fr);
     grid-gap: 1vw;
     position: absolute;
     top: calc(22.5px * 2 + 41.6px);
+    margin-top: 10px;
     left: 0;
     right: 0;
   }
