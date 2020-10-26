@@ -3,29 +3,22 @@ import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Layout from "../components/Layout"
-import Container from "../components/Container"
 
-import Img from "gatsby-image"
+import Img from "gatsby-image";
 
 export default function ClusterPage({ data }) {
 
-    const cluster = data.allContentfulCluster.nodes[0]
+    const { landingImage, title, subtitle, organizations } = data.allContentfulCluster.nodes[0]
     return (
-        <Layout>
-
-            <Container>
-                <p className="cover">
-                    <Img fluid={cluster.landingImage.fluid} />
-                </p>
-                <h1>{cluster.title}</h1>
-                <h3>{cluster.subtitle}</h3>
-            </Container>
-            <section>
+        <Layout pageName="cluster">
+            <h1 className="organization-header">{subtitle}({title})</h1>
+            <Img fluid={landingImage.fluid} />
+            <div className="organization-list">
+                <h1>Organization under {title}</h1>
                 <ul>
-                    {cluster.organizations ? cluster.organizations.map(org => {
-                        console.log(org)
+                    {organizations ? organizations.map((org, index) => {
                         return (
-                            <li>
+                            <li key={index}>
                                 <AniLink
                                     cover
                                     to={org.slug}
@@ -33,16 +26,17 @@ export default function ClusterPage({ data }) {
                                     duration={0.7}
                                     className="header-link"
                                 >
-                                    <div>
+                                    <div className="org-item">
                                         <p>{org.organizationName}</p>
                                         <p>{org.acronym}</p>
+                                        <Img  fluid={org.logo.fluid} />
                                     </div>
                                 </AniLink>
                             </li>
                         )
                     }) : <div></div>}
                 </ul>
-            </section>
+            </div>
         </Layout>
     )
 }
@@ -62,6 +56,11 @@ export const query = graphql`
                 slug
                 organizationName
                 acronym
+                logo {
+                    fluid {
+                        ...GatsbyContentfulFluid
+                    }
+                }
             }
         }
     }

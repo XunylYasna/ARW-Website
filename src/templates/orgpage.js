@@ -24,9 +24,13 @@ export default function OrgPage({ data }) {
         registrationPackages, 
         email, 
         facebookUrl, 
-        twitterUrl 
+        twitterUrl,
+        youtubeVideoLink
     } = data.allContentfulOrganization.nodes[0];
 
+    // extract the youtube id form the original youtube link 
+    const youtubeId = youtubeVideoLink.substring('https://www.youtube.com/watch?v='.length, youtubeVideoLink.length).split('&')[0]
+ 
     const headerTimeline = new TimelineLite({
         pause: true
     });
@@ -113,7 +117,7 @@ export default function OrgPage({ data }) {
                 <div className="right">
                     <iframe
                         className="video"
-                        src={"https://www.youtube.com/embed/Dz6Sg630I8M"}
+                        src={"https://www.youtube.com/embed/" + youtubeId}
                         // title={videoTitle}
                         allow="accelerometer; aucenterlay; encrypted-media; gyroscope; picture-in-picture"
                         frameBorder="0"
@@ -128,7 +132,7 @@ export default function OrgPage({ data }) {
                 <div className="sub-line"></div>
                 <Carousel className="carousel" items={3} style={{textAlign: "center"}}>
                     {media.map((data, index) => (
-                        <img key={index} draggable={false} src={data.fluid.src} />
+                        <Img key={index} draggable={false} className="photo-image" fluid={data.fluid} />
                     ))}
                 </Carousel>
             </div>
@@ -199,10 +203,7 @@ export const query = graphql`
             logo {
                 title
                 fluid {
-                    base64
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
+                    ...GatsbyContentfulFluid
                 }
             }
             mainEvents {
@@ -217,11 +218,7 @@ export const query = graphql`
             }
             media {
                 fluid {
-                    base64
-                    tracedSVG
-                    src
-                    srcWebp
-                    srcSetWebp
+                    ...GatsbyContentfulFluid
                 }
             }
             mission {
@@ -245,6 +242,7 @@ export const query = graphql`
             email
             facebookUrl
             twitterUrl
+            youtubeVideoLink
         }
     }
   }

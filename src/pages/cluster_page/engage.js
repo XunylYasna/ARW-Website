@@ -2,8 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
-import Layout from "../components/Layout"
-import Container from "../components/Container"
+import Layout from "../../components/Layout"
+import Container from "../../components/Container"
 
 import Img from "gatsby-image"
 

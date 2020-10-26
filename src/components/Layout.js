@@ -17,7 +17,7 @@ const Layout = ({ children, pageName }) => {
   return (
     <>
       <Helmet bodyAttributes={{ class: className }}>
-        <title>ARW 2020 || {pageName}</title>
+        {/* <title>ARW 2020 || {pageName}</title> */}
       </Helmet>
       <div className="blob">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
