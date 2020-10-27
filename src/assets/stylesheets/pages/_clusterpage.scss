@@ -1,12 +1,36 @@
 .page-cluster {
+    .landing-image {
+        height: 30vh;
+    }
+    
     .organization-header {
         text-align: center;
 
-        color: var($--color-white);
-        background-color: var($--color-primary);
+        background-color: var(--color-primary);
+
+        .main-header {
+            font-weight: 600;
+            color: var(--color-white);
+        }
     }
 
     .organization-list {
-        
+        .list {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: 33% 33% 33%;
+
+            .item {
+                background-color: var(--color-primary);
+                
+                a {
+                    text-decoration: none;
+                }
+
+                .sub-title {
+                    color: var(--color-white);
+                }
+            }
+        }
     }
 }
