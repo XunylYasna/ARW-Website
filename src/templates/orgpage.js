@@ -118,7 +118,7 @@ export default function OrgPage({ data }) {
                     <iframe
                         className="video"
                         src={"https://www.youtube.com/embed/" + youtubeId}
-                        // title={videoTitle}
+                        title={acronym + " Promotional Video"}
                         allow="accelerometer; aucenterlay; encrypted-media; gyroscope; picture-in-picture"
                         frameBorder="0"
                         webkitallowfullscreen="true"

@@ -2,7 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
-import Layout from "../components/Layout"
+import Layout from "../components/Layout";
+import Minimap from "../components/Minimap";
+import { engage, engagePositions     } from "./buildings"
 
 import Img from "gatsby-image";
 
@@ -14,7 +16,9 @@ export default function ClusterPage({ data }) {
             <div className="organization-header">
                 <p className="main-header">{subtitle}(<strong>{title}</strong>)</p>
             </div>
-            <Img  draggable={false} fluid={landingImage.fluid} />
+            <Minimap backgroundImage={landingImage.fluid.src} buildings={engage} positions={engagePositions}>
+
+            </Minimap>
             <div className="organization-list">
                 <h1 className="main-header" >Organizations under {title}</h1>
                 <div className="sub-line" />

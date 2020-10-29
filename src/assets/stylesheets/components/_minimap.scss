@@ -1,0 +1,17 @@
+.minimap {
+    // height: 80vh;
+    background: #eee;
+    display: flex;
+    box-sizing: border-box;
+    
+    .container {
+        display: block;
+        margin: 0 auto;
+        height: auto;
+
+        .click-text {
+            font-size: 1.5em; 
+            letter-spacing: 5px;
+        }
+    }
+}
