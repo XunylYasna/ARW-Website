@@ -1,5 +1,4 @@
 .minimap {
-    // height: 80vh;
     background: #eee;
     display: flex;
     box-sizing: border-box;
@@ -9,8 +8,21 @@
         margin: 0 auto;
         height: auto;
 
+        // .building:hover {
+        //     animation: hshake 0.5s; 
+        // }
+
+        .building {
+            transition: .5s ease;
+        }
+
+        .building:hover {
+            -webkit-filter: blur(5px);
+            transition: .5s ease;
+        }
+
         .click-text {
-            font-size: 1.5em; 
+            font-size: 18px; 
             letter-spacing: 5px;
         }
     }

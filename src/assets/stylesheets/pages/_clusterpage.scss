@@ -1,20 +1,21 @@
 .page-cluster {
-    .landing-image {
-        height: 30vh;
-    }
-    
     .organization-header {
         text-align: center;
 
         background-color: var(--color-primary);
+        padding: 10px 0;
 
         .main-header {
+            font-size: 2.75em;
             font-weight: 600;
             color: var(--color-white);
+            letter-spacing: normal;
         }
     }
 
     .organization-list {
+        margin-top: 10px;
+
         .list {
             display: grid;
             grid-gap: 5px;
@@ -26,13 +27,26 @@
 
             .item {
                 background-color: var(--color-primary);
-                
+                padding: 10px;
+
                 a {
                     text-decoration: none;
                 }
 
+                .org-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .org-logo {
+                    max-height: 150px;
+                }
+
                 .sub-title {
                     color: var(--color-white);
+                    letter-spacing: normal;
+                    font-size: 1.75em;
                 }
             }
         }
