@@ -4,3 +4,13 @@
     50% { transform: translateX(-25px); } 
     100% { transform: translateX(0px); } 
 }
+
+@keyframes entry {
+    0% {
+        top: -20%;
+        opacity: 0.1;
+    }
+    100% {
+        top: 0%;
+    }
+}
