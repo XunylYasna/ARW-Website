@@ -65,38 +65,38 @@ export default function OrgPage({ data }) {
 
     useEffect(() => {
         headerTimeline
-            .fromTo(".header", 1, {scaleX: 0}, {scaleX: 1, transformOrigin:"left", ease: Quart.easeInOut})
-            .fromTo(".logo", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
-            .fromTo(".title", 0.5, {opacity: 0, y: -30}, {opacity: 1, y: 0}, "-=0.5")
-            .fromTo(".video", 0.5, {scaleX: 0}, {scaleX: 1, transformOrigin:"right", ease: Quart.easeInOut}, "-=0.5")
+            .fromTo(".header", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
+            .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".title", 0.5, { opacity: 0, y: -30 }, { opacity: 1, y: 0 }, "-=0.5")
+            .fromTo(".video", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "right", ease: Quart.easeInOut }, "-=0.5")
             .play()
 
-        gsap.from(".photos h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+        gsap.from(".photos h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
     })
 
     photosTimeline
-        .fromTo(".photos h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
-        .fromTo(".photos .carousel", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
-    
+        .fromTo(".photos h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .fromTo(".photos .carousel", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+
     contentsTimeline
-        .fromTo(".about", 1, {scaleX: 0}, {scaleX: 1, transformOrigin:"left", ease: Quart.easeInOut})
-        .from(".about h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
-        .fromTo(".vision", 1, {scaleX: 0}, {scaleX: 1, transformOrigin:"right", ease: Quart.easeInOut}, "-=1")
-        .from(".mission h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
-        .from(".vision h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
-        .from(".events h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
-        .fromTo(".about p", 0.5, {opacity: 0}, {opacity: 1})
-        .fromTo(".mission p", 0.5, {opacity: 0}, {opacity: 1}, "-=0.5")
-        .fromTo(".vision p", 0.5, {opacity: 0}, {opacity: 1}, "-=0.5")
-        .fromTo(".events p", 0.5, {opacity: 0}, {opacity: 1}, "-=0.5")
+        .fromTo(".about", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
+        .from(".about h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .fromTo(".vision", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "right", ease: Quart.easeInOut }, "-=1")
+        .from(".mission h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .from(".vision h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .from(".events h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .fromTo(".about p", 0.5, { opacity: 0 }, { opacity: 1 })
+        .fromTo(".mission p", 0.5, { opacity: 0 }, { opacity: 1 }, "-=0.5")
+        .fromTo(".vision p", 0.5, { opacity: 0 }, { opacity: 1 }, "-=0.5")
+        .fromTo(".events p", 0.5, { opacity: 0 }, { opacity: 1 }, "-=0.5")
 
     pricesTimeline
-        .from(".prices h2", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
-        .from(".price-item", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0}, "+=0.25")
+        .from(".prices h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .from(".price-item", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, "+=0.25")
 
-    
+
     buttons
-        .from(".apply-contact", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+        .from(".apply-contact", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
     return (
         <Layout pageName="org">
@@ -112,7 +112,7 @@ export default function OrgPage({ data }) {
                         <Img className="logo" fluid={logo.fluid} />
                     </div>
                     {/* organization name (acronym) */}
-                    <div className="title"><span>{ organizationName }<strong>({ acronym })</strong></span></div>
+                    <div className="title"><span>{organizationName}<strong>({acronym})</strong></span></div>
                 </div>
                 <div className="right">
                     <iframe
@@ -130,7 +130,7 @@ export default function OrgPage({ data }) {
             <div className="photos">
                 <h2>Photos</h2>
                 <div className="sub-line"></div>
-                <Carousel className="carousel" items={3} style={{textAlign: "center"}}>
+                <Carousel className="carousel" items={3} style={{ textAlign: "center" }}>
                     {media.map((data, index) => (
                         <Img key={index} draggable={false} className="photo-image" fluid={data.fluid} />
                     ))}
@@ -138,9 +138,9 @@ export default function OrgPage({ data }) {
             </div>
             <div className="content">
                 <div className="about" >
-                    <h2 className="align-center">About { acronym }</h2>
+                    <h2 className="align-center">About {acronym}</h2>
                     <div className="sub-line"></div>
-                    {about.content.map(data => 
+                    {about.content.map(data =>
                         data.content.map((d, index) => <p key={index}>{d.value}</p>)
                     )}
                 </div>
@@ -172,7 +172,7 @@ export default function OrgPage({ data }) {
                 <div className="sub-line"></div>
                 <div className="price-grid">
                     {registrationPackages.map((data, index) => (
-                        <div class="price-item" style={{marginLeft: "40px"}}>
+                        <div class="price-item" style={{ marginLeft: "40px" }}>
                             <div className="position">{data.title}</div>
                             <div className="position-price">PHP {data.price}</div>
                         </div>

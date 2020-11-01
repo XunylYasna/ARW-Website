@@ -166,17 +166,14 @@
         margin: 50px 0;
 
         .price-grid {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
             font-size: 2em;
-            display: grid;
-            grid-template-columns: 25% 25% 25% 25%;
-
             .position {
                 font-weight: 700;
-            }
-
-            @include respond(phone) {
-                font-size: 1.5em;
-                grid-template-columns: 33% 33% 33%;
             }
         }
     }
@@ -184,6 +181,7 @@
     .apply-contact {
         display: flex;
         flex-direction: row;
+        margin-bottom: 3rem;
     
         a {
             background-color: var(--color-primary);
