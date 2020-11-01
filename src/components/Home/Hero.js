@@ -19,9 +19,6 @@ const Hero = () => {
         className="hero"
         style={{
           position: `relative`,
-          // marginBottom: `128px`,
-          marginLeft: `-85px`,
-          width: `100vw`,
           height: `100vh`,
         }}
       >

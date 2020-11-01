@@ -18,7 +18,7 @@ const Events = () => {
     .slice(0, 3)
     .map(({ eventName, slug }) => {
       return (
-        <div>
+        <div className="event-container">
           <Card>
             <h3 className="sub-title" style={{ fontSize: `1.5rem` }}>
               {eventName}
@@ -44,14 +44,11 @@ const Events = () => {
     <>
       <section
         className="events"
-        className="sub-title"
         data-sal="slide-up"
         data-sal-duration="500"
         data-sal-delay="100"
       >
-        <div>
-          <h1 className="sub-title">EVENTS</h1>
-        </div>
+        <h1 className="sub-title">EVENTS</h1>
         <div className="sub-line"></div>
 
         <div className="cards-container">{eventCards}</div>
