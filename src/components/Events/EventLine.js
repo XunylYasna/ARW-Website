@@ -73,7 +73,7 @@ const EventLine = (props) => {
                 <div className="events__event-line-items">
                     {events.map(event => {
                         return (
-                            <div key={event.id} className={eventDay == event.id ? "item active current" : eventDay >= event.id ? "item active" : "item"} onClick={() => changeContent(event.id)}>
+                            <div key={event.id} className={eventDay == event.id ? "item active current" : eventDay >= event.id ? "item active" : "item"} onKeyDown={() => changeContent(event.id)} onClick={() => changeContent(event.id)}>
                                 <div className="item-subTitle">
                                     {event.subTitle}
                                 </div>
