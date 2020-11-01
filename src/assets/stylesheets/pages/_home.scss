@@ -1,4 +1,10 @@
 .page-home {
+  main {
+    display: flex;
+    flex-direction: column;
+    padding: unset;
+    margin: 0;
+  }
   .container {
     section {
       padding-top: 96px;
@@ -159,20 +165,49 @@
     .events,
     .partners {
       .card {
-        margin-top: 48px;
+        margin-top: 48px !important;
       }
     }
     .introduction {
       video {
         margin-top: 48px;
       }
+    }
+    .card.project-head-letter {
+      height: 450px !important;
     }
   }
+  // @media only screen and (max-width: $bp-medium) {
+  //   .card.project-head-letter {
+  //     height: 450px !important;
+  //   }
+  // }
   @media only screen and (max-width: $bp-small) {
-    .introduction {
-      video {
-        width: 300px;
+    .hero {
+      .hero-info {
+        width: 80%;
       }
+    }
+    .card.project-head-letter {
+      padding: 20px !important;
+      height: 600px !important;
+    }
+  }
+  @media only screen and (max-width: $bp-smallest) {
+    .hero {
+      .hero-info {
+        width: 70%;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        height: 250px !important;
+
+        .main-button {
+          width: 40%;
+        }
+      }
+    }
+    .card.project-head-letter {
+      height: 950px !important;
     }
   }
 }
