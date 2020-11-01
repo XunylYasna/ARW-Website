@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Container from "components/Container";
+import ARWLogo from "../../src/assets/images/Logo/ARW2020.png";
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -15,24 +16,38 @@ const Header = () => {
       }
     }
   `);
+
+  const [visible, setVisible] = useState(false);
+
   return (
     <header>
       <Container>
-        <p>ARW 2020</p>
+        {/* <p>ARW 2020</p> */}
+        <div className="logo-box">
+          <img src={ARWLogo} height="100px" />
+          {/* <img src={ARWLogo2} height="100px" /> */}
+        </div>
+
+        {/* <ARWLogo></ARWLogo> */}
         {/* uncomment the line below to add your name in the header */}
         {/* <p>{data.site.siteMetadata.author}</p> */}
-        <ul>
+
+        <div
+          className={`hamburger ${visible ? "change" : ""}`}
+          onClick={() => visible === true ? setVisible(false) : setVisible(true)}
+        >
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
+        </div>
+
+        <ul className="sub-title">
           <li>
-            <AniLink
-              cover
-              to="/"
-              bg="#6666ff"
-              duration={0.7}
-              className="header-link"
-            >
+            <AniLink cover to="/" bg="#6666ff" duration={0.7}>
               Home
             </AniLink>
           </li>
+          <li>|</li>
           <li>
             <AniLink
               cover
@@ -40,22 +55,17 @@ const Header = () => {
               to="/about/"
               bg="#E16085"
               duration={0.7}
-              className="header-link"
             >
               About
             </AniLink>
           </li>
+          <li>|</li>
           <li>
-            <AniLink
-              cover
-              to="/clusters/"
-              bg="#fccd04"
-              duration={0.7}
-              className="header-link"
-            >
+            <AniLink cover to="/clusters/" bg="#fccd04" duration={0.7}>
               Clusters
             </AniLink>
           </li>
+          <li>|</li>
           <li>
             <AniLink
               cover
@@ -63,11 +73,11 @@ const Header = () => {
               to="/organizations/"
               bg="#00d9ff"
               duration={0.7}
-              className="header-link"
             >
               Organizations
             </AniLink>
           </li>
+          <li>|</li>
           <li>
             <AniLink
               cover
@@ -75,11 +85,11 @@ const Header = () => {
               to="/events/"
               bg="#E16085"
               duration={0.7}
-              className="header-link"
             >
               Events
             </AniLink>
           </li>
+          <li>|</li>
           <li>
             <AniLink
               cover
@@ -87,7 +97,6 @@ const Header = () => {
               to="/contact/"
               bg="#00d9ff"
               duration={0.7}
-              className="header-link"
             >
               Contact
             </AniLink>
