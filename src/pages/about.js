@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { gsap } from "gsap";
 import ModalVideo from "react-modal-video";
-import { useIntersection } from "react-use";
+// import { useIntersection } from "react-use";
 
 import Card from "components/Card";
 import Layout from "components/Layout";

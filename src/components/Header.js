@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-
 import Container from "components/Container";
-import ARWLogo from "../assets/images/Logo/ARW2020.png"
 
 const Header = () => {
   const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          author
-          title
+  {
+    headerLogo : allFile(filter: {relativePath: {eq: "Logo/ARW2020.PNG"}}) {
+      nodes {
+        childImageSharp {
+          fixed(height: 100) {
+            ...GatsbyImageSharpFixed
+          }
         }
       }
     }
+  }
   `);
+
+
 
   const [visible, setVisible] = useState(false);
 
@@ -24,7 +28,8 @@ const Header = () => {
       <Container>
         {/* <p>ARW 2020</p> */}
         <div className="logo-box">
-          <img src={ARWLogo} height="100px" />
+          {/* <img src={ARWLogo} height="100px" /> */}
+          <Img fixed={data.headerLogo.nodes[0].childImageSharp.fixed}></Img>
           {/* <img src={ARWLogo2} height="100px" /> */}
         </div>
 
