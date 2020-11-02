@@ -4,7 +4,6 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import { gsap, TimelineLite, Quart } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 import Banner from "../components/OrganizationTemplate/Banner"
 import About from "../components/OrganizationTemplate/About"
@@ -68,6 +67,7 @@ export default function OrgTemplate({ pageContext }) {
 
 
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
 
         headerTimeline
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
