@@ -13,7 +13,6 @@ import Events from '../components/OrganizationTemplate/OrganizationEvents'
 import Layout from "../components/Layout"
 import { Helmet } from "react-helmet";
 
-gsap.registerPlugin(ScrollTrigger)
 
 export default function OrgTemplate({ data }) {
     const {
@@ -67,6 +66,8 @@ export default function OrgTemplate({ data }) {
 
 
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger)
+
         headerTimeline
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
             .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
@@ -74,24 +75,26 @@ export default function OrgTemplate({ data }) {
             .fromTo(".banner-content h2", 0.5, { opacity: 0, y: -30 }, { opacity: 1, y: 0 }, "-=0.5")
             .fromTo(".banner-button", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "right", ease: Quart.easeInOut }, "-=0.5")
             .play()
+
+        aboutTimeline
+            .fromTo(".organization-content", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-about-carousel-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-about-socials", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+
+        mvTimeline
+            .from(".organization-mission h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .from(".organization-vision h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .from(".organization-vm-content", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+
+        eventsTimeline
+            .fromTo(".organization-event-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+
+        registrationTimeline
+            .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
     })
 
-    aboutTimeline
-        .fromTo(".organization-content", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-        .fromTo(".organization-about-carousel-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-        .fromTo(".organization-about-socials", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
-    mvTimeline
-        .from(".organization-mission h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-        .from(".organization-vision h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-        .from(".organization-vm-content", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-
-    eventsTimeline
-        .fromTo(".organization-event-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-
-    registrationTimeline
-        .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-        .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
 
     return (
