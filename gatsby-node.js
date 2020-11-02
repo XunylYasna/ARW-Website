@@ -66,7 +66,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   // console.log(result)
-  result.allContentfulCluster.nodes.forEach(node => {
+  result.data.allContentfulCluster.nodes.forEach(node => {
     createPage({
       path: node.title,
       component: path.resolve(`./src/templates/clusterpage.js`),
