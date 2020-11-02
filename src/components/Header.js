@@ -34,13 +34,14 @@ const Header = () => {
 
         <div
           className={`hamburger ${visible ? "change" : ""}`}
-          onClick={() => visible === true ? setVisible(false) : setVisible(true)}
+          onClick={() =>
+            visible === true ? setVisible(false) : setVisible(true)
+          }
         >
           <div className="bar1"></div>
           <div className="bar2"></div>
           <div className="bar3"></div>
         </div>
-
         <ul className="sub-title">
           <li>
             <AniLink cover to="/" bg="#6666ff" duration={0.7}>
@@ -103,6 +104,64 @@ const Header = () => {
           </li>
         </ul>
       </Container>
+      <div className={`vertical-nav ${visible ? "" : "hidden"}`}>
+        <ul className="sub-title">
+          <li>
+            <AniLink cover to="/" bg="#6666ff" duration={0.7}>
+              Home
+            </AniLink>
+          </li>
+          <li>
+            <AniLink
+              cover
+              direction="right"
+              to="/about/"
+              bg="#E16085"
+              duration={0.7}
+            >
+              About
+            </AniLink>
+          </li>
+          <li>
+            <AniLink cover to="/clusters/" bg="#fccd04" duration={0.7}>
+              Clusters
+            </AniLink>
+          </li>
+          <li>
+            <AniLink
+              cover
+              direction="right"
+              to="/organizations/"
+              bg="#00d9ff"
+              duration={0.7}
+            >
+              Organizations
+            </AniLink>
+          </li>
+          <li>
+            <AniLink
+              cover
+              direction="right"
+              to="/events/"
+              bg="#E16085"
+              duration={0.7}
+            >
+              Events
+            </AniLink>
+          </li>
+          <li>
+            <AniLink
+              cover
+              direction="right"
+              to="/contact/"
+              bg="#00d9ff"
+              duration={0.7}
+            >
+              Contact
+            </AniLink>
+          </li>
+        </ul>
+      </div>
     </header>
   );
 };

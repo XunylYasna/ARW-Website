@@ -21,22 +21,42 @@ header {
         font-size: 2rem;
       }
     }
-  }
 
-  ul {
-    list-style: none;
-    @include respond(tab-port){
-      display: none;
+    ul {
+      list-style: none;
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+
+    li {
+      display: inline-block;
+      font-size: 1.8rem;
+    }
+
+    li:not(a) {
+      cursor: default;
     }
   }
 
-  li {
-    display: inline-block;
-    font-size: 1.8rem;
-  }
+  .vertical-nav {
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    background-color: white;
 
-  li:not(a) {
-    cursor: default;
+    ul {
+      list-style: none;
+    }
+
+    li {
+      display: block;
+      font-size: 1.8rem;
+    }
+
+    li:not(a) {
+      cursor: default;
+    }
   }
 
   // a:hover {
@@ -114,12 +134,14 @@ header {
   .hamburger {
     display: none;
     cursor: pointer;
-    @include respond(tab-port){
+    @include respond(tab-port) {
       display: inline-block;
     }
   }
-  
-  .bar1, .bar2, .bar3 {
+
+  .bar1,
+  .bar2,
+  .bar3 {
     width: 35px;
     height: 1.5px;
     background-color: var(--color-primary);
@@ -127,21 +149,25 @@ header {
     transition: 0.4s;
     border-radius: 20px;
   }
-  
+
   /* Rotate first bar */
   .change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-11px, 1px) ;
-    transform: rotate(-45deg) translate(-11px, 1px) ;
+    -webkit-transform: rotate(-45deg) translate(-11px, 1px);
+    transform: rotate(-45deg) translate(-11px, 1px);
   }
-  
+
   /* Fade out the second bar */
   .change .bar2 {
     opacity: 0;
   }
-  
+
   /* Rotate last bar */
   .change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-9px, 1px) ;
-    transform: rotate(45deg) translate(-9px, 1px) ;
+    -webkit-transform: rotate(45deg) translate(-9px, 1px);
+    transform: rotate(45deg) translate(-9px, 1px);
+  }
+
+  .hidden {
+    display: none;
   }
 }
