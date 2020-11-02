@@ -1,10 +1,10 @@
 import React, { useEffect } from "react"
-import { graphql } from "gatsby"
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import gsap, { TimelineLite, Quart } from "gsap";
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 import Banner from "../components/OrganizationTemplate/Banner"
 import About from "../components/OrganizationTemplate/About"
@@ -67,13 +67,11 @@ export default function OrgTemplate({ pageContext }) {
 
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger)
 
         headerTimeline
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
             .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
             .fromTo(".banner-content h1", 0.5, { opacity: 0, y: -30 }, { opacity: 1, y: 0 }, "-=0.5")
-            .fromTo(".banner-content h2", 0.5, { opacity: 0, y: -30 }, { opacity: 1, y: 0 }, "-=0.5")
             .fromTo(".banner-button", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "right", ease: Quart.easeInOut }, "-=0.5")
             .play()
 
