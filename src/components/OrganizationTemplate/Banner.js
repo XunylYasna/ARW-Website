@@ -10,6 +10,9 @@ const OrganizationBanner = ({ organizationName, acronym, videoLink, logo, backgr
     const [isOpen, setOpen] = useState(false);
     const videoId = videoLink.match(/\/([^\/]+)\/?$/)[1]
 
+    console.log(videoLink)
+    console.log(videoId)
+
     return (
         <section className="banner-container">
             <div className="organization-banner">

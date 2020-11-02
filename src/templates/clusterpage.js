@@ -12,7 +12,7 @@ import Img from "gatsby-image";
 export default function ClusterPage({ data }) {
     const { landingImage, title, subtitle, buildingSize, organizations } = data.allContentfulCluster.nodes[0]
     return (
-        <Layout pageName="cluster">
+        <Layout pageName="cluster" mainName={title} >
             <div className="organization-header">
                 <p className="main-header">{subtitle}(<strong>{title}</strong>)</p>
             </div>
@@ -24,20 +24,22 @@ export default function ClusterPage({ data }) {
                 <div className="list">
                     {organizations ? organizations.map((org, index) => {
                         return (
-                            <Card className="item" key={index}>
-                                <AniLink
-                                    cover
-                                    to={org.slug}
-                                    bg="#6666ff"
-                                    duration={0.7}
-                                    className="header-link"
-                                >
-                                    <div className="org-item">
-                                        <img className="org-logo" draggable={false} src={org.logo.fluid.src} alt={org.acronym + " Logo"}/>
-                                        <h1 className="sub-title">{org.organizationName}(<strong>{org.acronym}</strong>)</h1>
-                                    </div>
-                                </AniLink>
-                            </Card>
+                            <div className="container" >
+                                <Card className="item" key={index}>
+                                    <AniLink
+                                        cover
+                                        to={'organizations/' + org.slug}
+                                        bg="#6666ff"
+                                        duration={0.7}
+                                        className="header-link"
+                                    >
+                                        <div className="org-item">
+                                            <img className="org-logo" draggable={false} src={org.logo.fluid.src} alt={org.acronym + " Logo"}/>
+                                            <h1 className="sub-title">{org.organizationName}(<strong>{org.acronym}</strong>)</h1>
+                                        </div>
+                                    </AniLink>
+                                </Card>
+                            </div>
                         )
                     }) : <div></div>}
                 </div>
