@@ -14,7 +14,7 @@ import Layout from "../components/Layout"
 import { Helmet } from "react-helmet";
 
 
-export default function OrgTemplate({ data }) {
+export default function OrgTemplate({ pageContext }) {
     const {
         organizationName,
         acronym,
@@ -30,7 +30,7 @@ export default function OrgTemplate({ data }) {
         backgroundImage,
         facebookUrl,
         twitterUrl
-    } = data;
+    } = pageContext;
 
     const headerTimeline = new TimelineLite({
         pause: true
