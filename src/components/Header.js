@@ -7,7 +7,7 @@ import Container from "components/Container";
 const Header = () => {
   const data = useStaticQuery(graphql`
   {
-    headerLogo : allFile(filter: {relativePath: {eq: "Logo/ARW2020.PNG"}}) {
+    headerLogo : allFile(filter: {relativePath: {eq: "Logos/ARW2020.PNG"}}) {
       nodes {
         childImageSharp {
           fixed(height: 100) {
@@ -18,8 +18,6 @@ const Header = () => {
     }
   }
   `);
-
-
 
   const [visible, setVisible] = useState(false);
 
