@@ -3,40 +3,101 @@ import { graphql } from "gatsby"
 
 import Img from "gatsby-image";
 import gsap, { TimelineLite, Quart } from "gsap";
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 import Layout from "../components/Layout"
 import Carousel from '../components/Carousel';
 import { Helmet } from "react-helmet";
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function OrgPage({ data }) {
-    const { 
-        organizationName, 
-        acronym, 
-        about, 
-        logo, 
-        media, 
-        mission, 
-        vision, 
-        mainEvents, 
-        registrationPackages, 
-        email, 
-        facebookUrl, 
-        twitterUrl 
+    const {
+        organizationName,
+        acronym,
+        about,
+        logo,
+        media,
+        mission,
+        vision,
+        mainEvents,
+        registrationPackages,
+        email,
+        facebookUrl,
+        twitterUrl,
+        youtubeVideoLink
     } = data.allContentfulOrganization.nodes[0];
 
-    const headerTimeline = new TimelineLite({paused: true});
+    // extract the youtube id form the original youtube link 
+    const youtubeId = youtubeVideoLink.substring('https://www.youtube.com/watch?v='.length, youtubeVideoLink.length).split('&')[0]
+
+    const headerTimeline = new TimelineLite({
+        pause: true
+    });
+
+    const photosTimeline = new TimelineLite({
+        scrollTrigger: {
+            trigger: ".photos",
+            start: "center center"
+        },
+    })
+
+    const contentsTimeline = new TimelineLite({
+        scrollTrigger: {
+            trigger: ".about",
+            start: "center center"
+        },
+    })
+
+    const pricesTimeline = new TimelineLite({
+        scrollTrigger: {
+            trigger: ".mission",
+            start: "top top"
+        },
+    })
+
+    const buttons = new TimelineLite({
+        scrollTrigger: {
+            trigger: ".vision",
+            start: "top top"
+        },
+    })
 
 
     useEffect(() => {
         headerTimeline
-            .fromTo(".header", 1, {scaleX: 0}, {scaleX: 1, transformOrigin:"left", ease: Quart.easeInOut})
-            .fromTo(".logo", 0.5, {opacity: 0, y: 30}, {opacity: 1, y: 0})
-            .fromTo(".title", 0.5, {opacity: 0, y: -30}, {opacity: 1, y: 0}, "-=0.5")
-            .fromTo(".video", 0.5, {scaleX: 0}, {scaleX: 1, transformOrigin:"right", ease: Quart.easeInOut}, "-=0.5")
+            .fromTo(".header", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
+            .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".title", 0.5, { opacity: 0, y: -30 }, { opacity: 1, y: 0 }, "-=0.5")
+            .fromTo(".video", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "right", ease: Quart.easeInOut }, "-=0.5")
             .play()
-        
-        // gsap.to(".content", 1, {scrollTrigger: ".prices", x: 100, y: 100})
+
+        gsap.from(".photos h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
     })
+
+    photosTimeline
+        .fromTo(".photos h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .fromTo(".photos .carousel", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+
+    contentsTimeline
+        .fromTo(".about", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
+        .from(".about h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .fromTo(".vision", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "right", ease: Quart.easeInOut }, "-=1")
+        .from(".mission h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .from(".vision h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .from(".events h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .fromTo(".about p", 0.5, { opacity: 0 }, { opacity: 1 })
+        .fromTo(".mission p", 0.5, { opacity: 0 }, { opacity: 1 }, "-=0.5")
+        .fromTo(".vision p", 0.5, { opacity: 0 }, { opacity: 1 }, "-=0.5")
+        .fromTo(".events p", 0.5, { opacity: 0 }, { opacity: 1 }, "-=0.5")
+
+    pricesTimeline
+        .from(".prices h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        .from(".price-item", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, "+=0.25")
+
+
+    buttons
+        .from(".apply-contact", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
     return (
         <Layout pageName="org">
@@ -52,14 +113,14 @@ export default function OrgPage({ data }) {
                         <Img className="logo" fluid={logo.fluid} />
                     </div>
                     {/* organization name (acronym) */}
-                    <div className="title"><span>{ organizationName }<strong>({ acronym })</strong></span></div>
+                    <div className="title"><span>{organizationName}<strong>({acronym})</strong></span></div>
                 </div>
                 <div className="right">
                     <iframe
                         className="video"
-                        src={"https://www.youtube.com/embed/Dz6Sg630I8M"}
-                        // title={videoTitle}
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        src={"https://www.youtube.com/embed/" + youtubeId}
+                        title={acronym + " Promotional Video"}
+                        allow="accelerometer; aucenterlay; encrypted-media; gyroscope; picture-in-picture"
                         frameBorder="0"
                         webkitallowfullscreen="true"
                         mozallowfullscreen="true"
@@ -68,26 +129,30 @@ export default function OrgPage({ data }) {
                 </div>
             </div>
             <div className="photos">
-                <h2 data-sal="slide-up" data-sal-duration="500">Photos</h2>
-                <Carousel data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" items={3} style={{textAlign: "center"}}>
+                <h2>Photos</h2>
+                <div className="sub-line"></div>
+                <Carousel className="carousel" items={3} style={{ textAlign: "center" }}>
                     {media.map((data, index) => (
-                        <img key={index} draggable={false} src={data.fluid.src} />
+                        <Img key={index} draggable={false} className="photo-image" fluid={data.fluid} />
                     ))}
                 </Carousel>
             </div>
             <div className="content">
                 <div className="about" >
-                    <h2 data-sal="slide-up" data-sal-duration="500" className="align-center">About { acronym }</h2>
-                    {about.content.map(data => 
-                        data.content.map((d, index) => <p data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} key={index}>{d.value}</p>)
+                    <h2 className="align-center">About {acronym}</h2>
+                    <div className="sub-line"></div>
+                    {about.content.map(data =>
+                        data.content.map((d, index) => <p key={index}>{d.value}</p>)
                     )}
                 </div>
                 <div className="mission" >
                     <h2 className="align-center">Mission</h2>
-                    {mission.content.map(data => data.content.map((d, index) => <p data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} key={index}>{d.value}</p>))}
+                    <div className="sub-line"></div>
+                    {mission.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
                 </div>
                 <div className="events">
                     <h2 className="align-center">Org Events</h2>
+                    <div className="sub-line"></div>
                     <Carousel items={1}>
                         {mainEvents.map((data, index) => (
                             <div key={index}>
@@ -98,15 +163,17 @@ export default function OrgPage({ data }) {
                     </Carousel>
                 </div>
                 <div className="vision right-side">
-                    <h2 data-sal="slide-up" data-sal-duration="500"className="align-center">Vision</h2>
-                    {vision.content.map(data => data.content.map((d, index) => <p data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} key={index}>{d.value}</p>))}
+                    <h2 className="align-center">Vision</h2>
+                    <div className="sub-line"></div>
+                    {vision.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))}
                 </div>
             </div>
             <div className="prices">
-                <h2 data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" >Prices</h2>
+                <h2 >Prices</h2>
+                <div className="sub-line"></div>
                 <div className="price-grid">
                     {registrationPackages.map((data, index) => (
-                        <div data-sal="slide-up" data-sal-duration="500" data-sal-delay={index * 100} style={{marginLeft: "40px"}}>
+                        <div class="price-item" style={{ marginLeft: "40px" }}>
                             <div className="position">{data.title}</div>
                             <div className="position-price">PHP {data.price}</div>
                         </div>
@@ -114,10 +181,10 @@ export default function OrgPage({ data }) {
                 </div>
             </div>
             <div className="apply-contact">
-                <a data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" href="" rel="noopener noreferrer" target="_blank"><span>Apply Now</span></a>
-                <a data-sal="slide-up" data-sal-duration="500" data-sal-delay="100" href={"mailto:/" + email} rel="noopener noreferrer" target="_blank"><span>Contact {acronym}</span></a>
+                <a href="" rel="noopener noreferrer" target="_blank"><span>Apply Now</span></a>
+                <a href={"mailto:/" + email} rel="noopener noreferrer" target="_blank"><span>Contact {acronym}</span></a>
             </div>
-        </Layout>   
+        </Layout>
     )
 }
 
@@ -137,10 +204,7 @@ export const query = graphql`
             logo {
                 title
                 fluid {
-                    base64
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
+                    ...GatsbyContentfulFluid
                 }
             }
             mainEvents {
@@ -155,11 +219,7 @@ export const query = graphql`
             }
             media {
                 fluid {
-                    base64
-                    tracedSVG
-                    src
-                    srcWebp
-                    srcSetWebp
+                    ...GatsbyContentfulFluid
                 }
             }
             mission {
@@ -183,6 +243,7 @@ export const query = graphql`
             email
             facebookUrl
             twitterUrl
+            youtubeVideoLink
         }
     }
   }

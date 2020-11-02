@@ -7,7 +7,7 @@ export default ({ children, items }) => {
         superLargeDesktop: {
             // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 3000 },
-            items: items == 1 ? items : items + 2
+            items: items === 1 ? items : items + 2
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -24,13 +24,14 @@ export default ({ children, items }) => {
     };
 
     return (
-        <Carousel 
-            infinite={true} 
+        <Carousel
+            infinite={true}
             autoPlay={true}
             autoPlaySpeed={2000}
             keyBoardControl={true}
-            className='carousel' 
-            responsive={responsive} >
+            className='carousel'
+            responsive={responsive}
+            renderButtonGroupOutside={true} >
             {children}
         </Carousel>
     );
