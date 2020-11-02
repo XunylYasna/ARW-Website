@@ -7,7 +7,7 @@ import { useIntersection } from "react-use";
 import Card from "components/Card";
 import Layout from "components/Layout";
 import Container from "components/Container";
-import CommitteeItem from "../components/About/CommitteeItem";
+// import CommitteeItem from "../components/About/CommitteeItem";
 
 import Img1 from "../assets/images/ARW2019Photos/1.jpg";
 import Img2 from "../assets/images/ARW2019Photos/2.jpg";

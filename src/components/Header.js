@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Container from "components/Container";
-import ARWLogo from "../../src/assets/images/Logo/ARW2020.png";
+import ARWLogo from "../assets/images/Logo/ARW2020.png"
 
 const Header = () => {
   const data = useStaticQuery(graphql`
