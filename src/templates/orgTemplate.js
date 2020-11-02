@@ -91,7 +91,7 @@ export default function OrgTemplate({ pageContext }) {
         registrationTimeline
             .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
             .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-    })
+    }, [])
 
 
 
