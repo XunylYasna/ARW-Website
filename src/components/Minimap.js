@@ -20,8 +20,8 @@ export default function Minimap({ children, minimap, buildingSize, organizations
                 {minimap && <image preserveAspectRatio="none" href={minimap} height="100%" width="100%" />}
                 {organizations && organizations.map((org, index) => (
                     <AniLink
-                        cover
-                        to={'organizations/' + org.slug}
+                        fade
+                        to={'/organizations/' + org.slug}
                         bg="#6666ff"
                         duration={0.7}
                         className="header-link"

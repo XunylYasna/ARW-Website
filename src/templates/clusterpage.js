@@ -27,8 +27,8 @@ export default function ClusterPage({ data }) {
                             <div className="container" >
                                 <Card className="item" key={index}>
                                     <AniLink
-                                        cover
-                                        to={'organizations/' + org.slug}
+                                        fade
+                                        to={'/organizations/' + org.slug}
                                         bg="#6666ff"
                                         duration={0.7}
                                         className="header-link"
