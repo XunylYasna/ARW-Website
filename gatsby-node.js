@@ -82,7 +82,7 @@ exports.createPages = async ({ graphql, actions }) => {
           path: `organizations/${organization.slug}`,
           component: path.resolve(`./src/templates/orgTemplate.js`),
           context: {
-            data: organization,
+            data: { organization },
           },
         })
       })
