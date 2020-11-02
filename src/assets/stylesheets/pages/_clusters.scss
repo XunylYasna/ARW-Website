@@ -65,9 +65,12 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: 1000px;
-
       transition: 0.3s ease-in-out;
+
       cursor: pointer;
+      a {
+        text-decoration: none;
+      }
       div {
         background: linear-gradient(
           0deg,
@@ -79,6 +82,8 @@
         p {
           background: rgba(255, 255, 255, 0.7);
           padding: 15px;
+          // letter-spacing: 5px !important;
+          transition: 0.3s ease-in-out;
         }
 
         // width: 100%;
@@ -87,8 +92,10 @@
     }
     .grid-item:hover,
     .grid-item:active {
-      letter-spacing: 10px;
       background-size: 620px;
+      p {
+        letter-spacing: 10px !important;
+      }
     }
     @media only screen and (max-width: $bp-small) {
       .grid-container {
