@@ -32,6 +32,9 @@ export default function OrgTemplate({ pageContext }) {
         twitterUrl
     } = pageContext;
 
+    console.log(pageContext)
+    console.log(about)
+
     const headerTimeline = new TimelineLite({
         pause: true
     });
@@ -106,10 +109,10 @@ export default function OrgTemplate({ pageContext }) {
             </Helmet>
 
             <Banner organizationName={organizationName} acronym={acronym} videoLink={youtubeVideoLink} logo={logo} background={backgroundImage} />
-            <About aboutContent={about.json} acronym={acronym} media={media} facebook={facebookUrl} twitterUrl={twitterUrl} email={email}> </About>
+            {/*<About aboutContent={about.json} acronym={acronym} media={media} facebook={facebookUrl} twitterUrl={twitterUrl} email={email}> </About>
 
 
-            {/* Vision Mission */}
+             Vision Mission 
             <section className="organization-vm">
                 <div className="organization-mission" >
                     <h2 className="align-center">Mission</h2>
@@ -117,7 +120,6 @@ export default function OrgTemplate({ pageContext }) {
                     <div className="organization-vm-content">
                         {documentToReactComponents(mission.json)}
                     </div>
-                    {/* {mission.content.map(data => data.content.map((d, index) => <p key={index}>{d.value}</p>))} */}
                 </div>
                 <hr className="organization-vm-divider"></hr>
                 <div className="organization-vision">
@@ -133,7 +135,7 @@ export default function OrgTemplate({ pageContext }) {
 
 
 
-            {/* Prices */}
+            {/* Prices 
             <section className="organization-prices">
                 <h1 className="main-header">Registration Packages</h1>
                 <div className="sub-line"></div>
@@ -150,6 +152,7 @@ export default function OrgTemplate({ pageContext }) {
                     <button className="event-button" href="" rel="noopener noreferrer" target="_blank">Register Now</button>
                 </div>
             </section>
+            */}
         </Layout>
     )
 }
