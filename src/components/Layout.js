@@ -7,7 +7,7 @@ import "assets/stylesheets/application.scss";
 import Header from "components/Header";
 import Footer from "components/Footer";
 
-const Layout = ({ children, pageName }) => {
+const Layout = ({ children, mainName, pageName }) => {
   let className = "";
 
   if (pageName) {
@@ -17,7 +17,7 @@ const Layout = ({ children, pageName }) => {
   return (
     <>
       <Helmet bodyAttributes={{ class: className }}>
-        {/* <title>ARW 2020 || {pageName}</title> */}
+        <title>ARW 2020 || {mainName ? mainName : pageName}</title>
       </Helmet>
       <div className="blob">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

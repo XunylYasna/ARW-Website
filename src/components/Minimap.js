@@ -4,17 +4,14 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 // export default function Minimap({ children, minimap, buildings, positions }) {
 export default function Minimap({ children, minimap, buildingSize, organizations }) {
-    useEffect(() => {
-        wrapper.addEventListener("mousemove", e=> {
-            // loop clouds
-            // loop grass
-        })
-    })
+    // useEffect(() => {
+    //     wrapper.addEventListener("mousemove", e=> {
+    //         // loop clouds
+    //         // loop grass
+    //     })
+    // })
 
     let wrapper;
-    
-    // images are to shake on hover
-    // clicking it will lead to the website
 
     return (
         <div className="minimap">
@@ -24,7 +21,7 @@ export default function Minimap({ children, minimap, buildingSize, organizations
                 {organizations && organizations.map((org, index) => (
                     <AniLink
                         cover
-                        to={org.slug}
+                        to={'organizations/' + org.slug}
                         bg="#6666ff"
                         duration={0.7}
                         className="header-link"

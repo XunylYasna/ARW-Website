@@ -11,18 +11,8 @@
   }
 
   header {
-    background-color: var(--color-primary);
     z-index: 2006;
     border-bottom: unset;
-  }
-
-  header a,
-  header p {
-    color: var(--color-white);
-  }
-
-  header a:hover {
-    color: var(--color-white);
   }
 
   main p {

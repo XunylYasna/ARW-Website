@@ -162,20 +162,14 @@ export const query = graphql`
             }
             youtubeVideoLink
             backgroundImage{
-                fluid(quality: 100, maxWidth: 1920) {
-                    base64
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
+                fluid(quality: 80, maxWidth: 900) {
+                    ...GatsbyContentfulFluid
                 }
             }
             logo {
                 title
                 fixed(width: 128, height: 128) {
-                    base64
-                    tracedSVG
-                    srcWebp
-                    srcSetWebp
+                    ...GatsbyContentfulFixed
                 }
             }
             mainEvents {
@@ -186,11 +180,7 @@ export const query = graphql`
             }
             media {
                 fluid(quality: 80, maxWidth: 400) {
-                    base64
-                    tracedSVG
-                    src
-                    srcWebp
-                    srcSetWebp
+                    ...GatsbyContentfulFluid
                 }
             }
             mission {
