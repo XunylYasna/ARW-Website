@@ -30,7 +30,7 @@ export default function OrgTemplate({ data }) {
         backgroundImage,
         facebookUrl,
         twitterUrl
-    } = data.allContentfulOrganization.nodes[0];
+    } = data;
 
     const headerTimeline = new TimelineLite({
         pause: true
@@ -154,52 +154,52 @@ export default function OrgTemplate({ data }) {
     )
 }
 
-export const query = graphql`
-  query($slug: String!) {
-    allContentfulOrganization(filter: { slug: { eq: $slug } }) {
-        nodes {
-            acronym
-            organizationName
-            about {
-                json
-            }
-            youtubeVideoLink
-            backgroundImage{
-                fluid(quality: 80, maxWidth: 900) {
-                    ...GatsbyContentfulFluid
-                }
-            }
-            logo {
-                title
-                fixed(width: 128, height: 128) {
-                    ...GatsbyContentfulFixed
-                }
-            }
-            mainEvents {
-                eventName
-                description {
-                    json
-                }
-            }
-            media {
-                fluid(quality: 80, maxWidth: 400) {
-                    ...GatsbyContentfulFluid
-                }
-            }
-            mission {
-                json
-            }
-            vision {
-                json
-            }
-            registrationPackages {
-                price
-                title
-            }
-            email
-            facebookUrl
-            twitterUrl
-        }
-    }
-  }
-`
+// export const query = graphql`
+//   query($slug: String!) {
+//     allContentfulOrganization(filter: { slug: { eq: $slug } }) {
+//         nodes {
+//             acronym
+//             organizationName
+//             about {
+//                 json
+//             }
+//             youtubeVideoLink
+//             backgroundImage{
+//                 fluid(quality: 80, maxWidth: 900) {
+//                     ...GatsbyContentfulFluid
+//                 }
+//             }
+//             logo {
+//                 title
+//                 fixed(width: 128, height: 128) {
+//                     ...GatsbyContentfulFixed
+//                 }
+//             }
+//             mainEvents {
+//                 eventName
+//                 description {
+//                     json
+//                 }
+//             }
+//             media {
+//                 fluid(quality: 80, maxWidth: 400) {
+//                     ...GatsbyContentfulFluid
+//                 }
+//             }
+//             mission {
+//                 json
+//             }
+//             vision {
+//                 json
+//             }
+//             registrationPackages {
+//                 price
+//                 title
+//             }
+//             email
+//             facebookUrl
+//             twitterUrl
+//         }
+//     }
+//   }
+// `

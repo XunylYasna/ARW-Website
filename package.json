@@ -18,7 +18,7 @@
     "gatsby-plugin-transition-link": "^1.18.0",
     "gatsby-remark-images": "^3.3.0",
     "gatsby-remark-relative-images": "^0.3.0",
-    "gatsby-source-contentful": "^2.3.50",
+    "gatsby-source-contentful": "^2.3.56",
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-remark": "^2.8.4",
     "gatsby-transformer-sharp": "^2.5.17",
