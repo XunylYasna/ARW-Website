@@ -52,6 +52,7 @@
         width: 800px;
         height: 600px;
         padding: 70px;
+        overflow: hidden;
         p {
           font-size: 1.5rem;
           line-height: 2.5rem;
@@ -160,7 +161,17 @@
       height: 40vh;
     }
   }
-
+  @media only screen and (max-width: $bp-largest) {
+    .partners .socials {
+      p,
+      a {
+        font-size: 2rem !important;
+      }
+      span a {
+        font-size: 3.2rem !important;
+      }
+    }
+  }
   @media only screen and (max-width: $bp-large) {
     .events,
     .partners {
@@ -174,14 +185,16 @@
       }
     }
     .card.project-head-letter {
-      height: 450px !important;
+      padding: 40px !important;
+      height: 550px !important;
     }
   }
-  // @media only screen and (max-width: $bp-medium) {
-  //   .card.project-head-letter {
-  //     height: 450px !important;
-  //   }
-  // }
+  @media only screen and (max-width: $bp-medium) {
+    .container section {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+  }
   @media only screen and (max-width: $bp-small) {
     .hero {
       .hero-info {
@@ -189,8 +202,8 @@
       }
     }
     .card.project-head-letter {
-      padding: 20px !important;
-      height: 600px !important;
+      padding: 25px !important;
+      height: 700px !important;
     }
   }
   @media only screen and (max-width: $bp-smallest) {
