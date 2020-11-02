@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 
+import { TimelineLite } from "gsap";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 // export default function Minimap({ children, minimap, buildings, positions }) {
@@ -9,6 +10,15 @@ export default function Minimap({ children, minimap, buildingSize, organizations
     //         // loop clouds
     //         // loop grass
     //     })
+    // })
+
+    // const minimapTimeline = new TimelineLite({
+    //     pause: true
+    // });
+
+    // useEffect(() => {
+    //     minimapTimeline
+    //         .from(".building", 1, {scale: 0, transformOrigin: "center", ease: "bounce"}, 0.1)
     // })
 
     let wrapper;
@@ -21,10 +31,9 @@ export default function Minimap({ children, minimap, buildingSize, organizations
                 {organizations && organizations.map((org, index) => (
                     <AniLink
                         cover
-                        to={'organizations/' + org.slug}
+                        to={'/organizations/' + org.slug}
                         bg="#6666ff"
                         duration={0.7}
-                        className="header-link"
                     >
                         {console.log(org.building.src)}
                         <image className="building" height={buildingSize} width={buildingSize} x={org.x} y={org.y} href={org.building.fluid.src} />
