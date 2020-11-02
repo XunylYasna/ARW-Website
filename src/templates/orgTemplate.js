@@ -108,8 +108,8 @@ export default function OrgTemplate({ pageContext }) {
                 </title>
             </Helmet>
 
-            <Banner organizationName={organizationName} acronym={acronym} videoLink={youtubeVideoLink} logo={logo} background={backgroundImage} />
-            {/*<About aboutContent={about.json} acronym={acronym} media={media} facebook={facebookUrl} twitterUrl={twitterUrl} email={email}> </About>
+            {/*<Banner organizationName={organizationName} acronym={acronym} videoLink={youtubeVideoLink} logo={logo} background={backgroundImage} />
+            <About aboutContent={about.json} acronym={acronym} media={media} facebook={facebookUrl} twitterUrl={twitterUrl} email={email}> </About>
 
 
              Vision Mission 
