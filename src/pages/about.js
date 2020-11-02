@@ -2,12 +2,11 @@ import React, { useRef, useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { gsap } from "gsap";
 import ModalVideo from "react-modal-video";
-// import { useIntersection } from "react-use";
 
 import Card from "components/Card";
 import Layout from "components/Layout";
 import Container from "components/Container";
-// import CommitteeItem from "../components/About/CommitteeItem";
+import CommitteeItem from "../components/About/CommitteeItem";
 
 import Img1 from "../assets/images/ARW2019Photos/1.jpg";
 import Img2 from "../assets/images/ARW2019Photos/2.jpg";
@@ -74,9 +73,13 @@ const HeroSection = () => {
     <div className="hero-section">
       <div className="overlay"></div>
       <div className="header-box">
-        <span id="whatis">What is </span>
+        <span className="main-title" id="whatis">
+          What is
+        </span>
         <br />
-        <span id="h1">ARW 2020?</span>
+        <span className="main-title" id="h1">
+          ARW 2020?
+        </span>
         <br />
         <button className="main-button" onClick={() => setOpen(true)}>
           Watch the Video!
@@ -167,7 +170,7 @@ const HeroSection = () => {
         channel="youtube"
         autoplay
         isOpen={isOpen}
-        videoId="L61p2uyiMSo"
+        videoId="dQw4w9WgXcQ"
         onClose={() => setOpen(false)}
       />
     </div>
@@ -181,7 +184,7 @@ const AboutSection = () => {
 
     gsap.to(sectionRef.current, {
       scrollTrigger: sectionRef.current,
-      duration: 3,
+      duration: 1,
       opacity: 1,
       y: 0,
       ease: "power4.out",
@@ -192,8 +195,9 @@ const AboutSection = () => {
   return (
     <div className="about-section">
       <div className="header-box fadeIn" ref={sectionRef}>
-        <h1 className="fadeIn">About ARW 2020</h1>
-        <p className="fadeIn">
+        <h1 className="fadeIn main-header">About ARW 2020</h1>
+        <div className="sub-line"></div>
+        <p className="fadeIn text-content">
           Annual Recruitment Week (ARW) 2020 is a week-long University-wide
           event. Wherein the Council of Student Organizations (CSO) accredited
           organizations are given the chance to attract and recruit old and new
@@ -206,16 +210,76 @@ const AboutSection = () => {
   );
 };
 
-const PHeadsSection = () => {
+const TeamSection = () => {
   return (
-    <div className="project-heads-section">
+    <div className="team-section">
       <div className="header-box">
-        <h1>Project Heads</h1>
+        <h1 className="main-header">Meet the Team</h1>
+        <div className="sub-line"></div>
       </div>
-      <div className="project-heads-container">
-        <Card />
-        <Card />
-        <Card />
+      <div className="project-heads-section">
+        <h1 className="sub-title">Project Heads</h1>
+      </div>
+      <div className="project-heads-card-container">
+        <div className="card-wrapper">
+          <Card />
+          <span className="text-content">Name</span>
+        </div>
+        <div className="card-wrapper">
+          <Card />
+          <span className="text-content">Name</span>
+        </div>
+        <div className="card-wrapper">
+          <Card />
+          <span className="text-content">Name</span>
+        </div>
+        <div className="card-wrapper">
+          <Card />
+          <span className="text-content">Name</span>
+        </div>
+      </div>
+
+      <div className="committees-container">
+        <CommitteeItem name="Creatives">
+          <div className="card-wrapper">
+            <Card />
+            <span className="text-content">Name</span>
+          </div>
+          <div className="card-wrapper">
+            <Card />
+            <span className="text-content">Name</span>
+          </div>
+        </CommitteeItem>
+        <CommitteeItem name="Logiprod">
+          <div className="card-wrapper">
+            <Card />
+            <span className="text-content">Name</span>
+          </div>
+          <div className="card-wrapper">
+            <Card />
+            <span className="text-content">Name</span>
+          </div>
+        </CommitteeItem>
+        <CommitteeItem name="Creatives">
+          <div className="card-wrapper">
+            <Card />
+            <span className="text-content">Name</span>
+          </div>
+          <div className="card-wrapper">
+            <Card />
+            <span className="text-content">Name</span>
+          </div>
+        </CommitteeItem>
+        <CommitteeItem name="Logiprod">
+          <div className="card-wrapper">
+            <Card />
+            <span className="text-content">Name</span>
+          </div>
+          <div className="card-wrapper">
+            <Card />
+            <span className="text-content">Name</span>
+          </div>
+        </CommitteeItem>
       </div>
     </div>
   );
@@ -230,7 +294,7 @@ const AboutPage = () => {
       <Container>
         <HeroSection />
         <AboutSection />
-        <PHeadsSection />
+        <TeamSection />
       </Container>
     </Layout>
   );
