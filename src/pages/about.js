@@ -2,12 +2,10 @@ import React, { useRef, useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { gsap } from "gsap";
 import ModalVideo from "react-modal-video";
-// import { useIntersection } from "react-use";
 
 import Card from "components/Card";
 import Layout from "components/Layout";
 import Container from "components/Container";
-import VideoModal from "../components/Utilities/VideoModal";
 import CommitteeItem from "../components/About/CommitteeItem";
 
 import Img1 from "../assets/images/ARW2019Photos/1.jpg";
@@ -17,8 +15,6 @@ import Img4 from "../assets/images/ARW2019Photos/4.jpg";
 import Img5 from "../assets/images/ARW2019Photos/5.jpg";
 import Img6 from "../assets/images/ARW2019Photos/6.jpg";
 import Img7 from "../assets/images/ARW2019Photos/7.jpg";
-
-// import icon from "../assets/images/SVG/floatingisland.svg"
 
 const HeroSection = () => {
   let ref = useRef(null);
@@ -76,9 +72,6 @@ const HeroSection = () => {
   return (
     <div className="hero-section">
       <div className="overlay"></div>
-      {/* <svg>
-        <use xlinkHref={`#${icon.id}`} />
-      </svg> */}
       <div className="header-box">
         <span className="main-title" id="whatis">
           What is
@@ -91,19 +84,7 @@ const HeroSection = () => {
         <button className="main-button" onClick={() => setOpen(true)}>
           Watch the Video!
         </button>
-        {/* <VideoModal link="https://www.youtube.com/embed/dQw4w9WgXcQ" /> */}
       </div>
-      {/* <div className="video-container">
-        <div className="video-player-container">
-          <iframe
-            title="video"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            frameBorder="0"
-            // allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div> */}
       <div
         className="grid"
         ref={(e) => {
@@ -200,15 +181,6 @@ const AboutSection = () => {
   let sectionRef = useRef(null);
 
   useEffect(() => {
-    // let tl = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: ".container",
-    //     pin: true, // pin the trigger element while active
-    //     start: "top top", // when the top of the trigger hits the top of the viewport
-    //     end: "+=500", // end after scrolling 500px beyond the start
-    //     scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollba
-    //   },
-    // });
 
     gsap.to(sectionRef.current, {
       scrollTrigger: sectionRef.current,
@@ -219,28 +191,6 @@ const AboutSection = () => {
       stagger: 0.3,
     });
   }, []);
-
-  // const intersection = useIntersection(sectionRef, {
-  //   root: null,
-  //   rootMargin: "0px",
-  //   threshold: 0.7,
-  // });
-
-  // const fadeIn = (el) => {
-  //   gsap.to(el, {
-  //     duration: 1,
-  //     opacity: 1,
-  //     y: 0,
-  //     ease: "power4.out",
-  //     stagger: 0.3
-  //   });
-  // };
-
-  // const fadeOut = () => {
-
-  // }
-
-  // intersection && intersection.isIntersecting ? fadeOut(".fadeIn") : fadeIn(".fadeIn");
 
   return (
     <div className="about-section">
