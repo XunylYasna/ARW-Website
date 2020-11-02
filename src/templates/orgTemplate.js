@@ -47,21 +47,21 @@ export default function OrgTemplate({ pageContext }) {
     const mvTimeline = new TimelineLite({
         scrollTrigger: {
             trigger: ".organization-vm",
-            start: "top top"
+            start: "center center"
         },
     })
 
     const eventsTimeline = new TimelineLite({
         scrollTrigger: {
             trigger: ".organization-events",
-            start: "bottom bottom"
+            start: "center center"
         },
     })
 
     const registrationTimeline = new TimelineLite({
         scrollTrigger: {
             trigger: ".organization-prices",
-            start: "bottom bottom"
+            start: "center center"
         },
     })
 
@@ -83,9 +83,9 @@ export default function OrgTemplate({ pageContext }) {
             .fromTo(".organization-about-socials", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
         mvTimeline
-            .from(".organization-mission h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-            .from(".organization-vision h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-            .from(".organization-vm-content", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-mission h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-vision h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-vm-content", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
         eventsTimeline
             .fromTo(".organization-event-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
@@ -154,53 +154,3 @@ export default function OrgTemplate({ pageContext }) {
         </Layout>
     )
 }
-
-// export const query = graphql`
-//   query($slug: String!) {
-//     allContentfulOrganization(filter: { slug: { eq: $slug } }) {
-//         nodes {
-//             acronym
-//             organizationName
-//             about {
-//                 json
-//             }
-//             youtubeVideoLink
-//             backgroundImage{
-//                 fluid(quality: 80, maxWidth: 900) {
-//                     ...GatsbyContentfulFluid
-//                 }
-//             }
-//             logo {
-//                 title
-//                 fixed(width: 128, height: 128) {
-//                     ...GatsbyContentfulFixed
-//                 }
-//             }
-//             mainEvents {
-//                 eventName
-//                 description {
-//                     json
-//                 }
-//             }
-//             media {
-//                 fluid(quality: 80, maxWidth: 400) {
-//                     ...GatsbyContentfulFluid
-//                 }
-//             }
-//             mission {
-//                 json
-//             }
-//             vision {
-//                 json
-//             }
-//             registrationPackages {
-//                 price
-//                 title
-//             }
-//             email
-//             facebookUrl
-//             twitterUrl
-//         }
-//     }
-//   }
-// `
