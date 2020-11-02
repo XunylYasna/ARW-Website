@@ -1,22 +1,102 @@
 footer {
-  background-color: var(--color-white);
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
-  .container {
-    margin: 0;
+
+  .footer-left{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: var(--line);
-    padding: 2rem;
-    box-sizing: border-box;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .footer-div{
+      margin: 2rem 2rem;
+      h1{
+        color: var(--color-grey-light-1);
+        font-size: 3rem;
+      }
+      ul{
+        color: var(--color-grey-light-2);
+        font-family: var(--ff-secondary);
+        list-style-type: none;
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: row;
+
+        li{
+          margin-right: 5px;
+        }
+
+        a{
+          color: var(--color-grey-light-2);
+          font-family: var(--ff-secondary);
+        }
+      }
+
+      .footer-connect-icons{
+        display: flex;
+        justify-content: space-between;
+        width: 180px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        a{
+          color: var(--color-grey-light-2);
+          transition: color 0.5s ease-in-out;
+          svg{
+            width: 24px;
+            height: 24px;
+          }
+        }
+        a:hover{
+          color: var(--color-secondary);
+        }
+      }
+
+      .footer-connect-content{
+        color: var(--color-grey-light-2);
+        display: flex;
+        flex-direction: column;
+        font-size: 1.2rem;
+        vertical-align: middle;
+        a{
+          vertical-align: middle;
+          font-size: 1.2rem;
+          color: var(--color-grey-light-2);
+          text-transform: lowercase !important;
+          text-decoration: none;
+          font-family: var(--ff-secondary);
+        }
+      }
+    }
   }
 
-  p {
-    font-family: "Space Mono", sans-serif;
-    font-size: 1.5rem;
-    font-weight: 100;
-    color: var(--color-grey-dark-3);
-    white-space: pre-line;
+  .footer-right{
+    margin: 2rem 2rem;
+
+    .footer-logos{
+      display: flex;
+      flex-direction: row;
+
+      .cso-logo{
+        height: 86px;
+        width: 86px;
+        img{
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .arw-logo{
+        height: 94px;
+        width: 128px;
+        img{
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    
   }
 
   .footer__icons {

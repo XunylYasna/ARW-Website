@@ -1,0 +1,84 @@
+.page-cluster {
+    .organization-header {
+        text-align: center;
+
+        background-color: var(--color-primary);
+        padding: 10px 0;
+
+        .main-header {
+            font-size: 2.75em;
+            font-weight: 600;
+            color: var(--color-white);
+            letter-spacing: normal;
+        }
+    }
+
+    .organization-list {
+        margin: 50px 0;
+
+        .list {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: 33% 33% 33%;
+
+            @include respond(phone) {
+                grid-template-columns: 50% 50%;
+            }
+
+
+            .container {
+                perspective: 900px;
+                height: 100%;
+                width: 100%;
+
+                .item {
+                    // background-color: var(--color-primary);
+                    padding: 10px;
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+    
+                    transition: .5s all ease;
+                    transform: rotateX(60deg) scale(0.7);
+    
+                    a {
+                        text-decoration: none;
+                    }
+    
+                    .org-item {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+    
+                    .org-logo {
+                        max-width: 400px;
+                        max-height: 150px;
+
+                        @include respond(phone) {
+                            max-width: 100px;
+                            max-height: 50px;
+                        }
+                    }
+    
+                    .sub-title {
+                        // color: var(--color-white);
+                        color: var(--color-primary);
+                        letter-spacing: normal;
+                        font-size: 1.75em;
+                        margin-top: 10px;
+                    }
+                }
+    
+                .item:hover {
+                    cursor: pointer;
+                    transform: rotate(0deg) scale(1) translateY(10px);
+                    transition: .5s all ease;
+                    z-index: 400;
+                }
+            }
+        }
+    }
+}

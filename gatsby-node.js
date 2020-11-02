@@ -24,15 +24,22 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
 
-      try {
-        node.organizations.forEach((organization) => {
-          createPage({
-            path: `${organization.slug}`,
-            component: path.resolve(`./src/templates/orgpage.js`),
-            context: {
-              slug: organization.slug,
-            },
-          })
+    try {
+      node.organizations.forEach((organization) => {
+        // createPage({
+        //   path: `${organization.slug}`,
+        //   component: path.resolve(`./src/templates/orgpage.js`),
+        //   context: {
+        //     slug: organization.slug,
+        //   },
+        // })
+
+        createPage({
+          path: `organizations/${organization.slug}`,
+          component: path.resolve(`./src/templates/orgTemplate.js`),
+          context: {
+            slug: organization.slug,
+          },
         })
       } catch (error) {
 
