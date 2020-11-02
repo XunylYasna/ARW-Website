@@ -26,7 +26,7 @@ const ClusterList = () => {
 
   const clusters = data.allContentfulCluster.nodes.map(
     ({ title, subtitle, contentful_id }) => {
-      return <p key={contentful_id}>{title} </p>;
+      return <p key={contentful_id}>{title}</p>;
     }
   );
 

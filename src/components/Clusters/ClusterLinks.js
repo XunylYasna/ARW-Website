@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import { TimelineLite, Quart } from "gsap";
 import { graphql, useStaticQuery } from "gatsby";
 import mainMap from "assets/images/Clusters/MAIN_MAP.jpg";
-import img1 from "assets/images/Clusters/ASO_(NEW_YORK).png";
+// import img1 from "assets/images/Clusters/ASO_(NEW_YORK).png";
+import asoImg from "../../assets/images/Clusters/ASO.png";
+import aspireImg from "../../assets/images/Clusters/ASPIRE.png";
+import cap12Img from "../../assets/images/Clusters/CAP12.png";
+import engageImg from "../../assets/images/Clusters/ENGAGE.png";
+import probeImg from "../../assets/images/Clusters/PROBE.png";
+// import aspireImg from "../../assets/images/Clusters/ASPIRE.png";
 const ClusterLinks = () => {
   const headerTimeline = new TimelineLite({ paused: true });
 
@@ -25,32 +31,54 @@ const ClusterLinks = () => {
     }
   `);
 
+  const clusterData = [
+    {
+      title: data.allContentfulCluster.nodes[0].title,
+      image: aspireImg,
+    },
+    {
+      title: data.allContentfulCluster.nodes[1].title,
+      image: probeImg,
+    },
+    {
+      title: data.allContentfulCluster.nodes[2].title,
+      image: cap12Img,
+    },
+    {
+      title: data.allContentfulCluster.nodes[3].title,
+      image: asoImg,
+    },
+    {
+      title: data.allContentfulCluster.nodes[4].title,
+      image: engageImg,
+    },
+    {
+      title: "CSO",
+      image: mainMap,
+    },
+  ];
+
   console.log(data.allContentfulCluster.nodes);
 
-  const clusters = data.allContentfulCluster.nodes.map(
-    ({ title, subtitle, contentful_id }, index) => {
-      return (
-        <div
-          className="grid-item sub-title "
-          style={{
-            backgroundImage: `url(${mainMap})`,
-          }}
-          key={contentful_id}
-        >
+  const clusters = clusterData.map(({ title, image }, index) => {
+    return (
+      <div
+        className="grid-item sub-title "
+        style={{
+          backgroundImage: `url(${image})`,
+        }}
+        key={index}
+      >
+        <div>
           <p>{title}</p>
         </div>
-      );
-    }
-  );
+      </div>
+    );
+  });
 
   return (
     <>
-      <section
-        className="cluster-links"
-        style={{
-          backgroundColor: `var(--color-primary)`,
-        }}
-      >
+      <section className="cluster-links">
         <div className="grid-container">{clusters}</div>
       </section>
     </>
