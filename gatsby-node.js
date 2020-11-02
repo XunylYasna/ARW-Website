@@ -17,7 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allContentfulCluster.nodes.forEach((node) => {
     createPage({
-      path: node.title,
+      path: `clusters/${node.title}`,
       component: path.resolve(`./src/templates/clusterpage.js`),
       context: {
         title: node.title,
@@ -40,10 +40,8 @@ exports.createPages = async ({ graphql, actions }) => {
           context: {
             slug: organization.slug,
           },
-        })
-      } catch (error) {
-
-      }
-    
+        });
+      });
+    } catch (error) {}
   });
 };
