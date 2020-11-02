@@ -2,9 +2,9 @@ import React, { useEffect } from "react"
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-import gsap, { TimelineLite, Quart } from "gsap";
+import { gsap, TimelineLite, Quart } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+gsap.registerPlugin(ScrollTrigger);
 
 import Banner from "../components/OrganizationTemplate/Banner"
 import About from "../components/OrganizationTemplate/About"
@@ -15,8 +15,6 @@ import { Helmet } from "react-helmet";
 
 
 export default function OrgTemplate({ pageContext }) {
-    gsap.registerPlugin(ScrollTrigger);
-
     const {
         organizationName,
         acronym,
