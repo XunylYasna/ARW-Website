@@ -15,6 +15,8 @@ import { Helmet } from "react-helmet";
 
 
 export default function OrgTemplate({ pageContext }) {
+    gsap.registerPlugin(ScrollTrigger);
+
     const {
         organizationName,
         acronym,
@@ -66,8 +68,8 @@ export default function OrgTemplate({ pageContext }) {
     })
 
 
+
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
 
         headerTimeline
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
