@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import { gsap } from "gsap";
 import ModalVideo from "react-modal-video";
+import { useIntersection } from "react-use";
 
 import Card from "components/Card";
 import Layout from "components/Layout";
@@ -73,13 +74,9 @@ const HeroSection = () => {
     <div className="hero-section">
       <div className="overlay"></div>
       <div className="header-box">
-        <span className="main-title" id="whatis">
-          What is
-        </span>
+        <span id="whatis">What is </span>
         <br />
-        <span className="main-title" id="h1">
-          ARW 2020?
-        </span>
+        <span id="h1">ARW 2020?</span>
         <br />
         <button className="main-button" onClick={() => setOpen(true)}>
           Watch the Video!
@@ -170,7 +167,7 @@ const HeroSection = () => {
         channel="youtube"
         autoplay
         isOpen={isOpen}
-        videoId="dQw4w9WgXcQ"
+        videoId="L61p2uyiMSo"
         onClose={() => setOpen(false)}
       />
     </div>
@@ -184,7 +181,7 @@ const AboutSection = () => {
 
     gsap.to(sectionRef.current, {
       scrollTrigger: sectionRef.current,
-      duration: 1,
+      duration: 3,
       opacity: 1,
       y: 0,
       ease: "power4.out",
@@ -195,9 +192,8 @@ const AboutSection = () => {
   return (
     <div className="about-section">
       <div className="header-box fadeIn" ref={sectionRef}>
-        <h1 className="fadeIn main-header">About ARW 2020</h1>
-        <div className="sub-line"></div>
-        <p className="fadeIn text-content">
+        <h1 className="fadeIn">About ARW 2020</h1>
+        <p className="fadeIn">
           Annual Recruitment Week (ARW) 2020 is a week-long University-wide
           event. Wherein the Council of Student Organizations (CSO) accredited
           organizations are given the chance to attract and recruit old and new
@@ -210,76 +206,16 @@ const AboutSection = () => {
   );
 };
 
-const TeamSection = () => {
+const PHeadsSection = () => {
   return (
-    <div className="team-section">
+    <div className="project-heads-section">
       <div className="header-box">
-        <h1 className="main-header">Meet the Team</h1>
-        <div className="sub-line"></div>
+        <h1>Project Heads</h1>
       </div>
-      <div className="project-heads-section">
-        <h1 className="sub-title">Project Heads</h1>
-      </div>
-      <div className="project-heads-card-container">
-        <div className="card-wrapper">
-          <Card />
-          <span className="text-content">Name</span>
-        </div>
-        <div className="card-wrapper">
-          <Card />
-          <span className="text-content">Name</span>
-        </div>
-        <div className="card-wrapper">
-          <Card />
-          <span className="text-content">Name</span>
-        </div>
-        <div className="card-wrapper">
-          <Card />
-          <span className="text-content">Name</span>
-        </div>
-      </div>
-
-      <div className="committees-container">
-        <CommitteeItem name="Creatives">
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-        </CommitteeItem>
-        <CommitteeItem name="Logiprod">
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-        </CommitteeItem>
-        <CommitteeItem name="Creatives">
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-        </CommitteeItem>
-        <CommitteeItem name="Logiprod">
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-        </CommitteeItem>
+      <div className="project-heads-container">
+        <Card />
+        <Card />
+        <Card />
       </div>
     </div>
   );
@@ -294,7 +230,7 @@ const AboutPage = () => {
       <Container>
         <HeroSection />
         <AboutSection />
-        <TeamSection />
+        <PHeadsSection />
       </Container>
     </Layout>
   );
