@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Helmet from "react-helmet";
 
 import Layout from "components/Layout";
 
 import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { TimelineLite } from "gsap";
 import Griddle, { plugins, RowDefinition, ColumnDefinition} from 'griddle-react';
 
 const Logo = (link) => <img className="logo" src={link.value} />;
-const ViewPage = (slug) => <AniLink to={'/organizations/' + slug.value}>View Page</AniLink>;
+const ViewPage = (slug) => <AniLink className="button" to={'/organizations/' + slug.value}><div id="dub-arrow"><img src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-arrow-48-240.png?raw=true" alt="" /></div><span>View Page</span></AniLink>;
 
 const OrganizationsPage = () => {
     const query = useStaticQuery(graphql`
@@ -45,6 +46,16 @@ const OrganizationsPage = () => {
         }
     })
 
+    const organizationsTimeline = new TimelineLite({
+        'paused': true
+    })
+
+    useEffect(() => {
+        organizationsTimeline
+            .staggerFrom('.griddle-row', 0.5, { opacity: 0, y: 20 }, 0.1)
+            .play()
+    })
+
     return (
         <Layout pageName="organizations">
             <Helmet>
@@ -52,6 +63,7 @@ const OrganizationsPage = () => {
             </Helmet>
             <Griddle
                 data={data}
+                sortProperties={[{ id: 'acronym', sortAscending: true }]}
                 plugins={[plugins.LocalPlugin]}
                 components={{
                    // hide settings toggle button
