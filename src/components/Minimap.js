@@ -39,7 +39,7 @@ export default function Minimap({ children, minimap, buildingSize, organizations
                         duration={0.7}
                     >
                         {console.log(org.building.src)}
-                        <image className="building" height={buildingSize} width={buildingSize} x={org.x} y={org.y} href={org.building.fluid.src} />
+                        <image className="building bounce" height={buildingSize} width={buildingSize} x={org.x} y={org.y} href={org.building.fluid.src} />
                     </AniLink>
                 ))}
                 {/* {buildings && positions && buildings.map((source, index) => (
@@ -54,7 +54,7 @@ export default function Minimap({ children, minimap, buildingSize, organizations
                     </AniLink>
                 ))} */}
                 <rect x="290" y="570" height="30" width="460" fill="#000" style={{opacity: 0.5}} />
-                <text x="300" y="590" fill='#fff' className="click-text infinite-blinking">CLICK ON THE BUILDINGS FOR A SURPRISE!</text>
+                <text x="300" y="590" fill='#fff' className="click-text flash">CLICK ON THE BUILDINGS FOR A SURPRISE!</text>
                 {children}
             </svg>
         </div>

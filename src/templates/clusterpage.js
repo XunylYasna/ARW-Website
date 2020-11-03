@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import gsap, { TimelineLite } from "gsap";
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-import Img from "gatsby-image";
 
 import Layout from "../components/Layout";
 import Minimap from "../components/Minimap";
