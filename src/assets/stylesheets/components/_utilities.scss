@@ -5,23 +5,31 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1rem;
-    color: var(--color-primary)
+    color: var(--color-primary);
     // span{
     //     @include blue-gradient;
     //     background-clip: text;
     //     -webkit-background-clip: text;
     //     -webkit-text-fill-color: transparent;
     // }
+
+    @include respond(phone) {
+        font-size: 4rem;
+    }
 }
 
 .sub-title{
     font-family: var(--ff-secondary);
     font-weight: 100;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     color: var(--color-primary);
+
+    @include respond(phone) {
+        font-size: 1.25rem;
+    }
 }
 
 .main-line{
@@ -45,4 +53,8 @@
     @extend .sub-title;
     font-size: 4rem;
     font-weight: 900;
+
+    @include respond(phone) {
+        font-size: 2rem;
+    }
 }

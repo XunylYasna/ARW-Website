@@ -1,0 +1,10 @@
+.infinite-blinking {
+    animation: blink 1.5s infinite;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+    100% { opacity:1; }
+}

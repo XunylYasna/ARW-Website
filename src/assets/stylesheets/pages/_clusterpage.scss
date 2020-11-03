@@ -41,7 +41,7 @@
                     justify-content: center;
     
                     transition: .5s all ease;
-                    transform: rotateX(60deg) scale(0.7);
+                    transform: rotateX(45deg) scale(0.7);
     
                     a {
                         text-decoration: none;
@@ -67,7 +67,6 @@
                         // color: var(--color-white);
                         color: var(--color-primary);
                         letter-spacing: normal;
-                        font-size: 1.75em;
                         margin-top: 10px;
                     }
                 }

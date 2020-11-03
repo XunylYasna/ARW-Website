@@ -12,16 +12,19 @@ export default function Minimap({ children, minimap, buildingSize, organizations
     //     })
     // })
 
-    // const minimapTimeline = new TimelineLite({
-    //     pause: true
-    // });
+    const minimapTimeline = new TimelineLite({
+        pause: true
+    });
 
-    // useEffect(() => {
-    //     minimapTimeline
-    //         .from(".building", 1, {scale: 0, transformOrigin: "center", ease: "bounce"}, 0.1)
-    // })
+    useEffect(() => {
+        minimapTimeline
+            .fromTo(".building", 1, {opacity: 0}, {opacity: 1}, 0.5)
+            .play()
+    })
 
     let wrapper;
+
+    // const buildingSize = 175;
 
     return (
         <div className="minimap">
@@ -51,7 +54,7 @@ export default function Minimap({ children, minimap, buildingSize, organizations
                     </AniLink>
                 ))} */}
                 <rect x="290" y="570" height="30" width="460" fill="#000" style={{opacity: 0.5}} />
-                <text x="300" y="590" fill='#fff' className="click-text">CLICK ON THE BUILDINGS FOR A SURPRISE!</text>
+                <text x="300" y="590" fill='#fff' className="click-text infinite-blinking">CLICK ON THE BUILDINGS FOR A SURPRISE!</text>
                 {children}
             </svg>
         </div>

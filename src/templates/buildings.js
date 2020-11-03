@@ -14,8 +14,8 @@ const aspirePositions = [{x: 100, y: 160},{x: 0, y: 350},{x: 310, y: 160},{x: 40
 
 const cap12 = importAll(require.context('../assets/images/Clusters/CAP12 ICONS/', false, /\.(png|jpe?g|svg)$/));
 // 175
-//                       amstud,           bss,             devint,           danum,           esa,              nkk,             pilosopo,         poliscy,          sdh,             sms,               teamcomm
-const cap12Positions = [{x: 200, y: 385}, {x: 150, y: 25}, {x: 300, y: 100}, {x: 825, y: 255}, {x: 350, y: 350}, {x: 0, y: 150}, {x: 760, y: 25}, {x: 475, y: 175}, {x: 120, y: 250}, {x: 900, y: 100}, {x: 800, y: 370}]
+//                       amstud,           bss,             cultura,         devint,           danum,           esa,              nkk,             pilosopo,         poliscy,          sdh,             sms,               teamcomm
+const cap12Positions = [{x: 200, y: 385}, {x: 150, y: 25}, {x: 500, y: 30}, {x: 300, y: 100}, {x: 825, y: 255}, {x: 350, y: 350}, {x: 0, y: 150}, {x: 760, y: 25}, {x: 475, y: 175}, {x: 120, y: 250}, {x: 900, y: 100}, {x: 800, y: 370}]
 
 const engage = importAll(require.context('../assets/images/Clusters/ENGAGE ICONS/', false, /\.(png|jpe?g|svg)$/));
 // 200

@@ -1,13 +1,14 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 import gsap, { TimelineLite } from "gsap";
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import Img from "gatsby-image";
 
 import Layout from "../components/Layout";
 import Minimap from "../components/Minimap";
 import Card from "../components/Card";
-// import { aso, asoPositions, aspire, aspirePositions, cap12, cap12Positions, cso, csoPositions, engage, engagePositions, probe, probePositions } from "./buildings"
+import { aso, asoPositions, aspire, aspirePositions, cap12, cap12Positions, cso, csoPositions, engage, engagePositions, probe, probePositions } from "./buildings"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -16,10 +17,10 @@ export default function ClusterPage({ data }) {
     const organizationsTimeline = new TimelineLite({
         scrollTrigger: {
             trigger: ".organization-list",
-            start: "top top",
+            start: "top top"
         },
     })
-    
+
     organizationsTimeline
         .staggerFromTo( ".organization-list .sub-line", 0.5, {scaleX: 0}, {scaleX: 1, transformOrigin: "left"})
         .staggerFrom( ".organization-list .main-header", 0.5, { opacity: 0, y: 20 })
@@ -31,7 +32,7 @@ export default function ClusterPage({ data }) {
             <div className="organization-header">
                 <p className="main-header">{subtitle}(<strong>{title}</strong>)</p>
             </div>
-            {/* <Minimap minimap={landingImage.fluid.src} buildings={probe} positions={probePositions} /> */}
+            {/* <Minimap minimap={landingImage.fluid.src} buildings={cap12} positions={cap12Positions} /> */}
             <Minimap minimap={landingImage.fluid.src} buildingSize={buildingSize} organizations={organizations} />
             <div className="organization-list">
                 <h1 className="main-header" >Organizations under {title}</h1>
