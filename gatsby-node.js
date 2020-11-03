@@ -38,14 +38,6 @@ exports.createPages = async ({ graphql, actions }) => {
                     json
                 }
             }
-            media {
-                fluid(quality: 80, maxWidth: 400) {
-                  base64
-                  tracedSVG
-                  srcWebp
-                  srcSetWebp
-                }
-            }
             mission {
                 json
             }
@@ -75,19 +67,19 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
 
-    try {
-      node.organizations.forEach((organization) => {
-        console.log(organization)
-        createPage({
-          path: `organizations/${organization.slug}`,
-          component: path.resolve(`./src/templates/orgTemplate.js`),
-          context: {
-            data: { organization },
-          },
-        })
-      })
-    } catch (error) {
-      console.log(error)
-    }
+    // try {
+    //   node.organizations.forEach((organization) => {
+    //     console.log(organization)
+    //     createPage({
+    //       path: `organizations/${organization.slug}`,
+    //       component: path.resolve(`./src/templates/orgTemplate.js`),
+    //       context: {
+    //         data: { organization },
+    //       },
+    //     })
+    //   })
+    // } catch (error) {
+    //   console.log(error)
+    // }
   });
 };
