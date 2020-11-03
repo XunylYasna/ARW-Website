@@ -1,0 +1,47 @@
+.page-organizations {
+    
+    .logo {
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .griddle-table {
+        font-family: var(--ff-secondary);
+        font-size: 1.5em;
+        margin: auto;
+    }
+
+    .griddle-row {
+        border-bottom: 1px solid;
+    }
+
+    .griddle-filter {
+        width: 100%;
+        font-size: 1.5em;
+        padding: 10px 5px 10px 40px;
+        display: block;
+        border: 1px solid #EDEDED;
+        border-radius: 4px;
+        transition: 0.2s ease-out;
+        color: darken(#EDEDED, 30%);
+        
+        &:focus{
+            padding: 10px 5px 10px 10px;
+            outline: 0;
+            border-color: var(--color-primary);
+        }
+    }
+
+    .griddle-cell {
+        padding: 10px;
+    }
+    
+    .griddle-pagination {
+        width: 100%;
+    }
+
+    .griddle-no-results {
+        font-family: var(--ff-secondary);
+        font-size: 3em;
+    }
+}
