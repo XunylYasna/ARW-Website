@@ -75,19 +75,19 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
 
-    // try {
-    //   node.organizations.forEach((organization) => {
-    //     console.log(organization)
-    //     createPage({
-    //       path: `organizations/${organization.slug}`,
-    //       component: path.resolve(`./src/templates/orgTemplate.js`),
-    //       context: {
-    //         data: { organization },
-    //       },
-    //     })
-    //   })
-    // } catch (error) {
-    //   console.log(error)
-    // }
+    try {
+      node.organizations.forEach((organization) => {
+        console.log(organization)
+        createPage({
+          path: `organizations/${organization.slug}`,
+          component: path.resolve(`./src/templates/orgTemplate.js`),
+          context: {
+            data: { organization },
+          },
+        })
+      })
+    } catch (error) {
+      console.log(error)
+    }
   });
 };
