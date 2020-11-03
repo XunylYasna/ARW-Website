@@ -38,6 +38,14 @@ exports.createPages = async ({ graphql, actions }) => {
                     json
                 }
             }
+            media {
+                fluid(quality: 80, maxWidth: 400) {
+                  base64
+                  tracedSVG
+                  srcWebp
+                  srcSetWebp
+                }
+            }
             mission {
                 json
             }
