@@ -2,9 +2,8 @@ import React, { useEffect } from "react"
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-import gsap, { TimelineLite, Quart } from "gsap";
+import { gsap, TimelineLite, Quart } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 import Banner from "../components/OrganizationTemplate/Banner"
 import About from "../components/OrganizationTemplate/About"
@@ -66,6 +65,7 @@ export default function OrgTemplate({ pageContext }) {
     })
 
 
+
     useEffect(() => {
 
         headerTimeline
@@ -91,7 +91,7 @@ export default function OrgTemplate({ pageContext }) {
         registrationTimeline
             .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
             .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-    })
+    }, [])
 
 
 
