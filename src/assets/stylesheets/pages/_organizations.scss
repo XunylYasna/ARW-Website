@@ -3,26 +3,34 @@
         position: relative;
         cursor: pointer;
         display: inline-flex;
-        height: 40px;
-        width: 150px;
-        border: 2px solid;
-        text-decoration: none;
-        letter-spacing: 1.5px;
+        height: 100%;
+        width: 100%;
+        border: 1px solid;
+        text-decoration: none;  
         align-items: center;
         justify-content: center;
         overflow: hidden;
         color: var(--color-black);
         border-radius: 3px;
+        padding: 10px;
+
+        @include respond(phone) {
+            padding: 2.5px;
+        }
 
         img {
             width: 20px;
             height: auto;
+
+            @include respond(phone) {
+                width: 10px;
+            }
         }
 
         span {
             position: relative;
             left: 0;
-            transition: all .35s ease-Out;
+            transition: all .35s ease-out;
         }
     }
 
@@ -32,7 +40,7 @@
         }
 
         span {
-            left: 150px;
+            left: 100%;
         }
     }
 
@@ -45,13 +53,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all .35s ease-Out;
+        transition: all .35s ease-out;
         bottom: 0;
     }
 
     .logo {
         max-width: 50px;
         max-height: 50px;
+
+        @include respond(phone) {
+            max-width: 30px;
+            max-height: 30px;
+        }
     }
 
     .griddle-table {
@@ -60,10 +73,18 @@
         font-size: 1.5em;
         line-height: 1.5rem;
         border-collapse: collapse;
+
+        @include respond(phone) {
+            font-size: 1em;
+        }
     }
 
     .griddle-table-heading {
         border-bottom: 2px solid;
+
+        @include respond(phone) {
+            border-bottom: 1px solid;
+        }
 
         * {
             padding: 10px;
@@ -85,6 +106,10 @@
         border-radius: 4px;
         transition: 0.2s ease-out;
         color: darken(#EDEDED, 30%);
+
+        @include respond(tab-port) {
+            width: 90%;
+        }
         
         &:focus{
             outline: 0;
@@ -95,6 +120,10 @@
 
     .griddle-cell {
         padding: 10px;
+
+        @include respond(phone) {
+            padding: 5px;
+        }
     }
     
     .griddle-pagination {
@@ -142,6 +171,7 @@
     .griddle-no-results {
         font-family: var(--ff-secondary);
         font-size: 3em;
+        font-weight: bold;
         text-align: center;
     }
 }

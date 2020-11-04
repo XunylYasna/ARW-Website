@@ -46,15 +46,21 @@ const OrganizationsPage = () => {
         }
     })
 
-    const organizationsTimeline = new TimelineLite({
-        'paused': true
-    })
+    const organizationsTimeline = new TimelineLite()
 
-    useEffect(() => {
+    const onEnter = () => {
         organizationsTimeline
             .staggerFrom('.griddle-row', 0.5, { opacity: 0, y: 20 }, 0.1)
-            .play()
-    })
+    }
+
+    const onExit = () => {
+        organizationsTimeline
+            .staggerTo('.griddle-row', 0.5, { opacity: 1, y: 20 }, 0.1)
+    }
+
+    useEffect(() => {
+        onEnter()
+    }, [])
 
     return (
         <Layout pageName="organizations">
@@ -90,11 +96,10 @@ const OrganizationsPage = () => {
                         TableBody: 'griddle-table-body',
                         TableHeading: 'griddle-table-heading',
                     },
-                    styles: {},
                  }}
             >
                 <RowDefinition>
-                    <ColumnDefinition id="logo" title="Logo" customComponent={Logo} /> 
+                    <ColumnDefinition id="logo" title="Logo" sortable={false} customComponent={Logo} /> 
                     <ColumnDefinition id="acronym" title="Acronym" />
                     <ColumnDefinition id="organizationName" title="Organization Name" />
                     <ColumnDefinition id="cluster" title="Cluster" />   
