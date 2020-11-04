@@ -48,18 +48,13 @@ const OrganizationsPage = () => {
 
     const organizationsTimeline = new TimelineLite()
 
-    const onEnter = () => {
+    const fadeIn = () => {
         organizationsTimeline
             .staggerFrom('.griddle-row', 0.5, { opacity: 0, y: 20 }, 0.1)
     }
 
-    const onExit = () => {
-        organizationsTimeline
-            .staggerTo('.griddle-row', 0.5, { opacity: 1, y: 20 }, 0.1)
-    }
-
     useEffect(() => {
-        onEnter()
+        fadeIn()
     }, [])
 
     return (
