@@ -9,7 +9,7 @@ import Minimap from "../components/Minimap";
 import Card from "../components/Card";
 import { aso, asoPositions, aspire, aspirePositions, cap12, cap12Positions, cso, csoPositions, engage, engagePositions, probe, probePositions } from "./buildings"
 
-// gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
 export default function ClusterPage({ data }) {
 

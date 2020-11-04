@@ -57,6 +57,11 @@
                         max-width: 400px;
                         max-height: 150px;
 
+                        @include respond(tab-port) {
+                            max-width: 250px;
+                            max-height: 75px;
+                        }
+
                         @include respond(phone) {
                             max-width: 100px;
                             max-height: 50px;
