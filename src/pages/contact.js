@@ -15,7 +15,46 @@ const ContactPage = () => {
         <title>Contact</title>
       </Helmet>
       <Container>
-        <h1>Contact</h1>
+        <section>
+          <h2 className="sub-title">Contact Us</h2>
+          <div className="sub-line"></div>
+          <div className="form-container">
+            <form method="post" action="#">
+              <label>
+                <p>Name</p>
+                <input type="text" name="name" id="name" />
+              </label>
+              <br />
+              <label>
+                <p>Email</p>
+
+                <input type="email" name="email" id="email" />
+              </label>
+              <br />
+
+              <label>
+                <p>Subject</p>
+
+                <input type="text" name="subject" id="subject" />
+              </label>
+              <br />
+
+              <label>
+                <p>Message</p>
+
+                <textarea name="message" id="message" rows="5" />
+              </label>
+              <br />
+
+              {/* <input type="reset" value="Clear" className="main-button" /> */}
+              <button className="main-button" type="submit">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </section>
+
+        {/* <h1>Contact</h1>
         <p>Let's get in touch!</p>
         <div className="contact__icon">
           <a
@@ -43,7 +82,7 @@ const ContactPage = () => {
               <use xlinkHref={`#${insta.id}`} />
             </svg>
           </a>
-        </div>
+        </div> */}
       </Container>
     </Layout>
   );

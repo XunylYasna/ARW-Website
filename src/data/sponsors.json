@@ -1,0 +1,45 @@
+{
+    "large": [
+        {
+            "name": "Act II",
+            "img": "../../assets/images/SPONSORS/LARGE/ActII logo.JPG"
+        },
+        {
+            "name": "Culture Blends",
+            "img": "../../assets/images/SPONSORS/LARGE/CB logo.jpg"
+        },
+        {
+            "name": "Ceres",
+            "img": "../../assets/images/SPONSORS/LARGE/CERES logo.png"
+        },
+        {
+            "name": "Federated",
+            "img": "../../assets/images/SPONSORS/LARGE/federated logo.png"
+        }
+    ],
+    "medium":[
+        {
+            "name": "Franchise Manila",
+            "img": "../assets/images/SPONSORS/MEDIUM/Franchise Manila Logo.png"
+        }
+    ],
+    "small":[
+        {
+            "name": "Archers Network",
+            "img": "../assets/images/SPONSORS/SMALL/ARCH LOGO.png"
+        },
+        {
+            "name": "Colonel's Curry",
+            "img": "../assets/images/SPONSORS/SMALL/COL LOGO.jpg"
+        },
+        {
+            "name": "Course Hero",
+            "img": "../assets/images/SPONSORS/SMALL/COURSE HERO LOGO.png"
+        },
+        {
+            "name": "Menji",
+            "img": "../assets/images/SPONSORS/SMALL/MENJI LOGO.png"
+        }
+
+    ]
+}
