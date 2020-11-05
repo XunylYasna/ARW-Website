@@ -9,13 +9,64 @@ exports.createPages = async ({ graphql, actions }) => {
           title
           organizations {
             slug
+            acronym
+            organizationName
+            about {
+                json
+            }
+            youtubeVideoLink
+            backgroundImage{
+                fluid(quality: 80, maxWidth: 900) {
+                  base64
+                  tracedSVG
+                  srcWebp
+                  srcSetWebp
+                }
+            }
+            logo {
+                title
+                fixed(width: 128, height: 128) {
+                  base64
+                  tracedSVG
+                  srcWebp
+                  srcSetWebp
+                }
+            }
+            mainEvents {
+                eventName
+                description {
+                    json
+                }
+            }
+            media {
+                fluid(quality: 80, maxWidth: 400) {
+                  base64
+                  tracedSVG
+                  srcWebp
+                  srcSetWebp
+                }
+            }
+            mission {
+                json
+            }
+            vision {
+                json
+            }
+            registrationPackages {
+                price
+                title
+            }
+            email
+            facebookUrl
+            twitterUrl
           }
         }
       }
     }
   `);
 
-  result.data.allContentfulCluster.nodes.forEach((node) => {
+  // console.log(result)
+  result.data.allContentfulCluster.nodes.forEach(node => {
     createPage({
       path: `clusters/${node.title}`,
       component: path.resolve(`./src/templates/clusterpage.js`),
@@ -26,22 +77,17 @@ exports.createPages = async ({ graphql, actions }) => {
 
     try {
       node.organizations.forEach((organization) => {
-        // createPage({
-        //   path: `${organization.slug}`,
-        //   component: path.resolve(`./src/templates/orgpage.js`),
-        //   context: {
-        //     slug: organization.slug,
-        //   },
-        // })
-
+        console.log(organization)
         createPage({
           path: `organizations/${organization.slug}`,
           component: path.resolve(`./src/templates/orgTemplate.js`),
           context: {
-            slug: organization.slug,
+            data: { organization },
           },
-        });
-      });
-    } catch (error) {}
+        })
+      })
+    } catch (error) {
+      console.log(error)
+    }
   });
 };

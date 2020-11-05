@@ -12,25 +12,25 @@ import { Helmet } from "react-helmet";
 gsap.registerPlugin(ScrollTrigger)
 
 export default function OrgPage({ data }) {
-    const { 
-        organizationName, 
-        acronym, 
-        about, 
-        logo, 
-        media, 
-        mission, 
-        vision, 
-        mainEvents, 
-        registrationPackages, 
-        email, 
-        facebookUrl, 
+    const {
+        organizationName,
+        acronym,
+        about,
+        logo,
+        media,
+        mission,
+        vision,
+        mainEvents,
+        registrationPackages,
+        email,
+        facebookUrl,
         twitterUrl,
         youtubeVideoLink
     } = data.allContentfulOrganization.nodes[0];
 
     // extract the youtube id form the original youtube link 
     const youtubeId = youtubeVideoLink.substring('https://www.youtube.com/watch?v='.length, youtubeVideoLink.length).split('&')[0]
- 
+
     const headerTimeline = new TimelineLite({
         pause: true
     });
@@ -62,6 +62,7 @@ export default function OrgPage({ data }) {
             start: "top top"
         },
     })
+
 
     useEffect(() => {
         headerTimeline
