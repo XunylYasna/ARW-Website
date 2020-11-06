@@ -98,7 +98,7 @@ const OrganizationsPage = () => {
                     <ColumnDefinition id="acronym" title="Acronym" />
                     <ColumnDefinition id="organizationName" title="Organization Name" />
                     <ColumnDefinition id="cluster" title="Cluster" />   
-                    <ColumnDefinition id="slug" title="Page" customComponent={ViewPage} />   
+                    <ColumnDefinition id="slug" title="Page" sortable={false} customComponent={ViewPage} />   
                 </RowDefinition>
             </Griddle>
         </Layout>

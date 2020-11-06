@@ -4,7 +4,7 @@
         cursor: pointer;
         display: inline-flex;
         height: 100%;
-        width: 100%;
+        width: 80%;
         border: 1px solid;
         text-decoration: none;  
         align-items: center;
@@ -40,7 +40,7 @@
         }
 
         span {
-            left: 100%;
+            left: 120%;
         }
     }
 
@@ -69,21 +69,35 @@
 
     .griddle-table {
         margin: auto;
+        width: 80%;
         font-family: var(--ff-secondary);
         font-size: 1.5em;
         line-height: 1.5rem;
         border-collapse: collapse;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid hsla(0,0%,0%,0.12);
+
+        @include respond(tab-port) {
+            width: 90%;
+        }
 
         @include respond(phone) {
-            font-size: 1em;
+            font-size: 0.75em;
         }
     }
 
     .griddle-table-heading {
+        font-size: 1.5em;
         border-bottom: 2px solid;
 
         @include respond(phone) {
             border-bottom: 1px solid;
+            font-size: 1em;
+            
+            * {
+                padding: 0px;
+            }
         }
 
         * {
@@ -97,7 +111,7 @@
 
     .griddle-filter {
         margin: 20px auto;
-        width: 60%;
+        width: 78.5%;
         font-family: var(--ff-secondary);
         font-size: 1.5em;
         padding: 10px 5px 10px 10px;
@@ -108,7 +122,7 @@
         color: darken(#EDEDED, 30%);
 
         @include respond(tab-port) {
-            width: 90%;
+            width: 87.5%;
         }
         
         &:focus{
@@ -128,8 +142,17 @@
     
     .griddle-pagination {
         display: flex;
-        justify-content: space-around;
-        margin: 20px auto;
+        justify-content: space-between;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        width: 80%;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid hsla(0,0%,0%,0.12);
+
+        @include respond(tab-port) {
+            width: 92.5%;
+        }
     }
 
     .griddle-next-button {
@@ -173,5 +196,14 @@
         font-size: 3em;
         font-weight: bold;
         text-align: center;
+        margin: auto;
+        width: 80%;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid hsla(0,0%,0%,0.12);
+
+        @include respond(tab-port) {
+            width: 90%;
+        }
     }
 }
