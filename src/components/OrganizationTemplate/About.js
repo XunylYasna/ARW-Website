@@ -3,6 +3,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Carousel from '../Carousel'
 import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai"
+import Img from 'gatsby-image'
 
 const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
 
@@ -17,7 +18,16 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
             <div className="organization-about-carousel-container">
                 <Carousel className="carousel" items={3} style={{ textAlign: "center" }}>
                     {media.map((data, index) => (
-                        <img key={index} draggable={false} src={data.fluid.src} />
+                        <div key={index} className="react-multi-carousel-item">
+                            <Img draggable={false} fluid={data.fluid} style={{
+                                width: '100%',
+                                height: '100%',
+                                minHeight: '300px',
+                                minWidth: '300px',
+                                objectFit: 'cover',
+                            }} />
+                        </div>
+
                     ))}
                 </Carousel>
             </div>

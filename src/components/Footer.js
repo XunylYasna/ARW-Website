@@ -51,7 +51,7 @@ const Footer = () => {
           <div className="footer-connect-icons">
             <a href={socials.website} target="_blank"><BiGlobe /></a>
             <a href={socials.facebook} target="_blank"><FaFacebookSquare /></a>
-            <a href={socials.twitter} target="_blank"><FaTwitterSquare /></a>
+            {/* <a href={socials.twitter} target="_blank"><FaTwitterSquare /></a> */}
             <a href={socials.instagram} target="_blank"><FaInstagram /></a>
           </div>
           <div className="footer-connect-content">

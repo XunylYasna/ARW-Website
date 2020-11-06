@@ -31,7 +31,9 @@ export default ({ children, items }) => {
             keyBoardControl={true}
             className='carousel'
             responsive={responsive}
-            renderButtonGroupOutside={true} >
+            renderButtonGroupOutside={true}
+            itemClass="carousel-item-padding-40-px"
+        >
             {children}
         </Carousel>
     );

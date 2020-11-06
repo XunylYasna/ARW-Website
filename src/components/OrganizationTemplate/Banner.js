@@ -10,9 +10,6 @@ const OrganizationBanner = ({ organizationName, acronym, videoLink, logo, backgr
     const [isOpen, setOpen] = useState(false);
     const videoId = videoLink.match(/\/([^\/]+)\/?$/)[1]
 
-    console.log(videoLink)
-    console.log(videoId)
-
     return (
         <section className="banner-container">
             <div className="organization-banner">
@@ -20,7 +17,9 @@ const OrganizationBanner = ({ organizationName, acronym, videoLink, logo, backgr
 
                     <BackgroundImage className="banner-content" fluid={background.fluid}>
                         <div>
-                            <Img className="logo" fixed={logo.fixed} />
+                            <div>
+                                <Img className="logo" fluid={logo.fluid} />
+                            </div>
                             <h1>{organizationName}</h1>
                             {/* <h2>{acronym}</h2> */}
                         </div>
@@ -44,7 +43,6 @@ const OrganizationBanner = ({ organizationName, acronym, videoLink, logo, backgr
                                 Watch the Video!
                             </button>
                         </div>
-
                     </div>
                 }
             </div>

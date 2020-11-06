@@ -37,37 +37,39 @@ export default function OrgTemplate({ pageContext }) {
     });
 
     const aboutTimeline = new TimelineLite({
-        scrollTrigger: {
+        ScrollTrigger: {
             trigger: ".organization-about",
             start: "center center"
         },
     })
 
     const mvTimeline = new TimelineLite({
-        scrollTrigger: {
+        ScrollTrigger: {
             trigger: ".organization-vm",
             start: "center center"
         },
     })
 
     const eventsTimeline = new TimelineLite({
-        scrollTrigger: {
+        ScrollTrigger: {
             trigger: ".organization-events",
             start: "center center"
         },
     })
 
     const registrationTimeline = new TimelineLite({
-        scrollTrigger: {
+        ScrollTrigger: {
             trigger: ".organization-prices",
             start: "center center"
         },
     })
 
 
-
     useEffect(() => {
-
+        if (typeof window !== `undefined`) {
+            gsap.core.globals('scrollTrigger', ScrollTrigger)
+            gsap.registerPlugin(ScrollTrigger)
+        }
         headerTimeline
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
             .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
@@ -137,7 +139,7 @@ export default function OrgTemplate({ pageContext }) {
                 <div className="sub-line"></div>
                 <div className="price-container">
                     {registrationPackages.map((packageItem, index) => (
-                        <div key={index} class="price-item">
+                        <div key={index + 100} className="price-item">
                             <h3>{packageItem.title}</h3>
                             <p>PHP {packageItem.price}</p>
                         </div>

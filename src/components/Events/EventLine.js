@@ -89,7 +89,6 @@ const EventLine = (props) => {
                 <div className="event-info">
                     <h3>{events[eventDay - 1].title}</h3>
                     <p>{events[eventDay - 1].content}</p>
-                    <button className="event-button">Register</button>
                 </div>
             </div>
         </section>

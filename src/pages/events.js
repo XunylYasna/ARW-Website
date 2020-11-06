@@ -59,9 +59,9 @@ const EventsPage = () => {
             </Helmet>
             <section className="landing section-container">
                 <h1 className="main-title"><span>Events</span></h1>
-                <h2 className="sub-title">Culmination Night</h2>
+                <h2 className="sub-title">Culmination Event</h2>
                 <div className="events__main-event">
-                    <h3>Cross Roads</h3>
+                    <h3>Crossroads</h3>
                     <div>
                         <button className="main-button" onClick={executeScroll}> Learn More</button>
                     </div>
@@ -71,7 +71,7 @@ const EventsPage = () => {
             <EventLine events={state.events}></EventLine>
             <div className="main-line"></div>
             <section ref={crossRef} className="crossroads">
-                <h3 className="sub-title"> Cross Roads</h3>
+                <h3 className="sub-title"> Crossroads</h3>
                 <div className="sub-line"></div>
                 <p>
                     An activity wherein two representatives of the different organizations will virtually hangout with the upcoming social media influencers of this generation. Having the chance to spend time with these students will be a great opportunity to bond, reminisce about their own experiences in growing, as well as offer some advice. This will help students to cultivate their talents and interests, and in the process, become better people.

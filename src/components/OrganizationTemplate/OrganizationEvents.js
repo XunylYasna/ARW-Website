@@ -42,14 +42,18 @@ const OrganizationEvents = ({ acronym, mainEvents }) => {
 
     return (
         <section className="organization-events">
-            <h1 className="main-header">{acronym} Events</h1>
-            <div className="sub-line"></div>
+            {mainEvents ? (
+                <>
+                    <h1 className="main-header">{acronym} Events</h1>
+                    <div className="sub-line"></div>
 
-            <div className="organization-event-container">
-                {mainEvents ? mainEvents.map((eventData, index) => {
-                    return (<EventButton key={index} eventData={eventData} />)
-                }) : ""}
-            </div>
+                    <div className="organization-event-container">
+                        {mainEvents.map((eventData, index) => {
+                            return (<EventButton key={index * -1} eventData={eventData} />)
+                        })}
+                    </div>
+                </>
+            ) : ""}
         </section>
     )
 }

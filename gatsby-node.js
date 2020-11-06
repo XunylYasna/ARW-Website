@@ -7,64 +7,67 @@ exports.createPages = async ({ graphql, actions }) => {
       allContentfulCluster {
         nodes {
           title
-          organizations {
-            slug
-            acronym
-            organizationName
-            about {
-                json
-            }
-            youtubeVideoLink
-            backgroundImage{
-                fluid(quality: 80, maxWidth: 900) {
-                  base64
-                  tracedSVG
-                  srcWebp
-                  srcSetWebp
-                }
-            }
-            logo {
-                title
-                fixed(width: 128, height: 128) {
-                  base64
-                  tracedSVG
-                  srcWebp
-                  srcSetWebp
-                }
-            }
-            mainEvents {
-                eventName
-                description {
-                    json
-                }
-            }
-            media {
-              fluid(quality: 80, maxWidth: 400) {
+        }
+      }
+
+      allContentfulOrganization(filter: {acronym: {eq: "CSO"}}) {
+        nodes {
+          slug
+          acronym
+          organizationName
+          about {
+              json
+          }
+          youtubeVideoLink
+          backgroundImage{
+              fluid(quality: 80, maxWidth: 900) {
                 base64
                 tracedSVG
                 srcWebp
                 srcSetWebp
               }
-            }
-            mission {
-                json
-            }
-            vision {
-                json
-            }
-            registrationPackages {
-                price
-                title
-            }
-            email
-            facebookUrl
-            twitterUrl
           }
+          logo {
+              title
+              fluid( maxHeight: 128) {
+                base64
+                tracedSVG
+                srcWebp
+                srcSetWebp
+              }
+          }
+          mainEvents {
+              eventName
+              description {
+                  json
+              }
+          }
+          media {
+              fluid(quality: 80, maxWidth: 300) {
+                base64
+                tracedSVG
+                srcWebp
+                srcSetWebp
+              }
+          }
+          mission {
+              json
+          }
+          vision {
+              json
+          }
+          registrationPackages {
+              price
+              title
+          }
+          email
+          facebookUrl
+          twitterUrl
         }
       }
     }
   `);
-  
+
   // console.log(result)
   result.data.allContentfulCluster.nodes.forEach(node => {
     createPage({
@@ -74,20 +77,15 @@ exports.createPages = async ({ graphql, actions }) => {
         title: node.title,
       },
     });
+  });
 
-    try {
-      node.organizations.forEach((organization) => {
-        console.log(organization)
-        createPage({
-          path: `organizations/${organization.slug}`,
-          component: path.resolve(`./src/templates/orgTemplate.js`),
-          context: {
-            data: { organization },
-          },
-        })
-      })
-    } catch (error) {
-      console.log(error)
-    }
+  result.data.allContentfulOrganization.nodes.forEach((organization) => {
+    createPage({
+      path: `organizations/${organization.slug}`,
+      component: path.resolve(`./src/templates/orgTemplate.js`),
+      context: {
+        data: { organization },
+      },
+    });
   });
 };
