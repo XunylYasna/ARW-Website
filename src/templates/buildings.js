@@ -9,8 +9,8 @@ const asoPositions = [{x: 345, y: 320}, {x: 150, y: 360}, {x: 510, y: 195}, {x: 
 
 const aspire = importAll(require.context('../assets/images/Clusters/ASPIRE ICONS/', false, /\.(png|jpe?g|svg)$/));
 // 185
-//                        aisec,           aja,           arcg,            unicef,         englicom,        eco,             gas,             gmc,             hfh,            hultprize,        investors,       oc,             prism,          rotaract,         united,          wg                                                                                      
-const aspirePositions = [{x: 100, y: 160},{x: 0, y: 350},{x: 310, y: 160},{x: 400, y: 50},{x: 750, y: -10},{x: 600, y: 160}, {x: 325, y:350},{x: 765, y: 285},{x: 795, y: 435},{x: 150, y: 360},{x: 935, y: 445},{x: 550, y: 25},{x: 750, y: 140},{x: 925, y: 285},{x: 625, y: 410},{x: 900, y: 40}]
+//                        aisec,           aja,           arcg,            unicef,         englicom,        eco,             gas,             gmc,             hfh,            hultprize,        indie,           investors,       oc,             prism,          rotaract,         united,          wg                                                                                      
+const aspirePositions = [{x: 100, y: 160},{x: 0, y: 350},{x: 310, y: 160},{x: 400, y: 50},{x: 750, y: -10},{x: 600, y: 160}, {x: 325, y:350},{x: 765, y: 285},{x: 795, y: 435},{x: 150, y: 360}, {x: 600, y: 300},{x: 935, y: 445},{x: 550, y: 25},{x: 750, y: 140},{x: 925, y: 285},{x: 625, y: 410},{x: 900, y: 40}]
 
 const cap12 = importAll(require.context('../assets/images/Clusters/CAP12 ICONS/', false, /\.(png|jpe?g|svg)$/));
 // 175
