@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    fill: #023F92;
+    fill: var(--color-tertiary);
     width: 50vmax;
     z-index: -1;
     animation: move 20s ease-in-out infinite;

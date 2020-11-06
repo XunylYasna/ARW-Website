@@ -147,7 +147,7 @@ export default function OrgTemplate({ pageContext }) {
                 </div>
 
                 <div className="registration-button">
-                    <button className="event-button" href="" rel="noopener noreferrer" target="_blank">Register Now</button>
+                    <button className="event-button" href="" rel="noopener noreferrer" target="_blank">Register Coming Soon</button>
                 </div>
             </section>
 
