@@ -72,7 +72,7 @@ const HeroSection = () => {
 
   return (
     <div className="hero-section">
-      <div className="overlay"></div>
+      {/* <div className="overlay"></div> */}
       <div className="header-box">
         <span className="main-title" id="whatis">
           What is
