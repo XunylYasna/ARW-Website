@@ -7,8 +7,6 @@ import Hero from "components/Home/Hero";
 import Introduction from "components/Home/Introduction";
 import Events from "components/Home/Events";
 import Partners from "components/Home/Partners";
-// import img_gatsby from "assets/images/cover.png";
-import landingVideo from "assets/images/ARW Landing.mp4";
 
 const IndexPage = () => {
   return (

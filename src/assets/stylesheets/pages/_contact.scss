@@ -32,6 +32,7 @@
       .form-container {
         width: 40vw;
       }
+
       form {
         // width: 100%;
         label {
@@ -57,9 +58,14 @@
       }
     }
   }
+  @media only screen and (max-width: $bp-medium) {
+    .form-container {
+      width: 50vw !important;
+    }
+  }
   @media only screen and (max-width: $bp-small) {
     .form-container {
-      width: 80vw;
+      width: 70vw !important;
     }
   }
 

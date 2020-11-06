@@ -4,10 +4,6 @@ import Helmet from "react-helmet";
 import Layout from "components/Layout";
 import Container from "components/Container";
 
-import mail from "assets/images/SVG/mail.svg";
-import dribbble from "assets/images/SVG/dribbble.svg";
-import insta from "assets/images/SVG/instagram.svg";
-
 const ContactPage = () => {
   return (
     <Layout pageName="contact">
@@ -19,16 +15,16 @@ const ContactPage = () => {
           <h2 className="sub-title">Contact Us</h2>
           <div className="sub-line"></div>
           <div className="form-container">
-            <form method="post" action="#">
+            <form method="post" action="/" data-netlify="true" name="contact">
               <label>
                 <p>Name</p>
-                <input type="text" name="name" id="name" />
+                <input type="text" name="name" id="name" required />
               </label>
               <br />
               <label>
                 <p>Email</p>
 
-                <input type="email" name="email" id="email" />
+                <input type="email" name="email" id="email" required />
               </label>
               <br />
 
@@ -42,7 +38,7 @@ const ContactPage = () => {
               <label>
                 <p>Message</p>
 
-                <textarea name="message" id="message" rows="5" />
+                <textarea name="message" id="message" rows="5" required />
               </label>
               <br />
 

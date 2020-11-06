@@ -1,18 +1,7 @@
-import React, { useEffect } from "react";
-import landingVideo from "assets/images/ARW Landing.mp4";
+import React from "react";
 import Card from "components/Card";
-import { TimelineLite, Quart } from "gsap";
 
 const Introduction = () => {
-  const headerTimeline = new TimelineLite({ paused: true });
-
-  useEffect(() => {
-    headerTimeline
-
-      .fromTo(".letter", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-
-      .play();
-  });
   return (
     <>
       <section className="introduction">

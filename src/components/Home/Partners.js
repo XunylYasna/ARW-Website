@@ -1,8 +1,9 @@
 import React from "react";
-import Card from "components/Card";
 import { graphql, useStaticQuery } from "gatsby";
 import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from "react-icons/fa";
-import sponsorData from "../../data/sponsors.json";
+import { BiGlobe } from "react-icons/bi";
+import socials from "../../assets/constants/socials";
+
 import Img from "gatsby-image";
 const Partners = () => {
   const data = useStaticQuery(graphql`
@@ -20,6 +21,49 @@ const Partners = () => {
     }
   `);
   // console.log(large);
+  const sponsorData = {
+    large: [
+      {
+        name: "Ceres",
+      },
+      {
+        name: "Federated",
+      },
+
+      {
+        name: "Evian",
+      },
+      {
+        name: "Culture Blends",
+      },
+
+      {
+        name: "Act II",
+      },
+    ],
+    medium: [{ name: "Franchise Manila" }],
+    small: [
+      {
+        name: "Archers Network",
+      },
+      {
+        name: "Course Hero",
+      },
+      {
+        name: "Colonel's Curry",
+      },
+      {
+        name: "Menji",
+      },
+      {
+        name: "Mystery Manila",
+      },
+    ],
+  };
+
+  // const largeSponsors = sponsorData.large.map(({name}) =>{
+
+  // })
   const large = data.allFile.nodes.filter((props) => {
     return props.childImageSharp.fixed.src.includes("large");
   });
@@ -29,40 +73,30 @@ const Partners = () => {
   const small = data.allFile.nodes.filter((props) => {
     return props.childImageSharp.fixed.src.includes("small");
   });
-  console.log(small);
-  console.log(medium);
-  console.log(large);
 
-  const largeSponsors = sponsorData.large.map(({ name, img }, index) => {
-    // console.log(index);
+  const largeSponsors = sponsorData.large.map(({ name }, index) => {
     return (
-      <div>
-        {/* <Img fixed={large.allFile.nodes[index].childImageSharp.fixed} /> */}
-        <img src={large[index].childImageSharp.fixed.src} alt={name} />
+      <div key={index}>
+        <Img fixed={large[index].childImageSharp.fixed} alt={name} />
         <h3>{name}</h3>
       </div>
     );
   });
 
-  const mediumSponsors = sponsorData.medium.map(({ name, img }, index) => {
-    // console.log(index);
+  const mediumSponsors = sponsorData.medium.map(({ name }, index) => {
     return (
-      <div>
-        {/* <Img fixed={medium.allFile.nodes[index].childImageSharp.fixed} /> */}
-        <img src={medium[index].childImageSharp.fixed.src} alt={name} />
+      <div key={index}>
+        <Img fixed={medium[index].childImageSharp.fixed} alt={name} />
 
         <h3>{name}</h3>
       </div>
     );
   });
 
-  const smallSponsors = sponsorData.small.map(({ name, img }, index) => {
-    // console.log(index);
-
+  const smallSponsors = sponsorData.small.map(({ name }, index) => {
     return (
-      <div>
-        <img src={small[index].childImageSharp.fixed.src} alt={name} />
-
+      <div key={index}>
+        <Img fixed={small[index].childImageSharp.fixed} alt={name} />
         <h3>{name}</h3>
       </div>
     );
@@ -108,18 +142,19 @@ const Partners = () => {
         <p>Find us on:</p>
 
         <span>
-          <a href="#">
+          <a href={socials.website} target="_blank">
+            <BiGlobe />
+          </a>
+          <a href={socials.facebook} target="_blank">
             <FaFacebookSquare />
           </a>
-          <a href="#">
-            <FaInstagram />
-          </a>
-          <a href="#">
+          <a href={socials.twitter} target="_blank">
             <FaTwitterSquare />
           </a>
+          <a href={socials.instagram} target="_blank">
+            <FaInstagram />
+          </a>
         </span>
-        <br />
-        <a>CSO Website</a>
       </div>
     </section>
   );
