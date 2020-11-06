@@ -170,7 +170,7 @@ const HeroSection = () => {
         channel="youtube"
         autoplay
         isOpen={isOpen}
-        videoId="dQw4w9WgXcQ"
+        videoId="nhY97tHeHWg"
         onClose={() => setOpen(false)}
       />
     </div>
@@ -294,7 +294,7 @@ const AboutPage = () => {
       <Container>
         <HeroSection />
         <AboutSection />
-        <TeamSection />
+        {/* <TeamSection /> */}
       </Container>
     </Layout>
   );
