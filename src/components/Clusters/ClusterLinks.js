@@ -70,7 +70,7 @@ const ClusterLinks = () => {
         }}
         key={index}
       >
-        <AniLink to={`/clusters/${title}/`}>
+        <AniLink to={`${title === 'CSO' ? '/organizations/council-of-student-organizations' : `/clusters/${title}`}`}>
           <div>
             <p className="sub-title">{title}</p>
           </div>
