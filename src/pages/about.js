@@ -15,6 +15,7 @@ import Img4 from "../assets/images/ARW2019Photos/4.jpg";
 import Img5 from "../assets/images/ARW2019Photos/5.jpg";
 import Img6 from "../assets/images/ARW2019Photos/6.jpg";
 import Img7 from "../assets/images/ARW2019Photos/7.jpg";
+import favicon96 from "../assets/favicon/favicon-96x96.png";
 
 const HeroSection = () => {
   let ref = useRef(null);
@@ -288,7 +289,7 @@ const TeamSection = () => {
 const AboutPage = () => {
   return (
     <Layout pageName="about">
-      <Helmet>
+      <Helmet link={[{rel: "icon", type: "image/png", sizes: "96x96", href: `${favicon96}`}]}>
         <title>About ARW 2020</title>
       </Helmet>
       <Container>
