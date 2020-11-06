@@ -39,12 +39,12 @@ exports.createPages = async ({ graphql, actions }) => {
                 }
             }
             media {
-                fluid(quality: 80, maxWidth: 400) {
-                  base64
-                  tracedSVG
-                  srcWebp
-                  srcSetWebp
-                }
+              fluid(quality: 80, maxWidth: 400) {
+                base64
+                tracedSVG
+                srcWebp
+                srcSetWebp
+              }
             }
             mission {
                 json
@@ -64,7 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-
+  
   // console.log(result)
   result.data.allContentfulCluster.nodes.forEach(node => {
     createPage({
