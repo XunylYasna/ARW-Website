@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { graphql } from "gatsby"
-import gsap, { TimelineLite } from "gsap";
+import { gsap, TimelineLite } from "gsap";
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
