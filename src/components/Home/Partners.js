@@ -11,7 +11,7 @@ const Partners = () => {
       allFile(filter: { relativeDirectory: { eq: "sponsors" } }) {
         nodes {
           childImageSharp {
-            fixed(width: 120) {
+            fixed(width: 240) {
               ...GatsbyImageSharpFixed
             }
             id
@@ -25,38 +25,48 @@ const Partners = () => {
     large: [
       {
         name: "Ceres",
+        img_size: "140px",
       },
       {
-        name: "Federated",
+        name: "Evian",
+        img_size: "130px",
       },
 
       {
-        name: "Evian",
+        name: "Federated",
+        img_size: "160px",
       },
       {
         name: "Culture Blends",
+        img_size: "130px",
       },
 
       {
         name: "Act II",
+        img_size: "140px",
       },
     ],
-    medium: [{ name: "Franchise Manila" }],
+    medium: [{ name: "Franchise Manila", img_size: "145px" }],
     small: [
       {
         name: "Archers Network",
+        img_size: "100px",
       },
       {
         name: "Course Hero",
+        img_size: "100px",
       },
       {
         name: "Colonel's Curry",
+        img_size: "90px",
       },
       {
         name: "Menji",
+        img_size: "100px",
       },
       {
         name: "Mystery Manila",
+        img_size: "90px",
       },
     ],
   };
@@ -74,29 +84,44 @@ const Partners = () => {
     return props.childImageSharp.fixed.src.includes("small");
   });
 
-  const largeSponsors = sponsorData.large.map(({ name }, index) => {
+  const largeSponsors = sponsorData.large.map(({ name, img_size }, index) => {
     return (
       <div key={index}>
-        <Img fixed={large[index].childImageSharp.fixed} alt={name} />
+        {/* <Img
+          fixed={large[index].childImageSharp.fixed}
+          alt={name}
+          style={{ width: `128px` }}
+        /> */}
+        <img
+          src={large[index].childImageSharp.fixed.src}
+          style={{ width: img_size }}
+        />
         <h3>{name}</h3>
       </div>
     );
   });
 
-  const mediumSponsors = sponsorData.medium.map(({ name }, index) => {
+  const mediumSponsors = sponsorData.medium.map(({ name, img_size }, index) => {
     return (
       <div key={index}>
-        <Img fixed={medium[index].childImageSharp.fixed} alt={name} />
-
+        {/* <Img fixed={medium[index].childImageSharp.fixed} alt={name} /> */}
+        <img
+          src={medium[index].childImageSharp.fixed.src}
+          style={{ width: img_size }}
+        />
         <h3>{name}</h3>
       </div>
     );
   });
 
-  const smallSponsors = sponsorData.small.map(({ name }, index) => {
+  const smallSponsors = sponsorData.small.map(({ name, img_size }, index) => {
     return (
       <div key={index}>
-        <Img fixed={small[index].childImageSharp.fixed} alt={name} />
+        {/* <Img fixed={small[index].childImageSharp.fixed} alt={name} /> */}
+        <img
+          src={small[index].childImageSharp.fixed.src}
+          style={{ width: img_size }}
+        />
         <h3>{name}</h3>
       </div>
     );
@@ -109,31 +134,14 @@ const Partners = () => {
       </div>
       <div className="sub-line"></div>
 
-      <h1
-        className="sub-title"
-        style={{ fontSize: `2rem`, paddingTop: `36px`, paddingBottom: `24px` }}
-      >
-        Large Sponsors
-      </h1>
-
       <div className="cards-container" style={{ marginBottom: `24px` }}>
         {largeSponsors}
       </div>
-      <h1
-        className="sub-title"
-        style={{ fontSize: `2rem`, paddingTop: `36px`, paddingBottom: `24px` }}
-      >
-        Medium Sponsors
-      </h1>
+
       <div className="cards-container" style={{ marginBottom: `24px` }}>
         {mediumSponsors}
       </div>
-      <h1
-        className="sub-title"
-        style={{ fontSize: `2rem`, paddingTop: `36px`, paddingBottom: `24px` }}
-      >
-        Small Sponsors
-      </h1>
+
       <div className="cards-container" style={{ marginBottom: `24px` }}>
         {smallSponsors}
       </div>
@@ -148,9 +156,7 @@ const Partners = () => {
           <a href={socials.facebook} target="_blank">
             <FaFacebookSquare />
           </a>
-          <a href={socials.twitter} target="_blank">
-            <FaTwitterSquare />
-          </a>
+
           <a href={socials.instagram} target="_blank">
             <FaInstagram />
           </a>

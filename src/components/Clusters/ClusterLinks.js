@@ -66,11 +66,18 @@ const ClusterLinks = () => {
       <div
         className="grid-item"
         style={{
-          backgroundImage: `url(${image})`,
+          // backgroundImage: `url(${image})`,
+          backgroundColor: `#97ca99a4`,
         }}
         key={index}
       >
-        <AniLink to={`${title === 'CSO' ? '/organizations/council-of-student-organizations' : `/clusters/${title}`}`}>
+        <AniLink
+          to={`${
+            title === "CSO"
+              ? "/organizations/council-of-student-organizations"
+              : `/clusters/${title}`
+          }`}
+        >
           <div>
             <p className="sub-title">{title}</p>
           </div>

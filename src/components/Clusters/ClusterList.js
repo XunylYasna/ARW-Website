@@ -24,11 +24,30 @@ const ClusterList = () => {
     }
   `);
 
-  const clusters = data.allContentfulCluster.nodes.map(
-    ({ title, subtitle, contentful_id }) => {
-      return <p key={contentful_id}>{title}</p>;
-    }
-  );
+  const clusterData = [
+    {
+      title: data.allContentfulCluster.nodes[0].title,
+    },
+    {
+      title: data.allContentfulCluster.nodes[1].title,
+    },
+    {
+      title: data.allContentfulCluster.nodes[2].title,
+    },
+    {
+      title: data.allContentfulCluster.nodes[3].title,
+    },
+    {
+      title: data.allContentfulCluster.nodes[4].title,
+    },
+    {
+      title: "CSO",
+    },
+  ];
+
+  const clusters = clusterData.map(({ title }, index) => {
+    return <p key={index}>{title}</p>;
+  });
 
   return (
     <>
