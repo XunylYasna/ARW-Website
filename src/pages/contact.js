@@ -4,10 +4,6 @@ import Helmet from "react-helmet";
 import Layout from "components/Layout";
 import Container from "components/Container";
 
-import mail from "assets/images/SVG/mail.svg";
-import dribbble from "assets/images/SVG/dribbble.svg";
-import insta from "assets/images/SVG/instagram.svg";
-
 const ContactPage = () => {
   return (
     <Layout pageName="contact">
@@ -15,7 +11,46 @@ const ContactPage = () => {
         <title>Contact</title>
       </Helmet>
       <Container>
-        <h1>Contact</h1>
+        <section>
+          <h2 className="sub-title">Contact Us</h2>
+          <div className="sub-line"></div>
+          <div className="form-container">
+            <form method="post" action="/" data-netlify="true" name="contact">
+              <label>
+                <p>Name</p>
+                <input type="text" name="name" id="name" required />
+              </label>
+              <br />
+              <label>
+                <p>Email</p>
+
+                <input type="email" name="email" id="email" required />
+              </label>
+              <br />
+
+              <label>
+                <p>Subject</p>
+
+                <input type="text" name="subject" id="subject" />
+              </label>
+              <br />
+
+              <label>
+                <p>Message</p>
+
+                <textarea name="message" id="message" rows="5" required />
+              </label>
+              <br />
+
+              {/* <input type="reset" value="Clear" className="main-button" /> */}
+              <button className="main-button" type="submit">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </section>
+
+        {/* <h1>Contact</h1>
         <p>Let's get in touch!</p>
         <div className="contact__icon">
           <a
@@ -43,7 +78,7 @@ const ContactPage = () => {
               <use xlinkHref={`#${insta.id}`} />
             </svg>
           </a>
-        </div>
+        </div> */}
       </Container>
     </Layout>
   );

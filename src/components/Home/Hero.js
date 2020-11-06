@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import Card from "components/Card";
-import { TimelineLite, Quart } from "gsap";
+import { TimelineLite } from "gsap";
 import landingVideo from "assets/images/ARW Landing.mp4";
 
 const Hero = () => {

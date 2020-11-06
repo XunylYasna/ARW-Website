@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "components/Card";
 import { graphql, useStaticQuery } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const Events = () => {
   const data = useStaticQuery(graphql`
@@ -24,7 +25,7 @@ const Events = () => {
               {eventName}
             </h3>
           </Card>
-          <div className="event-buttons-container">
+          {/* <div className="event-buttons-container">
             <a
               href="#"
               className="event-button"
@@ -36,7 +37,7 @@ const Events = () => {
             >
               Register
             </a>
-          </div>
+          </div> */}
         </div>
       );
     });
@@ -52,17 +53,22 @@ const Events = () => {
         <div className="sub-line"></div>
 
         <div className="cards-container">{eventCards}</div>
-        <a
-          href="#"
+        <AniLink
+          to="/events/"
           className="event-button"
           style={{
             textDecoration: `none`,
             color: `var(--color-primary)`,
-            marginTop: `16px`,
+            marginTop: `48px`,
           }}
+          cover
+          direction="right"
+          to="/events/"
+          bg="#E16085"
+          duration={0.7}
         >
           Learn More
-        </a>
+        </AniLink>
       </section>
       <div className="main-line"></div>
     </>
