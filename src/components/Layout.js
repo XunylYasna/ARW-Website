@@ -6,7 +6,7 @@ import "assets/stylesheets/application.scss";
 
 import Header from "components/Header";
 import Footer from "components/Footer";
-// import Blob from "components/Blob";
+import Blob from "components/Blob";
 
 const Layout = ({ children, mainName, pageName }) => {
   let className = "";
@@ -20,7 +20,7 @@ const Layout = ({ children, mainName, pageName }) => {
       <Helmet bodyAttributes={{ class: className }}>
         <title>ARW 2020 || {mainName ? mainName : pageName}</title>
       </Helmet>
-      {/* <Blob /> */}
+      <Blob numMetaballs={40} />
       <div className="wrapper">
         <Header />
         <main>{children}</main>
