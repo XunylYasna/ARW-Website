@@ -5,12 +5,6 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 // export default function Minimap({ children, minimap, buildings, positions }) {
 export default function Minimap({ children, minimap, buildingSize, organizations }) {
-    // useEffect(() => {
-    //     wrapper.addEventListener("mousemove", e=> {
-    //         // loop clouds
-    //         // loop grass
-    //     })
-    // })
 
     const minimapTimeline = new TimelineLite({
         pause: true
@@ -18,13 +12,13 @@ export default function Minimap({ children, minimap, buildingSize, organizations
 
     useEffect(() => {
         minimapTimeline
-            .fromTo(".building", 1, {opacity: 0}, {opacity: 1}, 0.5)
+            .staggerFromTo(".building", .5, {opacity: 0}, {opacity: 1}, 0.1)
             .play()
     })
 
     let wrapper;
 
-    // const buildingSize = 175;
+    // const buildingSize = 185;
 
     return (
         <div className="minimap">
