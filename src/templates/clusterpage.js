@@ -9,19 +9,18 @@ import Minimap from "../components/Minimap";
 import Card from "../components/Card";
 // import { aso, asoPositions, aspire, aspirePositions, cap12, cap12Positions, cso, csoPositions, engage, engagePositions, probe, probePositions } from "./buildings"
 
-// gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger)
 
 export default function ClusterPage({ data }) {
 
     const organizationsTimeline = new TimelineLite({
         scrollTrigger: {
             trigger: ".organization-list",
-            start: "top top",
+            start: "top top"
         },
     })
 
     useEffect(() => {
-
         organizationsTimeline
             .staggerFromTo(".organization-list .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
             .staggerFrom(".organization-list .main-header", 0.5, { opacity: 0, y: 20 })
@@ -34,7 +33,7 @@ export default function ClusterPage({ data }) {
             <div className="organization-header">
                 <p className="main-header">{subtitle}(<strong>{title}</strong>)</p>
             </div>
-            {/* <Minimap minimap={landingImage.fluid.src} buildings={probe} positions={probePositions} /> */}
+            {/* <Minimap minimap={landingImage.fluid.src} buildings={aspire} positions={aspirePositions} /> */}
             <Minimap minimap={landingImage.fluid.src} buildingSize={buildingSize} organizations={organizations} />
             <div className="organization-list">
                 <h1 className="main-header" >Organizations under {title}</h1>
