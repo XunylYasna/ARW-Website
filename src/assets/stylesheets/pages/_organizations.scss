@@ -77,6 +77,7 @@
         background-color: #fff;
         border-radius: 3px;
         border: 1px solid hsla(0,0%,0%,0.12);
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
         @include respond(tab-port) {
             width: 90%;
@@ -88,11 +89,12 @@
     }
 
     .griddle-table-heading {
+        font-family: var(--ff-tertiary);
+        text-align: left;
         font-size: 1.5em;
-        border-bottom: 2px solid;
+        border-bottom: 1px solid hsla(0,0%,0%,0.12);
 
         @include respond(phone) {
-            border-bottom: 1px solid;
             font-size: 1em;
             
             * {
@@ -101,7 +103,7 @@
         }
 
         * {
-            padding: 10px;
+            padding: 20px 5px;
         }
     }
 
@@ -143,52 +145,82 @@
     .griddle-pagination {
         display: flex;
         justify-content: space-between;
+        padding: 1px 0;
         margin: 0 auto;
         margin-bottom: 20px;
         width: 80%;
         background-color: #fff;
         border-radius: 3px;
         border: 1px solid hsla(0,0%,0%,0.12);
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
         @include respond(tab-port) {
-            width: 92.5%;
+            width: 90%;
         }
     }
 
     .griddle-next-button {
+        display: inline-flex;
+        align-items: center;
         font-family: var(--ff-secondary);
-        font-size: 1.5em;
+        font-size: 2em;
         background-color: none;
         border: none;
         transition: 0.2s ease;
         padding: 10px;
         border-radius: 3px;
+        cursor: pointer;
+
+        @include respond(tab-port) {
+            padding: 5px;
+        }
+
+        @include respond(phone) {
+            padding: 2.5px;
+        }
     }
 
-    .griddle-next-button:hover {
-        background-color: var(--color-primary);
-        color: var(--color-white);
+    .griddle-next-button:active {
+        border: 1px solid hsla(0,0%,0%,0.12);
     }
 
     .griddle-previous-button {
+        display: inline-flex;
+        align-items: center;
         font-family: var(--ff-secondary);
-        font-size: 1.5em;
+        font-size: 2em;
         background-color: none;
         border: none;
         transition: 0.2s ease;
         padding: 10px;
         border-radius: 3px;
+        cursor: pointer;
+
+        @include respond(tab-port) {
+            padding: 5px;
+        }
+
+        @include respond(phone) {
+            padding: 2.5px;
+        }
     }
 
-    .griddle-previous-button:hover {
-        background-color: var(--color-primary);
-        color: var(--color-white);
+    .griddle-previous-button:active {
+        border: 1px solid hsla(0,0%,0%,0.12);
     }
 
-    .griddle-page-select {
+    .page-identifier {
         font-family: var(--ff-secondary);
         font-size: 1.5em;
-        padding: 10px;
+        padding: 10px 0;
+
+        @include respond(tab-port) {
+            padding: 5px 0;
+        }
+
+        @include respond(phone) {
+            padding: 2.5px 0;
+        }
     }
 
     .griddle-no-results {
@@ -201,6 +233,7 @@
         background-color: #fff;
         border-radius: 3px;
         border: 1px solid hsla(0,0%,0%,0.12);
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
         @include respond(tab-port) {
             width: 90%;
