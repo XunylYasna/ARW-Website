@@ -57,7 +57,7 @@ const Blob = ({ numMetaballs }) => {
                 }
 
                 if (sum >= 0.99) {
-                    gl_FragColor = vec4(mix(vec3(x / WIDTH, y / HEIGHT, 1.0), vec3(255, 255, 255), max(0.0, 1.0 - (sum - 0.99) * 100.0)), 1.0);
+                    gl_FragColor = vec4(mix(vec3(x / WIDTH, 1.0, y / HEIGHT), vec3(255, 255, 255), max(0.0, 1.0 - (sum - 0.99) * 100.0)), 1.0);
                     return;
                 }
 
@@ -161,15 +161,6 @@ const Blob = ({ numMetaballs }) => {
 
     return (
         <canvas class="canvas-blob" ref={canvasRef} />
-        // <div className="blob">
-        //     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        //         <path
-        //             fill="#A7F0BA"
-        //             d="M40.9,-51.7C51.5,-39.9,57.5,-25.5,62.4,-9.2C67.4,7,71.3,25.2,63.5,34.8C55.7,44.3,36.2,45.1,20.1,47.6C4,50.1,-8.6,54.3,-25.7,54.9C-42.8,55.5,-64.3,52.5,-68.3,41.4C-72.3,30.3,-58.9,11.2,-51.6,-5.4C-44.3,-22.1,-43.2,-36.1,-35.6,-48.4C-28.1,-60.8,-14,-71.4,0.6,-72C15.2,-72.7,30.3,-63.5,40.9,-51.7Z"
-        //             transform="translate(100 100)"
-        //         />
-        //     </svg>
-        // </div>
     )
 }
 

@@ -39,7 +39,7 @@ const Layout = ({ children, mainName, pageName }) => {
       >
         <title>ARW 2020 || {mainName ? mainName : pageName}</title>
       </Helmet>
-      <Blob numMetaballs={40} />
+      <Blob numMetaballs={50} />
       <div className="wrapper">
         <Header />
         <main>{children}</main>
