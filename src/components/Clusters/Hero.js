@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Card from "components/Card";
-import { TimelineLite, Quart } from "gsap";
+// import Card from "components/Card";
+import { TimelineLite } from "gsap";
 import mainMap from "assets/images/Clusters/MAIN_MAP.jpg";
 
 const Hero = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CommitteeItem({ name, children }) {
+export default function CommitteeItem({ name, members, children }) {
   return (
     <div className="committee-item">
       <div className="header-box">
@@ -11,14 +11,11 @@ export default function CommitteeItem({ name, children }) {
       <div className="footer-box">
         <div className="sub-title text-content">Assistant Team Heads</div>
         <div className="assistant-heads text-content">
-          <h1 className="text-content">name</h1>
-          <h1 className="text-content">name</h1>
-          <h1 className="text-content">name</h1>
-          <h1 className="text-content">name</h1>
-          <h1 className="text-content">name</h1>
-          <h1 className="text-content">name</h1>
-          <h1 className="text-content">name</h1>
-          <h1 className="text-content">name</h1>
+          {members !== undefined
+            ? members.map((member) => {
+                return <h1 className="text-content">{member}</h1>;
+              })
+            : ""}
         </div>
       </div>
     </div>

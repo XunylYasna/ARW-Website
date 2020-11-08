@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { TimelineLite, Quart } from "gsap";
+import { TimelineLite } from "gsap";
 import { graphql, useStaticQuery } from "gatsby";
 // import img1 from "assets/images/Clusters/ASO_(NEW_YORK).png";
 import mainMap from "assets/images/Clusters/MAIN_MAP.jpg";
