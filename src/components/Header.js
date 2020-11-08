@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image"
+import Img from "gatsby-image";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import Container from "components/Container";
 
 const Header = () => {
   const data = useStaticQuery(graphql`
-  {
-    headerLogo : allFile(filter: {relativePath: {eq: "Logos/ARW2020.PNG"}}) {
-      nodes {
-        childImageSharp {
-          fixed(height: 100) {
-            ...GatsbyImageSharpFixed
+    {
+      headerLogo: allFile(
+        filter: { relativePath: { eq: "Logos/ARW2020.PNG" } }
+      ) {
+        nodes {
+          childImageSharp {
+            fixed(height: 100) {
+              ...GatsbyImageSharpFixed
+            }
           }
         }
       }
     }
-  }
   `);
 
   const [visible, setVisible] = useState(false);
@@ -47,17 +49,23 @@ const Header = () => {
         </div>
         <ul className="sub-title">
           <li>
-            <AniLink cover to="/" bg="#6666ff" duration={0.7}>
+            <AniLink
+              paintDrip
+              direction="up"
+              to="/"
+              color="green"
+              duration={0.7}
+            >
               Home
             </AniLink>
           </li>
           <li>|</li>
           <li>
             <AniLink
-              cover
+              paintDrip
               direction="right"
               to="/about/"
-              bg="#E16085"
+              color="green"
               duration={0.7}
             >
               About
@@ -65,17 +73,23 @@ const Header = () => {
           </li>
           <li>|</li>
           <li>
-            <AniLink cover to="/clusters/" bg="#fccd04" duration={0.7}>
+            <AniLink
+              paintDrip
+              to="/clusters/"
+              direction="left"
+              color="green"
+              duration={0.7}
+            >
               Clusters
             </AniLink>
           </li>
           <li>|</li>
           <li>
             <AniLink
-              cover
+              paintDrip
               direction="right"
               to="/organizations/"
-              bg="#00d9ff"
+              color="green"
               duration={0.7}
             >
               Organizations
@@ -84,10 +98,10 @@ const Header = () => {
           <li>|</li>
           <li>
             <AniLink
-              cover
+              paintDrip
               direction="right"
               to="/events/"
-              bg="#E16085"
+              color="green"
               duration={0.7}
             >
               Events
@@ -96,10 +110,10 @@ const Header = () => {
           <li>|</li>
           <li>
             <AniLink
-              cover
+              paintDrip
               direction="right"
               to="/contact/"
-              bg="#00d9ff"
+              color="green"
               duration={0.7}
             >
               Contact
@@ -110,58 +124,22 @@ const Header = () => {
       <div className={`vertical-nav ${visible ? "" : "hidden"}`}>
         <ul className="sub-title">
           <li>
-            <AniLink cover to="/" bg="#6666ff" duration={0.7}>
-              Home
-            </AniLink>
+            <AniLink to="/">Home</AniLink>
           </li>
           <li>
-            <AniLink
-              cover
-              direction="right"
-              to="/about/"
-              bg="#E16085"
-              duration={0.7}
-            >
-              About
-            </AniLink>
+            <AniLink to="/about/">About</AniLink>
           </li>
           <li>
-            <AniLink cover to="/clusters/" bg="#fccd04" duration={0.7}>
-              Clusters
-            </AniLink>
+            <AniLink to="/clusters/">Clusters</AniLink>
           </li>
           <li>
-            <AniLink
-              cover
-              direction="right"
-              to="/organizations/"
-              bg="#00d9ff"
-              duration={0.7}
-            >
-              Organizations
-            </AniLink>
+            <AniLink to="/organizations/">Organizations</AniLink>
           </li>
           <li>
-            <AniLink
-              cover
-              direction="right"
-              to="/events/"
-              bg="#E16085"
-              duration={0.7}
-            >
-              Events
-            </AniLink>
+            <AniLink to="/events/">Events</AniLink>
           </li>
           <li>
-            <AniLink
-              cover
-              direction="right"
-              to="/contact/"
-              bg="#00d9ff"
-              duration={0.7}
-            >
-              Contact
-            </AniLink>
+            <AniLink to="/contact/">Contact</AniLink>
           </li>
         </ul>
       </div>
