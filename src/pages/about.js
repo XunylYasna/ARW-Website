@@ -237,8 +237,6 @@ const TeamSection = () => {
           picture {
             fixed(height: 300, width: 300) {
               src
-              height
-              width
             }
           }
         }
