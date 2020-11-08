@@ -4,7 +4,6 @@ import Img from "gatsby-image";
 import socials from "../assets/constants/socials";
 import {
   FaFacebookSquare,
-  FaTwitterSquare,
   FaInstagram,
   FaMapMarkedAlt,
 } from "react-icons/fa";

@@ -5,76 +5,70 @@ import { BiGlobe } from "react-icons/bi";
 import socials from "../../assets/constants/socials";
 
 import Img from "gatsby-image";
+
 const Partners = () => {
   const data = useStaticQuery(graphql`
     {
-      small: allFile(filter: { relativeDirectory: { eq: "sponsors/small" } }) {
+      small : allFile(filter: {relativePath: {regex: "sponsors/small/"}}) {
         nodes {
           name
+          childImageSharp{
+            fluid(maxWidth: 150) {
+              ...GatsbyImageSharpFluid_noBase64
+            }
+          }
         }
       }
-      medium: allFile(
-        filter: { relativeDirectory: { eq: "sponsors/medium" } }
-      ) {
-        nodes {
-          name
+      medium: allFile(filter: {relativePath: {regex: "sponsors/medium/"}}) {
+          nodes {
+            childImageSharp{
+              fluid(maxWidth: 220) {
+                ...GatsbyImageSharpFluid_noBase64
+              }
+            }
+            name
+          }
         }
-      }
-      large: allFile(filter: { relativeDirectory: { eq: "sponsors/large" } }) {
+      large: allFile(filter: {relativePath: {regex: "sponsors/large/"}}) {
         nodes {
+          childImageSharp{
+            fluid(maxWidth: 250) {
+              ...GatsbyImageSharpFluid_noBase64
+            }
+          }
           name
         }
       }
     }
-  `);
-  // console.log(large);
+  `)
 
   const sponsors = (data, size) => {
-    console.log(data);
-    data.map((sponsor, index) => {
-      // console.log()
-      return (
-        <div key={index}>
-          <div
-            className="sponsor-image-container"
-            style={{ width: { size }, height: { size } }}
-          >
-            {/* <Img
-          fixed={sponsor.name.childImageSharp.fixed}
-          alt={name}
-          style={{ width: `128px` }}
-        /> */}
-          </div>
-          <h3>{sponsor.name}</h3>
-        </div>
-      );
-    });
-  };
-  // const mediumSponsors = sponsorData.medium.map(({ name, img_size }, index) => {
-  //   return (
-  //     <div key={index}>
-  //       {/* <Img fixed={medium[index].childImageSharp.fixed} alt={name} /> */}
-  //       <img
-  //         src={medium[index].childImageSharp.fixed.src}
-  //         style={{ width: img_size }}
-  //       />
-  //       <h3>{name}</h3>
-  //     </div>
-  //   );
-  // });
 
-  // const smallSponsors = sponsorData.small.map(({ name, img_size }, index) => {
-  //   return (
-  //     <div key={index}>
-  //       {/* <Img fixed={small[index].childImageSharp.fixed} alt={name} /> */}
-  //       <img
-  //         src={small[index].childImageSharp.fixed.src}
-  //         style={{ width: img_size }}
-  //       />
-  //       <h3>{name}</h3>
-  //     </div>
-  //   );
-  // });
+    return (
+      <>
+        {data.map((sponsor, index) => {
+          return (
+            <div key={index} className="sponsor-card">
+              <div
+                className="sponsor-image-container"
+                style={{ width: `${size}`, height: `${size}` }}
+              >
+                <div>
+                  <Img
+                    fluid={sponsor.childImageSharp.fluid}
+                    alt={sponsor.name}
+                    className="sponsor-image"
+                  />
+                </div>
+              </div>
+              {/* <h3>{sponsor.name}</h3> */}
+            </div>
+          );
+        })
+        }
+      </>
+    )
+  };
 
   return (
     <section className="partners">
@@ -85,15 +79,14 @@ const Partners = () => {
 
       <div className="cards-container" style={{ marginBottom: `24px` }}>
         {sponsors(data.large.nodes, "250px")}
-        {/* {largeSponsors} */}
       </div>
 
       <div className="cards-container" style={{ marginBottom: `24px` }}>
-        {/* {mediumSponsors} */}
+        {sponsors(data.medium.nodes, "220px")}
       </div>
 
       <div className="cards-container" style={{ marginBottom: `24px` }}>
-        {/* {smallSponsors} */}
+        {sponsors(data.small.nodes, "150px")}
       </div>
 
       <div className="socials">
