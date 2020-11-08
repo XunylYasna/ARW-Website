@@ -65,6 +65,10 @@ export default function OrgPage({ data }) {
 
 
     useEffect(() => {
+        if (typeof window !== `undefined`) {
+            gsap.core.globals('scrollTrigger', ScrollTrigger)
+            gsap.registerPlugin(ScrollTrigger)
+        }
         headerTimeline
             .fromTo(".header", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
             .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })

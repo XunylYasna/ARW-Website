@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Helmet from "react-helmet";
 
 import Layout from "components/Layout";
 
 import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-import { TimelineLite } from "gsap";
+// import { TimelineLite } from "gsap";
 import Griddle, { plugins, RowDefinition, ColumnDefinition} from 'griddle-react';
 import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
 
