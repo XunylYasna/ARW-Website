@@ -37,28 +37,28 @@ export default function OrgTemplate({ pageContext }) {
     });
 
     const aboutTimeline = new TimelineLite({
-        ScrollTrigger: {
+        scrollTrigger: {
             trigger: ".organization-about",
             start: "center center"
         },
     })
 
     const mvTimeline = new TimelineLite({
-        ScrollTrigger: {
+        scrollTrigger: {
             trigger: ".organization-vm",
             start: "center center"
         },
     })
 
     const eventsTimeline = new TimelineLite({
-        ScrollTrigger: {
+        scrollTrigger: {
             trigger: ".organization-events",
             start: "center center"
         },
     })
 
     const registrationTimeline = new TimelineLite({
-        ScrollTrigger: {
+        scrollTrigger: {
             trigger: ".organization-prices",
             start: "center center"
         },
@@ -93,7 +93,7 @@ export default function OrgTemplate({ pageContext }) {
         registrationTimeline
             .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
             .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-    }, [])
+    })
 
 
 
@@ -141,7 +141,8 @@ export default function OrgTemplate({ pageContext }) {
                     {registrationPackages.map((packageItem, index) => (
                         <div key={index + 100} className="price-item">
                             <h3>{packageItem.title}</h3>
-                            <p>PHP {packageItem.price}</p>
+
+                            <p>{packageItem.price === 0 ? 'FREE' : `Php ${packageItem.price}`}</p>
                         </div>
                     ))}
                 </div>

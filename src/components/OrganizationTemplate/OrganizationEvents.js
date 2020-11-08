@@ -22,14 +22,13 @@ class EventButton extends Component {
 
         return (
             <div className={"organization-event-card " + card_class}>
-                <div className="organization-event-card-title" onClick={this.toggleDisplay} role="button">
-                    <h3>{this.props.eventData.eventName}</h3>
-                    <div className="organization-event-card-icon">
-                        <MdKeyboardArrowRight />
+                <div className="organization-event-content">
+                    <div className="organization-event-front" >
+                        <h3>{this.props.eventData.eventName}</h3>
                     </div>
-                </div>
-                <div className="organization-event-description">
-                    {this.props.eventData.description ? documentToReactComponents(this.props.eventData.description.json) : <p></p>}
+                    <div className="organization-event-back">
+                        {this.props.eventData.description ? documentToReactComponents(this.props.eventData.description.json) : <p>No description</p>}
+                    </div>
                 </div>
             </div>
 

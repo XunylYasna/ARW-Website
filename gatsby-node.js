@@ -22,18 +22,20 @@ exports.createPages = async ({ graphql, actions }) => {
           backgroundImage{
               fluid(quality: 80, maxWidth: 900) {
                 base64
-                tracedSVG
-                srcWebp
-                srcSetWebp
+                aspectRatio
+                src
+                srcSet
+                sizes
               }
           }
           logo {
               title
-              fluid( maxHeight: 128) {
+              fluid( maxWidth: 600) {
                 base64
-                tracedSVG
-                srcWebp
-                srcSetWebp
+                aspectRatio
+                src
+                srcSet
+                sizes
               }
           }
           mainEvents {
