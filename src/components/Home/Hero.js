@@ -19,6 +19,7 @@ const Hero = () => {
         style={{
           position: `relative`,
           height: `100vh`,
+          marginTop: `-15px`,
         }}
       >
         <video
