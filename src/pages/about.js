@@ -15,6 +15,7 @@ import Img4 from "../assets/images/ARW2019Photos/4.jpg";
 import Img5 from "../assets/images/ARW2019Photos/5.jpg";
 import Img6 from "../assets/images/ARW2019Photos/6.jpg";
 import Img7 from "../assets/images/ARW2019Photos/7.jpg";
+import { graphql, useStaticQuery } from "gatsby";
 
 const HeroSection = () => {
   let ref = useRef(null);
@@ -181,7 +182,6 @@ const AboutSection = () => {
   let sectionRef = useRef(null);
 
   useEffect(() => {
-
     gsap.to(sectionRef.current, {
       scrollTrigger: sectionRef.current,
       duration: 1,
@@ -211,6 +211,41 @@ const AboutSection = () => {
 };
 
 const TeamSection = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulCsoTeam {
+        nodes {
+          head1
+          head2
+          listOfMembers
+          teamName
+          picture1 {
+            fixed(height: 300, width: 300) {
+              src
+            }
+          }
+          picture2 {
+            fixed(width: 300, height: 300) {
+              src
+            }
+          }
+        }
+      }
+      allContentfulProjectHead {
+        nodes {
+          name
+          picture {
+            fixed(height: 300, width: 300) {
+              src
+              height
+              width
+            }
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <div className="team-section">
       <div className="header-box">
@@ -221,65 +256,39 @@ const TeamSection = () => {
         <h1 className="sub-title">Project Heads</h1>
       </div>
       <div className="project-heads-card-container">
-        <div className="card-wrapper">
-          <Card />
-          <span className="text-content">Name</span>
-        </div>
-        <div className="card-wrapper">
-          <Card />
-          <span className="text-content">Name</span>
-        </div>
-        <div className="card-wrapper">
-          <Card />
-          <span className="text-content">Name</span>
-        </div>
-        <div className="card-wrapper">
-          <Card />
-          <span className="text-content">Name</span>
-        </div>
+        {data.allContentfulProjectHead.nodes.map((node) => {
+          return (
+            <div className="card-wrapper">
+              <Card>
+                <img alt="" src={node.picture.fixed.src}></img>
+              </Card>
+              <span className="text-content">{node.name}</span>
+            </div>
+          );
+        })}
       </div>
 
       <div className="committees-container">
-        <CommitteeItem name="Creatives">
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-        </CommitteeItem>
-        <CommitteeItem name="Logiprod">
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-        </CommitteeItem>
-        <CommitteeItem name="Creatives">
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-        </CommitteeItem>
-        <CommitteeItem name="Logiprod">
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-          <div className="card-wrapper">
-            <Card />
-            <span className="text-content">Name</span>
-          </div>
-        </CommitteeItem>
+        {
+          data.allContentfulCsoTeam.nodes.map((node) => {
+            return (
+              <CommitteeItem name={node.teamName} members={node.listOfMembers}>
+                <div className="card-wrapper">
+                  <Card>
+                    <img alt="" src={node.picture1.fixed.src}></img>
+                  </Card>
+                  <span className="text-content">{node.head1}</span>
+                </div>
+                <div className="card-wrapper">
+                  <Card>
+                    <img alt="" src={node.picture2.fixed.src}></img>
+                  </Card>
+                  <span className="text-content">{node.head2}</span>
+                </div>
+              </CommitteeItem>
+            )
+          })
+        }
       </div>
     </div>
   );
@@ -294,7 +303,7 @@ const AboutPage = () => {
       <Container>
         <HeroSection />
         <AboutSection />
-        {/* <TeamSection /> */}
+        <TeamSection />
       </Container>
     </Layout>
   );
