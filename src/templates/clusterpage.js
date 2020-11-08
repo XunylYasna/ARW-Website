@@ -1,4 +1,6 @@
 import React, { useEffect } from "react"
+import Helmet from "react-helmet";
+
 import { graphql } from "gatsby"
 import { gsap, TimelineLite } from "gsap";
 import ScrollTrigger from 'gsap/ScrollTrigger'
@@ -30,6 +32,9 @@ export default function ClusterPage({ data }) {
     const { landingImage, title, subtitle, buildingSize, organizations } = data.allContentfulCluster.nodes[0]
     return (
         <Layout pageName="cluster" mainName={title} >
+            <Helmet>
+                <title>{title}</title>
+            </Helmet>
             <div className="organization-header">
                 <p className="main-header">{subtitle}(<strong>{title}</strong>)</p>
             </div>
