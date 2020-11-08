@@ -37,7 +37,7 @@ const EventsPage = () => {
             {
                 id: 4,
                 // img: business,
-                title: "ARW Award Night 2020",
+                title: "ARW 2020: Awards Night",
                 subTitle: "ARW Thursday",
                 content:
                     "ARW Award Night 2020 is where the organizations are recognized for their efforts in engaging with the students of DLSU-M. The awards will focus on the organization’s way of encompassing holistic development and collective effort towards its members. Watch your organization standout towards excellence and greatness when all the stars align for ARW Award Night on November 19, 2020.",

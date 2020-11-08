@@ -17,7 +17,7 @@ const OrganizationBanner = ({ organizationName, acronym, videoLink, logo, backgr
 
                     <BackgroundImage className="banner-content" fluid={background.fluid}>
                         <div>
-                            <div>
+                            <div className="logo-container">
                                 <Img className="logo" fluid={logo.fluid} />
                             </div>
                             <h1>{organizationName}</h1>
@@ -34,7 +34,9 @@ const OrganizationBanner = ({ organizationName, acronym, videoLink, logo, backgr
                         backgroundColor: "var(--color-primary)"
                     }}>
                         <div>
-                            <Img className="logo" fixed={logo.fixed} />
+                            <Img className="logo" fluid={logo.fluid} objectFit="contain" style={{
+                                objectFit: "contain"
+                            }} />
                             <h1>{organizationName}</h1>
                             {/* <h2>{acronym}</h2> */}
                         </div>
