@@ -110,7 +110,7 @@ const Blob = ({ numMetaballs }) => {
             }
 
             var dataToSendToGPU = new Float32Array(3 * numMetaballs);
-            for (var i = 0; i < numMetaballs; i++) {
+            for (i = 0; i < numMetaballs; i++) {
                 var baseIndex = 3 * i;
                 var mb = metaballs[i];
                 dataToSendToGPU[baseIndex + 0] = mb.x;
@@ -157,7 +157,7 @@ const Blob = ({ numMetaballs }) => {
             mouse.x = e.clientX;
             mouse.y = e.clientY;
         }
-    }, [])
+    })
 
     return (
         <canvas class="canvas-blob" ref={canvasRef} />

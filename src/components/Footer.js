@@ -1,35 +1,41 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image"
-import socials from "../assets/constants/socials"
-import { FaFacebookSquare, FaTwitterSquare, FaInstagram, FaMapMarkedAlt } from "react-icons/fa";
-import { BiGlobe } from "react-icons/bi"
-import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai"
-
+import Img from "gatsby-image";
+import socials from "../assets/constants/socials";
+import {
+  FaFacebookSquare,
+  FaTwitterSquare,
+  FaInstagram,
+  FaMapMarkedAlt,
+} from "react-icons/fa";
+import { BiGlobe } from "react-icons/bi";
+import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
-  {
-    csoLogo : allFile(filter: {relativePath: {eq: "Logos/CSO Logo - White.png"}}) {
-      nodes {
-        childImageSharp {
-          fixed(width: 125, height: 125) {
-            ...GatsbyImageSharpFixed
+    {
+      csoLogo: allFile(
+        filter: { relativePath: { eq: "Logos/CSO Logo - White.png" } }
+      ) {
+        nodes {
+          childImageSharp {
+            fixed(width: 125, height: 125) {
+              ...GatsbyImageSharpFixed
+            }
           }
         }
       }
-    }
 
-    arwLogo : allFile(filter: {relativePath: {eq: "Logos/ARW-Logo.png"}}) {
-      nodes {
-        childImageSharp {
-          fixed(width: 125, height: 125) {
-            ...GatsbyImageSharpFixed
+      arwLogo: allFile(filter: { relativePath: { eq: "Logos/ARW-Logo.png" } }) {
+        nodes {
+          childImageSharp {
+            fixed(width: 125, height: 125) {
+              ...GatsbyImageSharpFixed
+            }
           }
         }
       }
     }
-  }
   `);
 
   return (
@@ -49,16 +55,38 @@ const Footer = () => {
         <div className="footer-div">
           <h1>Connect With Us</h1>
           <div className="footer-connect-icons">
-            <a href={socials.website} target="_blank"><BiGlobe /></a>
-            <a href={socials.facebook} target="_blank"><FaFacebookSquare /></a>
+            <a rel="noreferrer" href={socials.website} target="_blank">
+              <BiGlobe />
+              {""}
+            </a>
+            <a rel="noreferrer" href={socials.facebook} target="_blank">
+              <FaFacebookSquare />
+              {""}
+            </a>
             {/* <a href={socials.twitter} target="_blank"><FaTwitterSquare /></a> */}
-            <a href={socials.instagram} target="_blank"><FaInstagram /></a>
+            <a rel="noreferrer" href={socials.instagram} target="_blank">
+              <FaInstagram />
+              {""}
+            </a>
           </div>
           <div className="footer-connect-content">
-            <a href={"mailto: " + socials.email} target="_blank"> <AiOutlineMail /> cso@dlsu.edu.ph</a>
-            <p> <AiOutlinePhone /> Local 744</p>
-            <p> <FaMapMarkedAlt /> 4th Floor, Bro. Connon Hall, SPS Building, De La Salle University</p>
-
+            <a
+              rel="noreferrer"
+              href={"mailto: " + socials.email}
+              target="_blank"
+            >
+              {" "}
+              <AiOutlineMail /> cso@dlsu.edu.ph
+            </a>
+            <p>
+              {" "}
+              <AiOutlinePhone /> Local 744
+            </p>
+            <p>
+              {" "}
+              <FaMapMarkedAlt /> 4th Floor, Bro. Connon Hall, SPS Building, De
+              La Salle University
+            </p>
           </div>
         </div>
       </div>
@@ -71,9 +99,7 @@ const Footer = () => {
           <Img fixed={data.arwLogo.nodes[0].childImageSharp.fixed}></Img>
           {/* </div> */}
         </div>
-        <div className="footer-text">
-
-        </div>
+        <div className="footer-text"></div>
       </div>
     </footer>
   );

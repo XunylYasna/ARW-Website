@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { TimelineLite, Quart } from "gsap";
+import { TimelineLite } from "gsap";
 import { graphql, useStaticQuery } from "gatsby";
 
 const ClusterList = () => {

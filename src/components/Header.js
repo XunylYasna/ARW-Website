@@ -42,6 +42,8 @@ const Header = () => {
           onClick={() =>
             visible === true ? setVisible(false) : setVisible(true)
           }
+          role="button"
+          tabIndex="-1"
         >
           <div className="bar1"></div>
           <div className="bar2"></div>
