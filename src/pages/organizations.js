@@ -7,31 +7,32 @@ import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { TimelineLite } from "gsap";
 import Griddle, { plugins, RowDefinition, ColumnDefinition} from 'griddle-react';
+import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
 
 const Logo = (link) => <img className="logo" src={link.value} />;
 const ViewPage = (slug) => <AniLink className="button" to={'/organizations/' + slug.value}><div id="dub-arrow"><img src="https://github.com/atloomer/atloomer.github.io/blob/master/img/iconmonstr-arrow-48-240.png?raw=true" alt="" /></div><span>View Page</span></AniLink>;
 
 const OrganizationsPage = () => {
     const query = useStaticQuery(graphql`
-      query {
-        allContentfulOrganization {
-            edges {
-                node {
-                    acronym
-                    cluster {
-                        title
-                    }
-                    slug
-                    logo {
-                        fluid {
-                            src
+        query {
+            allContentfulOrganization {
+                edges {
+                    node {
+                        acronym
+                        cluster {
+                            title
                         }
+                        slug
+                        logo {
+                            fluid {
+                                src
+                            }
+                        }
+                        organizationName
                     }
-                    organizationName
                 }
             }
         }
-      }
     `);
 
     const data = query.allContentfulOrganization.edges.map((organization, i) => {
@@ -39,23 +40,23 @@ const OrganizationsPage = () => {
 
         return {
             'logo': logo.fluid.src,
-            'acronym': acronym ? acronym : '---',
-            'organizationName': organizationName ? organizationName : '---',
-            'cluster': cluster ? (cluster[0] ? cluster[0].title : '---') : '---',
+            'acronym': acronym ? acronym : '',
+            'organizationName': organizationName ? organizationName : '',
+            'cluster': cluster ? (cluster[0] ? cluster[0].title : '') : '',
             'slug': slug
         }
     })
 
-    const organizationsTimeline = new TimelineLite()
+    // const organizationsTimeline = new TimelineLite()
 
-    const fadeIn = () => {
-        organizationsTimeline
-            .staggerFrom('.griddle-row', 0.5, { opacity: 0, y: 20 }, 0.1)
-    }
+    // const fadeIn = () => {
+    //     organizationsTimeline
+    //         .staggerFrom('.griddle-row', 0.5, { opacity: 0, y: 20 }, 0.1)
+    // }
 
-    useEffect(() => {
-        fadeIn()
-    }, [])
+    // useEffect(() => {
+    //     fadeIn()
+    // }, [])
 
     return (
         <Layout pageName="organizations">
@@ -67,8 +68,11 @@ const OrganizationsPage = () => {
                 sortProperties={[{ id: 'acronym', sortAscending: true }]}
                 plugins={[plugins.LocalPlugin]}
                 components={{
-                   // hide settings toggle button
-                   SettingsToggle: () => <span />,
+                    // hide settings toggle button
+                    SettingsToggle: () => <span />,
+                    PageDropdown: (page) => page.maxPages != 0 ? <div className="page-identifier">Page {page.currentPage}/{page.maxPages}</div> : <span />,
+                    NextButton: (next) => next.hasNext ? <div className={next.className} onClick={next.onClick}><GrFormNext /></div> : <span />,
+                    PreviousButton: (prev) => prev.hasPrevious ? <div className={prev.className} onClick={prev.onClick}><GrFormPrevious /></div> : <span />
                 }}
                 styleConfig={{
                     icons: {
@@ -82,7 +86,6 @@ const OrganizationsPage = () => {
                         Filter: 'griddle-filter',
                         NextButton: 'griddle-next-button',
                         NoResults: 'griddle-no-results',
-                        PageDropdown: 'griddle-page-select',
                         Pagination: 'griddle-pagination',
                         PreviousButton: 'griddle-previous-button',
                         Row: 'griddle-row',
@@ -98,7 +101,7 @@ const OrganizationsPage = () => {
                     <ColumnDefinition id="acronym" title="Acronym" />
                     <ColumnDefinition id="organizationName" title="Organization Name" />
                     <ColumnDefinition id="cluster" title="Cluster" />   
-                    <ColumnDefinition id="slug" title="Page" sortable={false} customComponent={ViewPage} />   
+                    <ColumnDefinition id="slug" title=" " sortable={false} customComponent={ViewPage} />   
                 </RowDefinition>
             </Griddle>
         </Layout>
