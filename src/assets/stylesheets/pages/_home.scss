@@ -50,7 +50,7 @@
 
       .card.project-head-letter {
         width: 800px;
-        height: 600px;
+        height: auto;
         padding: 70px;
         overflow: hidden;
         p {
@@ -78,37 +78,62 @@
 
     .partners {
       // background-color: var(--color-primary);
+      .sponsor-image-container {
+        background-color: red;
+      }
       h1 {
         font-size: 3.5rem;
       }
 
       .socials {
-        padding-top: 24px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 0;
+
+        h2 {
+          font-size: 3.5rem;
+        }
+
+        div {
+          a {
+            margin: 1rem 2rem;
+            font-size: 3rem;
+            color: var(--color-primary);
+            transition: color 0.5s ease-in-out;
+          }
+
+          a:hover {
+            color: var(--color-black);
+          }
+        }
+        // padding-top: 24px;
         // align-self: flex-start;
 
-        p {
-          text-transform: uppercase;
-          // letter-spacing: 0.2rem;
-        }
-        p,
-        a {
-          font-size: 1.5rem;
-          font-family: var(--ff-tertiary);
-          // margin-top: 24px;
-          margin-bottom: 12px;
-        }
-        span {
-          a {
-            font-size: 2.5rem;
-            color: var(--color-grey-dark-2);
-            margin-right: 4px;
-            margin-left: 4px;
-            margin-bottom: 24px;
-          }
-          a:hover {
-            color: var(--color-grey-dark-1);
-          }
-        }
+        // p {
+        //   text-transform: uppercase;
+        //   // letter-spacing: 0.2rem;
+        // }
+        // p,
+        // a {
+        //   font-size: 1.5rem;
+        //   font-family: var(--ff-tertiary);
+        //   // margin-top: 24px;
+        //   margin-bottom: 12px;
+        // }
+        // span {
+        //   a {
+        //     font-size: 2.5rem;
+        //     color: var(--color-grey-dark-2);
+        //     margin-right: 4px;
+        //     margin-left: 4px;
+        //     margin-bottom: 24px;
+        //   }
+        //   a:hover {
+        //     color: var(--color-grey-dark-1);
+        //   }
+        // }
       }
     }
 
@@ -184,10 +209,10 @@
         margin-top: 48px;
       }
     }
-    .card.project-head-letter {
-      padding: 40px !important;
-      height: 550px !important;
-    }
+    // .card.project-head-letter {
+    //   padding: 40px !important;
+    //   height: 550px !important;
+    // }
   }
   @media only screen and (max-width: $bp-medium) {
     .container section {
@@ -206,10 +231,10 @@
         width: 80%;
       }
     }
-    .card.project-head-letter {
-      padding: 25px !important;
-      height: 700px !important;
-    }
+    // .card.project-head-letter {
+    //   padding: 25px !important;
+    //   height: 700px !important;
+    // }
   }
   @media only screen and (max-width: $bp-smallest) {
     .hero {
@@ -224,8 +249,8 @@
         }
       }
     }
-    .card.project-head-letter {
-      height: 950px !important;
-    }
+    // .card.project-head-letter {
+    //   height: 950px !important;
+    // }
   }
 }
