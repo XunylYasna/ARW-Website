@@ -31,6 +31,10 @@
             position: relative;
             left: 0;
             transition: all .35s ease-out;
+
+            @include respond(phone) {
+                opacity: 0;
+            }
         }
     }
 
@@ -55,6 +59,10 @@
         justify-content: center;
         transition: all .35s ease-out;
         bottom: 0;
+
+        @include respond(phone) {
+            left: 0;
+        }
     }
 
     .logo {
@@ -84,7 +92,7 @@
         }
 
         @include respond(phone) {
-            font-size: 0.75em;
+            font-size: 1.25em;
         }
     }
 
@@ -95,10 +103,8 @@
         border-bottom: 1px solid hsla(0,0%,0%,0.12);
 
         @include respond(phone) {
-            font-size: 1em;
-            
             * {
-                padding: 0px;
+                padding: none;
             }
         }
 

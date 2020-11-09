@@ -99,7 +99,7 @@ const OrganizationsPage = () => {
                 <RowDefinition>
                     <ColumnDefinition id="logo" title="Logo" sortable={false} customComponent={Logo} /> 
                     <ColumnDefinition id="acronym" title="Acronym" />
-                    <ColumnDefinition id="organizationName" title="Organization Name" />
+                    <ColumnDefinition id="organizationName" title="Name" />
                     <ColumnDefinition id="cluster" title="Cluster" />   
                     <ColumnDefinition id="slug" title=" " sortable={false} customComponent={ViewPage} />   
                 </RowDefinition>
