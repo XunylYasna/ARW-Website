@@ -2,43 +2,47 @@ import React from "react";
 import Card from "components/Card";
 import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import Img from "gatsby-image";
 
 const Events = () => {
   const data = useStaticQuery(graphql`
-    query {
-      allContentfulMainEvents {
+    {
+      events: allFile(filter: {relativeDirectory: {eq: "Events"}}) {
         nodes {
-          eventName
-          slug
+          name
+          childImageSharp{
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
   `);
 
-  const eventCards = data.allContentfulMainEvents.nodes
-    .slice(0, 3)
-    .map(({ eventName, slug }) => {
+  console.log(data);
+
+  const eventCards = data.events.nodes
+    .map((event, index) => {
+      console.log(event)
       return (
-        <div className="event-container">
-          <Card>
+       
+        <div className="event-container" key={index}>
+          <Img 
+        fluid={event.childImageSharp.fluid}
+        alt={event.name} 
+        style={{
+          width: `275px`
+        }}
+        // className="sponsor-image"
+        />
+           {/* <Card>
             <h3 className="sub-title" style={{ fontSize: `1.5rem` }}>
               {eventName}
             </h3>
-          </Card>
-          {/* <div className="event-buttons-container">
-            <a
-              href="#"
-              className="event-button"
-              style={{
-                textDecoration: `none`,
-                color: `var(--color-primary)`,
-                marginTop: `18px`,
-              }}
-            >
-              Register
-            </a>
-          </div> */}
-        </div>
+          </Card>  */}
+       
+         </div> 
       );
     });
   return (
@@ -51,8 +55,9 @@ const Events = () => {
       >
         <h1 className="sub-title">EVENTS</h1>
         <div className="sub-line"></div>
-
-        <div className="cards-container">{eventCards}</div>
+        <div className="cards-container">
+          {eventCards}
+        </div>
         <AniLink
           to="/events/"
           className="event-button"
