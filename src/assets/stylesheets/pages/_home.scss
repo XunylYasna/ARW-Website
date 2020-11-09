@@ -43,6 +43,9 @@
     }
 
     .introduction {
+      h2 {
+        font-size: 2.5rem;
+      }
       // background-color: var(--color-primary);
       width: 100%;
       flex-direction: row;
@@ -67,6 +70,9 @@
     }
 
     .events {
+      h1 {
+        font-size: 3.5rem;
+      }
       .event-buttons-container {
         display: block;
         button {
@@ -80,6 +86,15 @@
         justify-content: space-around;
         flex-direction: row;
         flex-wrap: wrap;
+
+        .event-container{
+          margin-left: 24px;
+          margin-right: 24px;
+          // box-shadow: var(--shadow-dark);
+          background:none;
+          height:400px;
+        
+        }
       }
     }
 
@@ -176,44 +191,14 @@
       height: 40vh;
     }
   }
-  @media only screen and (max-width: $bp-largest) {
-    .partners .socials {
-      p,
-      a {
-        font-size: 2rem !important;
-      }
-      span a {
-        font-size: 3.2rem !important;
-      }
-    }
-  }
-  @media only screen and (max-width: $bp-large) {
-    .events,
-    .partners {
-      .card {
-        // margin-top: 48px !important;
-      }
-    }
-    .introduction {
-      video {
-        margin-top: 48px;
-      }
-    }
-    // .card.project-head-letter {
-    //   padding: 40px !important;
-    //   height: 550px !important;
-    // }
-  }
+ 
+
   @media only screen and (max-width: $bp-medium) {
     .container section {
       padding-top: 48px;
       padding-bottom: 48px;
     }
-    .partners .cards-container {
-      div {
-        // margin-bottom: 48px;
-      }
-    }
+
   }
   @media only screen and (max-width: $bp-small) {
     .hero {
@@ -221,10 +206,7 @@
         width: 80%;
       }
     }
-    // .card.project-head-letter {
-    //   padding: 25px !important;
-    //   height: 700px !important;
-    // }
+ 
   }
   @media only screen and (max-width: $bp-smallest) {
     .hero {
@@ -239,8 +221,6 @@
         }
       }
     }
-    // .card.project-head-letter {
-    //   height: 950px !important;
-    // }
+ 
   }
 }
