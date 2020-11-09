@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
+import Img from "gatsby-image";
 
 const EventLine = (props) => {
   // Setting Default Position of Active depending on day
@@ -77,8 +78,8 @@ const EventLine = (props) => {
                   eventDay === event.id
                     ? "item active current"
                     : eventDay >= event.id
-                    ? "item active"
-                    : "item"
+                      ? "item active"
+                      : "item"
                 }
                 onKeyDown={() => changeContent(event.id)}
                 onClick={() => changeContent(event.id)}
@@ -94,7 +95,12 @@ const EventLine = (props) => {
 
       {/* Event Content */}
       <div ref={addToRefs} className="events__event-content">
-        <div className="event-image"></div>
+        <div className="event-image">
+          <Img
+            fluid={events[eventDay - 1].img.childImageSharp.fluid}
+            alt={events[eventDay - 1].img.name}
+          />
+        </div>
         <div className="event-info">
           <h3>{events[eventDay - 1].title}</h3>
           <p>{events[eventDay - 1].content}</p>

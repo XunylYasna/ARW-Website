@@ -5,14 +5,64 @@ import Layout from "components/Layout";
 import EventLine from "../components/Events/EventLine"
 
 import { ScrollToRef } from "../components/Utilities/ScrolltoRef"
+import { graphql, useStaticQuery } from "gatsby";
+
 
 const EventsPage = () => {
+
+    const data = useStaticQuery(graphql`
+    {
+        curry: allFile(filter: {relativePath: {eq: "Events/Curry Town.png"}}) {
+            nodes {
+              name
+                childImageSharp{
+                    fluid(maxWidth: 400) {
+                    ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+        }
+
+        cyber: allFile(filter: {relativePath: {eq: "Events/cyber arena.png"}}) {
+            nodes {
+              name
+                childImageSharp{
+                    fluid(maxWidth: 400) {
+                    ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+        }
+
+        coffee: allFile(filter: {relativePath: {eq: "Events/Coffee Town .png"}}) {
+            nodes {
+              name
+                childImageSharp{
+                    fluid(maxWidth: 400) {
+                    ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+        }
+
+        awards: allFile(filter: {relativePath: {eq: "Events/awards night.png"}}) {
+            nodes {
+              name
+                childImageSharp{
+                    fluid(maxWidth: 400) {
+                    ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+        }
+    }`);
+
     // Events
     const state = {
         events: [
             {
                 id: 1,
-                // img: business,
+                img: data.curry.nodes[0],
                 title: "Curry Town",
                 subTitle: "ARW Monday",
                 content:
@@ -20,7 +70,7 @@ const EventsPage = () => {
             },
             {
                 id: 2,
-                // img: business,
+                img: data.coffee.nodes[0],
                 title: "Coffee Town",
                 subTitle: "ARW Tuesday",
                 content:
@@ -28,7 +78,7 @@ const EventsPage = () => {
             },
             {
                 id: 3,
-                // img: business,
+                img: data.cyber.nodes[0],
                 title: "Cyber Arena",
                 subTitle: "ARW Wednesday",
                 content:
@@ -36,7 +86,7 @@ const EventsPage = () => {
             },
             {
                 id: 4,
-                // img: business,
+                img: data.awards.nodes[0],
                 title: "ARW 2020: Awards Night",
                 subTitle: "ARW Thursday",
                 content:

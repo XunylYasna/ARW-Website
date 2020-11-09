@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { MdKeyboardArrowRight } from 'react-icons/md'
 
 class EventButton extends Component {
     constructor(props) {

@@ -20,29 +20,26 @@ const Events = () => {
     }
   `);
 
-  console.log(data);
-
   const eventCards = data.events.nodes
     .map((event, index) => {
-      console.log(event)
       return (
-       
+
         <div className="event-container" key={index}>
-          <Img 
-        fluid={event.childImageSharp.fluid}
-        alt={event.name} 
-        style={{
-          width: `275px`
-        }}
-        // className="sponsor-image"
-        />
-           {/* <Card>
+          <Img
+            fluid={event.childImageSharp.fluid}
+            alt={event.name}
+            style={{
+              width: `275px`
+            }}
+          // className="sponsor-image"
+          />
+          {/* <Card>
             <h3 className="sub-title" style={{ fontSize: `1.5rem` }}>
               {eventName}
             </h3>
           </Card>  */}
-       
-         </div> 
+
+        </div>
       );
     });
   return (
