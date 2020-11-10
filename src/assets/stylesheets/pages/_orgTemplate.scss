@@ -1,286 +1,291 @@
-.page-organization{
-
-    // Banner Section
-    .banner-container{
-        .organization-banner{
-            
-            .banner-content{
-                width: 90vw;
-                padding-top: 8vw;
-                padding-bottom: 8vw;
-                background-color: rgba(0,0,0,0.5);
-                color: var(--color-white);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                div{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                }
-                h1{
-                    font-family: var(--ff-primary);
-                    font-size: 4rem;
-                    background-color: var(--color-primary);
-                    padding: 0.5rem 2rem;
-                }
-                h2{
-                    font-family: var(--ff-primary);
-                    font-weight: 100;
-                    font-size: 3.5rem;
-                }
-            }
-            .logo-container{
-                width: 300px !important;
-                height: 148px;
-            }
-            .logo{
-                width: 100%;
-                height: 100%;
-                object-fit: contain !important;
-                picture{
-                    img{
-                        object-fit: contain !important;
-                    }
-                }
-            }
+.page-organization {
+  // Banner Section
+  .banner-container {
+    .organization-banner {
+      .banner-content {
+        width: 90vw;
+        padding-top: 8vw;
+        padding-bottom: 8vw;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: var(--color-white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
         }
+        h1 {
+          font-family: var(--ff-primary);
+          font-size: 4rem;
+          background-color: var(--color-primary);
+          padding: 0.5rem 2rem;
+        }
+        h2 {
+          font-family: var(--ff-primary);
+          font-weight: 100;
+          font-size: 3.5rem;
+        }
+      }
+      .logo-container {
+        width: 300px !important;
+        height: 148px;
+      }
+      .logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain !important;
+        picture {
+          img {
+            object-fit: contain !important;
+          }
+        }
+      }
+    }
+  }
+
+  // About Section
+  .organization-about {
+    padding: 3rem 0rem;
+    .organization-content {
+      padding: 1rem;
+      margin-bottom: 3rem;
+      p {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        text-align: justify;
+        margin-bottom: 1rem;
+      }
     }
 
-    // About Section
-    .organization-about{
-        padding: 3rem 0rem;
-        .organization-content{
-            padding: 1rem;
-            margin-bottom: 3rem;
-            p{
-                font-size: 1.4rem;
-                line-height: 2rem;
-                text-align: justify;
-                margin-bottom: 1rem;
-            }
-        }
-
-        .organization-about-carousel-container{
-            max-width: 900px;
-            display: flex;
-            margin: auto;
-            .react-multi-carousel-item{
-                display: flex;
-                margin: auto;
-                height: 300px;
-            }
-            img{
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                display: flex;
-                margin: auto;
-            }
-        }
-
-        .organization-about-socials{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 3rem 0;
-
-            h2{
-                font-size: 3.5rem;
-            }
-
-            div{
-                a{
-                    margin: 1rem 2rem;
-                    font-size: 3rem;
-                    color: var(--color-primary);
-                    transition: color 0.5s ease-in-out;
-                }
-
-                a:hover{
-                    color: var(--color-black);
-                }
-            }
-        }
+    .organization-about-carousel-container {
+      max-width: 900px;
+      display: flex;
+      margin: auto;
+      .react-multi-carousel-item {
+        display: flex;
+        margin: auto;
+        height: 300px;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        display: flex;
+        margin: auto;
+      }
     }
 
-    // Vision Mission
-    .organization-vm{
-        background-color: var(--color-primary);
-        margin-left: -5vw;
-        width: 100vw;
-        display: grid;
-        grid-template-columns: 1fr 1px 1fr;
+    .organization-about-socials {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 3rem 0;
 
-        hr.organization-vm-divider{
-            width: 1px;
-            background-color: var(--color-white);  
-            height: 15rem;
-            display: flex;
-            align-content: center;
-            position: relative;
-            top: 30%;
+      h2 {
+        font-size: 3.5rem;
+      }
 
-            @include respond(tab-port) {
-                width: 80%;
-                height: 1px;
-                justify-content: center;
-                margin: auto;
-            }
+      div {
+        a {
+          margin: 1rem 2rem;
+          font-size: 3rem;
+          color: var(--color-primary);
+          transition: color 0.5s ease-in-out;
         }
 
-        @include respond(tab-port) {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1px 1fr;
+        a:hover {
+          color: var(--color-black);
         }
+      }
+    }
+  }
 
-        div{
-            padding: 2rem;
-            .organization-vm-content{
-                p{
-                    color: var(--color-white);
-                    font-size: 1.4rem;
-                    line-height: 2rem;
-                    margin-bottom: 1rem;
-                    text-align: justify;
-                }
-            }
-        }
-        h2{
-            color: var(--color-white);
-            font-size: 3.5rem;
-        }
-        .sub-line{
-            width: 12rem;
-            padding: 0;
-            margin-top: 0rem;
-            background-color: var(--color-white);
-        }
+  // Vision Mission
+  .organization-vm {
+    background-color: var(--color-primary);
+    margin-left: -5vw;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+
+    hr.organization-vm-divider {
+      width: 1px;
+      background-color: var(--color-white);
+      height: 15rem;
+      display: flex;
+      align-content: center;
+      position: relative;
+      top: 30%;
+
+      @include respond(tab-port) {
+        width: 80%;
+        height: 1px;
+        justify-content: center;
+        margin: auto;
+      }
     }
 
-    // Organization Events
-    .organization-events{
-        padding: 3rem 0rem;
-        .organization-event-container{
-            display: flex;
-            flex-flow: row wrap;
-            flex-wrap: wrap;
-            justify-content: center;
-            
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1px 1fr;
+    }
+
+    div {
+      padding: 2rem;
+      .organization-vm-content {
+        p {
+          color: var(--color-white);
+          font-size: 1.4rem;
+          line-height: 2rem;
+          margin-bottom: 1rem;
+          text-align: justify;
+        }
+      }
+    }
+    h2 {
+      color: var(--color-white);
+      font-size: 3.5rem;
+    }
+    .sub-line {
+      width: 12rem;
+      padding: 0;
+      margin-top: 0rem;
+      background-color: var(--color-white);
+    }
+  }
+
+  // Organization Events
+  .organization-events {
+    padding: 3rem 0rem;
+    .organization-event-container {
+      display: flex;
+      flex-flow: row wrap;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .organization-event-card {
+      width: 300px;
+      height: 300px;
+      margin: 1.5rem;
+      perspective: 500px;
+      background-color: var(--color-white);
+      border-bottom: 5px solid var(--color-primary);
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+      transition: transform 0.5s;
+
+      .organization-event-content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+
+        .organization-event-front,
+        .organization-event-back {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          display: flex;
+          background-color: var(--color-white);
+          justify-content: center;
+          align-items: center;
+          backface-visibility: hidden;
         }
 
-        .organization-event-card{
-            width: 300px;
+        .organization-event-front {
+          background-color: var(--color-white);
+          color: var(--color-primary);
+          font-size: 3rem;
+          justify-content: center;
+          display: table-cell;
+          vertical-align: middle;
+          transform: rotateY(0deg);
+
+          h3 {
+            display: table-cell;
+            vertical-align: middle;
             height: 300px;
-            margin: 1.5rem;
-            perspective: 500px;
+            width: 300px;
+            text-align: center;
             background-color: var(--color-white);
-            border-bottom: 5px solid var(--color-primary);
-            box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
-            transition: transform 0.5s;
-            
-            .organization-event-content{
-                position: absolute;
-                width: 100%;
-                height: 100%;
-
-                transition: transform 1s;
-                transform-style: preserve-3d;
-
-                .organization-event-front, .organization-event-back{
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                    text-align: center;
-                    display: flex;
-                    background-color: var(--color-white);
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .organization-event-front{
-                    background-color: var(--color-white);
-                    color: var(--color-primary);
-                    font-size: 3rem;
-                    justify-content: center;
-                    display: table-cell;
-                    vertical-align: middle;
-                    
-                    h3{
-                        display: table-cell;
-                        vertical-align: middle;
-                        height: 300px;
-                        width: 300px;
-                        text-align: center;
-                        background-color: var(--color-white);
-                    }
-                }
-
-                .organization-event-back{
-                    background-color: var(--color-primary);
-                    color: var(--color-white);
-                    font-size: 1.3rem;
-                    p{
-                        padding: 10px;
-                        text-align: justify;
-                    }
-                }
-
-            }
+          }
         }
 
-        .organization-event-card.hide{
-            .organization-event-content{
-                .organization-event-back{
-                    transform: rotateY(180deg);
-                }
-            }
+        .organization-event-back {
+          background-color: var(--color-primary);
+          color: var(--color-white);
+          font-size: 1.3rem;
+          p {
+            padding: 10px;
+            text-align: justify;
+          }
         }
-
-        .organization-event-card.show, .organization-event-card:hover, .organization-event-card > .organization-event-content > div:hover {
-            transform: rotateY( 180deg );
-            .organization-event-content{
-                .organization-event-front{
-                    display: none;
-                }
-
-                .organization-event-back{
-                    transform: rotateY( 180deg );
-                }
-            }
-        }
+      }
     }
 
-    //Organization Prices
-    .organization-prices{
-        padding: 3rem 0rem;
-        .price-container{
-            display: flex;
-            flex-flow: row wrap;
-            flex-wrap: wrap;
-            justify-content: center;
-
-            .price-item{
-                margin: 2rem;
-                text-align: center;
-                width: 200px;
-                h3{
-                    font-size: 2.5rem;
-                    
-                }
-                p{
-                    font-size: 1.8rem;
-                }
-            }
+    .organization-event-card.hide {
+      .organization-event-content {
+        .organization-event-back {
+          transform: rotateY(180deg);
         }
-
-        .registration-button{
-            display: flex;
-            justify-content: center;
-            padding: 2vh 0;
-        }
+      }
     }
+
+    .organization-event-card.show,
+    .organization-event-card:hover,
+    .organization-event-card > .organization-event-content > div:hover {
+      transform: rotateY(180deg);
+
+      .organization-event-content {
+        .organization-event-front {
+          display: none;
+          backface-visibility: visible;
+        }
+
+        .organization-event-back {
+          transform: rotateY(180deg);
+          backface-visibility: visible;
+        }
+      }
+    }
+  }
+
+  //Organization Prices
+  .organization-prices {
+    padding: 3rem 0rem;
+    .price-container {
+      display: flex;
+      flex-flow: row wrap;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .price-item {
+        margin: 2rem;
+        text-align: center;
+        width: 200px;
+        h3 {
+          font-size: 2.5rem;
+        }
+        p {
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+    .registration-button {
+      display: flex;
+      justify-content: center;
+      padding: 2vh 0;
+    }
+  }
 }

@@ -1,20 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 // import Card from "components/Card";
-import { gsap, TimelineLite } from "gsap";
+import { gsap } from "gsap";
 import mainMap from "assets/images/Clusters/MAIN_MAP.jpg";
 
 const Hero = () => {
-  const headerTimeline = new TimelineLite({ paused: true });
+  let ref = useRef([]);
 
   useEffect(() => {
-    headerTimeline
-      .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: "Power4.easeOut" })
-      .play();
-  });
+    gsap.fromTo(
+      ref.current,
+      { opacity: 0, y: 30, ease: "power4.easeOut" },
+      { opacity: 1, y: 0, ease: "power4.easeOut", delay: 0.4 }
+    );
+  }, []);
+
   return (
     <>
       <section className="hero" style={{ backgroundImage: `url(${mainMap})` }}>
-        <div>
+        <div ref={(e) => (ref.current[0] = e)}>
           <h1 className="main-title">Welcome to Animo City</h1>
         </div>
       </section>

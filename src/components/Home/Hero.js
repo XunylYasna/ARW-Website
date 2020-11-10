@@ -1,17 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap, TimelineLite } from "gsap";
 import landingVideo from "assets/images/ARW Landing.mp4";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const Hero = () => {
-  const headerTimeline = new TimelineLite({ paused: true });
+  let contentRef = useRef([]);
+  contentRef.current = [];
+  const addToRefs = (el) => {
+    if (el && !contentRef.current.includes(el)) {
+      contentRef.current.push(el);
+    }
+  };
 
   useEffect(() => {
-    headerTimeline
-      .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-      .fromTo("button.main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-      .play()
-  });
+    contentRef.current[0].childNodes.forEach((el, index) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 30, ease: "power4.easeOut", delay: 1 },
+        { opacity: 1, y: 0, ease: "power4.easeOut", delay: 0.4*(index+1) }
+      );
+    });
+  }, []);
 
   return (
     <>
@@ -41,7 +50,7 @@ const Hero = () => {
           <source src={landingVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="hero-info">
+        <div className="hero-info" ref={addToRefs}>
           <h1 className="main-title">Welcome to Animo City</h1>
           <AniLink
             cover
@@ -50,11 +59,8 @@ const Hero = () => {
             bg="#E16085"
             duration={0.7}
           >
-            <button className="main-button">
-              Explore Map
-            </button>
+            <button className="main-button">Explore Map</button>
           </AniLink>
-
         </div>
       </section>
     </>
