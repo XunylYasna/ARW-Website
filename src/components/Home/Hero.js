@@ -7,11 +7,11 @@ const Hero = () => {
 
   useEffect(() => {
     headerTimeline
-      .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-      .fromTo(".main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+      .fromTo(".main-title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 })
+      .fromTo(".main-button", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 })
 
       .play();
-  });
+  }, []);
   return (
     <>
       <section

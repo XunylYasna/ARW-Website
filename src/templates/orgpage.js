@@ -77,7 +77,7 @@ export default function OrgPage({ data }) {
             .play()
 
         gsap.from(".photos h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-    })
+    }, [])
 
     photosTimeline
         .fromTo(".photos h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })

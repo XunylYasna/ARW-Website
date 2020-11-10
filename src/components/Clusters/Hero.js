@@ -12,7 +12,7 @@ const Hero = () => {
       .fromTo(".main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
       .play();
-  });
+  }, []);
   return (
     <>
       <section className="hero" style={{ backgroundImage: `url(${mainMap})` }}>
