@@ -11,7 +11,6 @@ const Hero = () => {
       .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
       .fromTo("button.main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
       .play()
-      .pause();
   });
 
   return (

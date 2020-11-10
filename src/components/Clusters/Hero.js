@@ -9,8 +9,8 @@ const Hero = () => {
   useEffect(() => {
     headerTimeline
       .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: "Power4.easeOut" })
-      .play()
-  }, [headerTimeline]);
+      .play();
+  });
   return (
     <>
       <section className="hero" style={{ backgroundImage: `url(${mainMap})` }}>

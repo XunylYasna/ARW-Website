@@ -22,7 +22,8 @@ export default function ClusterPage({ data }) {
     const organizationsTimeline = new TimelineLite({
         scrollTrigger: {
             trigger: ".organization-list",
-            start: "top top"
+            start: "top top",
+            end: "bottom top"
         },
     })
 
@@ -31,9 +32,9 @@ export default function ClusterPage({ data }) {
     useEffect(() => {
         organizationsTimeline
             .staggerFromTo(".organization-list .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
-            .staggerFrom(".organization-list .main-header", 0.5, { opacity: 0, y: 20 })
-            .staggerFrom(".list .item-container", 0.5, { opacity: 0, y: 20 }, 0.1)
-    }, [organizationsTimeline])
+            .staggerFromTo(".organization-list .main-header", 0.5, { opacity: 0, y: 20 }, { opacity: 1, y: 0 })
+            .staggerFromTo(".list .item-container", 0.5, { opacity: 0, y: 20 }, { opacity: 1, y: 0 });
+    })
 
     const { landingImage, title, subtitle, buildingSize, organizations } = data.allContentfulCluster.nodes[0]
     return (
@@ -52,8 +53,8 @@ export default function ClusterPage({ data }) {
                 <div className="list">
                     {organizations ? organizations.map((org, index) => {
                         return (
-                            <div className="item-container" >
-                                <Card className="item" key={index}>
+                            <div key={index} className="item-container" >
+                                <Card className="item" >
                                     <AniLink
                                         cover
                                         to={'/organizations/' + org.slug}
