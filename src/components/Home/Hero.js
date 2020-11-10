@@ -44,21 +44,16 @@ const Hero = () => {
         <div className="hero-info">
           <h1 className="main-title">Welcome to Animo City</h1>
           <AniLink
-            className="main-button"
             cover
-            style={{
-              textDecoration: "none",
-              color: "var(--G100) !important",
-              dispal: "inline-block",
-              width: "auto"
-            }}
             direction="right"
             to="/clusters/"
             bg="#E16085"
             duration={0.7}
           >
-            Explore Map
-            </AniLink>
+            <button className="main-button">
+              Explore Map
+            </button>
+          </AniLink>
 
         </div>
       </section>
