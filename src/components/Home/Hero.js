@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { TimelineLite } from "gsap";
+import { gsap, TimelineLite } from "gsap";
 import landingVideo from "assets/images/ARW Landing.mp4";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
@@ -9,10 +9,11 @@ const Hero = () => {
   useEffect(() => {
     headerTimeline
       .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-      .fromTo(".main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-
-      .play();
+      .fromTo("button.main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+      .play()
+      .pause();
   });
+
   return (
     <>
       <section

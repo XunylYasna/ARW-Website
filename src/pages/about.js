@@ -8,6 +8,8 @@ import Layout from "components/Layout";
 import Container from "components/Container";
 import CommitteeItem from "../components/About/CommitteeItem";
 
+import Img from "gatsby-image"
+
 import Img1 from "../assets/images/ARW2019Photos/1.jpg";
 import Img2 from "../assets/images/ARW2019Photos/2.jpg";
 import Img3 from "../assets/images/ARW2019Photos/3.jpg";
@@ -221,12 +223,18 @@ const TeamSection = () => {
           teamName
           picture1 {
             fixed(height: 300, width: 300) {
-              src
+              base64
+                aspectRatio
+                src
+                srcSet
             }
           }
           picture2 {
             fixed(width: 300, height: 300) {
-              src
+              base64
+                aspectRatio
+                src
+                srcSet
             }
           }
         }
@@ -236,7 +244,10 @@ const TeamSection = () => {
           name
           picture {
             fixed(height: 300, width: 300) {
+              base64
+              aspectRatio
               src
+              srcSet
             }
           }
         }
@@ -258,7 +269,15 @@ const TeamSection = () => {
           return (
             <div className="card-wrapper">
               <Card>
-                <img alt="" src={node.picture.fixed.src}></img>
+                <div style={{
+                  height: "300px !important",
+                  width: "300px !important"
+                }}>
+                  <Img alt="" fixed={node.picture.fixed} imgStyle={{
+                    height: "300px",
+                    width: "300px"
+                  }}></Img>
+                </div>
               </Card>
               <span className="text-content">{node.name}</span>
             </div>
@@ -273,13 +292,19 @@ const TeamSection = () => {
               <CommitteeItem name={node.teamName} members={node.listOfMembers}>
                 <div className="card-wrapper">
                   <Card>
-                    <img alt="" src={node.picture1.fixed.src}></img>
+                    <Img alt="" fixed={node.picture1.fixed} imgStyle={{
+                      height: "300px",
+                      width: "300px"
+                    }}></Img>
                   </Card>
                   <span className="text-content">{node.head1}</span>
                 </div>
                 <div className="card-wrapper">
                   <Card>
-                    <img alt="" src={node.picture2.fixed.src}></img>
+                    <Img alt="" fixed={node.picture2.fixed} imgStyle={{
+                      height: "300px",
+                      width: "300px"
+                    }}></Img>
                   </Card>
                   <span className="text-content">{node.head2}</span>
                 </div>
