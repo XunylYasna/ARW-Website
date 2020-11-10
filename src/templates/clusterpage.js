@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 
 import { graphql } from "gatsby"
 import { gsap, TimelineLite } from "gsap";
-// import ScrollTrigger from 'gsap/ScrollTrigger'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Layout from "../components/Layout";
@@ -12,6 +12,10 @@ import Card from "../components/Card";
 // import { aso, asoPositions, aspire, aspirePositions, cap12, cap12Positions, cso, csoPositions, engage, engagePositions, probe, probePositions } from "./buildings"
 
 // gsap.registerPlugin(ScrollTrigger)
+
+if (typeof window !== `undefined`) {
+    gsap.registerPlugin(ScrollTrigger)
+}
 
 export default function ClusterPage({ data }) {
 
@@ -27,7 +31,7 @@ export default function ClusterPage({ data }) {
             .staggerFromTo(".organization-list .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
             .staggerFrom(".organization-list .main-header", 0.5, { opacity: 0, y: 20 })
             .staggerFrom(".list .item-container", 0.5, { opacity: 0, y: 20 }, 0.1)
-    }, [])
+    })
 
     const { landingImage, title, subtitle, buildingSize, organizations } = data.allContentfulCluster.nodes[0]
     return (

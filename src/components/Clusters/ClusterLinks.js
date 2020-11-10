@@ -59,7 +59,6 @@ const ClusterLinks = () => {
     },
   ];
 
-  console.log(data.allContentfulCluster.nodes);
 
   const clusters = clusterData.map(({ title, image }, index) => {
     return (
@@ -72,11 +71,10 @@ const ClusterLinks = () => {
         key={index}
       >
         <AniLink
-          to={`${
-            title === "CSO"
+          to={`${title === "CSO"
               ? "/organizations/council-of-student-organizations"
               : `/clusters/${title}`
-          }`}
+            }`}
         >
           <div>
             <p className="sub-title">{title}</p>

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { TimelineLite } from "gsap";
 import landingVideo from "assets/images/ARW Landing.mp4";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const Hero = () => {
   const headerTimeline = new TimelineLite({ paused: true });
@@ -28,7 +29,7 @@ const Hero = () => {
             objectFit: `cover`,
             // right: `0`,
             top: `2%`,
-            height: `750px`,
+            height: `100vh`,
             width: `100%`,
             // width: `100%`,
             // minHeight: `100%`,
@@ -42,7 +43,23 @@ const Hero = () => {
         </video>
         <div className="hero-info">
           <h1 className="main-title">Welcome to Animo City</h1>
-          <button className="main-button">Explore Map</button>
+          <AniLink
+            className="main-button"
+            cover
+            style={{
+              textDecoration: "none",
+              color: "var(--G100) !important",
+              dispal: "inline-block",
+              width: "auto"
+            }}
+            direction="right"
+            to="/clusters/"
+            bg="#E16085"
+            duration={0.7}
+          >
+            Explore Map
+            </AniLink>
+
         </div>
       </section>
     </>
