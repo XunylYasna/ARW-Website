@@ -93,14 +93,14 @@ const Partners = () => {
         <h2>Find us on:</h2>
 
         <div>
-          <a href={socials.website} target="_blank">
+          <a href={socials.website} target="_blank" rel="noreferrer">
             <BiGlobe />
           </a>
-          <a href={socials.facebook} target="_blank">
+          <a href={socials.facebook} target="_blank" rel="noreferrer">
             <FaFacebookSquare />
           </a>
 
-          <a href={socials.instagram} target="_blank">
+          <a href={socials.instagram} target="_blank" rel="noreferrer">
             <FaInstagram />
           </a>
         </div>

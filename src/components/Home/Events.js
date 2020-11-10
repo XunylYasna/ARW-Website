@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "components/Card";
+// import Card from "components/Card";
 import { graphql, useStaticQuery } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import Img from "gatsby-image";
@@ -65,7 +65,6 @@ const Events = () => {
           }}
           cover
           direction="right"
-          to="/events/"
           bg="#E16085"
           duration={0.7}
         >
