@@ -68,6 +68,7 @@ export default function OrgTemplate({ pageContext }) {
 
 
     useEffect(() => {
+        console.log("1");
         headerTimeline
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
             .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
@@ -91,7 +92,7 @@ export default function OrgTemplate({ pageContext }) {
         registrationTimeline
             .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
             .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-    }, [headerTimeline, aboutTimeline, mvTimeline, eventsTimeline, registrationTimeline])
+    }, [])
 
 
 

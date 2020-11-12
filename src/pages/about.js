@@ -223,20 +223,12 @@ const TeamSection = () => {
           teamName
           picture1 {
             fixed(height: 300, width: 300) {
-              aspectRatio
-              src
-              srcSet
-              srcSetWebp
-              srcWebp
+              ...GatsbyContentfulFixed_withWebp_noBase64
             }
           }
           picture2 {
             fixed(width: 300, height: 300) {
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
+              ...GatsbyContentfulFixed_withWebp_noBase64
             }
           }
         }
@@ -246,11 +238,7 @@ const TeamSection = () => {
           name
           picture {
             fixed(height: 300, width: 300) {
-              aspectRatio
-              src
-              srcSet
-              srcSetWebp
-              srcWebp
+              ...GatsbyContentfulFixed_withWebp_noBase64
             }
           }
         }
