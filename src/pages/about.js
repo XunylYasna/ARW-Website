@@ -295,7 +295,7 @@ const TeamSection = () => {
         })}
       </div>
       <div className="project-heads-section">
-        <h1 className="sub-title">EB in Charge</h1>
+        <h1 className="sub-title">EB in-Charge</h1>
       </div>
       <div className="project-heads-card-container">
         {data.allContentfulEbInCharge.nodes.map((node) => {
