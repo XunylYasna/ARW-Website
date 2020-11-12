@@ -243,6 +243,19 @@ const TeamSection = () => {
           }
         }
       }
+      allContentfulEbInCharge {
+        nodes {
+          name
+          picture {
+            fixed(width: 300, height: 300) {
+              src
+              srcSet
+              srcSetWebp
+              srcWebp
+            }
+          }
+        }
+      }
     }
   `);
 
@@ -257,6 +270,35 @@ const TeamSection = () => {
       </div>
       <div className="project-heads-card-container">
         {data.allContentfulProjectHead.nodes.map((node) => {
+          return (
+            <div className="card-wrapper">
+              <Card>
+                <div
+                  style={{
+                    height: "300px !important",
+                    width: "300px !important",
+                  }}
+                >
+                  <Img
+                    alt=""
+                    fixed={node.picture.fixed}
+                    imgStyle={{
+                      height: "300px",
+                      width: "300px",
+                    }}
+                  ></Img>
+                </div>
+              </Card>
+              <span className="text-content">{node.name}</span>
+            </div>
+          );
+        })}
+      </div>
+      <div className="project-heads-section">
+        <h1 className="sub-title">EB in Charge</h1>
+      </div>
+      <div className="project-heads-card-container">
+        {data.allContentfulEbInCharge.nodes.map((node) => {
           return (
             <div className="card-wrapper">
               <Card>
