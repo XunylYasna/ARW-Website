@@ -14,9 +14,9 @@ const ProjectsPage = () => {
         <title>Clusters</title>
       </Helmet>
       <Container>
-        <Hero />
-        <ClusterList />
         <ClusterLinks />
+        {/* <ClusterList /> */}
+        {/* <Hero /> */}
       </Container>
     </Layout>
   );

@@ -16,9 +16,7 @@ const Hero = () => {
   return (
     <>
       <section className="hero" style={{ backgroundImage: `url(${mainMap})` }}>
-        <div>
-          <h1 className="main-title">Welcome to Animo City</h1>
-        </div>
+        <div>{/* <h1 className="main-title">Welcome to Animo City</h1> */}</div>
       </section>
     </>
   );

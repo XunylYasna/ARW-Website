@@ -35,33 +35,40 @@ const ClusterLinks = () => {
   const clusterData = [
     {
       title: data.allContentfulCluster.nodes[0].title,
+      subtitle:
+        "Alliance of Professional Organizations of Business and Economics",
       image: aspireImg,
     },
     {
       title: data.allContentfulCluster.nodes[1].title,
+      subtitle: "Alliance of Special Interest and Socio-Civic Organizations",
       image: probeImg,
     },
     {
       title: data.allContentfulCluster.nodes[2].title,
+      subtitle: "College of Liberal Arts Professional Organizations",
       image: cap12Img,
     },
     {
       title: data.allContentfulCluster.nodes[3].title,
+      subtitle: "Engineering Alliance Geared Towards Excellence",
       image: asoImg,
     },
     {
       title: data.allContentfulCluster.nodes[4].title,
+      subtitle: "Alliance of Science Organizations",
       image: engageImg,
     },
     {
       title: "CSO",
+      subtitle: "Council of Student Organizations",
       image: mainMap,
     },
   ];
 
   console.log(data.allContentfulCluster.nodes);
 
-  const clusters = clusterData.map(({ title, image }, index) => {
+  const clusters = clusterData.map(({ title, image, subtitle }, index) => {
     return (
       <div
         className="grid-item"
@@ -79,7 +86,20 @@ const ClusterLinks = () => {
           }`}
         >
           <div>
-            <p className="sub-title">{title}</p>
+            <div>
+              <p className="sub-title cluster-title">{title}</p>
+              <p className="sub-title cluster-subtitle">{subtitle}</p>
+              <AniLink
+                className="event-button"
+                to={`${
+                  title === "CSO"
+                    ? "/organizations/council-of-student-organizations"
+                    : `/clusters/${title}`
+                }`}
+              >
+                Learn More
+              </AniLink>
+            </div>
           </div>
         </AniLink>
       </div>
@@ -88,7 +108,12 @@ const ClusterLinks = () => {
 
   return (
     <>
-      <section className="cluster-links">
+      <section
+        className="cluster-links"
+        style={{ backgroundImage: `url(${mainMap})` }}
+      >
+        <h1 className="main-title">Welcome to Animo City</h1>
+
         <div className="grid-container">{clusters}</div>
       </section>
     </>
