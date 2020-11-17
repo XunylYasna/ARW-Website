@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 const EventLine = (props) => {
   // Setting Default Position of Active depending on day
   let date = new Date();
-  let startDate = new Date("11/16/2020");
+  let startDate = new Date("11/23/2020");
   let diffTime = date - startDate;
   let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   let openEvent = 0;
@@ -67,7 +67,7 @@ const EventLine = (props) => {
       <div className="events__event-line">
         <div
           className="events__progress"
-          style={{ width: `${((eventDay - 1) / 3) * 100}%` }}
+          style={{ width: `${((eventDay - 1) / 4) * 100}%` }}
         ></div>
         <div className="events__event-line-items">
           {events.map((event, index) => {

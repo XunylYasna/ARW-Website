@@ -13,13 +13,13 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 const ClusterLinks = () => {
   const headerTimeline = new TimelineLite({ paused: true });
 
-  // useEffect(() => {
-  //   headerTimeline
-  //     .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-  //     .fromTo(".main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+  useEffect(() => {
+    headerTimeline
+      .fromTo(".cluster-page-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
-  //     .play();
-  // });
+      .play();
+  }, []);
+  
   const data = useStaticQuery(graphql`
     query {
       allContentfulCluster {
@@ -35,32 +35,39 @@ const ClusterLinks = () => {
   const clusterData = [
     {
       title: data.allContentfulCluster.nodes[0].title,
+      subtitle:
+        "Alliance of Professional Organizations of Business and Economics",
       image: aspireImg,
     },
     {
       title: data.allContentfulCluster.nodes[1].title,
+      subtitle: "Alliance of Special Interest and Socio-Civic Organizations",
       image: probeImg,
     },
     {
       title: data.allContentfulCluster.nodes[2].title,
+      subtitle: "College of Liberal Arts Professional Organizations",
       image: cap12Img,
     },
     {
       title: data.allContentfulCluster.nodes[3].title,
+      subtitle: "Engineering Alliance Geared Towards Excellence",
       image: asoImg,
     },
     {
       title: data.allContentfulCluster.nodes[4].title,
+      subtitle: "Alliance of Science Organizations",
       image: engageImg,
     },
     {
       title: "CSO",
+      subtitle: "Council of Student Organizations",
       image: mainMap,
     },
   ];
 
 
-  const clusters = clusterData.map(({ title, image }, index) => {
+  const clusters = clusterData.map(({ title, image, subtitle }, index) => {
     return (
       <div
         className="grid-item"
@@ -77,7 +84,20 @@ const ClusterLinks = () => {
             }`}
         >
           <div>
-            <p className="sub-title">{title}</p>
+            <div>
+              <p className="sub-title cluster-title">{title}</p>
+              <p className="sub-title cluster-subtitle">{subtitle}</p>
+              <AniLink
+                className="event-button"
+                to={`${
+                  title === "CSO"
+                    ? "/organizations/council-of-student-organizations"
+                    : `/clusters/${title}`
+                }`}
+              >
+                Learn More
+              </AniLink>
+            </div>
           </div>
         </AniLink>
       </div>
@@ -86,7 +106,12 @@ const ClusterLinks = () => {
 
   return (
     <>
-      <section className="cluster-links">
+      <section
+        className="cluster-links"
+        style={{ backgroundImage: `url(${mainMap})` }}
+      >
+        <h1 className="main-title cluster-page-title">Welcome to Animo City</h1>
+
         <div className="grid-container">{clusters}</div>
       </section>
     </>

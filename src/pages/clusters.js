@@ -3,8 +3,7 @@ import Helmet from "react-helmet";
 
 import Layout from "components/Layout";
 import Container from "components/Container";
-import Hero from "components/Clusters/Hero";
-import ClusterList from "components/Clusters/ClusterList";
+
 import ClusterLinks from "components/Clusters/ClusterLinks";
 
 const ProjectsPage = () => {
@@ -14,8 +13,6 @@ const ProjectsPage = () => {
         <title>Clusters</title>
       </Helmet>
       <Container>
-        <Hero />
-        <ClusterList />
         <ClusterLinks />
       </Container>
     </Layout>
