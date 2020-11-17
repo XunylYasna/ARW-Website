@@ -160,7 +160,7 @@ const Blob = ({ numMetaballs }) => {
     })
 
     return (
-        <canvas class="canvas-blob" ref={canvasRef} />
+        <canvas className="canvas-blob" ref={canvasRef} />
     )
 }
 

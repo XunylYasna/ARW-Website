@@ -2,13 +2,8 @@ import React, { useEffect } from "react"
 import Helmet from "react-helmet";
 
 import { graphql } from "gatsby"
-<<<<<<< HEAD
-import { TimelineLite } from "gsap";
-// import ScrollTrigger from 'gsap/ScrollTrigger'
-=======
 import { gsap, TimelineLite } from "gsap";
 import ScrollTrigger from 'gsap/ScrollTrigger'
->>>>>>> main
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import Layout from "../components/Layout";

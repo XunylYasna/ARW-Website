@@ -30,7 +30,8 @@ export default function OrgTemplate({ pageContext }) {
         email,
         backgroundImage,
         facebookUrl,
-        twitterUrl
+        twitterUrl,
+        registrationLink
     } = pageContext.data.organization;
 
 
@@ -41,7 +42,7 @@ export default function OrgTemplate({ pageContext }) {
     const aboutTimeline = new TimelineLite({
         scrollTrigger: {
             trigger: ".organization-about",
-            start: "center center"
+            start: "top top"
         },
     })
 
@@ -61,8 +62,8 @@ export default function OrgTemplate({ pageContext }) {
 
     const registrationTimeline = new TimelineLite({
         scrollTrigger: {
-            trigger: ".organization-prices",
-            start: "top top"
+            trigger: ".organization-events",
+            start: "bottom bottom"
         },
     })
 
@@ -71,7 +72,7 @@ export default function OrgTemplate({ pageContext }) {
         headerTimeline
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
             .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-            .fromTo(".banner-content h1", 0.5, { opacity: 0, y: -30 }, { opacity: 1, y: 0 }, "-=0.5")
+            .fromTo(".banner-content", 0.5, { opacity: 0, y: -30 }, { opacity: 1, y: 0 }, "-=0.5")
             .fromTo(".banner-button", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "right", ease: Quart.easeInOut }, "-=0.5")
             .play()
 
@@ -81,8 +82,8 @@ export default function OrgTemplate({ pageContext }) {
             .fromTo(".organization-about-socials", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
         mvTimeline
-            .fromTo(".organization-mission h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-            .fromTo(".organization-vision h2", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-mission", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-vision", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
             .fromTo(".organization-vm-content", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
         eventsTimeline
@@ -91,7 +92,7 @@ export default function OrgTemplate({ pageContext }) {
         registrationTimeline
             .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
             .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-    }, [])
+    })
 
     return (
         <Layout pageName="organization">
@@ -143,7 +144,10 @@ export default function OrgTemplate({ pageContext }) {
                 </div>
 
                 <div className="registration-button">
-                    <button className="event-button" href="" rel="noopener noreferrer" target="_blank">Register Coming Soon</button>
+                    <a className="event-button" href={registrationLink} rel="noopener noreferrer" target="_blank" style={{
+                        textDecoration: 'none',
+                        color: 'var(--color-primary)',
+                    }}>Register Now!</a>
                 </div>
             </section>
 
