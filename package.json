@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-sasslan",
-  "description": "A minimalistic Gatsby starter with a pretyy design",
+  "name": "arw-2020-website",
+  "description": "The official website for the CSO Annual Recruitment Week 2020",
   "version": "1.0.0",
-  "author": "Amar Zia Arslaan",
+  "author": "Ansay, Lim, Shi, Sta. Maria",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.1",
     "cross-env": "^7.0.2",
