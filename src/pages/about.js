@@ -8,6 +8,8 @@ import Layout from "components/Layout";
 import Container from "components/Container";
 import CommitteeItem from "../components/About/CommitteeItem";
 
+import Img from "gatsby-image";
+
 import Img1 from "../assets/images/ARW2019Photos/1.jpg";
 import Img2 from "../assets/images/ARW2019Photos/2.jpg";
 import Img3 from "../assets/images/ARW2019Photos/3.jpg";
@@ -221,12 +223,12 @@ const TeamSection = () => {
           teamName
           picture1 {
             fixed(height: 300, width: 300) {
-              src
+              ...GatsbyContentfulFixed_withWebp_noBase64
             }
           }
           picture2 {
             fixed(width: 300, height: 300) {
-              src
+              ...GatsbyContentfulFixed_withWebp_noBase64
             }
           }
         }
@@ -236,7 +238,20 @@ const TeamSection = () => {
           name
           picture {
             fixed(height: 300, width: 300) {
+              ...GatsbyContentfulFixed_withWebp_noBase64
+            }
+          }
+        }
+      }
+      allContentfulEbInCharge {
+        nodes {
+          name
+          picture {
+            fixed(width: 300, height: 300) {
               src
+              srcSet
+              srcSetWebp
+              srcWebp
             }
           }
         }
@@ -258,7 +273,50 @@ const TeamSection = () => {
           return (
             <div className="card-wrapper">
               <Card>
-                <img alt="" src={node.picture.fixed.src}></img>
+                <div
+                  style={{
+                    height: "300px !important",
+                    width: "300px !important",
+                  }}
+                >
+                  <Img
+                    alt=""
+                    fixed={node.picture.fixed}
+                    imgStyle={{
+                      height: "300px",
+                      width: "300px",
+                    }}
+                  ></Img>
+                </div>
+              </Card>
+              <span className="text-content">{node.name}</span>
+            </div>
+          );
+        })}
+      </div>
+      <div className="project-heads-section">
+        <h1 className="sub-title">EB in-Charge</h1>
+      </div>
+      <div className="project-heads-card-container">
+        {data.allContentfulEbInCharge.nodes.map((node) => {
+          return (
+            <div className="card-wrapper">
+              <Card>
+                <div
+                  style={{
+                    height: "300px !important",
+                    width: "300px !important",
+                  }}
+                >
+                  <Img
+                    alt=""
+                    fixed={node.picture.fixed}
+                    imgStyle={{
+                      height: "300px",
+                      width: "300px",
+                    }}
+                  ></Img>
+                </div>
               </Card>
               <span className="text-content">{node.name}</span>
             </div>
@@ -267,26 +325,38 @@ const TeamSection = () => {
       </div>
 
       <div className="committees-container">
-        {
-          data.allContentfulCsoTeam.nodes.map((node) => {
-            return (
-              <CommitteeItem name={node.teamName} members={node.listOfMembers}>
-                <div className="card-wrapper">
-                  <Card>
-                    <img alt="" src={node.picture1.fixed.src}></img>
-                  </Card>
-                  <span className="text-content">{node.head1}</span>
-                </div>
-                <div className="card-wrapper">
-                  <Card>
-                    <img alt="" src={node.picture2.fixed.src}></img>
-                  </Card>
-                  <span className="text-content">{node.head2}</span>
-                </div>
-              </CommitteeItem>
-            )
-          })
-        }
+        {data.allContentfulCsoTeam.nodes.map((node) => {
+          return (
+            <CommitteeItem name={node.teamName} members={node.listOfMembers}>
+              <div className="card-wrapper">
+                <Card>
+                  <Img
+                    alt=""
+                    fixed={node.picture1.fixed}
+                    imgStyle={{
+                      height: "300px",
+                      width: "300px",
+                    }}
+                  ></Img>
+                </Card>
+                <span className="text-content">{node.head1}</span>
+              </div>
+              <div className="card-wrapper">
+                <Card>
+                  <Img
+                    alt=""
+                    fixed={node.picture2.fixed}
+                    imgStyle={{
+                      height: "300px",
+                      width: "300px",
+                    }}
+                  ></Img>
+                </Card>
+                <span className="text-content">{node.head2}</span>
+              </div>
+            </CommitteeItem>
+          );
+        })}
       </div>
     </div>
   );

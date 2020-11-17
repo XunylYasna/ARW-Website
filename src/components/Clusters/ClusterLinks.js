@@ -13,13 +13,13 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 const ClusterLinks = () => {
   const headerTimeline = new TimelineLite({ paused: true });
 
-  useEffect(() => {
-    headerTimeline
-      .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-      .fromTo(".main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+  // useEffect(() => {
+  //   headerTimeline
+  //     .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+  //     .fromTo(".main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
-      .play();
-  });
+  //     .play();
+  // });
   const data = useStaticQuery(graphql`
     query {
       allContentfulCluster {
@@ -59,7 +59,6 @@ const ClusterLinks = () => {
     },
   ];
 
-  console.log(data.allContentfulCluster.nodes);
 
   const clusters = clusterData.map(({ title, image }, index) => {
     return (
@@ -72,11 +71,10 @@ const ClusterLinks = () => {
         key={index}
       >
         <AniLink
-          to={`${
-            title === "CSO"
+          to={`${title === "CSO"
               ? "/organizations/council-of-student-organizations"
               : `/clusters/${title}`
-          }`}
+            }`}
         >
           <div>
             <p className="sub-title">{title}</p>

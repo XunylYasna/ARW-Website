@@ -78,6 +78,16 @@ footer {
       display: flex;
       flex-direction: row;
 
+      div{
+        height: 90px;
+            width: 90px;
+        picture{
+          img{
+            height: 90px;
+            width: 90px;
+          }
+        }
+      }
       .cso-logo{
         height: 86px;
         width: 86px;

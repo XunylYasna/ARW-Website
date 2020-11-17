@@ -19,7 +19,7 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
                 <Carousel className="carousel" items={3} style={{ textAlign: "center" }}>
                     {media.map((data, index) => (
                         <div key={index} className="react-multi-carousel-item">
-                            <Img draggable={false} fluid={data.fluid} style={{
+                            <Img key={index} draggable={false} fluid={data.fluid} style={{
                                 width: '100%',
                                 height: '100%',
                                 minHeight: '300px',
@@ -37,7 +37,7 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
                 <div>
                     {facebook ? <a href={facebook} rel="noopener noreferrer" target="_blank"><FaFacebookSquare></FaFacebookSquare></a> : ""}
                     {twitter ? <a href={twitter} rel="noopener noreferrer" target="_blank"><FaTwitterSquare></FaTwitterSquare></a> : ""}
-                    {email ? <a href={email} rel="noopener noreferrer" target="_blank"><AiOutlineMail></AiOutlineMail></a> : ""}
+                    {email ? <a href={"mailto:" + email} rel="noopener noreferrer" target="_blank"><AiOutlineMail></AiOutlineMail></a> : ""}
                 </div>
             </div>
         </section>

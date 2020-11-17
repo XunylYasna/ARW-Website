@@ -1,9 +1,15 @@
-import React, { useEffect } from "react"
+import React, { useEffect } from "react";
 import Helmet from "react-helmet";
 
+<<<<<<< HEAD
 import { graphql } from "gatsby"
 import { TimelineLite } from "gsap";
 // import ScrollTrigger from 'gsap/ScrollTrigger'
+=======
+import { graphql } from "gatsby";
+import { gsap, TimelineLite } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+>>>>>>> ae8e11b8d51e30087c338bdb86b909076c99975e
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { isMobile } from "react-device-detect";
 
@@ -14,17 +20,20 @@ import Card from "../components/Card";
 
 // gsap.registerPlugin(ScrollTrigger)
 
-export default function ClusterPage({ data }) {
+if (typeof window !== `undefined`) {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
-    const organizationsTimeline = new TimelineLite({
-        scrollTrigger: {
-            trigger: ".organization-list",
-            start: "top top"
-        },
-    })
+export default function ClusterPage({ data }) {
+  const organizationsTimeline = new TimelineLite({
+    scrollTrigger: {
+      trigger: ".organization-list",
+      start: "top top",
+      end: "bottom top",
+    },
+  });
 
     useEffect(() => {
-
         if(isMobile) {
             organizationsTimeline
                 .staggerFromTo(".organization-list .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
@@ -75,41 +84,47 @@ export default function ClusterPage({ data }) {
                         )
                     }) : <div></div>}
                 </div>
-            </div>
-        </Layout>
-    )
+              );
+            })
+          ) : (
+            <div></div>
+          )}
+        </div>
+      </div>
+    </Layout>
+  );
 }
 
 export const query = graphql`
   query($title: String!) {
     allContentfulCluster(filter: { title: { eq: $title } }) {
-        nodes {
-            title
-            subtitle
-            buildingSize
-            landingImage{
-                fluid{
-                    src
-                }
-            }
-            organizations{
-                slug
-                organizationName
-                acronym
-                logo {
-                    fluid {
-                        src
-                    }
-                }
-                building {
-                    fluid {
-                        src
-                    }
-                }
-                x
-                y
-            }
+      nodes {
+        title
+        subtitle
+        buildingSize
+        landingImage {
+          fluid {
+            src
+          }
         }
+        organizations {
+          slug
+          organizationName
+          acronym
+          logo {
+            fluid {
+              src
+            }
+          }
+          building {
+            fluid {
+              src
+            }
+          }
+          x
+          y
+        }
+      }
     }
   }
-`
+`;
