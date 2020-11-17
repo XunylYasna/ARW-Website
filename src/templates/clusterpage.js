@@ -44,47 +44,41 @@ export default function ClusterPage({ data }) {
 
     const { landingImage, title, subtitle, buildingSize, organizations } = data.allContentfulCluster.nodes[0]
     return (
-        <Layout pageName="cluster" mainName={title} >
-            <Helmet>
-                <title>{title}</title>
-            </Helmet>
-            <div className="organization-header">
-                <p className="main-header">{subtitle}(<strong>{title}</strong>)</p>
+      <Layout pageName="cluster" mainName={title} >
+          <Helmet>
+              <title>{title}</title>
+          </Helmet>
+          <div className="organization-header">
+              <p className="main-header">{subtitle}(<strong>{title}</strong>)</p>
+          </div>
+          {/* <Minimap minimap={landingImage.fluid.src} buildings={aspire} positions={aspirePositions} /> */}
+          { !isMobile && <Minimap minimap={landingImage.fluid.src} buildingSize={buildingSize} organizations={organizations} /> }
+          <div className="organization-list">
+              { !isMobile && <h1 className="main-header" >Organizations under {title}</h1> }
+              { !isMobile && <div className="sub-line" /> }
+              <div className="list">
+                {organizations ? organizations.map((org, index) => {
+                    return (
+                        <div className="item-container" >
+                            <Card className="item" key={index}>
+                                <AniLink
+                                    cover
+                                    to={'/organizations/' + org.slug}
+                                    bg="#6666ff"
+                                    duration={0.7}
+                                    className="header-link"
+                                >
+                                    <div className="org-item">
+                                        <img className="org-logo" draggable={false} src={org.logo.fluid.src} alt={org.acronym + " Logo"} />
+                                        <h1 className="sub-title">{org.organizationName}(<strong>{org.acronym}</strong>)</h1>
+                                    </div>
+                                </AniLink>
+                            </Card>
+                        </div>
+                    )
+                }) : <div></div>})
             </div>
-            {/* <Minimap minimap={landingImage.fluid.src} buildings={aspire} positions={aspirePositions} /> */}
-            { !isMobile && <Minimap minimap={landingImage.fluid.src} buildingSize={buildingSize} organizations={organizations} /> }
-            <div className="organization-list">
-                { !isMobile && <h1 className="main-header" >Organizations under {title}</h1> }
-                { !isMobile && <div className="sub-line" /> }
-                <div className="list">
-                    {organizations ? organizations.map((org, index) => {
-                        return (
-                            <div className="item-container" >
-                                <Card className="item" key={index}>
-                                    <AniLink
-                                        cover
-                                        to={'/organizations/' + org.slug}
-                                        bg="#6666ff"
-                                        duration={0.7}
-                                        className="header-link"
-                                    >
-                                        <div className="org-item">
-                                            <img className="org-logo" draggable={false} src={org.logo.fluid.src} alt={org.acronym + " Logo"} />
-                                            <h1 className="sub-title">{org.organizationName}(<strong>{org.acronym}</strong>)</h1>
-                                        </div>
-                                    </AniLink>
-                                </Card>
-                            </div>
-                        )
-                    }) : <div></div>}
-                </div>
-              );
-            })
-          ) : (
-            <div></div>
-          )}
-        </div>
-      </div>
+          </div>
     </Layout>
   );
 }
