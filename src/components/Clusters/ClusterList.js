@@ -6,11 +6,11 @@ const ClusterList = () => {
   const headerTimeline = new TimelineLite({ paused: true });
 
   useEffect(() => {
-    headerTimeline
-      .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-      .fromTo(".main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+    // headerTimeline
+    //   .fromTo(".main-title", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+    //   .fromTo(".main-button", 1, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
-      .play();
+    //   .play();
   });
   const data = useStaticQuery(graphql`
     query {

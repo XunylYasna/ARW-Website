@@ -31,11 +31,13 @@ const OrganizationBanner = ({ organizationName, acronym, videoLink, logo, backgr
                     </BackgroundImage>
                     :
                     <div className="banner-content" style={{
-                        backgroundColor: "var(--color-primary)"
+                        backgroundColor: "var(--color-primary)",
+                        height: "100vh !important"
                     }}>
                         <div>
                             <Img className="logo" fluid={logo.fluid} objectFit="contain" style={{
-                                objectFit: "contain"
+                                objectFit: "contain",
+                                height: "150px"
                             }} />
                             <h1>{organizationName}</h1>
                             {/* <h2>{acronym}</h2> */}
