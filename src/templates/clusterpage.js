@@ -1,10 +1,11 @@
-import React, { useEffect } from "react"
+import React, { useEffect } from "react";
 import Helmet from "react-helmet";
 
 import { graphql } from "gatsby"
 import { gsap, TimelineLite } from "gsap";
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { isMobile } from "react-device-detect";
 
 import Layout from "../components/Layout";
 import Minimap from "../components/Minimap";
@@ -14,27 +15,32 @@ import Card from "../components/Card";
 // gsap.registerPlugin(ScrollTrigger)
 
 if (typeof window !== `undefined`) {
-    gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function ClusterPage({ data }) {
-
-    const organizationsTimeline = new TimelineLite({
-        scrollTrigger: {
-            trigger: ".organization-list",
-            start: "top top",
-            end: "bottom top"
-        },
-    })
-
-
+  const organizationsTimeline = new TimelineLite({
+    scrollTrigger: {
+      trigger: ".organization-list",
+      start: "top top",
+      end: "bottom top",
+    },
+  });
 
     useEffect(() => {
-        organizationsTimeline
-            .staggerFromTo(".organization-list .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
-            .staggerFromTo(".organization-list .main-header", 0.5, { opacity: 0, y: 20 }, { opacity: 1, y: 0 })
-            .staggerFromTo(".list .item-container", 0.5, { opacity: 0, y: 20 }, { opacity: 1, y: 0 });
-    })
+        if(isMobile) {
+            organizationsTimeline
+                .staggerFromTo(".organization-list .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
+                .staggerFrom(".organization-list .main-header", 0.5, { opacity: 0, y: 20 })
+                .staggerFrom(".list .item-container", 0.5, { opacity: 0, y: 20 }, 0.1)
+                .play()
+        } else {
+            organizationsTimeline
+                .staggerFromTo(".organization-list .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
+                .staggerFrom(".organization-list .main-header", 0.5, { opacity: 0, y: 20 })
+                .staggerFrom(".list .item-container", 0.5, { opacity: 0, y: 20 }, 0.1)
+        }
+    }, [])
 
     const { landingImage, title, subtitle, buildingSize, organizations } = data.allContentfulCluster.nodes[0]
     return (
@@ -46,15 +52,15 @@ export default function ClusterPage({ data }) {
                 <p className="main-header">{subtitle}(<strong>{title}</strong>)</p>
             </div>
             {/* <Minimap minimap={landingImage.fluid.src} buildings={aspire} positions={aspirePositions} /> */}
-            <Minimap minimap={landingImage.fluid.src} buildingSize={buildingSize} organizations={organizations} />
+            { !isMobile && <Minimap minimap={landingImage.fluid.src} buildingSize={buildingSize} organizations={organizations} /> }
             <div className="organization-list">
-                <h1 className="main-header" >Organizations under {title}</h1>
-                <div className="sub-line" />
+                { !isMobile && <h1 className="main-header" >Organizations under {title}</h1> }
+                { !isMobile && <div className="sub-line" /> }
                 <div className="list">
                     {organizations ? organizations.map((org, index) => {
                         return (
-                            <div key={index} className="item-container" >
-                                <Card className="item" >
+                            <div className="item-container" >
+                                <Card className="item" key={index}>
                                     <AniLink
                                         cover
                                         to={'/organizations/' + org.slug}
@@ -72,41 +78,47 @@ export default function ClusterPage({ data }) {
                         )
                     }) : <div></div>}
                 </div>
-            </div>
-        </Layout>
-    )
+              );
+            })
+          ) : (
+            <div></div>
+          )}
+        </div>
+      </div>
+    </Layout>
+  );
 }
 
 export const query = graphql`
   query($title: String!) {
     allContentfulCluster(filter: { title: { eq: $title } }) {
-        nodes {
-            title
-            subtitle
-            buildingSize
-            landingImage{
-                fluid{
-                    src
-                }
-            }
-            organizations{
-                slug
-                organizationName
-                acronym
-                logo {
-                    fluid {
-                        src
-                    }
-                }
-                building {
-                    fluid {
-                        src
-                    }
-                }
-                x
-                y
-            }
+      nodes {
+        title
+        subtitle
+        buildingSize
+        landingImage {
+          fluid {
+            src
+          }
         }
+        organizations {
+          slug
+          organizationName
+          acronym
+          logo {
+            fluid {
+              src
+            }
+          }
+          building {
+            fluid {
+              src
+            }
+          }
+          x
+          y
+        }
+      }
     }
   }
-`
+`;
