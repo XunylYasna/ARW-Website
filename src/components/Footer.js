@@ -18,7 +18,7 @@ const Footer = () => {
       ) {
         nodes {
           childImageSharp {
-            fixed(width: 125, height: 125) {
+            fixed(width: 100, height: 100) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -28,7 +28,17 @@ const Footer = () => {
       arwLogo: allFile(filter: { relativePath: { eq: "Logos/ARW-Logo.png" } }) {
         nodes {
           childImageSharp {
-            fixed(width: 125, height: 125) {
+            fixed(width: 100, height: 100) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+
+      lscsLogo: allFile(filter: { relativePath: { eq: "Logos/LOGO_LSCS.png" } }) {
+        nodes {
+          childImageSharp {
+            fixed(width: 100, height: 100) {
               ...GatsbyImageSharpFixed
             }
           }
@@ -97,6 +107,7 @@ const Footer = () => {
           {/* <div className="arw-logo"> */}
           <Img fixed={data.arwLogo.nodes[0].childImageSharp.fixed}></Img>
           {/* </div> */}
+          <Img fixed={data.lscsLogo.nodes[0].childImageSharp.fixed}></Img>
         </div>
         <div className="footer-text"></div>
       </div>

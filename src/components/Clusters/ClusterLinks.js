@@ -19,6 +19,7 @@ const ClusterLinks = () => {
 
       .play();
   }, []);
+  
   const data = useStaticQuery(graphql`
     query {
       allContentfulCluster {
@@ -65,7 +66,6 @@ const ClusterLinks = () => {
     },
   ];
 
-  console.log(data.allContentfulCluster.nodes);
 
   const clusters = clusterData.map(({ title, image, subtitle }, index) => {
     return (
@@ -78,11 +78,10 @@ const ClusterLinks = () => {
         key={index}
       >
         <AniLink
-          to={`${
-            title === "CSO"
+          to={`${title === "CSO"
               ? "/organizations/council-of-student-organizations"
               : `/clusters/${title}`
-          }`}
+            }`}
         >
           <div>
             <div>

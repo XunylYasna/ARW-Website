@@ -12,7 +12,9 @@ import Events from '../components/OrganizationTemplate/OrganizationEvents'
 import Layout from "../components/Layout"
 import { Helmet } from "react-helmet";
 
-
+if (typeof window !== `undefined`) {
+    gsap.registerPlugin(ScrollTrigger)
+}
 export default function OrgTemplate({ pageContext }) {
     const {
         organizationName,
@@ -60,16 +62,13 @@ export default function OrgTemplate({ pageContext }) {
     const registrationTimeline = new TimelineLite({
         scrollTrigger: {
             trigger: ".organization-prices",
-            start: "center center"
+            start: "top top"
         },
     })
 
 
     useEffect(() => {
-        if (typeof window !== `undefined`) {
-            gsap.core.globals('scrollTrigger', ScrollTrigger)
-            gsap.registerPlugin(ScrollTrigger)
-        }
+        console.log("1");
         headerTimeline
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
             .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
@@ -94,6 +93,9 @@ export default function OrgTemplate({ pageContext }) {
             .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
             .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
     }, [])
+
+
+
 
     return (
         <Layout pageName="organization">
