@@ -48,6 +48,11 @@
   }
 
   .cluster-links {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    padding-top: 64px;
+    padding-bottom: 64px;
     .grid-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -58,7 +63,7 @@
       color: var(--color-primary);
       margin-left: 5px;
       margin-right: 5px;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
 
       font-size: 30px;
       text-align: center;
@@ -74,12 +79,24 @@
       div {
         background: linear-gradient(0deg, #97ca99a4, #97ca99a4);
         padding: 15px;
-
-        p {
+        div {
           background: rgba(255, 255, 255, 0.7);
           padding: 15px;
-          // letter-spacing: 5px !important;
-          transition: 0.3s ease-in-out;
+          .event-button {
+            display: none;
+          }
+          .cluster-title.sub-title {
+            font-size: 2.5rem;
+          }
+          p {
+            // letter-spacing: 5px !important;
+            transition: 0.3s ease-in-out;
+          }
+
+          .cluster-subtitle {
+            margin-top: 12px;
+            font-size: 1.5rem;
+          }
         }
 
         // width: 100%;
@@ -89,16 +106,32 @@
     .grid-item:hover,
     .grid-item:active {
       background-size: 620px;
-      p {
+      .cluster-title {
         letter-spacing: 10px !important;
       }
     }
-    @media only screen and (max-width: $bp-small) {
+    @media only screen and (max-width: $bp-medium) {
       .grid-container {
         display: flex;
         flex-direction: column;
         padding-left: 0px;
         padding-right: 0px;
+        .grid-item {
+          div {
+            div {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+              .event-button {
+                display: block !important;
+                width: 20vh;
+                color: var(--color-primary);
+                margin-top: 12px;
+              }
+            }
+          }
+        }
       }
     }
   }
