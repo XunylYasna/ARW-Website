@@ -26,7 +26,7 @@ const OrganizationBanner = ({ organizationName, acronym, videoLink, logo, backgr
                         <div className="banner-button">
                             <button className="main-button" onClick={() => setOpen(true)}>
                                 Watch the Video!
-                        </button>
+                            </button>
                         </div>
                     </BackgroundImage>
                     :

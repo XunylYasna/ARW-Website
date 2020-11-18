@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from "react-helmet";
 
 import Layout from "components/Layout";
 
@@ -79,10 +78,7 @@ const OrganizationsPage = () => {
   // }, [])
 
   return (
-    <Layout pageName="organizations">
-      <Helmet>
-        <title>Organizations</title>
-      </Helmet>
+    <Layout mainName="Organizations" pageName="organizations">
       <Griddle
         data={data}
         sortProperties={[{ id: "acronym", sortAscending: true }]}

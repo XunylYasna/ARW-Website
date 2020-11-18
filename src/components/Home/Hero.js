@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { gsap, TimelineLite } from "gsap";
+import { gsap } from "gsap";
 import landingVideo from "assets/images/ARW Landing.mp4";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 

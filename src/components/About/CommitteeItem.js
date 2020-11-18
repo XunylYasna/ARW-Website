@@ -18,7 +18,7 @@ export default function CommitteeItem({ name, members, children }) {
         <div className="assistant-heads text-content">
           {members !== undefined
             ? members.map((member) => {
-              return <h1 className="text-content">{member}</h1>;
+              return <h1 key={member} className="text-content">{member}</h1>;
             })
             : ""}
         </div>

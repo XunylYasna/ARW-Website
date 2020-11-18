@@ -47,7 +47,7 @@ const OrganizationEvents = ({ acronym, mainEvents }) => {
 
                     <div className="organization-event-container">
                         {mainEvents.map((eventData, index) => {
-                            return (<EventButton key={index * -1} eventData={eventData} />)
+                            return (<EventButton key={eventData.eventName} eventData={eventData} />)
                         })}
                     </div>
                 </>

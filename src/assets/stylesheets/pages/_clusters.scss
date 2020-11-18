@@ -58,58 +58,35 @@
       grid-template-columns: 1fr 1fr;
       background: none;
       padding: 48px;
-    }
-    .grid-item {
-      color: var(--color-primary);
-      margin-left: 5px;
-      margin-right: 5px;
-      margin-bottom: 10px;
-
-      font-size: 30px;
-      text-align: center;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 1000px;
-      transition: 0.3s ease-in-out;
-
-      cursor: pointer;
-      a {
-        text-decoration: none;
-      }
-      div {
-        background: linear-gradient(0deg, #97ca99a4, #97ca99a4);
+      .grid-item{
         padding: 15px;
-        div {
-          background: rgba(255, 255, 255, 0.7);
+        margin: 1rem;
+        background-image:
+          linear-gradient(to bottom,
+          #d2f0daa6 0%,
+          #d2f0daa6 100%),
+          linear-gradient(to bottom,
+          #90CB92A6 0%,
+          #90CB92A6 100%);
+        background-clip: content-box, padding-box;
+        text-decoration: none;
+        p.cluster-title{
           padding: 15px;
-          .event-button {
-            display: none;
-          }
-          .cluster-title.sub-title {
-            font-size: 2.5rem;
-          }
-          p {
-            // letter-spacing: 5px !important;
-            transition: 0.3s ease-in-out;
-          }
-
-          .cluster-subtitle {
-            margin-top: 12px;
-            font-size: 1.5rem;
-          }
+          transition: letter-spacing 0.5s ease-in-out;
+          font-size: 2.5rem;
         }
-
-        // width: 100%;
-        // height: 100%;
+        p.cluster-subtitle{
+          font-size: 2rem;
+          padding-bottom: 15px;
+        }
+      }
+      .grid-item:hover{
+        p.cluster-title{
+          letter-spacing: 10px;
+        }
       }
     }
-    .grid-item:hover,
-    .grid-item:active {
-      background-size: 620px;
-      .cluster-title {
-        letter-spacing: 10px !important;
-      }
-    }
+    
     @media only screen and (max-width: $bp-medium) {
       .grid-container {
         display: flex;

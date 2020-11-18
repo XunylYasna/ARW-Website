@@ -69,38 +69,20 @@ const ClusterLinks = () => {
 
   const clusters = clusterData.map(({ title, image, subtitle }, index) => {
     return (
-      <div
-        className="grid-item"
-        style={{
-          // backgroundImage: `url(${image})`,
-          backgroundColor: `#97ca99a4`,
-        }}
-        key={index}
-      >
         <AniLink
+          className="clusterLink-link grid-item"
+          paintDrip
+          direction="up"
+          color="green"
           to={`${title === "CSO"
               ? "/organizations/council-of-student-organizations"
               : `/clusters/${title}`
             }`}
+          key={index}
         >
-          <div>
-            <div>
-              <p className="sub-title cluster-title">{title}</p>
-              <p className="sub-title cluster-subtitle">{subtitle}</p>
-              <AniLink
-                className="event-button"
-                to={`${
-                  title === "CSO"
-                    ? "/organizations/council-of-student-organizations"
-                    : `/clusters/${title}`
-                }`}
-              >
-                Learn More
-              </AniLink>
-            </div>
-          </div>
+            <p className="sub-title cluster-title">{title}</p>
+            <p className="sub-title cluster-subtitle">{subtitle}</p>
         </AniLink>
-      </div>
     );
   });
 

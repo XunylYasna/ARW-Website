@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
 
-      allContentfulOrganization (filter: {acronym: {eq: "CSO"}}){
+      allContentfulOrganization (filter: {acronym: {eq: "BMS"}}){
         nodes {
           slug
           acronym
@@ -45,7 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
           }
           media {
-              fluid(quality: 80, maxWidth: 300) {
+              fluid(quality: 60, maxWidth: 300) {
                 base64
                 tracedSVG
                 srcWebp

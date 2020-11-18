@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from "react-helmet";
 import Container from "components/Container";
 
 import Layout from "components/Layout";
@@ -10,10 +9,7 @@ import Partners from "components/Home/Partners";
 
 const IndexPage = () => {
   return (
-    <Layout pageName="home">
-      <Helmet>
-        <title>Home Page</title>
-      </Helmet>
+    <Layout mainName="Home" pageName="home">
       <Container>
         <Hero />
         <Introduction />

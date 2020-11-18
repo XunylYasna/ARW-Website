@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import Helmet from "react-helmet";
+// import Helmet from "react-helmet";
 import { gsap } from "gsap";
 import ModalVideo from "react-modal-video";
 
@@ -269,9 +269,9 @@ const TeamSection = () => {
         <h1 className="sub-title">Project Heads</h1>
       </div>
       <div className="project-heads-card-container">
-        {data.allContentfulProjectHead.nodes.map((node) => {
+        {data.allContentfulProjectHead.nodes.map((node, index) => {
           return (
-            <div className="card-wrapper">
+            <div key={node.name} className="card-wrapper">
               <Card>
                 <div
                   style={{
@@ -300,7 +300,7 @@ const TeamSection = () => {
       <div className="project-heads-card-container">
         {data.allContentfulEbInCharge.nodes.map((node) => {
           return (
-            <div className="card-wrapper">
+            <div key={node.name} className="card-wrapper">
               <Card>
                 <div
                   style={{
@@ -327,7 +327,7 @@ const TeamSection = () => {
       <div className="committees-container">
         {data.allContentfulCsoTeam.nodes.map((node) => {
           return (
-            <CommitteeItem name={node.teamName} members={node.listOfMembers}>
+            <CommitteeItem key={node.teamName} name={node.teamName} members={node.listOfMembers}>
               <div className="card-wrapper">
                 <Card>
                   <Img
@@ -364,10 +364,7 @@ const TeamSection = () => {
 
 const AboutPage = () => {
   return (
-    <Layout pageName="about">
-      <Helmet>
-        <title>About ARW 2020</title>
-      </Helmet>
+    <Layout mainName="About" pageName="about">
       <Container>
         <HeroSection />
         <AboutSection />

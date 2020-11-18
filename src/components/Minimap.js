@@ -16,13 +16,11 @@ export default function Minimap({ children, minimap, buildingSize, organizations
             .play()
     })
 
-    let wrapper;
-
     // const buildingSize = 185;
 
     return (
         <div className="minimap">
-            <svg xmlns="http://www.w3.org/2000/svg" ref={(c) => (wrapper = c)} viewBox="0 0 1100 600" className="container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 600" className="container">
                 {/* Note: preserving the aspect ratio to None is very important */}
                 {minimap && <image preserveAspectRatio="none" href={minimap} height="100%" width="100%" />}
                 {organizations && organizations.map((org, index) => (

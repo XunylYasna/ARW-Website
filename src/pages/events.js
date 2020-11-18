@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import Helmet from "react-helmet";
+// import Helmet from "react-helmet";
 
 import Layout from "components/Layout";
 import EventLine from "../components/Events/EventLine"
@@ -134,10 +134,7 @@ const EventsPage = () => {
     }
 
     return (
-        <Layout pageName="events">
-            <Helmet>
-                <title>Events</title>
-            </Helmet>
+        <Layout mainName="Events" pageName="events">
             <section className="landing section-container">
                 <h1 className="main-title"><span>Events</span></h1>
                 <h2 className="sub-title">Culmination Event</h2>

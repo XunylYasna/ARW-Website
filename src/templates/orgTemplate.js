@@ -10,7 +10,7 @@ import About from "../components/OrganizationTemplate/About"
 import Events from '../components/OrganizationTemplate/OrganizationEvents'
 
 import Layout from "../components/Layout"
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
 if (typeof window !== `undefined`) {
     gsap.registerPlugin(ScrollTrigger)
@@ -92,15 +92,10 @@ export default function OrgTemplate({ pageContext }) {
         // registrationTimeline
         //     .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
         //     .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-    }, [headerTimeline, aboutTimeline, mvTimeline, eventsTimeline])
+    })
 
     return (
-        <Layout pageName="organization">
-            <Helmet>
-                <title>
-                    {organizationName}
-                </title>
-            </Helmet>
+        <Layout mainName={organizationName} pageName="organization">
 
             <Banner organizationName={organizationName} acronym={acronym} videoLink={youtubeVideoLink} logo={logo} background={backgroundImage} />
             <About aboutContent={about.json} acronym={acronym} media={media} facebook={facebookUrl} twitterUrl={twitterUrl} email={email}> </About>

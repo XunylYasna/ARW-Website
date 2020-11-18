@@ -1,15 +1,11 @@
 import React from "react";
-import Helmet from "react-helmet";
 
 import Layout from "components/Layout";
 import Container from "components/Container";
 
 const ContactPage = () => {
   return (
-    <Layout pageName="contact">
-      <Helmet>
-        <title>Contact</title>
-      </Helmet>
+    <Layout mainName="Contact" pageName="contact">
       <Container>
         <section>
           <h2 className="sub-title">Contact Us</h2>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Helmet from "react-helmet";
+// import Helmet from "react-helmet";
 
 import { graphql } from "gatsby"
 import { gsap, TimelineLite } from "gsap";
@@ -22,50 +22,37 @@ export default function ClusterPage({ data }) {
   const organizationsTimeline = new TimelineLite({
     scrollTrigger: {
       trigger: ".organization-list",
-      start: "top top",
-      end: "bottom top",
+      start: "top top"
     },
   });
 
     useEffect(() => {
-        if(isMobile) {
-            organizationsTimeline
-                .staggerFromTo(".organization-list .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
-                .staggerFrom(".organization-list .main-header", 0.5, { opacity: 0, y: 20 })
-                .staggerFrom(".list .item-container", 0.5, { opacity: 0, y: 20 }, 0.1)
-                .play()
-        } else {
-            organizationsTimeline
-                .staggerFromTo(".organization-list > .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
-                .staggerFrom(".organization-list .main-header", 0.5, { opacity: 0, y: 20 })
-                .staggerFrom(".list .item-container", 0.5, { opacity: 0, y: 20 }, 0.1)
-        }
-    }, [organizationsTimeline])
+      organizationsTimeline
+          .staggerFromTo(".cluster-page-header", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
+          .staggerFromTo(".cluster-page-line", 0.5, { opacity: 0, y: 20 }, {opacity: 1, y: 0})
+          .staggerFromTo(".cluster-item-container", 0.3, { opacity: 0, y: 20 }, {opacity: 1, y: 0}, 0.2)
+    })
 
     const { landingImage, title, subtitle, buildingSize, organizations } = data.allContentfulCluster.nodes[0]
     return (
       <Layout pageName="cluster" mainName={title} >
-          <Helmet>
-              <title>{title}</title>
-          </Helmet>
           <div className="organization-header">
               <p className="main-header">{subtitle}(<strong>{title}</strong>)</p>
           </div>
           {/* <Minimap minimap={landingImage.fluid.src} buildings={aspire} positions={aspirePositions} /> */}
           { !isMobile && <Minimap minimap={landingImage.fluid.src} buildingSize={buildingSize} organizations={organizations} /> }
           <div className="organization-list">
-              { !isMobile && <h1 className="main-header" >Organizations under {title}</h1> }
-              { !isMobile && <div className="sub-line" /> }
+              { !isMobile && <h1 className="main-header cluster-page-header" >Organizations under {title}</h1> }
+              { !isMobile && <div className="sub-line cluster-page-line" /> }
               <div className="list">
                 {organizations ? organizations.map((org, index) => {
                     return (
-                        <div className="item-container" >
+                        <div className="item-container cluster-item-container" >
                             <Card className="item" key={index}>
                                 <AniLink
                                     cover
                                     to={'/organizations/' + org.slug}
                                     bg="#6666ff"
-                                    duration={0.7}
                                     className="header-link"
                                 >
                                     <div className="org-item">
