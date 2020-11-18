@@ -55,21 +55,20 @@ export default function OrgTemplate({ pageContext }) {
 
     const eventsTimeline = new TimelineLite({
         scrollTrigger: {
-            trigger: ".organization-events",
-            start: "center center"
+            trigger: ".organization-vm",
+            start: "bottom bottom",
         },
     })
 
-    const registrationTimeline = new TimelineLite({
-        scrollTrigger: {
-            trigger: ".organization-events",
-            start: "bottom bottom"
-        },
-    })
+    // const registrationTimeline = new TimelineLite({
+    //     scrollTrigger: {
+    //         trigger: ".organization-event-container",
+    //         start: "bottom bottom"
+    //     },
+    // })
 
 
     useEffect(() => {
-        console.log("1");
         headerTimeline
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
             .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
@@ -83,17 +82,17 @@ export default function OrgTemplate({ pageContext }) {
             .fromTo(".organization-about-socials", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
         mvTimeline
-            .fromTo(".organization-mission", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-            .fromTo(".organization-vision", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-mission", 0.2, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-vision", 0.2, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
             .fromTo(".organization-vm-content", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
         eventsTimeline
             .fromTo(".organization-event-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
-        registrationTimeline
-            .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-            .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-    })
+        // registrationTimeline
+        //     .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+        //     .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+    }, [headerTimeline, aboutTimeline, mvTimeline, eventsTimeline])
 
     return (
         <Layout pageName="organization">

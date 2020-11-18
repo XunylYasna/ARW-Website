@@ -9,8 +9,6 @@ const Blob = ({ numMetaballs }) => {
         const height = canvas.height = window.innerHeight * 0.75;
         const gl = canvas.getContext('webgl');
 
-        var mouse = {x: 0, y: 0};
-
         var metaballs = [];
 
         for (var i = 0; i < numMetaballs; i++) {
@@ -153,10 +151,6 @@ const Blob = ({ numMetaballs }) => {
             return attributeLocation;
         }
 
-        canvas.onmousemove = function(e) {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        }
     })
 
     return (

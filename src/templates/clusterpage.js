@@ -36,11 +36,11 @@ export default function ClusterPage({ data }) {
                 .play()
         } else {
             organizationsTimeline
-                .staggerFromTo(".organization-list .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
+                .staggerFromTo(".organization-list > .sub-line", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
                 .staggerFrom(".organization-list .main-header", 0.5, { opacity: 0, y: 20 })
                 .staggerFrom(".list .item-container", 0.5, { opacity: 0, y: 20 }, 0.1)
         }
-    }, [])
+    }, [organizationsTimeline])
 
     const { landingImage, title, subtitle, buildingSize, organizations } = data.allContentfulCluster.nodes[0]
     return (
@@ -76,7 +76,7 @@ export default function ClusterPage({ data }) {
                             </Card>
                         </div>
                     )
-                }) : <div></div>})
+                }) : <div></div>}
             </div>
           </div>
     </Layout>

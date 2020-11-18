@@ -10,7 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
 
-      allContentfulOrganization {
+      allContentfulOrganization(filter: {acronym: {eq: "CSO"}}) {
         nodes {
           slug
           acronym

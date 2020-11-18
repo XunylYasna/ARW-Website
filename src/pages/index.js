@@ -18,7 +18,7 @@ const IndexPage = () => {
         <Hero />
         <Introduction />
         <Events />
-        {/* <Partners /> */}
+        <Partners />
       </Container>
     </Layout>
   );
