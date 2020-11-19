@@ -3,8 +3,9 @@ import React, { useEffect } from "react";
 
 import { graphql } from "gatsby"
 import { gsap, TimelineLite } from "gsap";
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby"
 import { isMobile } from "react-device-detect";
 
 import Layout from "../components/Layout";
@@ -14,23 +15,30 @@ import Card from "../components/Card";
 
 // gsap.registerPlugin(ScrollTrigger)
 
-if (typeof window !== `undefined`) {
-  gsap.registerPlugin(ScrollTrigger);
-}
+// if (typeof window !== `undefined`) {
+//   gsap.registerPlugin(ScrollTrigger);
+// }
 
 export default function ClusterPage({ data }) {
-  const organizationsTimeline = new TimelineLite({
-    scrollTrigger: {
-      trigger: ".organization-list",
-      start: "top top"
-    },
-  });
+  
 
     useEffect(() => {
+      if (typeof window !== `undefined`) {
+        gsap.registerPlugin(ScrollTrigger)
+        gsap.core.globals('ScrollTrigger', ScrollTrigger)
+      }
+
+      const organizationsTimeline = new TimelineLite({
+        scrollTrigger: {
+          trigger: ".organization-list",
+          start: "top center"
+        },
+      });
+
       organizationsTimeline
           .staggerFromTo(".cluster-page-header", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left" })
           .staggerFromTo(".cluster-page-line", 0.5, { opacity: 0, y: 20 }, {opacity: 1, y: 0})
-          .staggerFromTo(".cluster-item-container", 0.3, { opacity: 0, y: 20 }, {opacity: 1, y: 0}, 0.2)
+          .staggerFromTo(".cluster-item-container", 0.1, { opacity: 0, y: 20 }, {opacity: 1, y: 0}, 0.2)
     })
 
     const { landingImage, title, subtitle, buildingSize, organizations } = data.allContentfulCluster.nodes[0]
@@ -42,13 +50,13 @@ export default function ClusterPage({ data }) {
           {/* <Minimap minimap={landingImage.fluid.src} buildings={aspire} positions={aspirePositions} /> */}
           { !isMobile && <Minimap minimap={landingImage.fluid.src} buildingSize={buildingSize} organizations={organizations} /> }
           <div className="organization-list">
-              { !isMobile && <h1 className="main-header cluster-page-header" >Organizations under {title}</h1> }
-              { !isMobile && <div className="sub-line cluster-page-line" /> }
+              <h1 className="main-header cluster-page-header" >Organizations under {title}</h1> 
+              <div className="sub-line cluster-page-line" /> 
               <div className="list">
                 {organizations ? organizations.map((org, index) => {
                     return (
-                        <div className="item-container cluster-item-container" >
-                            <Card className="item" key={index}>
+                        <div key={index} className="item-container cluster-item-container" >
+                            <Card className="item" >
                                 <AniLink
                                     cover
                                     to={'/organizations/' + org.slug}
@@ -87,7 +95,7 @@ export const query = graphql`
           organizationName
           acronym
           logo {
-            fluid {
+            fluid(maxWidth: 300) {
               src
             }
           }

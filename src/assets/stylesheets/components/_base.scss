@@ -96,3 +96,10 @@ p, li{
 .align-center {
   text-align: center;
 }
+
+.modal-video-close-btn{
+  &:hover{
+    background-color: transparent !important;
+    color: var(--color-grey-light-4);
+  }
+}

@@ -19,7 +19,7 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
                 <Carousel className="carousel" items={3} style={{ textAlign: "center" }}>
                     {media.map((data, index) => (
                         <div key={index} className="react-multi-carousel-item">
-                            <Img draggable={false} fluid={data.fluid} style={{
+                            <Img draggable={false} fixed={data.fixed} style={{
                                 width: '100%',
                                 height: '100%',
                                 minHeight: '300px',
