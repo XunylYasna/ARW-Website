@@ -204,21 +204,18 @@
   }
 
   .about-section {
-    height: 50vh;
+    min-height: 50vh;
+    padding: 5vh 5vw;
     display: flex;
     text-align: center;
     justify-content: center;
     background-color: var(--color-primary);
-    @include respond(phone) {
-      height: 70vh;
-    }
 
     .sub-line {
       background-color: var(--color-white);
     }
 
     .header-box {
-      width: 50%;
       margin: auto;
       opacity: 0;
       transform: translateY(100%);
@@ -226,10 +223,7 @@
       h1,
       p {
         color: var(--color-white);
-      }
-
-      @include respond(phone) {
-        width: 80%;
+        text-align: justify;
       }
     }
   }
