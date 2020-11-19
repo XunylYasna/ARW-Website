@@ -71,7 +71,6 @@ const Blob = ({ numMetaballs }) => {
         gl.attachShader(program, vertexShader);
         gl.attachShader(program, fragmentShader);
         gl.linkProgram(program);
-        gl.useProgram(program);
 
         var vertexData = new Float32Array([
             -1.0,  1.0, // top left
@@ -108,6 +107,7 @@ const Blob = ({ numMetaballs }) => {
             }
 
             var dataToSendToGPU = new Float32Array(3 * numMetaballs);
+            
             for (i = 0; i < numMetaballs; i++) {
                 var baseIndex = 3 * i;
                 var mb = metaballs[i];
@@ -115,7 +115,10 @@ const Blob = ({ numMetaballs }) => {
                 dataToSendToGPU[baseIndex + 1] = mb.y;
                 dataToSendToGPU[baseIndex + 2] = mb.r;
             }
-            gl.uniform3fv(metaballsHandle, dataToSendToGPU);
+           
+            gl.useProgram(program);
+            gl.uniform3fv(metaballsHandle, dataToSendToGPU)
+            
             
             //Draw
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);

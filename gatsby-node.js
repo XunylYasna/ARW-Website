@@ -45,7 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
           }
           media {
-              fluid(quality: 60, maxWidth: 300) {
+              fixed(quality: 30, width: 300, height: 300) {
                 base64
                 tracedSVG
                 srcWebp

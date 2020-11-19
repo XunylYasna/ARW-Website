@@ -157,7 +157,7 @@ const EventsPage = () => {
                 <div style={{
                     display: 'flex'
                 }}>
-                    <a className="event-button" rel="noopener noreferrer" href="" target="_blank" style={{
+                    <a className="event-button" rel="noopener noreferrer" href="https://youtu.be/YWyWuOHgVUc" target="_blank" style={{
                             textDecoration: 'none',
                             color: 'var(--color-primary)',
                             margin: 'auto',

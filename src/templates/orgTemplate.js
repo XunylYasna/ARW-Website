@@ -12,9 +12,7 @@ import Events from '../components/OrganizationTemplate/OrganizationEvents'
 import Layout from "../components/Layout"
 // import { Helmet } from "react-helmet";
 
-if (typeof window !== `undefined`) {
-    gsap.registerPlugin(ScrollTrigger)
-}
+
 export default function OrgTemplate({ pageContext }) {
     const {
         organizationName,
@@ -32,43 +30,47 @@ export default function OrgTemplate({ pageContext }) {
         facebookUrl,
         twitterUrl,
         registrationLink
-    } = pageContext.data.organization;
-
-
-    const headerTimeline = new TimelineLite({
-        pause: true
-    });
-
-    const aboutTimeline = new TimelineLite({
-        scrollTrigger: {
-            trigger: ".organization-about",
-            start: "top top"
-        },
-    })
-
-    const mvTimeline = new TimelineLite({
-        scrollTrigger: {
-            trigger: ".organization-vm",
-            start: "center center"
-        },
-    })
-
-    const eventsTimeline = new TimelineLite({
-        scrollTrigger: {
-            trigger: ".organization-vm",
-            start: "bottom bottom",
-        },
-    })
-
-    // const registrationTimeline = new TimelineLite({
-    //     scrollTrigger: {
-    //         trigger: ".organization-event-container",
-    //         start: "bottom bottom"
-    //     },
-    // })
+    } = pageContext.data.organization
 
 
     useEffect(() => {
+        if (typeof window !== `undefined`) {
+            gsap.registerPlugin(ScrollTrigger)
+            gsap.core.globals('ScrollTrigger', ScrollTrigger)
+        }
+
+        const headerTimeline = new TimelineLite({
+            pause: true
+        });
+    
+        const aboutTimeline = new TimelineLite({
+            scrollTrigger: {
+                trigger: ".organization-about",
+                start: "top top"
+            },
+        })
+    
+        const mvTimeline = new TimelineLite({
+            scrollTrigger: {
+                trigger: ".organization-vm",
+                start: "center center"
+            },
+        })
+    
+        const eventsTimeline = new TimelineLite({
+            scrollTrigger: {
+                trigger: ".organization-vm",
+                start: "bottom bottom",
+            },
+        })
+        
+        // const registrationTimeline = new TimelineLite({
+        //     scrollTrigger: {
+        //         trigger: ".organization-event-container",
+        //         start: "bottom bottom"
+        //     },
+        // })
+
         headerTimeline
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
             .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
@@ -92,7 +94,7 @@ export default function OrgTemplate({ pageContext }) {
         // registrationTimeline
         //     .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
         //     .fromTo(".registration-button", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-    })
+    }, [])
 
     return (
         <Layout mainName={organizationName} pageName="organization">

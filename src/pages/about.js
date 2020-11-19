@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 // import Helmet from "react-helmet";
 import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 import ModalVideo from "react-modal-video";
 
 import Card from "components/Card";
@@ -184,6 +186,11 @@ const AboutSection = () => {
   let sectionRef = useRef(null);
 
   useEffect(() => {
+    if (typeof window !== `undefined`) {
+      gsap.registerPlugin(ScrollTrigger)
+      gsap.core.globals('ScrollTrigger', ScrollTrigger)
+    }
+
     gsap.to(sectionRef.current, {
       scrollTrigger: sectionRef.current,
       duration: 1,
