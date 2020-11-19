@@ -94,6 +94,7 @@ const Blob = ({ numMetaballs }) => {
         );
 
         var metaballsHandle = getUniformLocation(program, 'metaballs');
+        var dataToSendToGPU = new Float32Array(3 * numMetaballs);
 
         loop();
         function loop() {
@@ -105,8 +106,6 @@ const Blob = ({ numMetaballs }) => {
                 if (metaball.x < metaball.r || metaball.x > width - metaball.r) metaball.vx *= -1;
                 if (metaball.y < metaball.r || metaball.y > height - metaball.r) metaball.vy *= -1;
             }
-
-            var dataToSendToGPU = new Float32Array(3 * numMetaballs);
             
             for (i = 0; i < numMetaballs; i++) {
                 var baseIndex = 3 * i;
@@ -118,7 +117,6 @@ const Blob = ({ numMetaballs }) => {
            
             gl.useProgram(program);
             gl.uniform3fv(metaballsHandle, dataToSendToGPU)
-            
             
             //Draw
             gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
