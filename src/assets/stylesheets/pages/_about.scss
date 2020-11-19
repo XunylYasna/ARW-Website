@@ -219,11 +219,12 @@
       margin: auto;
       opacity: 0;
       transform: translateY(100%);
-
-      h1,
+      color: var(--color-white);
       p {
-        color: var(--color-white);
         text-align: justify;
+      }
+      h1{
+        text-align: center;
       }
     }
   }
