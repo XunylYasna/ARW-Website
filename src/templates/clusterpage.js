@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 import { gsap, TimelineLite } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-import { Link } from "gatsby"
 import { isMobile } from "react-device-detect";
 
 import Layout from "../components/Layout";
