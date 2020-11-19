@@ -46,7 +46,7 @@ export default function OrgTemplate({ pageContext }) {
         const aboutTimeline = new TimelineLite({
             scrollTrigger: {
                 trigger: ".organization-about",
-                start: "top top"
+                start: "center center"
             },
         })
     
@@ -60,7 +60,7 @@ export default function OrgTemplate({ pageContext }) {
         const eventsTimeline = new TimelineLite({
             scrollTrigger: {
                 trigger: ".organization-vm",
-                start: "bottom bottom",
+                start: "bottom center",
             },
         })
         
@@ -75,13 +75,13 @@ export default function OrgTemplate({ pageContext }) {
             .fromTo(".organization-banner", 1, { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", ease: Quart.easeInOut })
             .fromTo(".logo", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
             .fromTo(".banner-content", 0.5, { opacity: 0, y: -30 }, { opacity: 1, y: 0 }, "-=0.5")
-            .fromTo(".banner-button", 0.5, { scaleX: 0 }, { scaleX: 1, transformOrigin: "right", ease: Quart.easeInOut }, "-=0.5")
+            .fromTo(".banner-button", 0.3, { scaleX: 0 }, { scaleX: 1, transformOrigin: "right", ease: Quart.easeInOut }, "-=0.5")
             .play()
 
         aboutTimeline
-            .fromTo(".organization-content", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-            .fromTo(".organization-about-carousel-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
-            .fromTo(".organization-about-socials", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-content", 0.3, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-about-carousel-container", 0.3, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-about-socials", 0.3, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
         mvTimeline
             .fromTo(".organization-mission", 0.2, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
@@ -89,7 +89,7 @@ export default function OrgTemplate({ pageContext }) {
             .fromTo(".organization-vm-content", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
         eventsTimeline
-            .fromTo(".organization-event-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
+            .fromTo(".organization-event-container", 0.3, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
 
         // registrationTimeline
         //     .fromTo(".price-container", 0.5, { opacity: 0, y: 30 }, { opacity: 1, y: 0 })
