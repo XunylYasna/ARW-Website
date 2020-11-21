@@ -6,6 +6,7 @@ import { AiOutlineMail } from "react-icons/ai"
 import Img from 'gatsby-image'
 
 const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
+    console.log(media)
 
     return (
         <section className="organization-about">
