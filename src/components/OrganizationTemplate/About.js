@@ -3,8 +3,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 // import Carousel from "../Carousel"
 import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai"
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import InfiniteCarousel from 'react-leaf-carousel'
 import Img from 'gatsby-image'
 
 const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
@@ -38,18 +37,31 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
             </div>
 
             <div className="organization-about-carousel-container">
-                {media.length > 0 ? <div>labas ng carousel </div> : <div>lnc media is less than 0</div>}
-                <Carousel
-                    infinite={true}
-                    autoPlay={true}
-                    autoPlaySpeed={2000}
-                    keyBoardControl={true}
-                    className='carousel'
-                    responsive={responsive}
-                    renderButtonGroupOutside={true}
-                    itemClass="carousel-item-padding-40-px"
+                {/* {media.length > 0 ? <div>labas ng carousel </div> : <div>lnc media is less than 0</div>} */}
+                <InfiniteCarousel
+                    breakpoints={[
+                    {
+                        breakpoint: 500,
+                        settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: media.length,
+                        },
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: media.length/3,
+                        },
+                    },
+                    ]}
+                    dots={false}
+                    showSides={false}
+                    slidesToScroll={3}
+                    slidesToShow={media.length/3}
+                    scrollOnDevice={true}
                 >
-                    {media.length > 0 ? <div>hello</div> : <div>media is less than 0</div>}
+                    {/* {media.length > 0 ? <div>hello</div> : <div>media is less than 0</div>} */}
                     {media.map((data, index) => (
                         <div key={index} className="react-multi-carousel-item" style={{
                             minWidth: '300px',
@@ -66,7 +78,7 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
                             {index}
                         </div>
                     ))}
-                </Carousel>
+                </InfiniteCarousel>
             </div>
 
             <div className="organization-about-socials">
