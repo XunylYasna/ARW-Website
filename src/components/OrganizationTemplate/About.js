@@ -23,6 +23,24 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
 
             <div className="organization-about-carousel-container">
                 <Carousel className="carousel" items={3} style={{ textAlign: "center" }}>
+                    <div className="react-multi-carousel-item">
+                        <Img draggable={false} fixed={media[0].fixed} style={{
+                            width: '100%',
+                            height: '100%',
+                            minHeight: '300px',
+                            minWidth: '300px',
+                            objectFit: 'cover',
+                        }} />
+                    </div>
+                    <div className="react-multi-carousel-item">
+                        <Img draggable={false} fixed={orgPictures[0].fixed} style={{
+                            width: '100%',
+                            height: '100%',
+                            minHeight: '300px',
+                            minWidth: '300px',
+                            objectFit: 'cover',
+                        }} />
+                    </div>
                     {orgPictures.map((data, index) => (
                         <div key={index} className="react-multi-carousel-item">
                             <Img draggable={false} fixed={data.fixed} style={{
