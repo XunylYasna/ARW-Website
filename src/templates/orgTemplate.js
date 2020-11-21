@@ -46,7 +46,7 @@ export default function OrgTemplate({ pageContext }) {
         const aboutTimeline = new TimelineLite({
             scrollTrigger: {
                 trigger: ".organization-about",
-                start: "center center"
+                start: "top center"
             },
         })
     
