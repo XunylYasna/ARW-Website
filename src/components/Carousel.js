@@ -4,7 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 
 export default ({ children, items }) => {
     console.log(children)
-    
+
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -17,7 +17,7 @@ export default ({ children, items }) => {
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 1
+            items: 2
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
@@ -36,7 +36,7 @@ export default ({ children, items }) => {
             renderButtonGroupOutside={true}
             itemClass="carousel-item-padding-40-px"
         >
-            {children}
+            { async () => ({children})}
         </Carousel>
     );
 }
