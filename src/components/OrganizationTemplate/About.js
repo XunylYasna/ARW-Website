@@ -38,9 +38,7 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
             </div>
 
             <div className="organization-about-carousel-container">
-                {/* <Carousel className="carousel" media={media} items={3} style={{ textAlign: "center" }}>
-                   
-                </Carousel> */}
+                {media.length > 0 ? <div>labas ng carousel </div> : <div>lnc media is less than 0</div>}
                 <Carousel
                     infinite={true}
                     autoPlay={true}
