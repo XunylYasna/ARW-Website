@@ -3,6 +3,8 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 export default ({ children, items }) => {
+    console.log(children)
+    
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -32,7 +34,6 @@ export default ({ children, items }) => {
             className='carousel'
             responsive={responsive}
             renderButtonGroupOutside={true}
-            ssr={false}
             itemClass="carousel-item-padding-40-px"
         >
             {children}
