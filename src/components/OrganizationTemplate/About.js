@@ -30,7 +30,7 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
     ))
     
 
-    console.log(items)
+    // console.log(items)
 
     const responsive = {
         0: { items: 1 },
