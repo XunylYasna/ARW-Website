@@ -11,7 +11,7 @@ const ContactPage = () => {
           <h2 className="sub-title">Contact Us</h2>
           <div className="sub-line"></div>
           <div className="form-container">
-            <form method="post" action="/" data-netlify="true" name="contact">
+            <form  action="https://formspree.io/f/maylbgnz" method="POST">
               <label>
                 <p>Name</p>
                 <input type="text" name="name" id="name" required />
@@ -19,22 +19,19 @@ const ContactPage = () => {
               <br />
               <label>
                 <p>Email</p>
-
-                <input type="email" name="email" id="email" required />
+                <input type="email" name="_replyto" id="email" required />
               </label>
               <br />
-
               <label>
                 <p>Subject</p>
-
                 <input type="text" name="subject" id="subject" />
               </label>
               <br />
-
               <label>
                 <p>Message</p>
-
-                <textarea name="message" id="message" rows="5" required />
+                <textarea name="message" id="message" rows="5" required style={{
+                  resize: "none"
+                }} />
               </label>
               <br />
 

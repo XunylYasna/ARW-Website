@@ -1,9 +1,8 @@
 import React, { useState, useEffect} from 'react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import Carousel from '../Carousel'
+import Carousel from "../Carousel"
 import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai"
-import Img from 'gatsby-image'
 
 const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
     // console.log(media)
@@ -22,23 +21,8 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
             </div>
 
             <div className="organization-about-carousel-container">
-                <Carousel className="carousel" items={3} style={{ textAlign: "center" }}>
-                    {media.map((data, index) => (
-                        <div key={index} className="react-multi-carousel-item" style={{
-                            minWidth: '300px',
-                            minHeight: '300px',
-                            background: 'var(--color-primary)'
-                        }}>
-                            <Img draggable={false} fixed={data.fixed} style={{
-                                width: '100%',
-                                height: '100%',
-                                minHeight: '300px',
-                                minWidth: '300px',
-                                objectFit: 'cover',
-                            }} />
-                            {index}
-                        </div>
-                    ))}
+                <Carousel className="carousel" media={media} items={3} style={{ textAlign: "center" }}>
+                   
                 </Carousel>
             </div>
 

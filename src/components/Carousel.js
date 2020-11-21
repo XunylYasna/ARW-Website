@@ -1,8 +1,9 @@
 import React from "react";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Img from 'gatsby-image'
 
-export default ({ children, items }) => {
+export default ({ media, items }) => {
     console.log(children)
 
     const responsive = {
@@ -36,7 +37,22 @@ export default ({ children, items }) => {
             renderButtonGroupOutside={true}
             itemClass="carousel-item-padding-40-px"
         >
-            { async () => ({children})}
+             {media.map((data, index) => (
+                <div key={index} className="react-multi-carousel-item" style={{
+                    minWidth: '300px',
+                    minHeight: '300px',
+                    background: 'var(--color-primary)'
+                }}>
+                    <Img draggable={false} fixed={data.fixed} style={{
+                        width: '100%',
+                        height: '100%',
+                        minHeight: '300px',
+                        minWidth: '300px',
+                        objectFit: 'cover',
+                    }} />
+                    {index}
+                </div>
+             ))}
         </Carousel>
     );
 }
