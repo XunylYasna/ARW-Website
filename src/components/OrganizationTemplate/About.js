@@ -51,11 +51,11 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
                     renderButtonGroupOutside={true}
                     itemClass="carousel-item-padding-40-px"
                 >
-                    <div style={{
+                    {/* <div style={{
                             minWidth: '300px',
                             minHeight: '300px',
                             background: 'var(--color-primary)'
-                        }}> Organization Pictures </div>
+                        }}> Organization Pictures </div> */}
                     {media.map((data, index) => (
                         <div key={index} className="react-multi-carousel-item" style={{
                             minWidth: '300px',
