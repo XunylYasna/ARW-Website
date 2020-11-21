@@ -32,7 +32,7 @@ export default ({ children, items }) => {
             className='carousel'
             responsive={responsive}
             renderButtonGroupOutside={true}
-            ssr={true}
+            ssr={false}
             itemClass="carousel-item-padding-40-px"
         >
             {children}
