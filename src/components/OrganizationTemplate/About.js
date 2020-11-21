@@ -3,8 +3,28 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 // import Carousel from "../Carousel"
 import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai"
-import InfiniteCarousel from 'react-leaf-carousel'
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 import Img from 'gatsby-image'
+
+const items = (media) => {
+    {media.map((data, index) => (
+        <div key={index} className="react-multi-carousel-item" style={{
+            minWidth: '300px',
+            minHeight: '300px',
+            background: 'var(--color-primary)'
+        }}>
+            <Img draggable={false} fixed={data.fixed} style={{
+                width: '100%',
+                height: '100%',
+                minHeight: '300px',
+                minWidth: '300px',
+                objectFit: 'cover',
+            }} />
+            {index}
+        </div>
+    ))}
+}
 
 const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
     const items = 3
@@ -28,6 +48,8 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
         }
     }
 
+
+
     return (
         <section className="organization-about">
             <h1 className="main-header">About {acronym}</h1>
@@ -38,47 +60,11 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
 
             <div className="organization-about-carousel-container">
                 {/* {media.length > 0 ? <div>labas ng carousel </div> : <div>lnc media is less than 0</div>} */}
-                <InfiniteCarousel
-                    breakpoints={[
-                    {
-                        breakpoint: 500,
-                        settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: media.length,
-                        },
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: media.length/3,
-                        },
-                    },
-                    ]}
-                    dots={false}
-                    showSides={false}
-                    slidesToScroll={3}
-                    slidesToShow={media.length/3}
-                    scrollOnDevice={true}
+                <AliceCarousel
+                    items={items(media)}
                 >
-                    {/* {media.length > 0 ? <div>hello</div> : <div>media is less than 0</div>} */}
-                    {media.map((data, index) => (
-                        <div key={index} className="react-multi-carousel-item" style={{
-                            minWidth: '300px',
-                            minHeight: '300px',
-                            background: 'var(--color-primary)'
-                        }}>
-                            <Img draggable={false} fixed={data.fixed} style={{
-                                width: '100%',
-                                height: '100%',
-                                minHeight: '300px',
-                                minWidth: '300px',
-                                objectFit: 'cover',
-                            }} />
-                            {index}
-                        </div>
-                    ))}
-                </InfiniteCarousel>
+                    
+                </AliceCarousel>
             </div>
 
             <div className="organization-about-socials">
