@@ -24,7 +24,11 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
             <div className="organization-about-carousel-container">
                 <Carousel className="carousel" items={3} style={{ textAlign: "center" }}>
                     {media.map((data, index) => (
-                        <div key={index} className="react-multi-carousel-item">
+                        <div key={index} className="react-multi-carousel-item" style={{
+                            minWidth: '300px',
+                            minHeight: '300px',
+                            background: 'var(--color-primary)'
+                        }}>
                             <Img draggable={false} fixed={data.fixed} style={{
                                 width: '100%',
                                 height: '100%',
@@ -32,6 +36,7 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
                                 minWidth: '300px',
                                 objectFit: 'cover',
                             }} />
+                            {index}
                         </div>
                     ))}
                 </Carousel>
