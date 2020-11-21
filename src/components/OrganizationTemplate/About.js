@@ -6,14 +6,13 @@ import { AiOutlineMail } from "react-icons/ai"
 import Img from 'gatsby-image'
 
 const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
-    console.log(media)
+    // console.log(media)
     const [orgPictures, setOrgPictures] = useState([])
 
     useEffect(() =>{
         setOrgPictures(media)
     }, [media])
 
-    use
     return (
         <section className="organization-about">
             <h1 className="main-header">About {acronym}</h1>
