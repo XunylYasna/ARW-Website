@@ -8,6 +8,7 @@ import 'react-multi-carousel/lib/styles.css';
 import Img from 'gatsby-image'
 
 const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
+    const items = 3
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
