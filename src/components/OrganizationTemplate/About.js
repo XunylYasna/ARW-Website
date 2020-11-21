@@ -10,26 +10,26 @@ import Img from 'gatsby-image'
 
 
 const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
-    const items = 3
-    const responsive = {
-        superLargeDesktop: {
-            // the naming can be any, depends on you.
-            breakpoint: { max: 4000, min: 3000 },
-            items: items === 1 ? items : items + 2
-        },
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: items
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1
-        }
-    }
+    // const items = 3
+    // const responsive = {
+    //     superLargeDesktop: {
+    //         // the naming can be any, depends on you.
+    //         breakpoint: { max: 4000, min: 3000 },
+    //         items: items === 1 ? items : items + 2
+    //     },
+    //     desktop: {
+    //         breakpoint: { max: 3000, min: 1024 },
+    //         items: items
+    //     },
+    //     tablet: {
+    //         breakpoint: { max: 1024, min: 464 },
+    //         items: 2
+    //     },
+    //     mobile: {
+    //         breakpoint: { max: 464, min: 0 },
+    //         items: 1
+    //     }
+    // }
 
     const items = (media) => {
         {media.map((data, index) => (
