@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Carousel from '../Carousel'
 import { FaFacebookSquare, FaTwitterSquare } from "react-icons/fa";
@@ -7,7 +7,13 @@ import Img from 'gatsby-image'
 
 const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
     console.log(media)
+    const [orgPictures, setOrgPictures] = useState([])
 
+    useEffect(() =>{
+        setOrgPictures(media)
+    }, [media])
+
+    use
     return (
         <section className="organization-about">
             <h1 className="main-header">About {acronym}</h1>
@@ -18,7 +24,7 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
 
             <div className="organization-about-carousel-container">
                 <Carousel className="carousel" items={3} style={{ textAlign: "center" }}>
-                    {media.map((data, index) => (
+                    {orgPictures.map((data, index) => (
                         <div key={index} className="react-multi-carousel-item">
                             <Img draggable={false} fixed={data.fixed} style={{
                                 width: '100%',
@@ -28,7 +34,6 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
                                 objectFit: 'cover',
                             }} />
                         </div>
-
                     ))}
                 </Carousel>
             </div>
