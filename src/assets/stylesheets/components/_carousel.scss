@@ -5,3 +5,23 @@
     -o-user-select: none;
     user-select: none;
 }
+
+
+.alice-carousel__dots-item{
+    // background-color: var(--color-secondary) !important;
+    // margin-bottom: 14px;
+    display: none !important;
+}
+
+.alice-carousel__dots-item.__active{
+    // background-color: var(--color-primary) !important;
+    display: none !important;
+
+}
+.alice-carousel__next-btn-item, .alice-carousel__prev-btn-item{
+    margin: -20px 30px -10px 30px !important;
+    span{
+        font-size: 4rem !important;
+        color: var(--color-primary);
+    }
+}

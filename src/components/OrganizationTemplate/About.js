@@ -31,24 +31,33 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
     //     }
     // }
 
-    const items = (media) => {
-        {media.map((data, index) => (
-            <div key={index} className="react-multi-carousel-item" style={{
-                minWidth: '300px',
+    const items = media.map((data, index) => (
+        <div key={index} className="react-multi-carousel-item" style={{
+            minWidth: '300px',
+            minHeight: '300px',
+            maxHeight: '300px',
+            maxWidth: '300px',
+            background: 'var(--color-primary)'
+        }}>
+            <Img draggable={false} fixed={data.fixed} style={{
+                width: '100%',
+                height: '100%',
                 minHeight: '300px',
-                background: 'var(--color-primary)'
-            }}>
-                <Img draggable={false} fixed={data.fixed} style={{
-                    width: '100%',
-                    height: '100%',
-                    minHeight: '300px',
-                    minWidth: '300px',
-                    objectFit: 'cover',
-                }} />
-                {index}
-            </div>
-        ))}
-    }
+                minWidth: '300px',
+                objectFit: 'cover',
+            }} />
+        </div>
+    ))
+    
+
+    console.log(items)
+
+    const responsive = {
+        0: { items: 1 },
+        568: { items: 2 },
+        1024: { items: 3 },
+    };
+    
 
     return (
         <section className="organization-about">
@@ -61,7 +70,10 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
             <div className="organization-about-carousel-container">
                 {/* {media.length > 0 ? <div>labas ng carousel </div> : <div>lnc media is less than 0</div>} */}
                 <AliceCarousel
-                    items={items(media)}
+                    items={items}
+                    responsive={responsive}
+                    mouseTracking={true}
+                    disableButtonsControl={true}
                 >
                     
                 </AliceCarousel>
