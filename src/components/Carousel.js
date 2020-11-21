@@ -4,7 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import Img from 'gatsby-image'
 
 export default ({ media, items }) => {
-    console.log(children)
+    console.log(media)
 
     const responsive = {
         superLargeDesktop: {
