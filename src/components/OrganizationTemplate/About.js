@@ -29,9 +29,6 @@ const About = ({ aboutContent, media, acronym, facebook, twitter, email }) => {
         </div>
     ))
     
-
-    // console.log(items)
-
     const responsive = {
         0: { items: 1 },
         568: { items: 2 },
