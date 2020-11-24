@@ -212,7 +212,7 @@ const AboutSection = () => {
           organizations are given the chance to attract and recruit old and new
           members from the Lasallian community. It serves as a platform for
           these organizations to showcase who they are and what they can provide
-          to members through their planned events.{" "}
+          to members through their planned events.
         </p>
       </div>
     </div>
