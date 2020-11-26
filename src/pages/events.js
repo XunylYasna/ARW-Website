@@ -162,7 +162,7 @@ const EventsPage = () => {
                             color: 'var(--color-primary)',
                             margin: 'auto',
                             display: 'block'
-                        }}>See the Video</a>
+                        }}>Watch the Video</a>
                 </div>
             </section>
         </Layout>
