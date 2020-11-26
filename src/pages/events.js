@@ -141,7 +141,7 @@ const EventsPage = () => {
                 <BackgroundImage className="events__main-event" fluid={data.crossRoad.nodes[0].childImageSharp.fluid}>
                     <h3>Crossroads</h3>
                     <div>
-                        <button className="main-button" onClick={executeScroll}>Learn More</button>
+                        <button className="main-button" onClick={executeScroll}>Learn More </button>
                     </div>
                 </BackgroundImage>
 
